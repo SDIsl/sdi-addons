@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-extend="mail.chat.ChannelPreview">
+        <t t-jquery='div[t-att-data-channel_id="channel.id"]' t-operation="attributes">
+            <attribute name="t-att-data-form_id">channel.form_id</attribute>
+        </t>
+    </t>
+
+</templates>

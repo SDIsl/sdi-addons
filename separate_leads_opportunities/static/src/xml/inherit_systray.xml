@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-extend="mail.chat.ActivityMenuPreview">
+        <t t-jquery="div.o_mail_channel_preview" t-operation="replace">
+            <div class="o_mail_channel_preview" t-att-data-res_model="activity.model" t-att-data-model_name="activity.name" data-filter='my'
+                t-att-data-form_id="activity.form_id"
+                t-att-data-kanban_id="activity.kanban_id"
+                t-att-data-search_id="activity.search_id"
+                t-att-data-is_admin="activity.is_admin">
+                <div class="o_mail_channel_image o_mail_channel_app"
+                    >
+                    <img t-att-src="activity.icon"/>
+                </div>
+
+
+                <div class="o_channel_info">
+                    <div class="o_channel_title">
+                        <span class="o_channel_name">
+                            <t t-esc="activity.name"/>
+                        </span>
+                    </div>
+                    <t t-if="activity.model =='crm.lead'">
+                        <div>
+                            <button t-if="activity.overdue_count"
+                                type="button"
+                                class="btn btn-link o_activity_filter_button mr16"
+                                t-att-data-res_model="activity.model"
+                                t-att-data-model_name="activity.name"
+                                t-att-data-form_id="activity.form_id"
+                                t-att-data-kanban_id="activity.kanban_id"
+                                t-att-data-search_id="activity.search_id"
+                                t-att-data-is_admin="activity.is_admin"
+                                data-filter='overdue'>
+                                    <t t-esc="activity.overdue_count"/> Late
+                            </button>
+                            <span t-if="!activity.overdue_count" class="o_no_activity mr16">0 Late </span>
+
+                            <button t-if="activity.today_count"
+                                type="button"
+                                class="btn btn-link o_activity_filter_button mr16"
+                                t-att-data-res_model="activity.model"
+                                t-att-data-model_name="activity.name"
+                                t-att-data-form_id="activity.form_id"
+                                t-att-data-kanban_id="activity.kanban_id"
+                                t-att-data-search_id="activity.search_id"
+                                t-att-data-is_admin="activity.is_admin"
+                                data-filter='today'>
+                                    <t t-esc="activity.today_count"/> Today
+                            </button>
+                            <span t-if="!activity.today_count" class="o_no_activity mr16">0 Today </span>
+
+                            <button t-if="activity.planned_count"
+                                type="button"
+                                t-att-data-res_model="activity.model"
+                                t-att-data-model_name="activity.name"
+                                t-att-data-form_id="activity.form_id"
+                                t-att-data-kanban_id="activity.kanban_id"
+                                t-att-data-search_id="activity.search_id"
+                                t-att-data-is_admin="activity.is_admin"
+                                class="btn btn-link o_activity_filter_button pull-right"
+                                data-filter='upcoming_all'>
+                                    <t t-esc="activity.planned_count"/> Future
+                            </button>
+                            <span t-if="!activity.planned_count" class="o_no_activity pull-right">0 Future</span>
+                        </div>
+                    </t>
+                    <t t-if="activity.model != 'crm.lead'">
+                        <div>
+                            <button t-if="activity.overdue_count"
+                                    type="button"
+                                    class="btn btn-link o_activity_filter_button mr16"
+                                    t-att-data-res_model="activity.model"
+                                    t-att-data-model_name="activity.name"
+                                    data-filter='overdue'>
+                                        <t t-esc="activity.overdue_count"/> Late
+                            </button>
+                            <span t-if="!activity.overdue_count" class="o_no_activity mr16">0 Late </span>
+                            <button t-if="activity.today_count"
+                                    type="button"
+                                    class="btn btn-link o_activity_filter_button mr16"
+                                    t-att-data-res_model="activity.model"
+                                    t-att-data-model_name="activity.name"
+                                    data-filter='today'>
+                                        <t t-esc="activity.today_count"/> Today </button>
+                            <span t-if="!activity.today_count" class="o_no_activity mr16">0 Today </span>
+                            <button t-if="activity.planned_count"
+                                    type="button"
+                                    class="btn btn-link o_activity_filter_button pull-right"
+                                    t-att-data-res_model="activity.model"
+                                    t-att-data-model_name="activity.name"
+                                    data-filter='upcoming_all'>
+                                        <t t-esc="activity.planned_count"/> Future </button>
+                            <span t-if="!activity.planned_count" class="o_no_activity pull-right">0 Future</span>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </t>
+
+</templates>

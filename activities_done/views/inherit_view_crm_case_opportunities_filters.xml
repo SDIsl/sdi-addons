@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+Filtros de oportunidades modificados para que discrimine las actividades con active=False.
+-->
+    <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+            <field name="name">crm.lead.search.opportunity.inherit.activities_done</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                    <filter name="activities_my" position="attributes">
+                        <attribute name="domain">['&amp;',('activity_ids.user_id', '=', uid),
+                            ('activity_ids.active', '=', True )]</attribute>
+                    </filter>
+
+                    <filter name="activities_overdue" position="attributes">
+                        <attribute name="domain">['&amp;', ('activity_ids.active', '=', True ),
+                            ('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]</attribute>
+                    </filter>
+
+                    <filter name="activities_today" position="attributes">
+                        <attribute name="domain">['&amp;', ('activity_ids.active', '=', True ),
+                            ('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]</attribute>
+                    </filter>
+
+                    <filter name="activities_upcoming_all" position="attributes">
+                        <attribute name="domain">['&amp;', ('activity_ids.active', '=', True ),
+                        ('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]</attribute>
+                    </filter>
+
+            </field>
+    </record>
+
+</odoo>

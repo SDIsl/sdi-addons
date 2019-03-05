@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<odoo>
+
+<!--
+Add filters to search view about DONE ACTIVITIES.
+-->
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="name">inherit.calendar.event.search.sdi</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="context">{'search_default_all':1}</field>
+        <field name="arch" type="xml">
+            <xpath expr='//filter[@name="message_needaction"]' position='before'>
+                <separator/>
+                <filter string="Done" name="done" domain="[('active','=',False)]" context="{'default_order': 'done_date'}"/>
+                <filter string="All" name="all" domain="['|',('active','=',False),('active','=', True)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

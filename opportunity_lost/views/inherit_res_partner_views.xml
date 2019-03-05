@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+Mofificación de vista formulario de cliente:
+Añadido el smart-button 'Lost'.
+-->
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.override.smartbutton_lost</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <data>
+                <button name="toggle_active" position="before">
+                    <button class="oe_stat_button o_res_partner_tip_opp" type="action"
+                        attrs="{'invisible': [('customer', '=', False)]}"
+                        name="%(crm.crm_lead_opportunities)d"
+                        icon="fa-trash"
+                        context="{'search_default_partner_id': active_id,'search_default_lost':1}">
+                        <field string="Losts" name="opportunity_count_lost" widget="statinfo"/>
+                    </button>
+                </button>
+            </data>
+        </field>
+    </record>
+
+</odoo>

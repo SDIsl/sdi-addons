@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="separate_leads_opportunities assets" inherit_id="web.assets_backend">
+         <xpath expr="." position="inside">
+                <script type="text/javascript" src="/separate_leads_opportunities/static/src/js/override_chat_manager.js"></script>
+                <script type="text/javascript" src="/separate_leads_opportunities/static/src/js/override_systray.js"></script>
+        </xpath>
+    </template>
+</odoo>

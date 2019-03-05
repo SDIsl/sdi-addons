@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.country.state" id="base.state_ar_f">
+        <field name="name">La Rioja (Argentina)</field>
+    </record >
+</odoo>
