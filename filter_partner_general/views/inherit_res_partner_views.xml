@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.compose.filter</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="name" string="General (Nombre, Email, Teléfono, Móvil)" filter_domain="['|','|','|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self),('phone','ilike',self),('mobile','ilike',self)]"/>
+            </xpath>
+
+        </field>
+    </record>
+    
+</odoo>
