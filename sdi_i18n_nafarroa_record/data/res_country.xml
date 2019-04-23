@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.country.state" id="base.state_es_na">
+        <field name="name">Navarra</field>
+    </record >
+</odoo>
