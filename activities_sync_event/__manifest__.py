@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name':'SDi-CRM: Sync activity with meeting',
-    "version": "11.0.1.0.1",
+    "version": "12.0.1.0.1",
     'category': "Uncategorized",
     'author':'David Juaneda',
     'summary': """
@@ -19,7 +19,11 @@ It supports:
 
     """,
     'license':'AGPL-3',
-    'depends':['crm','mail'],
+    'depends':[
+        'crm',
+        'mail',
+        'activities_done'
+    ],
     'data':[
         'views/activities_sync_event_templates.xml',
     ],

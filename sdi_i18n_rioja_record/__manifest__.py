@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'SDi [i18n] Modificación de nombre record La Rioja',
-    'version': '11.0.1.0.1',
+    'version': '12.0.1.0.1',
     'category': 'Extra Tools',
     'summary': """
         Modificar record de base.state_ar_f (nombre actual "La Rioja", por, "La Rioja (Argentina)") """,
