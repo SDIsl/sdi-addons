@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <record model="ir.ui.view" id="sale_order_line_sequence.report_saleorder_document_sequence">
+            <field name="active">0</field>
+        </record>
+    </data>
+</odoo>
