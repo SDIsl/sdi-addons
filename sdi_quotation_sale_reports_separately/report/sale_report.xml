@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_report_order_template"
+            string="Order Report"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="sdi_quotation_sale_reports_separately.report_order"
+            name="sdi_quotation_sale_reports_separately.report_order"
+            print_report_name="'Order - %s' % (object.name)"
+        />
+        <report
+            id="action_report_quotation_template"
+            string="Quotation Report"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="sdi_quotation_sale_reports_separately.report_quotation"
+            name="sdi_quotation_sale_reports_separately.report_quotation"
+            print_report_name="'Quotation - %s' % (object.name)"
+        />
+    </data>
+</odoo>
