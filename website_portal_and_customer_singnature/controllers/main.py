@@ -21,5 +21,5 @@ class CustomerPortal(CustomerPortal):
                     signature)
         if not result.get('error', False):
             res = request.env['sale.order'].browse(res_id)
-            res.customer_signature = signature
+            res.sudo().customer_signature = signature
         return result
