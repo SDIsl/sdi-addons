@@ -19,8 +19,6 @@ class CustomerPortal(CustomerPortal):
                     access_token,
                     partner_name,
                     signature)
-        from wdb import set_trace
-        set_trace()
         if not result.get('error', False):
             res = request.env['sale.order'].browse(res_id)
             res.customer_signature = signature
