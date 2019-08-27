@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="valued_report_picking" inherit_id="sdi_stock_picking_report_valued.valued_report_picking">
+
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]/thead/tr/th"
+               position="after">
+            <th>Boxes</th>
+        </xpath>
+        <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="before">
+            <td><span t-field="move_line.boxes"/></td>
+        </xpath>
+    </template>
+</odoo>

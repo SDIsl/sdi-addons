@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sdi_sale_pack_uom_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-27 13:00+0000\n"
+"PO-Revision-Date: 2019-08-27 13:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Amount"
+msgstr "Importe"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.model.fields,field_description:sdi_sale_pack_uom_management.field_stock_move_line_boxes
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.valued_report_picking
+msgid "Boxes"
+msgstr "Cajas"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Disc.(%)"
+msgstr "Desc.(%)"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.model,name:sdi_sale_pack_uom_management.model_stock_move_line
+msgid "Packing Operation"
+msgstr "Operación de empaquetado"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+msgid "Source Document"
+msgstr "Documento de origen"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Total Price"
+msgstr "Precio total"
+
+#. module: sdi_sale_pack_uom_management
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_invoice_document
+#: model:ir.ui.view,arch_db:sdi_sale_pack_uom_management.report_saleorder_document_inherit
+msgid "Unit Price"
+msgstr "Precio unitario"
+
