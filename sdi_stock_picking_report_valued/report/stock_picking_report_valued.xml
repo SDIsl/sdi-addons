@@ -13,7 +13,7 @@
                 <t t-if="o.state != 'done'">
                     <th class="text-right" name="qty_reserved"><strong>Qty Reserved</strong></th>
                 </t>
-                <th class="text-left"><strong>Unit Price</strong></th>
+                <th class="text-right"><strong>Unit Price</strong></th>
                 <th class="text-right" groups="sale.group_discount_per_so_line">
                     <strong>Discount</strong>
                 </th>
@@ -29,7 +29,7 @@
         <xpath expr="//span[@t-field='move_line.product_id']" position="after">
             <t t-if="move_line.lot_id">
                 <br/>
-                - <span t-field="move_line.lot_id"/>
+                - <span t-field="move_line.lot_id.name"/>
                 <span t-field="move_line.lot_id.expiry_date"/>
             </t>
         </xpath>
