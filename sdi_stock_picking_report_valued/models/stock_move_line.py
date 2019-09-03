@@ -73,7 +73,7 @@ class StockMoveLine(models.Model):
             # price_unit = (
             #     sale_line.price_subtotal / sale_line.product_uom_qty
             #     if sale_line.product_uom_qty else sale_line.price_reduce)
-            price_unit = line.sale_line.price_unit - line.sale_line.price_unit*line.discount/100
+            price_unit = line.sale_price_unit - line.sale_price_unit * line.discount/100
             taxes = line.sale_tax_id.compute_all(
                 price_unit=price_unit,
                 currency=line.currency_id,

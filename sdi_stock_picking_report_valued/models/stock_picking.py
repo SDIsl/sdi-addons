@@ -1,9 +1,3 @@
-# Copyright 2014-2018 Tecnativa - Pedro M. Baeza
-# Copyright 2015 Antonio Espinosa - Tecnativa <antonio.espinosa@tecnativa.com>
-# Copyright 2016 Carlos Dauden - Tecnativa <carlos.dauden@tecnativa.com>
-# Copyright 2016 Luis M. Ontalba - Tecnativa <luis.martinez@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import api, fields, models
 
 
@@ -18,16 +12,13 @@ class StockPicking(models.Model):
         string='Currency',
         related_sudo=True,  # See explanation for sudo in compute method
     )
+
     amount_untaxed = fields.Monetary(
         compute='_compute_amount_all',
         string='Untaxed Amount',
         compute_sudo=True,  # See explanation for sudo in compute method
     )
-    amount_tax = fields.Monetary(
-        compute='_compute_amount_all',
-        string='Taxes',
-        compute_sudo=True,
-    )
+
     amount_total = fields.Monetary(
         compute='_compute_amount_all',
         string='Total',
@@ -36,38 +27,35 @@ class StockPicking(models.Model):
 
     @api.multi
     def _compute_amount_all(self):
-        """This is computed with sudo for avoiding problems if you don't have
-        access to sales orders (stricter warehouse users, inter-company
-        records...).
-        """
         for pick in self:
-            round_curr = pick.sale_id.currency_id.round
+            round_curr = pick.currency_id.round
             amount_tax = 0.0
-            for tax_id, tax_group in pick.get_taxes_values().items():
-                amount_tax += round_curr(tax_group['amount'])
-            amount_untaxed = sum(
-                l.sale_price_subtotal for l in pick.move_line_ids)
+            items_aux = pick.get_taxes_values()
+            amount_untaxed = items_aux[0][2]
+            for tax in items_aux:
+                amount_tax += round_curr(tax[1])
             pick.update({
                 'amount_untaxed': amount_untaxed,
-                'amount_tax': amount_tax,
                 'amount_total': amount_untaxed + amount_tax,
             })
 
     @api.multi
     def get_taxes_values(self):
-        tax_grouped = {}
+        self.ensure_one()
+        res = {}
         for line in self.move_line_ids:
+            price_reduce = line.sale_price_unit - line.sale_price_unit * line.discount/100
+            context = self.env.context.copy()
+            context.update({"uom": line.product_uom_id})
+            taxes = line.sale_line.tax_id.with_context(context).compute_all(price_reduce,
+            quantity=line.qty_done*line.product_uom_id.factor_inv, product=line.product_id, partner=self.partner_id)['taxes']
             for tax in line.sale_line.tax_id:
-                tax_id = tax.id
-                if tax_id not in tax_grouped:
-                    tax_grouped[tax_id] = {
-                        'base': line.sale_price_subtotal,
-                        'tax': tax,
-                    }
-                else:
-                    tax_grouped[tax_id]['base'] += line.sale_price_subtotal
-        for tax_id, tax_group in tax_grouped.items():
-            tax_grouped[tax_id]['amount'] = tax_group['tax'].compute_all(
-                tax_group['base'], self.sale_id.currency_id
-            )['taxes'][0]['amount']
-        return tax_grouped
+                group = tax.tax_group_id
+                res.setdefault(group, {'amount': 0.0, 'base': 0.0})
+                for t in taxes:
+                    if t['id'] == tax.id or t['id'] in tax.children_tax_ids.ids:
+                        res[group]['amount'] += t['amount']
+                        res[group]['base'] += t['base']
+        res = sorted(res.items(), key=lambda l: l[0].sequence)
+        res = [(l[0].name, l[1]['amount'], l[1]['base'], len(res)) for l in res]
+        return res

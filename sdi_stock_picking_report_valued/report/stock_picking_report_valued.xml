@@ -54,28 +54,47 @@
         </xpath>
         <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]" position="after">
             <t t-if="o.valued and o.sale_id and o.move_line_ids">
-                <table class="table table-condensed mt32">
-                    <thead>
-                        <tr>
-                            <th class="text-right"><strong>Untaxed Amount</strong></th>
-                            <th class="text-right"><strong>Taxes</strong></th>
-                            <th class="text-right"><strong>Total</strong></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-right">
-                                <span t-field="o.amount_untaxed"/>
-                            </td>
-                            <td class="text-right">
-                                <span t-field="o.amount_tax"/>
-                            </td>
-                            <td class="text-right">
-                                <span t-field="o.amount_total"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="clearfix">
+                <div class="row" name="total">
+                    <div class="col-xs-4 pull-right">
+                        <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                            <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                <td><strong>Subtotal</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.get_taxes_values()" t-as="amount_by_group">
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <t t-if="amount_by_group[3] == 1 and o.amount_untaxed == amount_by_group[2]">
+                                        <td>
+                                            <span t-esc="amount_by_group[0]"/>
+                                            <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <span t-esc="amount_by_group[0]"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr class="border-black">
+                                <td><strong>Total</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
             </t>
         </xpath>
     </template>
