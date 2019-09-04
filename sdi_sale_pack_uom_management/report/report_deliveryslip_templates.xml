@@ -7,7 +7,11 @@
             <th>Boxes</th>
         </xpath>
         <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="before">
-            <td><span t-field="move_line.boxes"/></td>
+            <td>
+                <t t-if="move_line.boxes">
+                    <span t-field="move_line.boxes"/> (<span t-field="move_line.sale_line.product_uom.name"/>)
+                </t>
+            </td>
         </xpath>
     </template>
 </odoo>

@@ -13,13 +13,17 @@ class AccountInvoiceLine(models.Model):
             lot_strings = []
             for sml in line.mapped('move_line_ids.move_line_ids'):
                 if sml.lot_id:
+                    caduca = ""
+                    if sml.lot_id.expiry_date:
+                        f = sml.lot_id.expiry_date.split('-')
+                        caduca = "F.Cad: %s/%s/%s" % (f[2],f[1],f[0])
                     if sml.product_id.tracking == 'serial':
                         lot_strings.append('<li>%s %s</li>' % (
                             _('S/N'), sml.lot_id.name,
                         ))
                     else:
-                        lot_strings.append('<li>%s %s (%s) F.Cad: %s</li>' % (
-                            _('Lot'), sml.lot_id.name, sml.qty_done, (sml.lot_id.expiry_date if sml.lot_id.expiry_date else '----/--/--')
+                        lot_strings.append('<li><i>%s %s (%s) %s</i></li>' % (
+                            _('Lot'), sml.lot_id.name, sml.qty_done, caduca
                         ))
             if lot_strings:
                 note += ' '.join(lot_strings)

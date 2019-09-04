@@ -5,7 +5,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-
+from odoo.addons import decimal_precision as dp
 
 class StockMoveLine(models.Model):
     _inherit = 'stock.move.line'
@@ -27,6 +27,7 @@ class StockMoveLine(models.Model):
     )
     sale_price_unit = fields.Float(
         string='Sale price unit',
+        digits=dp.get_precision('Product Price'),
         compute='_compute_sale_order_line_fields',
     )
     sale_discount = fields.Float(
