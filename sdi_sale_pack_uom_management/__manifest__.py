@@ -5,13 +5,14 @@
     'name': "SDi-Sale: Pack UOM Management",
     'version': '11.0.2.0.1',
     'category': '',
-    'author': 'Oscar Soto',
+    'author': 'Oscar Soto, Sergio Lop',
     'summary': """
         Manage Packs like a uom. Add columns Box - Units of Box, Price Unit - Price /UnitBox""",
     'license': 'AGPL-3',
     'depends': [
         'sale',
         'sdi_stock_picking_report_valued',
+        'account_invoice_production_lot',
     ],
     'data': [
         'report/report_saleorder_templates.xml',
