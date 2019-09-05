@@ -34,8 +34,8 @@
         </xpath>
         <xpath expr="//span[@t-field='move_line.product_id']" position="after">
             <t t-if="move_line.lot_id">
-                <i>- Lote <span t-field="move_line.lot_id.name"/> <t t-if="move_line.lot_id.expiry_date">
-                F. Cad: <span t-field="move_line.lot_id.expiry_date"/></t></i>
+                <ul><li><i>- Lote <span t-field="move_line.lot_id.name"/> <t t-if="move_line.lot_id.expiry_date">
+                F. Cad: <span t-field="move_line.lot_id.expiry_date"/></t></i></li></ul>
             </t>
         </xpath>
 

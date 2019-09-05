@@ -13,5 +13,12 @@
                 </t>
             </td>
         </xpath>
+
+         <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="replace">
+            <td class="text-right">
+                <span t-field="move_line.units"/>
+            </td>
+        </xpath>
+
     </template>
 </odoo>
