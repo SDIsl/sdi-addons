@@ -6,10 +6,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Valued Picking Report",
+    "name": "SDi Valued Picking Report",
     "summary": "Adding Valued Picking on Delivery Slip report",
     "version": "11.0.2.0.3",
-    "author": "Tecnativa, "
+    "author": "SDi, "
+              "Tecnativa, "
               "Odoo Community Association (OCA)",
     "website": "https://www.tecnativa.com",
     "category": "Warehouse Management",
