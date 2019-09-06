@@ -21,7 +21,7 @@
                     <span><t t-esc="qty"/></span> (<span t-field="l.uom_id"/>)
                 </t>
                 <t t-else="">
-                    <span0</span>
+                    <span>0</span>
                 </t>
             </td>
         </xpath>

@@ -19,6 +19,7 @@
         'report/report_deliveryslip_templates.xml',
         'report/report_invoice_templates.xml',
         'report/report_stockpicking_templates.xml',
+        'views/product.xml'
     ],
     'installable': True,
 }
