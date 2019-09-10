@@ -11,6 +11,5 @@
         <field name="model_id" ref="model_activity_planning"/>
         <field name="code">model.cron_create_activities()</field>
         <field name="state">code</field>
-        <field name="args" eval="" />
     </record>
 </odoo>
