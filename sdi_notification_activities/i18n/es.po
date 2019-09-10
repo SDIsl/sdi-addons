@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sdi_notification_activities
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-07 19:21+0000\n"
+"PO-Revision-Date: 2019-09-07 21:33+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: sdi_notification_activities
+#: model:ir.model,name:sdi_notification_activities.model_mail_activity
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: sdi_notification_activities
+#: selection:mail.activity,following_notification_notif_modes:0
+msgid "Both"
+msgstr "Ambos"
+
+#. module: sdi_notification_activities
+#: model:ir.actions.server,name:sdi_notification_activities.cron_following_activity_notifications_ir_actions_server
+#: model:ir.cron,cron_name:sdi_notification_activities.cron_following_activity_notifications
+#: model:ir.cron,name:sdi_notification_activities.cron_following_activity_notifications
+msgid "Cron following activity notifications"
+msgstr "Seguimiento de actividades mediante notificaciones"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_done
+msgid "Done Notification"
+msgstr "Notificación al terminar la actividad"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_expired
+msgid "Expired Notification"
+msgstr "Notificar al caducar la actividad"
+
+#. module: sdi_notification_activities
+#: selection:mail.activity,following_notification_notif_modes:0
+msgid "Inbox"
+msgstr "Bandeja de entrada"
+
+#. module: sdi_notification_activities
+#: model:ir.model,name:sdi_notification_activities.model_mail_activity_notifs
+msgid "Mail activity notifs"
+msgstr "Mail activity notifs"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_minutes_before
+msgid "Minutes Before Notification"
+msgstr "Minutos antes de la notificación Check"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_minutes_before_check
+msgid "Minutes Before Notification Check"
+msgstr "Minutos antes de la notificación Check"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_user_ids
+msgid "Notification Users"
+msgstr "Usuarios a notificar"
+
+#. module: sdi_notification_activities
+#. openerp-web
+#: code:addons/sdi_notification_activities/static/src/xml/base_activity_notifs.xml:11
+#, python-format
+msgid "OK"
+msgstr "OK"
+
+#. module: sdi_notification_activities
+#: selection:mail.activity,following_notification_notif_modes:0
+msgid "Pop-Up"
+msgstr "Pop-Up"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,help:sdi_notification_activities.field_mail_activity_following_notification_notif_modes
+msgid ""
+"Select the type of notification\n"
+"                                                                                Inbox: The notification will be sent to the user's email.\n"
+"                                                                                Pop-up: The notification will be received by means of a warning upon entering odoo.\n"
+"                                                                                Both: The notification will be done both ways."
+msgstr ""
+"Selecciona el tipo de notificación\n"
+"Bandeja de entrada: la notificación se enviará al correo electrónico del usuario.\n"
+"Ventana emergente: la notificación se recibirá mediante una advertencia al ingresar a Odoo.\n"
+"Ambos: la notificación se realizará en ambos sentidos."
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,help:sdi_notification_activities.field_mail_activity_following_notification_user_ids
+msgid "Select the users who will receive notifications of this activity."
+msgstr "Seleccione los usuarios que recibirán notificaciones de esta actividad."
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_time
+msgid "Time following"
+msgstr "Tiempo de seguimiento"
+
+#. module: sdi_notification_activities
+#: model:ir.model.fields,field_description:sdi_notification_activities.field_mail_activity_following_notification_notif_modes
+msgid "Type of notification"
+msgstr "Tipo de notificación"
