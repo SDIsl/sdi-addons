@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sdi_notification_activities_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-08 22:29+0000\n"
+"PO-Revision-Date: 2019-09-09 00:30+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: sdi_notification_activities_planning
+#: selection:activity.planning,following_notification_notif_modes:0
+msgid "Ambos"
+msgstr "Ambos"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_notif_modes
+msgid "Avisos a"
+msgstr "Avisos a"
+
+#. module: sdi_notification_activities_planning
+#: selection:activity.planning,following_notification_notif_modes:0
+msgid "Bandeja de entrada"
+msgstr "Bandeja de entrada"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_done
+msgid "Done Notification"
+msgstr "Notificación al terminar la actividad"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_expired
+msgid "Expired Notification"
+msgstr "Notificar al caducar la actividad"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_minutes_before
+msgid "Minutes Before Notification"
+msgstr "Minutos antes de la notificación"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_minutes_before_check
+msgid "Minutes Before Notification Check"
+msgstr "Minutos antes de la notificación Check"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_notification_user_ids
+msgid "Notification Users"
+msgstr "Usuarios a notificar"
+
+#. module: sdi_notification_activities_planning
+#: selection:activity.planning,following_notification_notif_modes:0
+msgid "Pop-Up"
+msgstr "Pop-Up"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model,name:sdi_notification_activities_planning.model_activity_planning
+msgid "Task Cron Registers"
+msgstr "Task Cron Registers"
+
+#. module: sdi_notification_activities_planning
+#: model:ir.model.fields,field_description:sdi_notification_activities_planning.field_activity_planning_following_time
+msgid "Time following"
+msgstr "Tiempo de seguimiento"

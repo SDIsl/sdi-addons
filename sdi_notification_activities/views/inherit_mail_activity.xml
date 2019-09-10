@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_activity_view_form_popup" model="ir.ui.view">
+            <field name="name">mail.activity.view.form.popup</field>
+            <field name="model">mail.activity</field>
+                <field name="inherit_id" ref="mail.mail_activity_view_form_popup"/>
+                <field name="priority">99</field>
+                <field name="arch" type="xml">
+                <xpath expr="//field[@name='summary']" position="after">
+                    <field name="following_notification_user_ids" widget="many2many_tags" attrs="{'invisible' : [('activity_category', '=', 'meeting')]}"/>
+                    <field name="following_notification_notif_modes" attrs="{'invisible' : [('activity_category', '=', 'meeting')]}"/>      
+                    <field name="following_notification_done" attrs="{'invisible' : [('activity_category', '=', 'meeting')]}"/>              
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="following_time" widget="float_time" attrs="{'invisible' : [('activity_category', '=', 'meeting')]}"/>
+                    <field name="following_notification_minutes_before" attrs="{'invisible' : ['|',('following_time','=',0.0),('activity_category', '=', 'meeting')]}"/>
+                    <field name="following_notification_minutes_before_check"  attrs="{'invisible' : 1}"/>
+                    <field name="following_notification_expired" attrs="{'invisible' : ['|',('following_time','=',0.0),('activity_category', '=', 'meeting')]}"/>                    
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
