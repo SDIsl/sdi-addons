@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_activity_planning_tree" model="ir.ui.view">
+            <field name="name">activity.planning.tree</field>
+            <field name="model">activity.planning</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="user_ids" widget="many2many_tags"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="recurrent"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_activity_planning_form" model="ir.ui.view">
+            <field name="name">activity.planning.form</field>
+            <field name="model">activity.planning</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Task" class="o_form_project_tasks">
+                    <sheet string="Task">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                    options='{"terminology": "inactive"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" placeholder="Task Title..."/>
+                                <field name="user_ids" widget="many2many_tags"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </group>
+                             <group>
+                                 <field name="recurrent"/>
+                                 <field name="recurrent_day_of_week"  attrs="{'invisible':[('recurrent','!=', '1')]}" />
+                                 <field name="recurrent_day_of_month"  attrs="{'invisible':[('recurrent','!=', '2')]}" />
+                                 <field name="recurrent_monday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_tuesday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_wednesday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_thursday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_friday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_saturday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                                 <field name="recurrent_sunday"  attrs="{'invisible':[('recurrent','!=', '3')]}" />
+                            </group>
+                            <field name="cron_activity_ids" >
+                                <tree string="Activity Lines" editable="bottom" >
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="summary"/>
+                                        <field name="activity_type_id" domain="[('category','=','default')]"/>
+                                        <!-- <field name="depend_before"/> -->
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="view_cron_activity_action_template">
+            <field name="name">Activity Planning</field>
+            <field name="res_model">activity.planning</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_activity_planning_tree"/>
+        </record>
+        <menuitem id="view_cron_activities_main_menu" name="Configuration"
+                  parent="mail.mail_channel_menu_root_chat"/>
+
+        <menuitem id="view_cron_activities_menu_planning" name="Activity Planning"
+                  parent="view_cron_activities_main_menu"
+                  action="view_cron_activity_action_template" sequence="6"/>
+    </data>
+</odoo>

@@ -66,11 +66,15 @@ class StockMoveLine(models.Model):
     def _calculate_price_unit(self):
         return self.sale_line.price_unit
 
+    def _calculate_units(self):
+        return self.sale_line.qty_done
+
     @api.multi
     def _compute_sale_order_line_fields(self):
         for line in self:
             sale_line = line.sale_line
             line.sale_price_unit = line._calculate_price_unit()
+            units = line._calculate_units()
             # price_unit = (
             #     sale_line.price_subtotal / sale_line.product_uom_qty
             #     if sale_line.product_uom_qty else sale_line.price_reduce)
@@ -78,7 +82,7 @@ class StockMoveLine(models.Model):
             taxes = line.sale_tax_id.compute_all(
                 price_unit=price_unit,
                 currency=line.currency_id,
-                quantity=line.qty_done or line.product_qty,
+                quantity= units or line.product_qty,
                 product=line.product_id,
                 partner=sale_line.order_id.partner_shipping_id)
             if sale_line.company_id.tax_calculation_rounding_method == (
