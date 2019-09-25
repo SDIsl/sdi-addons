@@ -1,0 +1,235 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sdi_cron_activities
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-08 22:21+0000\n"
+"PO-Revision-Date: 2019-09-09 00:27+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_cron_activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: sdi_cron_activities
+#: model:ir.model,name:sdi_cron_activities.model_template_cron_activity
+msgid "Activity Cron Lines"
+msgstr "Activity Cron Lines"
+
+#. module: sdi_cron_activities
+#: model:ir.ui.view,arch_db:sdi_cron_activities.view_activity_planning_form
+msgid "Activity Lines"
+msgstr "Actividades"
+
+#. module: sdi_cron_activities
+#: model:ir.actions.act_window,name:sdi_cron_activities.view_cron_activity_action_template
+#: model:ir.ui.menu,name:sdi_cron_activities.view_cron_activities_menu_planning
+msgid "Activity Planning"
+msgstr "Planificación de Actividades"
+
+#. module: sdi_cron_activities
+#: model:ir.ui.menu,name:sdi_cron_activities.view_cron_activities_main_menu
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_create_uid
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_create_date
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_res_id
+msgid "Cron Task Reference"
+msgstr "Cron Task Reference"
+
+#. module: sdi_cron_activities
+#: model:ir.actions.server,name:sdi_cron_activities.cron_global_task_activities_ir_actions_server
+#: model:ir.cron,cron_name:sdi_cron_activities.cron_global_task_activities
+#: model:ir.cron,name:sdi_cron_activities.cron_global_task_activities
+msgid "Cron global create activities"
+msgstr "Cron global create activities"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent:0
+msgid "Daily"
+msgstr "Diariamente"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_date_end
+msgid "Date end"
+msgstr "Fecha fin"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_date_start
+msgid "Date start"
+msgstr "Fecha inicio"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_day_of_month
+msgid "Day of month"
+msgstr "Día del mes"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_day_of_week
+msgid "Day of week"
+msgstr "Día de la semana"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent:0
+msgid "Days of week"
+msgstr "Días de la semana"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_depend_before
+msgid "Depend before"
+msgstr "Depender del anterior"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_display_name
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_friday
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_id
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning___last_update
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_write_uid
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_write_date
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_monday
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent:0
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_name
+msgid "Name of the planned activities"
+msgstr "Nombre de la actividad planificada"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_saturday
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_summary
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_sunday
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: sdi_cron_activities
+#: model:ir.ui.view,arch_db:sdi_cron_activities.view_activity_planning_form
+msgid "Task"
+msgstr "Tarea"
+
+#. module: sdi_cron_activities
+#: model:ir.model,name:sdi_cron_activities.model_activity_planning
+msgid "Task Cron Registers"
+msgstr "Task Cron Registers"
+
+#. module: sdi_cron_activities
+#: model:ir.ui.view,arch_db:sdi_cron_activities.view_activity_planning_form
+msgid "Task Title..."
+msgstr "Título de la tarea."
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_thursday
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_tuesday
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_template_cron_activity_activity_type_id
+msgid "Type of Activity"
+msgstr "Tipo de actividad"
+
+#. module: sdi_cron_activities
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_user_ids
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent_day_of_week:0
+#: model:ir.model.fields,field_description:sdi_cron_activities.field_activity_planning_recurrent_wednesday
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: sdi_cron_activities
+#: selection:activity.planning,recurrent:0
+msgid "Weekly"
+msgstr "Semanalmente"

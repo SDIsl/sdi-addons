@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_task_form_template" model="ir.ui.view">
+            <field name="name">activity.planning.form</field>
+            <field name="model">activity.planning</field>
+            <field name="inherit_id" ref="sdi_cron_activities.view_activity_planning_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_end']" position="after">
+                        <field name="following_notification_user_ids" widget="many2many_tags"/>
+                        <field name="following_notification_notif_modes"/>
+                        <field name="following_notification_done" />
+                </xpath>
+                <xpath expr="//field[@name='recurrent']" position="before">
+                        <field name="following_time" widget="float_time"/>
+                        <field name="following_notification_minutes_before" attrs="{'invisible' : [('following_time','=',0.0)]}"/>
+                        <field name="following_notification_minutes_before_check"  attrs="{'invisible' : 1}"/>
+                        <field name="following_notification_expired" attrs="{'invisible' : [('following_time','=',0.0)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

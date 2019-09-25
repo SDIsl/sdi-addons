@@ -55,8 +55,10 @@
                     <span t-esc="', '.join(map(lambda x: (x.description or x.name), move_line.sale_tax_id))"/>
                 </td>
             </t>
+            <t t-if="o.valued">
                 <td class="text-right"><span
-                        t-field="move_line.sale_price_subtotal" /></td>
+                    t-field="move_line.sale_price_subtotal" /></td>
+            </t>
         </xpath>
         <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]" position="after">
             <t t-if="o.valued and o.sale_id and o.move_line_ids">
