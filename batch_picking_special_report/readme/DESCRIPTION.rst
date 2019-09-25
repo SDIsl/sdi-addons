@@ -1,0 +1,1 @@
+This module adds a report batch picking that shows products grouped by category_id, product and  lot

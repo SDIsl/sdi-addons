@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cabecera_categoria">
+    <t>
+        <tr>
+        <td><h4>Familia:<span t-field="move.product_id.categ_id.name" /></h4></td>
+        </tr>
+    </t>
+       </template>
+
+    <template id="cabecera_lote">
+        <t>
+            <tr>
+                <td>
+                    <h5>
+                        <span t-field="move.product_id.name"/>
+                        Lote:
+                        <span t-field="move.lot_id.name"/>
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <th>Cliente</th>
+                <th>Cantidad</th>
+                <th>Ud.medida</th>
+            </tr>
+
+        </t>
+     </template>
+    <template id="resumen_lote">
+        <t>
+                   <tr>
+                       <td>Total para <span t-field="move.product_id.name" />, L: <span t-field="move.lot_id.name"/>:</td>
+                       <td><span t-esc="cantidad" /></td>
+                   </tr>
+
+        </t>
+     </template>
+
+    <template id="report_hoja_de_carga">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Pickings Order</th>
+                                    <th></th>
+                                    <th>Picked By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span t-esc="doc.name"/>
+                                    </td>
+                                    <td>Firma:_________________</td>
+                                    <td>
+                                        <span t-esc="doc.picker_id.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <p t-esc="doc.notes"/>
+                        <br/>
+                        <t t-set="categoria" t-value="XXXX"/>
+                        <t t-set="producto" t-value="XXXX"/>
+                        <t t-set="lote" t-value="XXXX"/>
+                        <t t-set="cantidad" t-value="0"/>
+                        <table>
+                            <t t-foreach="doc.move_line_ids.sorted(key=lambda r: (r.product_id.categ_id,r.product_id,r.lot_id))" t-as="move">
+                                <t t-if="move.product_id.categ_id.name !=categoria">
+                                    <t t-call="batch_picking_special_report.cabecera_categoria"/>
+                                    <t t-set="categoria" t-value="move.product_id.categ_id.name"/>
+                                </t>
+                                <t t-if="move.product_id.name !=producto">
+                                    <!-- <t t-call="batch_picking_special_report.cabecera_producto"/>  -->
+                                    <t t-set="producto" t-value="move.product_id.name"/>
+                                    <t t-set="lote" t-value="XXXXX"/>
+                                </t>
+                                <t t-if="move.lot_id.name !=lote">
+                                    <t t-if="cantidad!=0">
+                                        <t t-call="batch_picking_special_report.resumen_lote"/>
+                                    </t>
+                                    <t t-call="batch_picking_special_report.cabecera_lote"/>
+                                    <t t-set="lote" t-value="move.lot_id.name"/>
+                                    <t t-set="cantidad" t-value="0"/>
+                                </t>
+<!-- Detalle del envío -->
+                                <t t-set="cantidad" t-value="cantidad + move.product_qty"/> <!-- Aqui sumo las unidades de la linea -->
+                                <tr>
+                                    <td><span t-field="move.move_id.picking_id.partner_id.name"/></td>
+                                </tr>
+
+                            </t>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+     <template id="report_special_picking">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="batch_picking_special_report.report_hoja_de_carga" t-lang="doc.picker_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    <report string="Hoja de carga"
+            id="action_report_hoja_de_carga"
+            model="stock.batch.picking"
+            report_type="qweb-pdf"
+            name="batch_picking_special_report.report_special_picking"
+            file="batch_picking_special_report.report_special_picking"/>
+
+
+</odoo>
