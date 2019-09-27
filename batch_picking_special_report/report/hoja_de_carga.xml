@@ -1,52 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="cabecera_categoria">
-    <t>
-        <tr>
-        <td><h4>Familia:<span t-field="move.product_id.categ_id.name" /></h4></td>
-        </tr>
-    </t>
-       </template>
-
-    <template id="cabecera_lote">
-        <t>
-            <tr>
-                <td>
-                    <h5>
-                        <span t-field="move.product_id.name"/>
-                        Lote:
-                        <span t-field="move.lot_id.name"/>
-                    </h5>
-                </td>
-            </tr>
-            <tr>
-                <th>Cliente</th>
-                <th>Cantidad</th>
-                <th>Ud.medida</th>
-            </tr>
-
-        </t>
-     </template>
-    <template id="resumen_lote">
-        <t>
-                   <tr>
-                       <td>Total para <span t-field="move.product_id.name" />, L: <span t-field="move.lot_id.name"/>:</td>
-                       <td><span t-esc="cantidad" /></td>
-                   </tr>
-
-        </t>
-     </template>
 
     <template id="report_hoja_de_carga">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
-                <div class="page">
+            <style>
+                td,th{
+                border-bottom: solid 1px grey;
+                padding-right: 5px;
+                };
+            </style>
+               <div class="page">
                     <t t-foreach="docs" t-as="doc">
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
                                     <th>Pickings Order</th>
-                                    <th></th>
+                                    <th/>
                                     <th>Picked By</th>
                                 </tr>
                             </thead>
@@ -66,36 +36,77 @@
                         <br/>
                         <p t-esc="doc.notes"/>
                         <br/>
-                        <t t-set="categoria" t-value="XXXX"/>
-                        <t t-set="producto" t-value="XXXX"/>
-                        <t t-set="lote" t-value="XXXX"/>
                         <t t-set="cantidad" t-value="0"/>
                         <table>
-                            <t t-foreach="doc.move_line_ids.sorted(key=lambda r: (r.product_id.categ_id,r.product_id,r.lot_id))" t-as="move">
-                                <t t-if="move.product_id.categ_id.name !=categoria">
-                                    <t t-call="batch_picking_special_report.cabecera_categoria"/>
-                                    <t t-set="categoria" t-value="move.product_id.categ_id.name"/>
-                                </t>
-                                <t t-if="move.product_id.name !=producto">
-                                    <!-- <t t-call="batch_picking_special_report.cabecera_producto"/>  -->
-                                    <t t-set="producto" t-value="move.product_id.name"/>
-                                    <t t-set="lote" t-value="XXXXX"/>
-                                </t>
-                                <t t-if="move.lot_id.name !=lote">
+                            <t t-set="moves" t-value="doc.move_line_ids.sorted(key=lambda r: (r.product_id.categ_id.name,r.product_id.name,r.lot_id.name,r.move_id.sale_line_id.product_uom.factor))" />
+                            <t t-set="move" t-value="moves[0]" />
+                            <tr>
+                                <td colspan="3" align="center"><h3>Familia:<span t-esc="move.product_id.categ_id.name"/></h3></td>
+                            </tr>
+                            <t t-set="categoria" t-value="move.product_id.categ_id.name"/>
+                            <tr>
+                                <th colspan="3"><span t-field="move.product_id.name"/>, L. <span t-field="move.lot_id.name"/>
+                                    <t t-if="move.lot_id.expiry_date"> (Cad: <span t-field="move.lot_id.expiry_date"/>)</t></th>
+                            </tr>
+                            <tr>
+                                <th width="75%">Cliente</th>
+                                <th width="10%" align="right">CTD</th>
+                                <th width="15%">UdM</th>
+                            </tr>
+                            <t t-set="producto" t-value="move.product_id"/>
+                            <t t-set="lote" t-value="move.lot_id"/>
+
+                            <t t-foreach="moves" t-as="move">
+                                <t t-if="move.lot_id.name !=lote.name">
                                     <t t-if="cantidad!=0">
-                                        <t t-call="batch_picking_special_report.resumen_lote"/>
+                                        <t t-set="cajas" t-value="int(cantidad*producto.uom_in_sales_id.factor)"/>
+                                        <t t-set="resto" t-value="cantidad - cajas * producto.uom_in_sales_id.factor_inv"/>
+                                        <tr>
+                                            <th style="background-color: bisque;" align="right" >Total para <span t-esc="producto.name" />, L: <span t-esc="lote.name"/>:</th>
+                                            <th style="background-color: bisque; " colspan="2"><h4>
+                                                <t t-if="cajas>0"><span t-esc="cajas" /> <span t-field="producto.uom_in_sales_id.name"/></t>
+                                                <t t-if="resto>0"> + <t t-esc="resto"/> <span t-field="producto.uom_id.name"/></t></h4>
+                                            </th>
+                                        </tr>
+                                        <tr><td colspan="3"><hr></hr></td> </tr>
                                     </t>
-                                    <t t-call="batch_picking_special_report.cabecera_lote"/>
-                                    <t t-set="lote" t-value="move.lot_id.name"/>
+                                    <t t-if="move.product_id.categ_id.name !=categoria">
+                                        <tr>
+                                            <td colspan="3" align="center"><h3>Familia:<span t-esc="move.product_id.categ_id.name"/></h3></td>
+                                        </tr>
+                                        <t t-set="categoria" t-value="move.product_id.categ_id.name"/>
+                                    </t>
+
+                                    <tr>
+                                <th colspan="3"><span t-field="move.product_id.name"/>, L. <span t-field="move.lot_id.name"/>
+                                    <t t-if="move.lot_id.expiry_date"> (Cad: <span t-field="move.lot_id.expiry_date"/>)</t></th>
+                                    </tr>
+                                    <tr >
+                                        <th>Cliente</th>
+                                        <th align="right">CTD</th>
+                                        <th>UdM</th>
+                                    </tr>
+                                    <t t-set="producto" t-value="move.product_id"/>
+                                    <t t-set="lote" t-value="move.lot_id"/>
                                     <t t-set="cantidad" t-value="0"/>
                                 </t>
-<!-- Detalle del envío -->
                                 <t t-set="cantidad" t-value="cantidad + move.product_qty"/> <!-- Aqui sumo las unidades de la linea -->
+                                <t t-set="unidades" t-value="move.move_id.sale_line_id.product_uom.factor*move.product_uom_qty"/>
                                 <tr>
-                                    <td><span t-field="move.move_id.picking_id.partner_id.name"/></td>
+                                    <td><span t-field="move.picking_id.partner_id.name"/> (<span t-field="move.picking_id.name"/>)</td>
+                                    <td align="right"><span t-esc="unidades"/></td>
+                                    <td><span t-field="move.move_id.sale_line_id.product_uom.name"/></td>
                                 </tr>
-
                             </t>
+                            <t t-set="cajas" t-value="int(cantidad*move.product_id.uom_in_sales_id.factor)"/>
+                            <t t-set="resto" t-value="cantidad - cajas * move.product_id.uom_in_sales_id.factor_inv"/>
+                            <tr>
+                                <th style="background-color: bisque;" align="right" >Total para <span t-field="move.product_id.name" />, L: <span t-field="move.lot_id.name"/>:</th>
+                                <th style="background-color: bisque;" colspan="2">
+                                    <t t-if="cajas>0"><span t-esc="cajas" /> <span t-field="move.product_id.uom_in_sales_id.name"/></t>
+                                    <t t-if="resto>0"> + <t t-esc="resto"/> <span t-field="move.product_id.uom_id.name"/></t>
+                                </th>
+                            </tr>
                         </table>
                     </t>
                 </div>
