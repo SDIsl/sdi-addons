@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.default.pricelist</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="5"/>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(product.product_pricelist_action2)d']" position="after">
+                    <div class="text-muted">
+                        <br/>
+                        Pricelist used for default.
+                    </div>
+                    <div class="text-muted">
+                        <field name="default_pricelist_id"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
