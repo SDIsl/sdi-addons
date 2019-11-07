@@ -12,7 +12,6 @@
     'license': 'AGPL-3',
     'depends':[
         'mass_mailing',
-        'sdi_setup',
     ],
     'auto_install': True,
     'installable': True,
