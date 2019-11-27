@@ -61,7 +61,7 @@
                             <t t-set="lote" t-value="move.lot_id"/>
 
                             <t t-foreach="moves" t-as="move">
-                                <t t-if="move.lot_id.name !=lote.name or move.lot_id.product_id != lote.product_id">
+                                <t t-if="move.lot_id !=lote or move.product_id != producto">
                                     <t t-if="cantidad!=0">
                                         <t t-set="cajas" t-value="int(cantidad*producto.uom_in_sales_id.factor)"/>
                                         <t t-set="resto" t-value="cantidad - cajas * producto.uom_in_sales_id.factor_inv"/>
