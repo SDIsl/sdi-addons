@@ -2,7 +2,18 @@
 <odoo>
 
     <template id="valued_report_picking" inherit_id="stock.report_delivery_document">
-
+        <!--El título, formateado con la fecha prevista-->
+        <xpath expr="//div[@name='customer_address']" position="after">
+            <h2>Albarán <t t-esc="o.name"/> de fecha: <t
+                t-esc="o.scheduled_date" t-options="{'widget': 'date'}"/></h2>
+        </xpath>
+        <!--Quitando el nombre anterior-->
+        <xpath expr="//span[@t-field='o.name']" position="replace">
+        </xpath>
+        <!--Al final del documento poner las notas del albarán si existiera-->
+        <xpath expr="//p[@t-if='o.backorder_id']" position="after">
+            <p class="text-center"><span t-field="o.note"/></p>
+        </xpath>
         <!-- ALVARANES VALIDADOS -->
         <!-- Los albaranes validados asignan lote si fuese necesario -->
         <!-- Los albaranes validados utilizan el campo move_line_ids: stock.move.line -->
