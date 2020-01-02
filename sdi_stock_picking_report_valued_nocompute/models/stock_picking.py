@@ -69,5 +69,6 @@ class StockPicking(models.Model):
     def valued_calculation(self):
         for picking in self:
             print(picking.id)
-            picking.move_line_ids._compute_sale_order_line_fields()
-            picking._compute_amount_all()
+            if picking.sale_id:
+                picking.move_line_ids._compute_sale_order_line_fields()
+                picking._compute_amount_all()
