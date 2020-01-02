@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="valued_report_picking" inherit_id="stock.report_delivery_document">
+        <!--El título, formateado con la fecha prevista-->
+        <xpath expr="//div[@name='customer_address']" position="after">
+            <h2>Albarán <t t-esc="o.name"/> de fecha: <t
+                t-esc="o.scheduled_date" t-options="{'widget': 'date'}"/></h2>
+        </xpath>
+        <!--Quitando el nombre anterior-->
+        <xpath expr="//span[@t-field='o.name']" position="replace">
+        </xpath>
+        <!--Al final del documento poner las notas del albarán si existiera-->
+        <xpath expr="//p[@t-if='o.backorder_id']" position="after">
+            <p class="text-center"><span t-field="o.note"/></p>
+        </xpath>
+        <!-- ALVARANES VALIDADOS -->
+        <!-- Los albaranes validados asignan lote si fuese necesario -->
+        <!-- Los albaranes validados utilizan el campo move_line_ids: stock.move.line -->
+        <xpath expr="//th[@name='td_sched_date_h']" position="after">
+                <th class="text-left"><strong>Modo de pago</strong></th>
+        </xpath>
+        <xpath expr="//td[@name='td_sched_date']" position="after">
+                <td class="text-left"><span t-field="o.sale_id.payment_term_id"/> <span t-field="o.sale_id.payment_mode_id"/></td>
+        </xpath>
+
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]/thead/tr"
+               position="inside">
+            <t t-if="o.valued and o.sale_id and o.move_line_ids">
+                <t t-if="o.state != 'done'">
+                    <th class="text-right" name="qty_reserved"><strong>Qty Reserved</strong></th>
+                </t>
+                <th class="text-right"><strong>Precio unitario</strong></th>
+                <th class="text-right" groups="sale.group_discount_per_so_line">
+                    <strong>Desc.(%)</strong>
+                </th>
+                <th class="text-right"><strong>Taxes</strong></th>
+                <th class="text-right"><strong>Subtotal</strong></th>
+            </t>
+        </xpath>
+
+        <xpath expr="//th[@name='lot_serial']" position="replace">
+        </xpath>
+        <xpath expr="//t[@t-if='has_serial_number']" position="replace">
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.product_id']" position="after">
+            <t t-if="move_line.lot_id">
+                <ul><li><i>- Lote <span t-field="move_line.lot_id.name"/> <t t-if="move_line.lot_id.expiry_date">
+                F. Cad: <span t-field="move_line.lot_id.expiry_date"/></t></i></li></ul>
+            </t>
+        </xpath>
+
+        <xpath expr="//span[@t-field='move_line.qty_done']/.." position="after">
+            <t t-if="o.valued and o.sale_id and o.move_line_ids">
+                <t t-if="move_line.picking_id.state != 'done'">
+                    <td class="text-right">
+                        <span t-field="move_line.product_uom_qty"/>
+                        <span t-field="move_line.product_uom_id"/></td>
+                </t>
+                <td class="text-right"><span
+                        t-field="move_line.sale_price_unit" /></td>
+                <td class="text-right" groups="sale.group_discount_per_so_line">
+                    <span t-field="move_line.sale_discount" />
+                </td>
+                <td class="text-right">
+                    <span t-esc="', '.join(map(lambda x: (x.description or x.name), move_line.sale_tax_id))"/>
+                </td>
+            </t>
+            <t t-if="o.valued">
+                <td class="text-right"><span
+                    t-field="move_line.sale_price_subtotal" /></td>
+            </t>
+        </xpath>
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]" position="after">
+            <t t-if="o.valued and o.sale_id and o.move_line_ids">
+                <div class="clearfix">
+                <div class="row" name="total">
+                    <div class="col-xs-4 pull-right">
+                        <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                            <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                <td><strong>Subtotal</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.get_taxes_values()" t-as="amount_by_group">
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <t t-if="amount_by_group[3] == 1 and o.amount_untaxed == amount_by_group[2]">
+                                        <td>
+                                            <span t-esc="amount_by_group[0]"/>
+                                            <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <span t-esc="amount_by_group[0]"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr class="border-black">
+                                <td><strong>Total</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
