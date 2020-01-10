@@ -2,7 +2,7 @@
 # Oscar Soto <osoto@sdi.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': "SDi-Sale: Pack UOM Management",
+    'name': "SDi-Sale: Pack UOM Management NO COMPUTE FIELDS",
     'version': '11.0.2.0.1',
     'category': '',
     'author': 'Oscar Soto, Sergio Lop',
@@ -12,6 +12,7 @@
     'depends': [
         'sale',
         'account_invoice_production_lot',
+        'sdi_stock_picking_report_valued_nocompute'
     ],
     'data': [
         'report/report_saleorder_templates.xml',

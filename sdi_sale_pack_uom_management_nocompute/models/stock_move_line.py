@@ -20,8 +20,8 @@ class StockMoveLine(models.Model):
     def _compute_boxes(self):
         for line in self:
             line.units = line.qty_done
-            line.boxes = line.qty_done * line.sale_line.product_uom.factor
-
+            line.boxes = line.qty_done * line.sale_line.product_uom.factor if\
+                line.sale_line else 0
 
     def _calculate_price_unit(self):
         return self.sale_line.price_unit * self.sale_line.product_uom.factor

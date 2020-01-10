@@ -72,3 +72,13 @@ class StockPicking(models.Model):
             if picking.sale_id:
                 picking.move_line_ids._compute_sale_order_line_fields()
                 picking._compute_amount_all()
+
+    def cron_calculate(self):
+        valores = self.env['stock.picking'].search([
+            ('state', '=', 'done'),
+            ('picking_type_id', '=', 1),
+            ('amount_total', '=', 0),
+            ('sale_id', '!=', False)
+        ])
+        for item in valores:
+            item.valued_calculation()

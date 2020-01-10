@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="valued_report_picking"
+              inherit_id="sdi_stock_picking_report_valued_nocompute.valued_report_picking">
+
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]/thead/tr/th"
+               position="after">
+            <th>Boxes</th>
+        </xpath>
+        <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="before">
+            <td>
+                <t t-if="move_line.boxes">
+                    <span t-field="move_line.boxes"/> (<span t-field="move_line.sale_line.product_uom.name"/>)
+                </t>
+            </td>
+        </xpath>
+
+         <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="replace">
+            <td class="text-right">
+                <span t-field="move_line.units"/>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>

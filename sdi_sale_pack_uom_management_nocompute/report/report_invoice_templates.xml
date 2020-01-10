@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//thead/tr" position="replace">
+            <tr>
+                <th>Description</th>
+                <th class="hidden">Source Document</th>
+                <th class="text-right">Boxes</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Unit Price</th>
+                <th t-if="display_discount" class="text-right">Disc.(%)</th>
+                <th class="text-right">Taxes</th>
+                <th class="text-right">Amount</th>
+            </tr>
+        </xpath>
+
+        <xpath expr="//td[span[@t-field='l.origin']]" position="after">
+            <td class="text-right">
+                <t t-if="l.uom_id.factor_inv > 1">
+                    <t t-set="qty" t-value="l.quantity"/>
+                    <span><t t-esc="qty"/></span> (<span t-field="l.uom_id"/>)
+                </t>
+                <t t-else="">
+                    <span>0</span>
+                </t>
+            </td>
+        </xpath>
+
+        <xpath expr="//td[span[@t-field='l.quantity']]" position="replace">
+            <td class="text-right">
+                <t t-if="l.uom_id.factor_inv > 1">
+                    <t t-set="qty" t-value="l.quantity*l.uom_id.factor_inv"/>
+                    <span><t t-esc="qty"/></span>
+                </t>
+                <t t-else="">
+                    <span t-esc="l.quantity"/>
+                </t>
+            </td>
+        </xpath>
+
+        <xpath expr="//td[span[@t-field='l.price_unit']]" position="replace">
+            <td class="text-right">
+
+                <t t-if="l.uom_id.factor_inv > 1">
+                    <t t-set="price" t-value="l.price_unit/l.uom_id.factor_inv"/>
+                    <span><t t-esc="str('%.5f'%(price)).replace('.',',')"/></span>
+                </t>
+                <t t-else="">
+                    <span t-field="l.price_unit"/>
+                </t>
+
+            </td>
+        </xpath>
+
+    </template>
+</odoo>
