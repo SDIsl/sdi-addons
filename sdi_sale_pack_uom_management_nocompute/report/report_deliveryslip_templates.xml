@@ -9,9 +9,9 @@
         </xpath>
         <xpath expr="//td[span[@t-field='move_line.qty_done']]" position="before">
             <td>
-                <t t-if="move_line.boxes">
+                <t t-if="move_line.boxes"><t t-if="move_line.product_uom_id!=move_line.sale_line.product_uom">
                     <span t-field="move_line.boxes"/> (<span t-field="move_line.sale_line.product_uom.name"/>)
-                </t>
+                </t></t>
             </td>
         </xpath>
 
