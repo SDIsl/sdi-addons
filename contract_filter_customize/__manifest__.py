@@ -25,7 +25,7 @@
     'summary': 'Add filters to contracts.',
     'license': 'LGPL-3',
     'depends': [
-        'contracts',
+        'contract',
     ],
     'data': [
         'views/contract_views.xml',
