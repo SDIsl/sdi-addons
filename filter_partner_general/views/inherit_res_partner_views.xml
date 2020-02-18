@@ -9,7 +9,7 @@
                 <field name="city" string="City" filter_domain="[('city','ilike',self)]"/>
                 <field name="state_id" string="State" filter_domain="[('state_id','ilike',self)]"/>
                 <field name="industry_id" string="Industry" filter_domain="[('industry_id','ilike',self)]"/>
-                <field name="category_id" string="Category" filter_domain="[('category_id','ilike',self)]"/>
+                <field name="category_id" string="Tag" filter_domain="[('category_id','ilike',self)]"/>
             </xpath>
             <xpath expr="//filter[@name='group_company']" position="before">
                 <filter name="group_industry" string="Industry" context="{'group_by': 'industry_id'}"/>
