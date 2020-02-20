@@ -28,6 +28,6 @@
     'depends': [
         'contract',
         'sale_management',
-        'sale_order_invoice:partner',
+        'sale_order_invoice_partner',
     ],
 }
