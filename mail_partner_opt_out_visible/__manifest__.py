@@ -23,7 +23,7 @@
     'category': 'Mail',
     'author': 'Jorge Luis Quinteros',
     'summary': '''
-        Remove base.group_no_one group from opt_out and message_bounce fields.
+        Remove base.group_no_one group from opt_out field.
     ''',
     'license': 'AGPL-3',
     'depends': [
