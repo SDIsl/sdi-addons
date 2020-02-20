@@ -17,7 +17,7 @@ class SaleOrderLine(models.Model):
                    rec.order_id.partner_invoice_id != partner:
                     raise ValidationError(
                         _(
-                            "Sale Order and contract should be "
-                            "linked to the same partner or invoice partner."
+                            'Sale Order and contract should be '
+                            'linked to the same partner or invoice partner.'
                         )
                     )
