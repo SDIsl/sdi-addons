@@ -10,8 +10,6 @@ class SaleOrderLine(models.Model):
 
     @api.constrains('contract_id')
     def _check_contract_sale_partner(self):
-        from wdb import set_trace
-        set_trace()
         for rec in self:
             if rec.contract_id:
                 partner = rec.contract_id.partner_id
