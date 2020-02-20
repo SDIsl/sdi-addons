@@ -1,8 +1,9 @@
-
 ###############################################################################
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
-from odoo import api, fields, models
+from odoo import fields, models
+
+
 class PartnerWebDomain(models.Model):
     _name = "partner.web.domain"
     _description = "Web domain line"
