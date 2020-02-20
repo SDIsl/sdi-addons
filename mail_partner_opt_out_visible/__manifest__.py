@@ -18,14 +18,14 @@
 #
 ###############################################################################
 {
-    'name': 'Mail partner opt out visible',
+    'name': 'Mail Partner Opt Out Visible',
     'version': '11.0.1.0.0',
     'category': 'Mail',
     'author': 'Jorge Luis Quinteros',
-    'summary': """
+    'summary': '''
         Remove base.group_no_one group from opt_out field.
-    """,
-    'license': 'LGPL-3',
+    ''',
+    'license': 'AGPL-3',
     'depends': [
         'contacts',
         'mail',
