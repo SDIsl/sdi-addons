@@ -19,7 +19,7 @@
 ###############################################################################
 {
     'name': 'Sale Order Invoice Partner',
-    "version": "12.0.1.0.0",
+    'version': '12.0.1.0.0',
     'category': 'Sale',
     'author': 'Oscar Soto',
     'summary': 'Change the invoice partner in the sale order, '
@@ -28,5 +28,4 @@
     'depends': [
         'sale_management',
     ],
-    'installable': True,
 }

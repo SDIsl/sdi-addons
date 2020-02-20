@@ -19,7 +19,7 @@
 ###############################################################################
 {
     'name': 'Contract Contract Invoice Partner',
-    "version": "12.0.1.0.0",
+    'version': '12.0.1.0.0',
     'category': 'Sale',
     'author': 'Oscar Soto',
     'summary': 'Select the invoice partner from sale order '
@@ -30,5 +30,4 @@
         'sale_management',
         'sale_order_invoice:partner',
     ],
-    'installable': True,
 }
