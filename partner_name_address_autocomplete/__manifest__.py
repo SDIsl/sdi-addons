@@ -19,15 +19,16 @@
 ###############################################################################
 {
     'name': 'Partner Name Address Autocomplete',
-    'version': '12.0.1.0.1',
-    'category': 'Tools',
-    'author': 'Jorge Luis Quinteros',
-    'summary': """
+    'summary': '''
         Add widget gplaces_autocomplete to partner name and
         gplaces_address_autocomplete to partner street, with the Spanish
         administrative area level.
-    """,
-    'license': 'LGPL-3',
+    ''',
+    'category': 'Tools',
+    'version': '12.0.1.0.1',
+    'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
+    'license': 'AGPL-3',
     'depends': [
         'contacts',
         'web_google_maps',
@@ -35,5 +36,5 @@
     'data': [
         'views/res_partner_views.xml',
     ],
-    'auto_install': 'True',
+    'auto_install': True,
 }

@@ -19,10 +19,11 @@
 ###############################################################################
 {
     'name': 'Mass Mailing Remove Group',
-    'version': '12.0.1.0.0',
-    'category': 'Mail',
-    'author': 'Jorge Luis Quinteros',
     'summary': 'Remove group_no_one from fields',
+    'category': 'Mail',
+    'version': '12.0.1.0.0',
+    'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
     'depends': [
         'mass_mailing',

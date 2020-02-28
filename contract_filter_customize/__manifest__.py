@@ -19,11 +19,12 @@
 ###############################################################################
 {
     'name': 'Contract Filter Customize',
-    "version": "12.0.1.0.0",
-    'category': 'Contact',
-    'author': 'Jorge Luis Quinteros',
     'summary': 'Add filters to contracts.',
-    'license': 'LGPL-3',
+    'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
+    'license': 'AGPL-3',
+    'category': 'Contract Management',
+    'version': '12.0.1.0.0',
     'depends': [
         'contract',
     ],

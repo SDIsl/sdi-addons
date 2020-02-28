@@ -19,13 +19,12 @@
 ###############################################################################
 {
     'name': 'Partner Web Domain',
-    'version': '12.0.1.0.0',
+    'summary': 'Add a tab in partner view form to create related web domains',
     'category': 'Tools',
-    'author': 'Jorge Luis Quinteros',
-    'summary': """
-        Add a tab in partner view form to create related web domains.
-    """,
-    'license': 'LGPL-3',
+    'version': '12.0.1.0.0',
+    'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
+    'license': 'AGPL-3',
     'depends': [
         'contacts',
     ],

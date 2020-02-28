@@ -19,11 +19,12 @@
 ###############################################################################
 {
     'name': 'Sale Order Invoice Partner',
-    'version': '12.0.1.0.0',
-    'category': 'Sale',
-    'author': 'Oscar Soto',
     'summary': 'Change the invoice partner in the sale order, '
     'to select the company or the invoice address of the partner.',
+    'category': 'Sales',
+    'version': '12.0.1.0.0',
+    'author': 'Oscar Soto, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
     'depends': [
         'sale_management',

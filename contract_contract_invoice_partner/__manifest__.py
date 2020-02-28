@@ -19,12 +19,12 @@
 ###############################################################################
 {
     'name': 'Contract Contract Invoice Partner',
-    'version': '12.0.1.0.0',
-    'category': 'Sale',
-    'author': 'Oscar Soto',
-    'summary': 'Select the invoice partner from sale order '
-    'to the new contract',
+    'summary': 'Select invoice partner from sale order to the new contract',
+    'author': 'Oscar Soto, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
+    'category': 'Sales',
+    'version': '12.0.1.0.0',
     'depends': [
         'contract',
         'sale_management',

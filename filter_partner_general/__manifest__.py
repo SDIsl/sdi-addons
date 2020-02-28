@@ -18,11 +18,12 @@
 #
 ###############################################################################
 {
-    'name': 'SDi: filter partner',
-    "version": "12.0.1.0.1",
-    'category': 'Contact',
-    'author': 'Javier Izco',
+    'name': 'Filter Partner Customize',
     'summary': 'Add filter to partner.',
+    'category': 'Tools',
+    'version': '12.0.1.0.1',
+    'author': 'Javier Izco, SDi Soluciones Informáticas',
+    'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
     'depends': [
         'contacts',
@@ -30,5 +31,4 @@
     'data': [
         'views/inherit_res_partner_views.xml',
     ],
-    'installable': True,
 }
