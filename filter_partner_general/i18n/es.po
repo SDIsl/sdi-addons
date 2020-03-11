@@ -34,8 +34,3 @@ msgstr "Nombre, email, teléfono, móvil o NIF"
 #: model_terms:ir.ui.view,arch_db:filter_partner_general.view_res_partner_filter
 msgid "State"
 msgstr "Provincia"
-
-#. module: filter_partner_general
-#: model_terms:ir.ui.view,arch_db:filter_partner_general.view_res_partner_filter
-msgid "Tag"
-msgstr "Etiqueta"
