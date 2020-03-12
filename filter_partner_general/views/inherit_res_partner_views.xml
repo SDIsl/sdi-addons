@@ -9,7 +9,6 @@
                 <field name="city" string="City"/>
                 <field name="state_id" string="State"/>
                 <field name="industry_id" string="Industry"/>
-                <field name="category_id" string="Tag"/>
             </xpath>
             <xpath expr="//filter[@name='group_company']" position="before">
                 <filter name="group_industry" string="Industry" context="{'group_by': 'industry_id'}"/>
