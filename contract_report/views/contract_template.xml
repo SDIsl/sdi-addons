@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="contract_template_form_view" model="ir.ui.view">
+    <field name="model">contract.template</field>
+    <field name="inherit_id" ref="contract.contract_template_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//group[@name='group_invoice_lines']" position="after">
+            <group name="group_sale_process" string="Sale Order Processing">
+                <field name="sale_order_process"/>
+            </group>
+            <group name="group_service_level" string="Characteristics of the service level offered">
+                <field name="service_level"/>
+            </group>
+            <group name="group_clause" string="Templates Clausules">
+                <field name="contract_clause"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+</odoo>
