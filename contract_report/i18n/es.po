@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 07:19+0000\n"
-"PO-Revision-Date: 2020-08-13 09:22+0200\n"
+"POT-Creation-Date: 2020-08-26 11:01+0000\n"
+"PO-Revision-Date: 2020-08-26 13:03+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,8 +30,8 @@ msgstr "&amp;nbsp;<span>de</span>&amp;nbsp;"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
-msgid ". Maintenances"
-msgstr ". Mantenimientos"
+msgid ". Additional Information"
+msgstr ". Información adicional"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -39,10 +39,14 @@ msgid ". Payment mode:"
 msgstr ". Método de pago:"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid ". Sale Order Processing"
-msgstr ". Tramitación del pedido"
+msgstr ". Tramitación del pedido "
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
+msgid ". Service Level"
+msgstr ". Nivel de servicio"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -58,6 +62,11 @@ msgstr "1. Información del cliente"
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span class=\"text-danger\">The sum of percent must be 100%</span>"
 msgstr "<span class=\"text-danger\">La suma de los porcentajes debe ser 100%</span>"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "<span>Amount</span><br/><span/>(TAX included)"
+msgstr "<span>Importe</span><br/><span/>(IVA incluido)"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -142,11 +151,6 @@ msgid "Amount"
 msgstr "Importe"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Amount(TAX included)"
-msgstr "Importe(IVA incluido)"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "CIF / DNI:"
 msgstr ""
@@ -168,14 +172,9 @@ msgid "Company Name:"
 msgstr "Empresa:"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Name"
-msgstr "Nombre"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
-msgid "Consult commercial:"
-msgstr "Consultor comercial:"
+msgid "Consult:"
+msgstr "Consultor:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -225,18 +224,22 @@ msgstr "Cargo:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Payments are made with the selected payment method."
-msgstr "Los pagos se harán con el método de pago seleccionado."
+msgid "Name"
+msgstr "Nombre"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid ""
+"Once the contract is signed, we will pass you the first draft,\n"
+"                  and in the next days the technical department will contact you to start the project."
+msgstr ""
+"Una vez firmado el contrato, os pasaremos el primer giro,\n"
+" y en los próximos días el departamento técnico se pondrá en contacto para iniciar el proyecto."
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Phone/Mobile:"
 msgstr "Teléfono/Móvil:"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Porcent (%)"
-msgstr "Porcentaje(%)"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -274,7 +277,7 @@ msgstr "Contrato de ventas"
 #: model:ir.model.fields,field_description:contract_report.field_contract_template__sale_order_process
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
 msgid "Sale Order Processing"
-msgstr "Tramitación del pedido"
+msgstr "Tramitación del pedido "
 
 #. module: contract_report
 #: model:ir.model.fields,field_description:contract_report.field_contract_contract__service_level
@@ -317,16 +320,6 @@ msgid "Terms and conditions of the contract"
 msgstr "Términos y condiciones del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "The technical department will contact you to start your projec."
-msgstr "El departamento técnico contactará contigo para empezar tu proyecto."
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "To start your project it will be necessary to sign this contract."
-msgstr "Para empezar tu proyecto será necesario firmar este contrato."
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Unit Price"
-msgstr "Precio"
+msgstr "Precio unitario"

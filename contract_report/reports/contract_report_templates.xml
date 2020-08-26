@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-3 bg-light">Email:</div>
             <div class="col-5"><span t-field="doc.partner_id.email"/></div>
-            <div class="col-2 bg-light">Consult commercial:</div>
+            <div class="col-2 bg-light">Consult:</div>
             <div class="col-2"><span t-field="doc.user_id.name"/></div>
         </div>
     </div>
@@ -110,7 +110,6 @@
                             </td>
                             <td class="text-right">
                                 <span t-field="line.product_uom_qty"/>
-                                <span t-field="line.product_uom"/>
                             </td>
                             <td class="text-right">
                                 <span t-field="line.price_unit"
@@ -212,7 +211,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-7">
+            <div class="col-6">
                 <t t-set="index_title" t-value="index_title +1"/>
                 <div id="contract_payment_mode">
                     <h5><span t-esc="index_title"/>. Payment mode: <span t-field="doc.payment_mode_id"/></h5>
@@ -221,9 +220,9 @@
                             <tr>
                                 <t t-set="colspan" t-value="5"/>
                                 <th class="text-left">Name</th>
-                                <th class="text-right">Porcent (%)</th>
+                                <th class="text-right">%</th>
                                 <th class="text-right">Date</th>
-                                <th class="text-right">Amount(TAX included)</th>
+                                <th class="text-right"><span>Amount</span><br></br><span></span>(TAX included)</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
@@ -235,11 +234,11 @@
                                     <td>
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="text-right">
+                                    <td class="text-center">
                                         <span t-field="line.percent"/><span> %</span>
                                         <t t-set="current_percent_sum" t-value="current_percent_sum + line.percent"/>
                                     </td>
-                                    <td class="text-right">
+                                    <td class="text-center">
                                         <span t-field="line.date"/>
                                     </td>                                
                                     <td class="text-right o_price_total">
@@ -280,14 +279,10 @@
                     </table>
                 </div>
             </div>
-            <div id="service_sale_order_process" class="col-5">
+            <div id="service_sale_order_process" class="col-6">
                 <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
-                <p>
-                    <ol>
-                        <li>To start your project it will be necessary to sign this contract.</li>
-                        <li>Payments are made with the selected payment method.</li>
-                        <li>The technical department will contact you to start your projec.</li>
-                    </ol>
+                <p>Once the contract is signed, we will pass you the first draft,
+                  and in the next days the technical department will contact you to start the project.
                 </p>
             </div>
         </div>
@@ -299,7 +294,7 @@
     <t t-set="index_title" t-value="index_title + 1"/>
     <t t-call="contract_report.customer_info"/>
     <div>
-        <h5><span t-esc="index_title"/>. Maintenances</h5>
+        <h5 class="mt16"><span t-esc="index_title"/>. Service Level</h5>
         <table class="table table-sm o_main_table">
             <thead>
                 <tr>
@@ -360,7 +355,7 @@
                                 <span t-field="line.discount"/>
                             </td>
                             <td class="text-right o_price_total">
-                                <span t-field="line.price_total"/>
+                                <span t-field="line.price_subtotal"/>
                             </td>
                         </t>
                         <t t-if="line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.property_contract_template_id == contract">
@@ -448,7 +443,7 @@
     </div>
     <div id="contract_sale_order_process">
         <t t-set="index_title" t-value="index_title + 1"/>
-        <h5><span t-esc="index_title"/>. Sale Order Processing</h5>
+        <h5><span t-esc="index_title"/>. Additional Information</h5>
         <p t-field="contract.sale_order_process"/>
     </div>
     <!-- Signature & Observations-->
