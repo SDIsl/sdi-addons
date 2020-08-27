@@ -7,7 +7,7 @@
     <t t-else="else" t-call="web.external_layout_standard"><t t-raw="0"/></t>
 </template>
 <template id="signs">
-    <div class="row mt16 mb-1" name="signatures" style="page-break-inside: avoid">
+    <div class="row mt16 mb-1" name="signatures">
         <div class="col-6">
             <div class="card rounded-0 border-dark position-relative" style="height: 120px">
                 <div class="text-center">
@@ -210,84 +210,86 @@
                 </table>
             </div>
         </div>
-        <div class="row" style="page-break-inside:avoid">
-            <div class="col-6">
-                <t t-set="index_title" t-value="index_title +1"/>
-                <div id="contract_payment_mode">
-                    <h5><span t-esc="index_title"/>. Payment mode</h5>
-                    <table class="table table-sm o_main_table">
-                        <thead>
-                            <tr>
-                                <t t-set="colspan" t-value="5"/>
-                                <th class="text-left">Name</th>
-                                <th class="text-center">%</th>
-                                <th class="text-center">Date</th>
-                                <th class="text-center"><span>Amount</span><br></br><span></span>(TAX inc.)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="sale_tbody">
-                            <t t-set="current_advances_total" t-value="0"/>
-                            <t t-set="current_percent_sum" t-value="0"/>
-                            <t t-set="current_amount_total" t-value="round(current_amount_total, 2)"/>
-                            <t t-foreach="doc.advance_line_ids" t-as="line">
+        <div style="page-break-inside:avoid">
+            <div class="row" >
+                <div class="col-6">
+                    <t t-set="index_title" t-value="index_title +1"/>
+                    <div id="contract_payment_mode">
+                        <h5><span t-esc="index_title"/>. Payment mode</h5>
+                        <table class="table table-sm o_main_table">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <span t-field="line.name"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <span t-field="line.percent"/><span> %</span>
-                                        <t t-set="current_percent_sum" t-value="current_percent_sum + line.percent"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <span t-field="line.date"/>
-                                    </td>                                
-                                    <td class="text-right o_price_total">
-                                        <t t-if="line_last">
-                                            <t t-set="last_line_subtotal" t-value="round(current_amount_total - current_advances_total, 2)"/>                                                    
+                                    <t t-set="colspan" t-value="5"/>
+                                    <th class="text-left">Name</th>
+                                    <th class="text-center">%</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center"><span>Amount</span><br></br><span></span>(TAX inc.)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-set="current_advances_total" t-value="0"/>
+                                <t t-set="current_percent_sum" t-value="0"/>
+                                <t t-set="current_amount_total" t-value="round(current_amount_total, 2)"/>
+                                <t t-foreach="doc.advance_line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="line.percent"/><span> %</span>
+                                            <t t-set="current_percent_sum" t-value="current_percent_sum + line.percent"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="line.date"/>
+                                        </td>                                
+                                        <td class="text-right o_price_total">
+                                            <t t-if="line_last">
+                                                <t t-set="last_line_subtotal" t-value="round(current_amount_total - current_advances_total, 2)"/>                                                    
+                                                <span
+                                                    t-esc="last_line_subtotal"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                                />
+                                                <t t-set="current_advances_total" t-value="current_advances_total + last_line_subtotal"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-set="subtotal" t-value="round((current_amount_total * line.percent) / 100, 2)"/>                                            
+                                                <span
+                                                    t-esc="subtotal"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                                />
+                                                <t t-set="current_advances_total" t-value="round(current_advances_total + subtotal, 2)"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="is-subtotal text-right">
+                                    <td colspan="60">
+                                        <strong class="mr16">Total</strong>
+                                        <t t-if="current_percent_sum == 100">
                                             <span
-                                                t-esc="last_line_subtotal"
-                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                            t-esc="current_advances_total"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
                                             />
-                                            <t t-set="current_advances_total" t-value="current_advances_total + last_line_subtotal"/>
                                         </t>
                                         <t t-else="">
-                                            <t t-set="subtotal" t-value="round((current_amount_total * line.percent) / 100, 2)"/>                                            
-                                            <span
-                                                t-esc="subtotal"
-                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
-                                            />
-                                            <t t-set="current_advances_total" t-value="round(current_advances_total + subtotal, 2)"/>
+                                            <span class="text-danger">The sum of percent must be 100%</span>
                                         </t>
                                     </td>
                                 </tr>
-                            </t>
-                            <tr class="is-subtotal text-right">
-                                <td colspan="60">
-                                    <strong class="mr16">Total</strong>
-                                    <t t-if="current_percent_sum == 100">
-                                        <span
-                                        t-esc="current_advances_total"
-                                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
-                                        />
-                                    </t>
-                                    <t t-else="">
-                                        <span class="text-danger">The sum of percent must be 100%</span>
-                                    </t>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="service_sale_order_process" class="col-6">
+                    <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
+                    <p>To start the project it is only necessary to sign this contract.</p>
+                    <p>Remember that payments will be made with the selected payment.</p>
+                    <p>Once we receive the signed contract, the technical department will contact you to start the project.</p>
+                    
                 </div>
             </div>
-            <div id="service_sale_order_process" class="col-6">
-                <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
-                <p>To start the project it is only necessary to sign this contract.</p>
-                <p>Remember that payments will be made with the selected payment.</p>
-                <p>Once we receive the signed contract, the technical department will contact you to start the project.</p>
-                
-            </div>
+            <t t-call="contract_report.signs"/>
         </div>
-        <t t-call="contract_report.signs"/>
     </t>
 </template>
 <template id="contract_mantenances">
