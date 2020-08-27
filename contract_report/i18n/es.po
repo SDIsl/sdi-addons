@@ -145,7 +145,7 @@ msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 #: model:ir.model.fields,field_description:contract_report.field_contract_contract__contract_clause
 #: model:ir.model.fields,field_description:contract_report.field_contract_template__contract_clause
 msgid "ANNEX II: Clausules and Conditions"
-msgstr "ANEXO II: Clúsulas y condiciones"
+msgstr "ANEXO II: Claúsulas y condiciones"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
