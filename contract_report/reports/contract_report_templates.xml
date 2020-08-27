@@ -210,7 +210,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="page-break-before:auto">
             <div class="col-6">
                 <t t-set="index_title" t-value="index_title +1"/>
                 <div id="contract_payment_mode">
