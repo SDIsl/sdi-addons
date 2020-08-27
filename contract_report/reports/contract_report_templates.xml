@@ -64,7 +64,7 @@
     </div>
 </template>
 <template id="summary_services">
-    <h3>Services <span t-field="company.name"/></h3>
+    <h3>Contract Services <span t-field="company.name"/></h3>
     <t t-call="contract_report.customer_info"/>
     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
     <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7] and l.unit_id.company_id == company)">
@@ -210,19 +210,19 @@
                 </table>
             </div>
         </div>
-        <div class="row" style="page-break-before:auto">
+        <div class="row" style="page-break-inside:avoid">
             <div class="col-6">
                 <t t-set="index_title" t-value="index_title +1"/>
                 <div id="contract_payment_mode">
-                    <h5><span t-esc="index_title"/>. Payment mode: <span t-field="doc.payment_mode_id"/></h5>
+                    <h5><span t-esc="index_title"/>. Payment mode</h5>
                     <table class="table table-sm o_main_table">
                         <thead>
                             <tr>
                                 <t t-set="colspan" t-value="5"/>
                                 <th class="text-left">Name</th>
-                                <th class="text-right">%</th>
-                                <th class="text-right">Date</th>
-                                <th class="text-right"><span>Amount</span><br></br><span></span>(TAX included)</th>
+                                <th class="text-center">%</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center"><span>Amount</span><br></br><span></span>(TAX inc.)</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
@@ -262,7 +262,7 @@
                                 </tr>
                             </t>
                             <tr class="is-subtotal text-right">
-                                <td colspan="100">
+                                <td colspan="60">
                                     <strong class="mr16">Total</strong>
                                     <t t-if="current_percent_sum == 100">
                                         <span
@@ -281,9 +281,10 @@
             </div>
             <div id="service_sale_order_process" class="col-6">
                 <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
-                <p>Once the contract is signed, we will pass you the first draft,
-                  and in the next days the technical department will contact you to start the project.
-                </p>
+                <p>To start the project it is only necessary to sign this contract.</p>
+                <p>Remember that payments will be made with the selected payment.</p>
+                <p>Once we receive the signed contract, the technical department will contact you to start the project.</p>
+                
             </div>
         </div>
         <t t-call="contract_report.signs"/>

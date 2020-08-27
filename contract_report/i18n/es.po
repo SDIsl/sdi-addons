@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-27 07:58+0000\n"
-"PO-Revision-Date: 2020-08-27 10:04+0200\n"
+"POT-Creation-Date: 2020-08-27 10:12+0000\n"
+"PO-Revision-Date: 2020-08-27 12:20+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,8 +35,8 @@ msgstr ". Información adicional"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid ". Payment mode:"
-msgstr ". Método de pago:"
+msgid ". Payment mode"
+msgstr ". Método de pago"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -65,8 +65,8 @@ msgstr "<span class=\"text-danger\">La suma de los porcentajes debe ser 100%</sp
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "<span>Amount</span><br/><span/>(TAX included)"
-msgstr "<span>Importe</span><br/><span/>(IVA incluido)"
+msgid "<span>Amount</span><br/><span/>(TAX inc.)"
+msgstr "<span>Importe</span><br/><span/>(IVA inc.)"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -145,7 +145,7 @@ msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 #: model:ir.model.fields,field_description:contract_report.field_contract_contract__contract_clause
 #: model:ir.model.fields,field_description:contract_report.field_contract_template__contract_clause
 msgid "ANNEX II: Clausules and Conditions"
-msgstr "ANEXO II: Claúsulas y condiciones"
+msgstr "ANEXO II: Cláusulas y condiciones"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -201,6 +201,11 @@ msgid "Contract"
 msgstr "Contrato"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "Contract Services"
+msgstr "Contrato de servicios"
+
+#. module: contract_report
 #: model:ir.model,name:contract_report.model_contract_template
 msgid "Contract Template"
 msgstr "Plantilla de contrato"
@@ -243,12 +248,8 @@ msgstr "Nombre"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid ""
-"Once the contract is signed, we will pass you the first draft,\n"
-"                  and in the next days the technical department will contact you to start the project."
-msgstr ""
-"Una vez firmado el contrato, os pasaremos el primer giro,\n"
-" y en los próximos días el departamento técnico se pondrá en contacto para iniciar el proyecto."
+msgid "Once we receive the signed contract, the technical department will contact you to start the project."
+msgstr "Una vez recibamos el contrato firmado, el departamento técnico se pondrá en contacto contigo para iniciar el proyecto."
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -282,6 +283,11 @@ msgid "Recurring Interval"
 msgstr "Facturar cada"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "Remember that payments will be made with the selected payment."
+msgstr "Recuerde que los pagos se harán con el pago seleccionado."
+
+#. module: contract_report
 #: model:ir.actions.report,name:contract_report.action_report_contract
 msgid "Sale Contract"
 msgstr "Contrato de ventas"
@@ -295,11 +301,6 @@ msgstr "Tramitación del pedido"
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Service Level"
 msgstr "Nivel de servicio"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Services"
-msgstr "Servicios"
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_contract_contract__sale_order_process
@@ -322,6 +323,11 @@ msgstr "Plantilla de cláusulas"
 #: model:ir.model.fields,help:contract_report.field_contract_template__contract_clause
 msgid "Terms and conditions of the contract"
 msgstr "Términos y condiciones del contrato"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "To start the project it is only necessary to sign this contract."
+msgstr "Para iniciar el proyecto sólo es necesario la firma de este contrato."
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
