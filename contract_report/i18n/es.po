@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 11:01+0000\n"
-"PO-Revision-Date: 2020-08-26 13:03+0200\n"
+"POT-Creation-Date: 2020-08-27 07:58+0000\n"
+"PO-Revision-Date: 2020-08-27 10:04+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr ". Método de pago:"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid ". Sale Order Processing"
-msgstr ". Tramitación del pedido "
+msgstr ". Tramitación del pedido"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -130,6 +130,8 @@ msgid "<strong>Total</strong>"
 msgstr ""
 
 #. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_contract_contract__service_level
+#: model:ir.model.fields,field_description:contract_report.field_contract_template__service_level
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_report_template
 msgid "ANNEX I: Service Level"
 msgstr "ANEXO I: Nivel de servicio"
@@ -140,9 +142,21 @@ msgid "ANNEX II: Clauses and conditions of the contract"
 msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 
 #. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_contract_contract__contract_clause
+#: model:ir.model.fields,field_description:contract_report.field_contract_template__contract_clause
+msgid "ANNEX II: Clausules and Conditions"
+msgstr "ANEXO II: Clúsulas y condiciones"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Address:"
 msgstr "Dirección:"
+
+#. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_contract_contract__sale_order_process
+#: model:ir.model.fields,field_description:contract_report.field_contract_template__sale_order_process
+msgid "Aditional Information"
+msgstr "Información adicional"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -273,15 +287,11 @@ msgid "Sale Contract"
 msgstr "Contrato de ventas"
 
 #. module: contract_report
-#: model:ir.model.fields,field_description:contract_report.field_contract_contract__sale_order_process
-#: model:ir.model.fields,field_description:contract_report.field_contract_template__sale_order_process
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
 msgid "Sale Order Processing"
-msgstr "Tramitación del pedido "
+msgstr "Tramitación del pedido"
 
 #. module: contract_report
-#: model:ir.model.fields,field_description:contract_report.field_contract_contract__service_level
-#: model:ir.model.fields,field_description:contract_report.field_contract_template__service_level
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Service Level"
 msgstr "Nivel de servicio"
@@ -305,12 +315,6 @@ msgstr "Firma del proveedor"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
 msgid "Templates Clausules"
-msgstr "Plantilla de cláusulas"
-
-#. module: contract_report
-#: model:ir.model.fields,field_description:contract_report.field_contract_contract__contract_clause
-#: model:ir.model.fields,field_description:contract_report.field_contract_template__contract_clause
-msgid "Templates clauseles"
 msgstr "Plantilla de cláusulas"
 
 #. module: contract_report
