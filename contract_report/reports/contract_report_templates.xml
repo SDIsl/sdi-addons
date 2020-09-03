@@ -123,12 +123,12 @@
                                 <span t-field="line.price_subtotal"/>
                             </td>
                         </t>
-                        <t t-if="line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].display_type in ['line_section', 'line_note']">
+                        <t t-if="not line_last and line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].display_type in ['line_section', 'line_note']">
                             <td colspan="99">
                                 <span t-field="line.name"/>
                             </td>
                         </t>
-                        <t t-if="line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.categ_id.id not in [5, 7] and doc.order_line[line_index+1].unit_id.company_id == company">
+                        <t t-if="not line_last and line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.categ_id.id not in [5, 7] and doc.order_line[line_index+1].unit_id.company_id == company">
                             <td colspan="99">
                                 <span t-field="line.name"/>
                             </td>
@@ -361,7 +361,7 @@
                                 <span t-field="line.price_subtotal"/>
                             </td>
                         </t>
-                        <t t-if="line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.property_contract_template_id == contract">
+                        <t t-if="not line_last and line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.property_contract_template_id == contract">
                             <td colspan="99">
                                 <span t-field="line.name"/>
                             </td>
@@ -450,7 +450,9 @@
         <p t-field="contract.sale_order_process"/>
     </div>
     <!-- Signature & Observations-->
-    <t t-call="contract_report.signs"/>
+    <div style="page-break-inside:avoid">
+        <t t-call="contract_report.signs"/>
+    </div>
 </template>
 <template id="contract_report_template">
     <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
