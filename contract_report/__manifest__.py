@@ -31,6 +31,7 @@
     ],
     'data': [
         'views/contract_template.xml',
+        'views/res_company.xml',
         'reports/contract_report_templates.xml',
         'reports/contract_report.xml',
     ],

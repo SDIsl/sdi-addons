@@ -5,14 +5,14 @@
     <field name="inherit_id" ref="contract.contract_template_form_view"/>
     <field name="arch" type="xml">
         <xpath expr="//group[@name='group_invoice_lines']" position="after">
-            <group name="group_sale_process" string="Sale Order Processing">
-                <field name="sale_order_process"/>
+            <group name="group_sale_process" string="Additional Information">
+                <field name="sale_order_process" nolabel="1"/>
             </group>
-            <group name="group_service_level" string="Characteristics of the service level offered">
-                <field name="service_level"/>
+            <group name="group_service_level" string="ANNEX I: Characteristics of the service level offered">
+                <field name="service_level" nolabel="1"/>
             </group>
-            <group name="group_clause" string="Templates Clausules">
-                <field name="contract_clause"/>
+            <group name="group_clause" string="ANNEX II: Templates Clausules">
+                <field name="contract_clause" nolabel="1"/>
             </group>
         </xpath>
     </field>

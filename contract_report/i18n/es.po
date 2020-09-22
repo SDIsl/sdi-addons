@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-27 10:12+0000\n"
-"PO-Revision-Date: 2020-08-27 12:20+0200\n"
+"POT-Creation-Date: 2020-09-22 09:44+0000\n"
+"PO-Revision-Date: 2020-09-22 11:45+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 "Language: es\n"
 "X-Generator: Poedit 2.0.6\n"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.signs
-msgid "${object.company_id.name}"
-msgstr ""
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -36,7 +31,7 @@ msgstr ". Información adicional"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid ". Payment mode"
-msgstr ". Método de pago"
+msgstr ". Método de pago:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -57,6 +52,11 @@ msgstr ". Resumen de productos y servicios"
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "1. Customer Information"
 msgstr "1. Información del cliente"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "<span class=\"text-danger\">The company doesn't have a bank account</span>"
+msgstr "<span class=\"text-danger\">La compañía no tiene cuenta bancaria</span>"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -130,6 +130,11 @@ msgid "<strong>Total</strong>"
 msgstr ""
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
+msgid "ANNEX I: Characteristics of the service level offered"
+msgstr "ANEXO I: Características del nivel de servicio ofrecido"
+
+#. module: contract_report
 #: model:ir.model.fields,field_description:contract_report.field_contract_contract__service_level
 #: model:ir.model.fields,field_description:contract_report.field_contract_template__service_level
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_report_template
@@ -145,7 +150,22 @@ msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 #: model:ir.model.fields,field_description:contract_report.field_contract_contract__contract_clause
 #: model:ir.model.fields,field_description:contract_report.field_contract_template__contract_clause
 msgid "ANNEX II: Clausules and Conditions"
-msgstr "ANEXO II: Cláusulas y condiciones"
+msgstr "ANEXO II: Cláusulas y condiciones del contrato"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
+msgid "ANNEX II: Templates Clausules"
+msgstr ""
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
+msgid "Account Number:"
+msgstr "Número de cuenta:"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
+msgid "Additional Information"
+msgstr "Información adicional"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -176,9 +196,9 @@ msgid "Characteristics and conditions of the level of service offered"
 msgstr "Características y condiciones del nivel de servicio ofrecido"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
-msgid "Characteristics of the service level offered"
-msgstr "Características del nivel de servicio ofrecido"
+#: model:ir.model,name:contract_report.model_res_company
+msgid "Companies"
+msgstr "Compañías"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -201,9 +221,24 @@ msgid "Contract"
 msgstr "Contrato"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.view_company_form
+msgid "Contract Customize"
+msgstr "Contrato"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.view_company_form
+msgid "Contract Report Configuration"
+msgstr "Configuración del informe de contrato"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Contract Services"
 msgstr "Contrato de servicios"
+
+#. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_res_company__contract_sign
+msgid "Contract Sign"
+msgstr "Firma del contrato"
 
 #. module: contract_report
 #: model:ir.model,name:contract_report.model_contract_template
@@ -247,11 +282,6 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Once we receive the signed contract, the technical department will contact you to start the project."
-msgstr "Una vez recibamos el contrato firmado, el departamento técnico se pondrá en contacto contigo para iniciar el proyecto."
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Phone/Mobile:"
 msgstr "Teléfono/Móvil:"
@@ -283,19 +313,14 @@ msgid "Recurring Interval"
 msgstr "Facturar cada"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "Remember that payments will be made with the selected payment."
-msgstr "Recuerde que los pagos se harán con el pago seleccionado."
-
-#. module: contract_report
 #: model:ir.actions.report,name:contract_report.action_report_contract
 msgid "Sale Contract"
 msgstr "Contrato de ventas"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
-msgid "Sale Order Processing"
-msgstr "Tramitación del pedido"
+#: model:ir.model.fields,field_description:contract_report.field_res_company__sale_order_process_info
+msgid "Sale Order Process"
+msgstr "Proceso de ventas"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -309,14 +334,14 @@ msgid "Steps for the client to make the payment of the contract."
 msgstr "Pasos para que el cliente realice el pago del contrato."
 
 #. module: contract_report
+#: model:ir.model.fields,help:contract_report.field_res_company__sale_order_process_info
+msgid "Steps for the client to make the payment of the service contract."
+msgstr "Pasos para que el cliente realice el pago del contrato de servicio."
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "Supplier Signature"
 msgstr "Firma del proveedor"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
-msgid "Templates Clausules"
-msgstr "Plantilla de cláusulas"
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_contract_contract__contract_clause
@@ -325,11 +350,11 @@ msgid "Terms and conditions of the contract"
 msgstr "Términos y condiciones del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "To start the project it is only necessary to sign this contract."
-msgstr "Para iniciar el proyecto sólo es necesario la firma de este contrato."
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Unit Price"
-msgstr "Precio unitario"
+msgstr "Precio"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.signs
+msgid "sign"
+msgstr "Firma"
