@@ -10,8 +10,8 @@
     <div class="row mt16 mb-1" name="signatures">
         <div class="col-6">
             <div class="card rounded-0 border-dark position-relative" style="height: 120px">
-                <div class="text-center">
-                    <img style="height: 110px; width: 220px;" src="/contract_report/static/src/img/sign_and_stamp_sdi.jpg" alt="${object.company_id.name}"/>
+                <div class="text-center p-2">
+                    <img t-if="company.contract_sign" t-att-src="image_data_uri(company.contract_sign)" style="height: 100px" alt="sign"/>
                 </div>
                 <div class="card-body fixed-bottom position-absolute text-center w-100 p-1">Supplier Signature</div>
             </div>
@@ -64,7 +64,14 @@
     </div>
 </template>
 <template id="summary_services">
-    <h3>Contract Services <span t-field="company.name"/></h3>
+    <h3>Contract Services 
+        <t t-if="company.partner_id.comercial">
+            <span t-field="company.partner_id.comercial"/>
+        </t>
+        <t t-else="">
+            <span t-field="company.name"/>
+        </t>
+    </h3>
     <t t-call="contract_report.customer_info"/>
     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
     <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7] and l.unit_id.company_id == company)">
@@ -282,10 +289,15 @@
                 </div>
                 <div id="service_sale_order_process" class="col-6">
                     <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
-                    <p>To start the project it is only necessary to sign this contract.</p>
-                    <p>Remember that payments will be made with the selected payment.</p>
-                    <p>Once we receive the signed contract, the technical department will contact you to start the project.</p>
-                    
+                    <t t-raw="company.sale_order_process_info"/>
+                    <h6>Account Number: 
+                        <t t-if="company.partner_id.bank_ids">
+                            <span t-field="company.partner_id.bank_ids[0].acc_number"/>
+                        </t>
+                        <t t-else="">
+                            <span class="text-danger">The company doesn't have a bank account</span>
+                        </t>                                
+                    </h6>
                 </div>
             </div>
             <t t-call="contract_report.signs"/>

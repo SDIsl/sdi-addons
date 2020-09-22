@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="contract_report_configuration_page" string="Contract Customize">
+                    <group name="contract_report_configuration" string="Contract Report Configuration">
+                        <group>
+                            <field name="sale_order_process_info"/>                        
+                        </group>
+                        <group>
+                            <field name="contract_sign" widget="image" class="oe_avatar"/>                        
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
