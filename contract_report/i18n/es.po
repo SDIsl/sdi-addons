@@ -320,7 +320,7 @@ msgstr "Contrato de ventas"
 #. module: contract_report
 #: model:ir.model.fields,field_description:contract_report.field_res_company__sale_order_process_info
 msgid "Sale Order Process"
-msgstr "Proceso de ventas"
+msgstr "Tramitación del pedido"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
