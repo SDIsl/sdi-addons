@@ -4,7 +4,7 @@ import io
 from odoo import api, fields, models, _
 import pandas
 import logging
-_log = logging.getLogger('SDi migration res_partner')
+_log = logging.getLogger('SDi migration contracts')
 try:
     import xlrd
     try:
@@ -18,6 +18,17 @@ from base64 import b64decode
 import json
 from os import path
 
+_recurring_rule_type = {
+    'anual': 'yearly',
+    'meses': 'monthly',
+}
+
+
+class Errores(models.Model):
+    _name = "importar.contratos.errores"
+    linea = fields.Integer()
+    name = fields.Char("Error")
+
 
 class Importar(models.TransientModel):
     _name = 'importar.contratos'
@@ -28,17 +39,17 @@ class Importar(models.TransientModel):
         required=True,
     )
     company_id = fields.Many2one('res.company')
-    cliente = fields.Char("Cliente", default='codcli')
-    nombre = fields.Char("Nombre contrato", default='contract_id')
-    producto = fields.Char("Producto", default="codart")
-    uds = fields.Char("Unidades", default="quantity")
-    precio_u = fields.Char("precio", default="price_unit")
-    descuento = fields.Char("Descuento", default="multiple_discount")
-    intervalo_num = fields.Char("Intervalo ctd", default="recurring_interval")
-    intervalo_tipo = fields.Char("Intervalo regla", default="recurring_rule_type")
-    fecha_comienzo = fields.Char("Fecha comienzo", default="date_start")
-    fecha_fin = fields.Char("Fecha fin", default="date_end")
-    fecha_siguiente = fields.Char("Fecha siguiente", default="recurring_next_date")
+    cliente = fields.Char("Cliente", default='idcliente')
+    nombre = fields.Char("Nombre contrato", default='contrato')
+    producto = fields.Char("Producto", default="idprod")
+    uds = fields.Char("Unidades", default="cantidad")
+    precio_u = fields.Char("precio", default="precio_u")
+    descuento = fields.Char("Descuento", default="descuento")
+    intervalo_num = fields.Char("Intervalo ctd", default="frecuencia")
+    intervalo_tipo = fields.Char("Intervalo regla", default="frecuencia_tiempo")
+    fecha_comienzo = fields.Char("Fecha comienzo", default="fecha inicio")
+    fecha_fin = fields.Char("Fecha fin", default="fecha fin")
+    fecha_siguiente = fields.Char("Fecha siguiente", default="fecha proxima factura")
 
     @api.onchange('data_file')
     def _onchange_data_file(self):
@@ -52,6 +63,7 @@ class Importar(models.TransientModel):
         line = self.env['contract.line']
         prod = self.env['product.product']
         cli = self.env['res.partner']
+        error = self.env['importar.contratos.errores']
         journal = self.env['account.journal'].search([
             ('type', '=', 'sale'),
             ('company_id', '=', self.company_id.id),
@@ -63,13 +75,37 @@ class Importar(models.TransientModel):
         curcon = cabe.name
         for linea, row in df.iterrows():
             _log.info(linea)
-            cliente = cli.search([('migration_customer_id', '=', str(int(row[self.cliente])))])
+            cliente = cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
             if not cliente:
-                _log.warning("El cliente (%s) no se encuentra." % str(int(row[self.cliente])))
+                _log.warning("El cliente (%s) no se encuentra. Contrato: %s " % (str(int(row[self.cliente])),
+                                                                                 row[self.nombre]))
+                error.create({
+                    'linea': linea+2,
+                    'name': "El cliente (%s) no se encuentra. Contrato: %s " % (str(int(row[self.cliente])),
+                                                                                row[self.nombre])
+                })
                 continue
             producto = prod.search([('default_code', '=', row[self.producto])])
             if not producto:
-                _log.warning("El producto (%s) no se encuentra." % row[self.producto])
+                producto = prod.search([('migration_id', '=', row[self.producto])])
+                if not producto:
+                    producto = prod.search([('migration_original_id', '=', row[self.producto])])
+            if not producto:
+                _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (row[self.producto],row[self.nombre],cliente.name))
+                error.create({
+                    'linea': linea + 2,
+                    'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
+                            (row[self.producto], row[self.nombre], cliente.name)
+                })
+                continue
+            if producto.area_id.company_id.id != self.company_id.id:
+                _log.warning("El producto (%s) tiene udn que pertenece a %s " %
+                             (row[self.producto], producto.area_id.company_id.name))
+                error.create({
+                    'linea': linea + 2,
+                    'name': "El producto (%s) tiene udn que pertenece a %s " %
+                            (row[self.producto], producto.area_id.company_id.name)
+                })
                 continue
             if curcli != cliente or curcon.name != row[self.nombre]:
                 # Crear cabecera de contrato
@@ -98,7 +134,7 @@ class Importar(models.TransientModel):
                     'specific_price': row[self.precio_u],
                     'discount': row[self.descuento],
                     'recurring_interval': row[self.intervalo_num],
-                    'recurring_interval_type': row[self.intervalo_tipo],
+                    'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
 
                 }
             )
@@ -107,10 +143,9 @@ class Importar(models.TransientModel):
 
         return {
             'type': 'ir.actions.act_window',
-            'target': 'new',
-            'name': 'contract.action_customer_contract',
+            'target': 'self',
+            'name': 'Errores en la migracion',
             'view_mode': 'tree,form',
-            'res_model': 'contract.contract',
-            'context': {'create_uid': self.env.user.id, 'company_id': self.company_id.id},
+            'res_model': 'importar.contratos.errores',
         }
 
