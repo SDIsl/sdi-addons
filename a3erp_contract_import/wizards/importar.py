@@ -4,6 +4,10 @@ import io
 from odoo import api, fields, models, _
 import pandas
 import logging
+from base64 import b64decode
+import json
+from os import path
+
 _log = logging.getLogger('SDi migration contracts')
 try:
     import xlrd
@@ -14,9 +18,6 @@ try:
 except ImportError:
     xlrd = xlsx = None
 
-from base64 import b64decode
-import json
-from os import path
 
 _recurring_rule_type = {
     'anual': 'yearly',
@@ -24,7 +25,7 @@ _recurring_rule_type = {
 }
 
 
-class Errores(models.Model):
+class Errores(models.TransientModel):
     _name = "importar.contratos.errores"
     linea = fields.Integer()
     name = fields.Char("Error")
@@ -40,6 +41,7 @@ class Importar(models.TransientModel):
     )
     company_id = fields.Many2one('res.company')
     cliente = fields.Char("Cliente", default='idcliente')
+    nif_cliente = fields.Char("NIF", default="nifcli")
     nombre = fields.Char("Nombre contrato", default='contrato')
     producto = fields.Char("Producto", default="idprod")
     uds = fields.Char("Unidades", default="cantidad")
@@ -76,6 +78,18 @@ class Importar(models.TransientModel):
         for linea, row in df.iterrows():
             _log.info(linea)
             cliente = cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
+            if not cliente:
+                cliente = cli.search([
+                    ('is_company', '=', True),
+                    ('active', '=', True),
+                    ('vat', '=', row[self.nif_cliente]),
+                ], limit=1)
+                if not cliente:
+                    cliente = cli.search([
+                        ('is_company', '=', True),
+                        ('active', '=', True),
+                        ('vat', '=', 'ES%s' % row[self.nif_cliente]),
+                    ], limit=1)
             if not cliente:
                 _log.warning("El cliente (%s) no se encuentra. Contrato: %s " % (str(int(row[self.cliente])),
                                                                                  row[self.nombre]))
