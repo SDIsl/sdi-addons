@@ -19,7 +19,7 @@
 ###############################################################################
 {
     'name': 'Mail Private No Published',
-    'summary': 'All message from Private chanel are no published.',
+    'summary': 'All messages from the private channel will not be published.',
     'author': 'Oscar Soto, SDi Soluciones Informáticas',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
