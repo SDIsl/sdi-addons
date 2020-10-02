@@ -30,7 +30,7 @@ class MailMessage(models.Model):
             mail_auto_delete=True,
         )
 
-    @api.constrains("is_private")
+    @api.constrains('is_private')
     def _check_archive(self):
         if self.is_private:
             self.website_published = False

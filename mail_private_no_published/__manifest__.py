@@ -29,7 +29,4 @@
         'mail_private',
         'website_mail',
     ],
-    # 'data': [
-    #     'views/mail_message.xml',
-    # ],
 }
