@@ -1,5 +1,0 @@
-<odoo>
-    <record id="grupo_permisos_iniciativas" model="res.groups">
-        <field name="name">Editor de oportunidades</field>
-    </record>
-</odoo>
