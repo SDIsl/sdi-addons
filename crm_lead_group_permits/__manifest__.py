@@ -18,8 +18,8 @@
 #
 ###############################################################################
 {
-    'name': 'CRM_LEAD_GROUP_PERMITS',
-    'summary': 'Creation of a group that gives permits to create an opportunity. Only these group can do it, anybody else can\'t',
+    'name': 'CRM_Lead_Group_Permits',
+    'summary': 'Create a group with permits to edit opportunities. Only these group can edit',
     'author': 'Imanol Ruiz, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'category': 'Customer Relationship Management',
