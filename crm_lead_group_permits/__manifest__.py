@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'CRM_Lead_Group_Permits',
+    'name': 'CRM Lead Group Permits',
     'summary': 'Create a group to edit CRM. Only this group can edit',
     'author': 'Imanol Ruiz, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
