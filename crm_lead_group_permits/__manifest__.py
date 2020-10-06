@@ -1,6 +1,6 @@
 ###############################################################################
 #
-#    SDi Soluciones Informáticas
+#    SDi Soluciones Digitales
 #    Copyright (C) 2020-Today SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 ###############################################################################
 {
     'name': 'CRM_LEAD_GROUP_PERMITS',
-    'summary': 'Creation of a group that gives permits to create an opportunity',
+    'summary': 'Creation of a group that gives permits to create an opportunity. Only these group can do it, anybody else can\'t',
     'author': 'Imanol Ruiz, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'category': 'Customer Relationship Management',
