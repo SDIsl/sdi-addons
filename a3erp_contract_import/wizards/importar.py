@@ -121,8 +121,11 @@ class Importar(models.TransientModel):
                             (row[self.producto], producto.area_id.company_id.name)
                 })
                 continue
-            if curcli != cliente or curcon.name != row[self.nombre]:
+            contract = False
+            contract_template_id = False
+            if curcli != cliente or curcon.name != row[self.nombre] or contract_template_id != producto.property_contract_template_id.id:
                 # Crear cabecera de contrato
+
                 contract = cabe.create(
                     {
                         'partner_id': cliente.id,
@@ -133,8 +136,9 @@ class Importar(models.TransientModel):
                         'payment_term_id': cliente.property_payment_term_id.id,
                         'payment_mode_id': cliente.customer_payment_mode_id.id,
                         'unit_id': producto.unit_id.id,
-
+                        'contract_template_id': producto.property_contract_template_id.id,
                     })
+
             contract_line = line.create(
                 {
                     'contract_id': contract.id,
@@ -154,6 +158,7 @@ class Importar(models.TransientModel):
             )
             curcli = cliente
             curcon = contract
+            contract_template_id = producto.property_contract_template_id.id
 
         return {
             'type': 'ir.actions.act_window',
@@ -162,4 +167,3 @@ class Importar(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'importar.contratos.errores',
         }
-
