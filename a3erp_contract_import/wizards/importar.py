@@ -153,14 +153,14 @@ class Importar(models.TransientModel):
             nombre_descuento += '+desc4' if row['desc4'] else ''
             nombre_descuento = nombre_descuento[1:] if nombre_descuento and nombre_descuento[0] == '+' else nombre_descuento
             descuento = "%d+%d+%d+%d" % (
-                row['desc1'],
-                row['desc2'],
-                row['desc3'],
-                row['desc4'],
+                abs(row['desc1']),
+                abs(row['desc2']),
+                abs(row['desc3']),
+                abs(row['desc4']),
             )
-            contract = False
-            contract_template_id = False
-            if curcli != cliente or curcon.name != row[self.nombre] or contract_template_id != producto.property_contract_template_id.id:
+            # contract = False
+            # contract_template_id = False
+            if curcli != cliente or curcon.name != row[self.nombre]:
                 # Crear cabecera de contrato
 
                 contract = cabe.create(
@@ -183,7 +183,7 @@ class Importar(models.TransientModel):
                     'product_id': producto.id,
                     'name': producto.name,
                     'date_start': row[self.fecha_comienzo],
-                    'date_end': row[self.fecha_fin],
+                    # 'date_end': row[self.fecha_fin],
                     'recurring_next_date': row[self.fecha_siguiente],
                     'quantity': row[self.uds],
                     'uom_id': producto.uom_id.id,
