@@ -39,6 +39,11 @@ class Errores(models.TransientModel):
     name = fields.Char("Error")
 
 
+class ContractLine(models.Model):
+    _inherit = 'contract.line'
+    a3erp_id = fields.Char('id a3ERP')
+
+
 class Importar(models.TransientModel):
     _name = 'importar.contratos'
     _description = 'Importador de contratos'
@@ -85,6 +90,11 @@ class Importar(models.TransientModel):
         curcli = cli
         curcon = cabe.name
         for linea, row in df.iterrows():
+            pk = '%s%s' % (
+                row[self.producto], row[self.nombre]
+            )
+            if line.search([('a3erp_id', '=', pk)]):
+                continue
             _log.info(linea)
             cliente = cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
             if not cliente:
@@ -169,6 +179,7 @@ class Importar(models.TransientModel):
             contract_line = line.create(
                 {
                     'contract_id': contract.id,
+                    'a3erp_id': pk,
                     'product_id': producto.id,
                     'name': producto.name,
                     'date_start': row[self.fecha_comienzo],
