@@ -147,17 +147,14 @@ class Importar(models.TransientModel):
                             (row[self.producto], producto.area_id.company_id.name)
                 })
                 continue
-            nombre_descuento = 'desc1' if row['desc1'] else ''
-            nombre_descuento += '+desc2' if row['desc2'] else ''
-            nombre_descuento += '+desc3' if row['desc3'] else ''
-            nombre_descuento += '+desc4' if row['desc4'] else ''
-            nombre_descuento = nombre_descuento[1:] if nombre_descuento and nombre_descuento[0] == '+' else nombre_descuento
             descuento = "%d+%d+%d+%d" % (
                 abs(row['desc1']),
                 abs(row['desc2']),
                 abs(row['desc3']),
                 abs(row['desc4']),
             )
+            if descuento == '0+0+0+0':
+                descuento = ''
             # contract = False
             # contract_template_id = False
             if curcli != cliente or curcon.name != row[self.nombre]:
@@ -189,7 +186,7 @@ class Importar(models.TransientModel):
                     'uom_id': producto.uom_id.id,
                     'specific_price': row[self.precio_u],
                     'multiple_discount': descuento,
-                    'discount_name': nombre_descuento,
+                    'discount_name': row[self.descuento],
                     'recurring_interval': row[self.intervalo_num],
                     'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
 
