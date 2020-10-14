@@ -25,6 +25,14 @@ _recurring_rule_type = {
 }
 
 
+class Correlacion(models.Model):
+    _name = "importar.contratos.correlacion"
+    name = fields.Char("Cod a3ERP")
+    product_id = fields.Many2one(
+        "product.product"
+    )
+
+
 class Errores(models.TransientModel):
     _name = "importar.contratos.errores"
     linea = fields.Integer()
@@ -66,6 +74,7 @@ class Importar(models.TransientModel):
         prod = self.env['product.product']
         cli = self.env['res.partner']
         error = self.env['importar.contratos.errores']
+        error.unlink()
         journal = self.env['account.journal'].search([
             ('type', '=', 'sale'),
             ('company_id', '=', self.company_id.id),
@@ -95,23 +104,30 @@ class Importar(models.TransientModel):
                                                                                  row[self.nombre]))
                 error.create({
                     'linea': linea+2,
-                    'name': "El cliente (%s) no se encuentra. Contrato: %s " % (str(int(row[self.cliente])),
-                                                                                row[self.nombre])
+                    'name': "El cliente (%s) %s no se encuentra. Contrato: %s " % (
+                        str(int(row[self.cliente])),
+                        row['nomcli'],
+                        row[self.nombre])
                 })
                 continue
             producto = prod.search([('default_code', '=', row[self.producto])])
             if not producto:
-                producto = prod.search([('migration_id', '=', row[self.producto])])
+                producto = self.env['importar.contratos.correlacion'].search(
+                    [('name', '=', row[self.producto])])
+                if producto:
+                    producto = producto.product_id
+                else:
+                    producto = prod.search([('migration_id', '=', row[self.producto])])
+                    if not producto:
+                        producto = prod.search([('migration_original_id', '=', row[self.producto])])
                 if not producto:
-                    producto = prod.search([('migration_original_id', '=', row[self.producto])])
-            if not producto:
-                _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (row[self.producto],row[self.nombre],cliente.name))
-                error.create({
-                    'linea': linea + 2,
-                    'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
-                            (row[self.producto], row[self.nombre], cliente.name)
-                })
-                continue
+                    _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (row[self.producto],row[self.nombre],cliente.name))
+                    error.create({
+                        'linea': linea + 2,
+                        'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
+                                (row[self.producto], row[self.nombre], cliente.name)
+                    })
+                    continue
             if producto.area_id.company_id.id != self.company_id.id:
                 _log.warning("El producto (%s) tiene udn que pertenece a %s " %
                              (row[self.producto], producto.area_id.company_id.name))
@@ -121,6 +137,17 @@ class Importar(models.TransientModel):
                             (row[self.producto], producto.area_id.company_id.name)
                 })
                 continue
+            nombre_descuento = 'desc1' if row['desc1'] else ''
+            nombre_descuento += '+desc2' if row['desc2'] else ''
+            nombre_descuento += '+desc3' if row['desc3'] else ''
+            nombre_descuento += '+desc4' if row['desc4'] else ''
+            nombre_descuento = nombre_descuento[1:] if nombre_descuento and nombre_descuento[0] == '+' else nombre_descuento
+            descuento = "%d+%d+%d+%d" % (
+                row['desc1'],
+                row['desc2'],
+                row['desc3'],
+                row['desc4'],
+            )
             contract = False
             contract_template_id = False
             if curcli != cliente or curcon.name != row[self.nombre] or contract_template_id != producto.property_contract_template_id.id:
@@ -150,7 +177,8 @@ class Importar(models.TransientModel):
                     'quantity': row[self.uds],
                     'uom_id': producto.uom_id.id,
                     'specific_price': row[self.precio_u],
-                    'discount': row[self.descuento],
+                    'multiple_discount': descuento,
+                    'discount_name': nombre_descuento,
                     'recurring_interval': row[self.intervalo_num],
                     'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
 
