@@ -59,7 +59,7 @@ class Importar(models.TransientModel):
     producto = fields.Char("Producto", default="idprod")
     uds = fields.Char("Unidades", default="cantidad")
     precio_u = fields.Char("precio", default="precio_u")
-    descuento = fields.Char("Descuento", default="descuento")
+    descuento = fields.Char("Descuento", default="texto_descuento")
     intervalo_num = fields.Char("Intervalo ctd", default="frecuencia")
     intervalo_tipo = fields.Char("Intervalo regla", default="frecuencia_tiempo")
     fecha_comienzo = fields.Char("Fecha comienzo", default="fecha inicio")
@@ -79,7 +79,7 @@ class Importar(models.TransientModel):
         prod = self.env['product.product']
         cli = self.env['res.partner']
         error = self.env['importar.contratos.errores']
-        error.unlink()
+        error.search([]).unlink()
         journal = self.env['account.journal'].search([
             ('type', '=', 'sale'),
             ('company_id', '=', self.company_id.id),
@@ -90,13 +90,11 @@ class Importar(models.TransientModel):
         curcli = cli
         curcon = cabe.name
         for linea, row in df.iterrows():
-            pk = '%s%s' % (
-                row[self.producto], row[self.nombre]
-            )
+            pk = '%s%s' % (row['idcuota'], row[self.producto])
             if line.search([('a3erp_id', '=', pk)]):
                 continue
-            _log.info(linea)
-            cliente = cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
+            _log.warning(linea)
+            cliente = '' # cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
             if not cliente:
                 cliente = cli.search([
                     ('is_company', '=', True),
@@ -126,25 +124,43 @@ class Importar(models.TransientModel):
                     [('name', '=', row[self.producto])])
                 if producto:
                     producto = producto.product_id
-                else:
-                    producto = prod.search([('migration_id', '=', row[self.producto])])
-                    if not producto:
-                        producto = prod.search([('migration_original_id', '=', row[self.producto])])
                 if not producto:
-                    _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (row[self.producto],row[self.nombre],cliente.name))
-                    error.create({
-                        'linea': linea + 2,
-                        'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
-                                (row[self.producto], row[self.nombre], cliente.name)
-                    })
-                    continue
-            if producto.area_id.company_id.id != self.company_id.id:
+                    producto = prod.search([('active', '=', False),
+                                            ('default_code', '=', row[self.producto])])
+                    if producto:
+                        _log.warning("El producto (%s) está ARCHIVADO. Contrato: %s del cliente %s" % (
+                            row[self.producto], row[self.nombre], cliente.name))
+                        error.create({
+                            'linea': linea + 2,
+                            'name': "El producto (%s) está ARCHIVADO. Contrato: %s del cliente %s" %
+                                    (row[self.producto], row[self.nombre], cliente.name)
+                        })
+                        continue
+                    else:
+                        _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (
+                            row[self.producto], row[self.nombre], cliente.name))
+                        error.create({
+                            'linea': linea + 2,
+                            'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
+                                    (row[self.producto], row[self.nombre], cliente.name)
+                        })
+                        continue
+
+                _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (
+                row[self.producto], row[self.nombre], cliente.name))
+                error.create({
+                    'linea': linea + 2,
+                    'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
+                            (row[self.producto], row[self.nombre], cliente.name)
+                })
+                continue
+            if producto.unit_id.company_id.id != self.company_id.id:
                 _log.warning("El producto (%s) tiene udn que pertenece a %s " %
-                             (row[self.producto], producto.area_id.company_id.name))
+                             (row[self.producto], producto.unit_id.company_id.name))
                 error.create({
                     'linea': linea + 2,
                     'name': "El producto (%s) tiene udn que pertenece a %s " %
-                            (row[self.producto], producto.area_id.company_id.name)
+                            (row[self.producto], producto.unit_id.company_id.name)
                 })
                 continue
             descuento = "%d+%d+%d+%d" % (
@@ -185,7 +201,7 @@ class Importar(models.TransientModel):
                     'quantity': row[self.uds],
                     'uom_id': producto.uom_id.id,
                     'specific_price': row[self.precio_u],
-                    'multiple_discount': descuento,
+                    'multiple_discount': descuento if descuento else '',
                     'discount_name': row[self.descuento],
                     'recurring_interval': row[self.intervalo_num],
                     'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
@@ -203,3 +219,18 @@ class Importar(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'importar.contratos.errores',
         }
+
+    def action_borrar_facturas(self):
+        borrar = self.env['contract.contract'].search([('company_id', '=', 1)]).unlink()
+        facturas = self.env['account.invoice'].search([
+            ('company_id', '=', 1),
+            ('state', '=', 'draft'),
+        ])
+        for factura in facturas:
+            for linea in factura.invoice_line_ids:
+                if linea.advance_line_id:
+                    linea.advance_line_id.unlink()
+                for lineaventa in linea.sale_line_ids:
+                    lineaventa.order_id.state = "done"
+            factura.unlink()
+        return 0
