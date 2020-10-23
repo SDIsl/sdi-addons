@@ -22,6 +22,7 @@ except ImportError:
 _recurring_rule_type = {
     'anual': 'yearly',
     'meses': 'monthly',
+    'yearly': 'yearly',
 }
 
 
@@ -161,6 +162,15 @@ class Importar(models.TransientModel):
                     'linea': linea + 2,
                     'name': "El producto (%s) tiene udn que pertenece a %s " %
                             (row[self.producto], producto.unit_id.company_id.name)
+                })
+                continue
+            if row[self.fecha_siguiente] < row[self.fecha_comienzo]:
+                _log.warning("Fecha de proxima factura anterior a fecha de inicio de contrato: %s de %s " %
+                             (row[self.nombre], cliente.name))
+                error.create({
+                    'linea': linea + 2,
+                    'name': "Fecha de proxima factura anterior a fecha de inicio de contrato: %s de %s " %
+                            (row[self.nombre], cliente.name)
                 })
                 continue
             descuento = "%d+%d+%d+%d" % (
