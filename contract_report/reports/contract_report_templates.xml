@@ -290,7 +290,7 @@
                 <div id="service_sale_order_process" class="col-6">
                     <h5><span t-esc="index_title + 1"/>. Sale Order Processing</h5>
                     <t t-raw="company.sale_order_process_info"/>
-                    <h6>Account Number: 
+                    <h6>Nº Account: 
                         <t t-if="company.partner_id.bank_ids">
                             <span t-field="company.partner_id.bank_ids[0].acc_number"/>
                         </t>
