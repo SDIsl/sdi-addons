@@ -138,12 +138,16 @@ class Importar(models.TransientModel):
                         })
                         continue
                     else:
-                        _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (
-                            row[self.producto], row[self.nombre], cliente.name))
+                        _log.warning("El producto (%s) %s no se encuentra. Contrato: %s del cliente %s" % (
+                            row[self.producto],
+                            row['DESCART'] if 'DESCART' in row else "",
+                            row[self.nombre], cliente.name))
                         error.create({
                             'linea': linea + 2,
-                            'name': "El producto (%s) no se encuentra. Contrato: %s del cliente %s" %
-                                    (row[self.producto], row[self.nombre], cliente.name)
+                            'name': "El producto (%s) %s no se encuentra. Contrato: %s del cliente %s" %
+                                    (row[self.producto],
+                                     row[self.producto],
+                                     row[self.nombre], cliente.name)
                         })
                         continue
 
