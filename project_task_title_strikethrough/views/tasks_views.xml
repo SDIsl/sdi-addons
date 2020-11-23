@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_task_kanban" model="ir.ui.view">
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_kanban"/>
+    <field name="arch" type="xml">
+      <xpath expr="//kanban" position="inside">
+        <field name="is_closed"/>
+      </xpath>
+      <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="attributes">
+         <attribute name="t-if">False</attribute>
+      </xpath>
+      <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="after">
+          <span t-attf-class="o_kanban_record_title #{record.is_closed.raw_value ? 'task_text_line_through' : ''}">
+            <field name="name"/>
+          </span><br/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
+
+
