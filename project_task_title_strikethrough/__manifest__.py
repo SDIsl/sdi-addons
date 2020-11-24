@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'project_task_title_strikethrough',
+    'name': 'Project Task Title Strikethrough',
     'summary': 'Tittle line through in task when is in stage closed',
     'category': 'Project',
     'version': '12.0.1.0.1',
