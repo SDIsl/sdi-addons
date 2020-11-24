@@ -148,15 +148,6 @@ class Importar(models.TransientModel):
                                     (row[self.producto], row['DESCART'], row[self.nombre], cliente.name)
                         })
                         continue
-
-                _log.warning("El producto (%s) no se encuentra. Contrato: %s del cliente %s" % (
-                row[self.producto], row[self.nombre], cliente.name))
-                error.create({
-                    'linea': linea + 2,
-                    'name': "El producto (%s) %s  no se encuentra. Contrato: %s del cliente %s" %
-                            (row[self.producto], row['DESCART'], row[self.nombre], cliente.name)
-                })
-                continue
             if producto.unit_id.company_id.id != self.company_id.id:
                 _log.warning("El producto (%s) tiene udn que pertenece a %s " %
                              (row[self.producto], producto.unit_id.company_id.name))
@@ -175,7 +166,7 @@ class Importar(models.TransientModel):
                             (row[self.nombre], cliente.name)
                 })
                 continue
-            descuento = "%d+%d+%d+%d" % (
+            descuento = "%s+%s+%s+%s" % (
                 abs(row['desc1']),
                 abs(row['desc2']),
                 abs(row['desc3']),
@@ -183,6 +174,9 @@ class Importar(models.TransientModel):
             )
             if descuento == '0+0+0+0':
                 descuento = ''
+            nombre_descuento = str(row[self.descuento]) if row[self.descuento] else False
+            if nombre_descuento == "nan":
+                nombre_descuento = ""
             # contract = False
             # contract_template_id = False
             if curcli != cliente or curcon.name != row[self.nombre]:
@@ -214,7 +208,7 @@ class Importar(models.TransientModel):
                     'uom_id': producto.uom_id.id,
                     'specific_price': row[self.precio_u],
                     'multiple_discount': descuento if descuento else '',
-                    'discount_name': row[self.descuento],
+                    'discount_name': nombre_descuento,
                     'recurring_interval': row[self.intervalo_num],
                     'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
 
