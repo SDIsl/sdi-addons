@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-extend="mail.activity_items">
+        <t t-jquery="div.o_thread_message_tools > a:last" t-operation="attributes">
+            <attribute name="class">btn btn-link btn-danger text-muted o_message_activity_cancel o_activity_link</attribute>
+        </t>
+    </t>
+</templates>
