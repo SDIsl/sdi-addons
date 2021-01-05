@@ -179,6 +179,18 @@ class Importar(models.TransientModel):
                 nombre_descuento = ""
             # contract = False
             # contract_template_id = False
+            # Unidad de medida
+            cadencia = _recurring_rule_type[row[self.intervalo_tipo]]
+            intervalo = row[self.intervalo_num]
+            if cadencia == 'monthly':
+                udm = 20 if intervalo == 1 else 24 if intervalo == 3 else 22
+            else:
+                udm = 21
+            # Descripción de la linea:
+            descrip = row['DESCART']
+            if type(row['Texto']) is str:
+                descrip += '\n' + row['Texto']
+            #
             if curcli != cliente or curcon.name != row[self.nombre]:
                 # Crear cabecera de contrato
 
@@ -200,20 +212,21 @@ class Importar(models.TransientModel):
                     'contract_id': contract.id,
                     'a3erp_id': pk,
                     'product_id': producto.id,
-                    'name': producto.name,
+                    'name': descrip,
                     'date_start': row[self.fecha_comienzo],
                     # 'date_end': row[self.fecha_fin],
                     'recurring_next_date': row[self.fecha_siguiente],
                     'quantity': row[self.uds],
-                    'uom_id': producto.uom_id.id,
+                    'uom_id': udm,
                     'specific_price': row[self.precio_u],
                     'multiple_discount': descuento if descuento else '',
                     'discount_name': nombre_descuento,
-                    'recurring_interval': row[self.intervalo_num],
-                    'recurring_rule_type': _recurring_rule_type[row[self.intervalo_tipo]],
+                    'recurring_interval': intervalo,
+                    'recurring_rule_type': cadencia,
 
                 }
             )
+            self.env.cr.commit()
             curcli = cliente
             curcon = contract
             contract_template_id = producto.property_contract_template_id.id
