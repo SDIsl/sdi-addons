@@ -91,7 +91,7 @@ class Importar(models.TransientModel):
         curcli = cli
         curcon = cabe.name
         for linea, row in df.iterrows():
-            pk = '%s%s' % (row['idcuota'], row[self.producto])
+            pk = '%s%s' % (row['idcuota'], row['DESCART'])
             if line.search([('a3erp_id', '=', pk)]):
                 continue
             _log.warning(linea)
