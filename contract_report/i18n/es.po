@@ -348,7 +348,7 @@ msgstr "Términos y condiciones del contrato"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Unit Price"
-msgstr "Precio unitario"
+msgstr "Precio"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
