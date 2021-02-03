@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* contract_report
+#	* contract_report
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-22 15:24+0000\n"
-"PO-Revision-Date: 2020-10-22 17:25+0200\n"
+"POT-Creation-Date: 2021-02-03 13:08+0000\n"
+"PO-Revision-Date: 2021-02-03 13:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: es\n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
@@ -77,11 +75,9 @@ msgstr "<span>Desc.(%)</span>"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid ""
-"<span>Observations:</span>\n"
+msgid "<span>Observations:</span>\n"
 "                    <br/>"
-msgstr ""
-"<span>Observaciones:</span>\n"
+msgstr "<span>Observaciones:</span>\n"
 "                    <br/>"
 
 #. module: contract_report
@@ -155,7 +151,7 @@ msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
 msgid "ANNEX II: Templates Clausules"
-msgstr ""
+msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
@@ -324,8 +320,8 @@ msgstr "Tramitación del pedido"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
-msgid "Service Level"
-msgstr "Nivel de servicio"
+msgid "Service"
+msgstr "Servicio"
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_contract_contract__sale_order_process
@@ -352,9 +348,10 @@ msgstr "Términos y condiciones del contrato"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Unit Price"
-msgstr "Precio"
+msgstr "Precio unitario"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "sign"
 msgstr "Firma"
+
