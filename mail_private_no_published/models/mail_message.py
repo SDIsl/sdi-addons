@@ -24,10 +24,10 @@ class MailMessage(models.Model):
         return super()._notify(
             record,
             msg_vals,
-            force_send=False,
-            send_after_commit=True,
-            model_description=False,
-            mail_auto_delete=True,
+            force_send=force_send,
+            send_after_commit=send_after_commit,
+            model_description=model_description,
+            mail_auto_delete=mail_auto_delete,
         )
 
     @api.constrains('is_private')
