@@ -12,10 +12,10 @@ class MailThread(models.AbstractModel):
             self, updated_values, default_subtype_ids):
         res = super()._message_auto_subscribe_followers(
             updated_values, default_subtype_ids)
-        for pid, sids, template in res:
+        if res:
             res_user = self.env['res.users'].search(
-                [('partner_id', '=', pid)], limit=1)
-            for model in res_user.model_ids:
+                [('partner_id', '=', res[0][0])], limit=1)
+            for model in res_user.unsuscribe_model_ids:
                 if self._name == model.model:
-                    res = [(pid, sids, False)]
+                    res = [(res[0][0], res[0][1], False)]
         return res
