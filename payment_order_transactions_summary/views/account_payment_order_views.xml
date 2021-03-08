@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="account_payment_order_form" model="ir.ui.view">
+        <field name="model">account.payment.order</field>
+        <field name="inherit_id" ref="account_payment_order.account_payment_order_form"/>
+        <field name="arch" type="xml">
+            <field name="bank_line_count" position="replace"/>
+            <group name="head" position="after">
+                <group name="summary" string="Summary" col="12">
+                    <group col="4"><field name="transactions_count"/></group>
+                    <group col="4"><field name="total_company_currency"/></group>
+                    <group col="4"><field name="bank_line_count"/></group>
+                </group>
+            </group>
+        </field>
+    </record>
+    <record id="account_payment_order_tree" model="ir.ui.view">
+        <field name="model">account.payment.order</field>
+        <field name="inherit_id" ref="account_payment_order.account_payment_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="total_company_currency" position="before">
+                <field name="transactions_count"/>
+            </field>
+        </field>
+    </record>
+</odoo>
