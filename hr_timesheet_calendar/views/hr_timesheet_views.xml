@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_calendar_account_analytic_line" model="ir.ui.view">
+        <field name="name">account.analytic.line.calendar</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendar Timesheet Activities" date_start="date_time" date_delay="unit_amount" mode="day" form_view_id="hr_timesheet.hr_timesheet_line_form" color="project_id" event_open_popup="true" quick_add="False">
+                <field name="task_id"/>
+                <field name="name"/>
+                <field name="unit_amount"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="act_hr_timesheet_line_view_calendar" model="ir.actions.act_window.view">
+        <field name="view_mode">calendar</field>
+        <field name="sequence">7</field>
+        <field name="view_id" ref="view_calendar_account_analytic_line"/>
+        <field name="act_window_id" ref="hr_timesheet.act_hr_timesheet_line"/>
+    </record>
+</odoo>
