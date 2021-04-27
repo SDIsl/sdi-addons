@@ -46,18 +46,23 @@ class StockPicking(models.Model):
         self.ensure_one()
         res = {}
         for line in self.move_line_ids:
-            price_reduce = line.sale_price_unit - line.sale_price_unit * line.discount/100
+            price_reduce = line.sale_price_unit - line.sale_price_unit * \
+                line.discount / 100
             context = self.env.context.copy()
             context.update({"uom": line.product_uom_id})
-            taxes = line.sale_line.tax_id.with_context(context).compute_all(price_reduce,
-            quantity=line.qty_done*line.product_uom_id.factor_inv, product=line.product_id, partner=self.partner_id)['taxes']
+            taxes = line.sale_line.tax_id.with_context(context).compute_all(
+                price_reduce,
+                quantity=line.qty_done * line.product_uom_id.factor_inv,
+                product=line.product_id, partner=self.partner_id)['taxes']
             for tax in line.sale_line.tax_id:
                 group = tax.tax_group_id
                 res.setdefault(group, {'amount': 0.0, 'base': 0.0})
                 for t in taxes:
-                    if t['id'] == tax.id or t['id'] in tax.children_tax_ids.ids:
+                    if t['id'] == tax.id or t['id'] in \
+                       tax.children_tax_ids.ids:
                         res[group]['amount'] += t['amount']
                         res[group]['base'] += t['base']
         res = sorted(res.items(), key=lambda l: l[0].sequence)
-        res = [(l[0].name, l[1]['amount'], l[1]['base'], len(res)) for l in res]
+        res = \
+            [(i[0].name, i[1]['amount'], i[1]['base'], len(res)) for i in res]
         return res

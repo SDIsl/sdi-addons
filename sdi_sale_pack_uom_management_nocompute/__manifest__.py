@@ -7,7 +7,8 @@
     'category': '',
     'author': 'Oscar Soto, Sergio Lop',
     'summary': """
-        Manage Packs like a uom. Add columns Box - Units of Box, Price Unit - Price /UnitBox""",
+        Manage Packs like a uom. Add columns Box - Units of Box,
+         Price Unit - Price /UnitBox""",
     'license': 'AGPL-3',
     'depends': [
         'sale',

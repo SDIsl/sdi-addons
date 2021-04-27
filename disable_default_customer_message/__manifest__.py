@@ -11,7 +11,8 @@
 Featured of SDi-CRM.
 ====================
 
-Function: uncheck by default the checkbox included in the messages to the client as the recipient.
+Function: uncheck by default the checkbox included in the messages to the
+client as the recipient.
     """,
     'license': 'AGPL-3',
     'depends': [
@@ -20,5 +21,5 @@ Function: uncheck by default the checkbox included in the messages to the client
     'qweb': [
         'static/src/xml/inherit_mail_chatter_chat_composer.xml'
     ],
-    'installable':True,
+    'installable': True,
 }

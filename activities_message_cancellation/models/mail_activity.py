@@ -33,4 +33,3 @@ class MailActivity(models.Model):
             self.unlink()
 
         return message.ids and message.ids[0] or False
-

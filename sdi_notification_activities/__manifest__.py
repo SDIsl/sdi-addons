@@ -2,7 +2,8 @@
 {
     'name': "SDi Notification Activities",
     'summary': """
-    Add notifications funtions to Activitivies to notify when an activity ends""",
+    Add notifications funtions to Activitivies to notify when an activity
+    ends""",
     'description': 'Add notifications functions to activities',
     'author': "Javier Izco, "
               "Jorge Luis Quinteros",

@@ -6,14 +6,14 @@
     'version': '11.0.1.0.1',
     'category': 'Extra Tools',
     'author': 'David Juaneda',
-    'summary': """  
+    'summary': """
         Add requirements to configure opportunity states.""",
     'license': 'AGPL-3',
     'depends': [
         'crm',
     ],
-    'data':[
+    'data': [
         'views/inherit_crm_stage_form.xml',
     ],
-    'installable':True,
+    'installable': True,
 }

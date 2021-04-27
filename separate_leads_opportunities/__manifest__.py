@@ -12,12 +12,12 @@
     'depends': [
         'crm',
     ],
-    'data':[
-       'views/crm_sdi_templates.xml',
+    'data': [
+        'views/crm_sdi_templates.xml',
     ],
     'qweb': [
         'static/src/xml/inherit_client_action.xml',
         'static/src/xml/inherit_systray.xml',
-     ],
-    'installable':True,
+    ],
+    'installable': True,
 }

@@ -8,7 +8,8 @@
          Improvements in lost opportunities.""",
     'description': """
     - Add description to the reason for the loss of an opportunity.
-    - Add a smartButton in customers' form view that counts the number of lost opportunities and linking to them. 
+    - Add a smartButton in customers' form view that counts the number of lost
+    opportunities and linking to them.
     """,
     'author': [
         "David Juaneda",
@@ -25,4 +26,3 @@
     ],
     'installable': True,
 }
-

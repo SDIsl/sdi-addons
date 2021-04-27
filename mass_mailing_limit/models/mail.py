@@ -5,10 +5,10 @@ import datetime
 import logging
 _logger = logging.getLogger(__name__)
 
+
 class NewModule(models.Model):
     _name = 'mail.mail'
     _inherit = 'mail.mail'
-
 
     @api.model
     def process_email_queue(self, ids=None):
@@ -26,7 +26,8 @@ class NewModule(models.Model):
                                 messages are sent).
         """
         if not self.ids:
-            limit = self.env['ir.config_parameter'].sudo().get_param('mail.send_limit','100')
+            limit = self.env['ir.config_parameter'].sudo().get_param(
+                'mail.send_limit', '100')
             filters = ['&',
                        ('state', '=', 'outgoing'),
                        '|',
@@ -38,7 +39,8 @@ class NewModule(models.Model):
         res = None
         try:
             # auto-commit except in testing mode
-            auto_commit = not getattr(threading.currentThread(), 'testing', False)
+            auto_commit = \
+                not getattr(threading.currentThread(), 'testing', False)
             res = self.browse(ids).send(auto_commit=auto_commit)
         except Exception:
             _logger.exception("Failed processing mail queue")

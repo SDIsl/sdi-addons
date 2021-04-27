@@ -6,7 +6,8 @@
     'version': '11.0.1.0.1',
     'category': 'Location',
     'summary': """
-        Añadir los widgets gplaces_address_autocomplete en el campo zip_id (Location Complete) y name en el form de res.partner """,
+        Añadir los widgets gplaces_address_autocomplete en el campo zip_id
+        (Location Complete) y name en el form de res.partner """,
     'author': 'Oscar Soto',
     'license': 'AGPL-3',
     'depends': [

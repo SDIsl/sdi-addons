@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-from . import  activity_planning
+from . import activity_planning

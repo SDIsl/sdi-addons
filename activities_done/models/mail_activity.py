@@ -36,12 +36,12 @@ class MailActivity(models.Model):
         if feedback:
             for event in events:
                 description = event.description
-                description = '%s\n%s%s' % (description or '', _("Feedback: "), feedback)
+                description = \
+                    '%s\n%s%s' % (description or '', _("Feedback: "), feedback)
                 event.write({'description': description})
 
         self.done()
         return message.ids and message.ids[0] or False
-
 
     @api.multi
     def done(self):
@@ -54,7 +54,8 @@ class MailActivity(models.Model):
         for act in self:
             if act.date_deadline <= fields.Date.today():
                 self.env['bus.bus'].sendone(
-                    (self._cr.dbname, 'res.partner', act.user_id.partner_id.id),
+                    (self._cr.dbname, 'res.partner',
+                     act.user_id.partner_id.id),
                     {'type': 'activity_updated', 'activity_deleted': True})
             act.active = False
             act.done_date = datetime.datetime.utcnow()
@@ -67,13 +68,13 @@ class MailActivity(models.Model):
         self.invalidate_cache()
         self.recompute()
         _done.info('User #%s mark done %s activity with IDs: %r',
-                     self._uid, self._name, self.ids)
+                   self._uid, self._name, self.ids)
         return True
 
     def unlink_w_meeting(self):
         model = self.res_model
         res_id = self.res_id
-        res = super(MailActivity,self).unlink_w_meeting()
+        res = super(MailActivity, self).unlink_w_meeting()
         self.invalidate_cache()
         self.recompute()
         self.env[model].browse(res_id)._compute_meeting_count()
@@ -93,19 +94,25 @@ class MailActivity(models.Model):
     @api.constrains('active')
     def onchange_active(self):
         """
-        Si cambia el estado de una actividad-reunión a FALSE que se actualizen los contador.
+        Si cambia el estado de una actividad-reunión a FALSE que se actualizen
+        los contadores.
         :return:
         """
         self.env[self.res_model].browse(self.res_id)._compute_meeting_count()
 
     @api.model
     def action_your_activities(self):
-        view_kanban_id = self.env.ref('activities_board.boards_activities_kanban_view').id
-        view_form_id = self.env.ref('activities_done.boards_activities_form_view').id
-        view_tree_id = self.env.ref('activities_done.boards_activities_tree_view').id
+        view_kanban_id = self.env.ref(
+            'activities_board.boards_activities_kanban_view').id
+        view_form_id = self.env.ref(
+            'activities_done.boards_activities_form_view').id
+        view_tree_id = self.env.ref(
+            'activities_done.boards_activities_tree_view').id
 
-        action = self.env.ref('activities_board.open_boards_activities_form_tree').read()[0]
-        action['search_view_id'] = self.env.ref('activities_done.mail_activity_view_search').id
+        action = self.env.ref(
+            'activities_board.open_boards_activities_form_tree').read()[0]
+        action['search_view_id'] = self.env.ref(
+            'activities_done.mail_activity_view_search').id
         action['views'] = [[view_tree_id, 'tree'],
                            [view_form_id, 'form'],
                            [view_kanban_id, 'kanban'],
@@ -113,6 +120,6 @@ class MailActivity(models.Model):
                            [False, 'pivot'],
                            [False, 'graph']]
         action_context = safe_eval(action['context'], {'uid': self.env.uid})
-        action_context['search_default_all'] =  1
+        action_context['search_default_all'] = 1
         action['context'] = action_context
         return action

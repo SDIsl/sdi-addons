@@ -13,7 +13,8 @@ class Partner(models.Model):
 
     @api.multi
     def open_commercial_partner(self):
-        """ Utility method used to add an "Open Company" button in partner views """
+        """ Utility method used to add an "Open Company" button in partner
+        views """
         self.ensure_one()
         return {'type': 'ir.actions.act_window',
                 'res_model': 'res.partner',

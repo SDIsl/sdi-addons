@@ -19,5 +19,5 @@
         'data/order_mail_template.xml',
         'data/quotation_mail_template.xml',
     ],
-    'installable':True,
+    'installable': True,
 }

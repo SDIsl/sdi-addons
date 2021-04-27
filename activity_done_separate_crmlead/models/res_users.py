@@ -5,6 +5,7 @@
 
 from odoo import _, api, models, modules
 
+
 class Users(models.Model):
     _inherit = ['res.users']
 
@@ -12,14 +13,17 @@ class Users(models.Model):
     def activity_user_count(self):
         query = """SELECT m.id, count(*), act.res_model as model,
                 CASE
-                    WHEN now()::date - act.date_deadline::date = 0 Then 'today'
-                    WHEN now()::date - act.date_deadline::date > 0 Then 'overdue'
-                    WHEN now()::date - act.date_deadline::date < 0 Then 'planned'
+                    WHEN now()::date - act.date_deadline::
+                        date = 0 Then 'today'
+                    WHEN now()::date - act.date_deadline::
+                        date > 0 Then 'overdue'
+                    WHEN now()::date - act.date_deadline::
+                        date < 0 Then 'planned'
                 END AS states
             FROM mail_activity AS act
             JOIN ir_model AS m ON act.res_model_id = m.id
 
-            WHERE                                         
+            WHERE
                  act.active = true
                  and act.res_model <> 'crm.lead'
                  and (
@@ -29,7 +33,8 @@ class Users(models.Model):
                                 act.user_id <> %s
                                 and
                                 act.calendar_event_id in (
-                                    select event_id from calendar_attendee as att
+                                    select event_id
+                                    from calendar_attendee as att
                                     where att.partner_id = %s
                                     )
                             )
@@ -58,7 +63,9 @@ class Users(models.Model):
                     'planned_count': 0,
                 }
                 if act['model'] == 'res.partner':
-                    user_acts[act['model']]['icon'] = '/separate_leads_opportunities/static/description/contacts.png'
+                    user_acts[act['model']]['icon'] = \
+                        '''/separate_leads_opportunities/static/description/
+                        contacts.png'''
             user_acts[act['model']]['%s_count' % act['states']] += act['count']
             if act['states'] in ('today', 'overdue'):
                 user_acts[act['model']]['total_count'] += act['count']
@@ -69,13 +76,16 @@ class Users(models.Model):
     def _activity_from_crm_lead_user_count(self):
         query = """SELECT m.id, count(*), l.type as model,
                 CASE
-                    WHEN now()::date - act.date_deadline::date = 0 Then 'today'
-                    WHEN now()::date - act.date_deadline::date > 0 Then 'overdue'
-                    WHEN now()::date - act.date_deadline::date < 0 Then 'planned'
+                    WHEN now()::date - act.date_deadline::
+                        date = 0 Then 'today'
+                    WHEN now()::date - act.date_deadline::
+                        date > 0 Then 'overdue'
+                    WHEN now()::date - act.date_deadline::
+                        date < 0 Then 'planned'
                 END AS states
             FROM mail_activity AS act
             join crm_lead AS l on l.id = act.res_id
-            JOIN ir_model AS m ON act.res_model_id = m.id                 
+            JOIN ir_model AS m ON act.res_model_id = m.id
 
             WHERE
                     act.active = true
@@ -87,12 +97,13 @@ class Users(models.Model):
                                 act.user_id <> %s
                                 and
                                 act.calendar_event_id in (
-                                    select event_id from calendar_attendee as att
+                                    select event_id
+                                    from calendar_attendee as att
                                     where att.partner_id = %s
                                     )
                             )
                         )
-            GROUP by l.type, m.id, states, act.res_model;        
+            GROUP by l.type, m.id, states, act.res_model;
         """
         self.env.cr.execute(query, (self.env.uid,
                                     self.env.uid,
@@ -123,7 +134,7 @@ class Users(models.Model):
                     'overdue_count': 0,
                     'planned_count': 0,
                 }
-                model= act['model']
+                model = act['model']
                 if model == 'lead':
                     user_acts[model]['icon'] = modules.module\
                         .get_module_icon(self.env['crm.lead']._original_module)
@@ -131,14 +142,15 @@ class Users(models.Model):
                     user_acts[model]['kanban_id'] = view_id_lead_kanban
                     user_acts[model]['search_id'] = view_id_lead_search
                 else:
-                    user_acts[model]['icon'] = '/separate_leads_opportunities/static/description/opportunity_icon.png'
+                    user_acts[model]['icon'] = '''/separate_leads_opportunities/
+                    static/description/opportunity_icon.png'''
                     user_acts[model]['form_id'] = view_id_oppor_form
                     user_acts[model]['kanban_id'] = view_id_oppor_kanban
                     user_acts[model]['search_id'] = view_id_oppor_search
 
                 user_acts[model]['is_admin'] = is_admin
             user_acts[model]['%s_count' % act['states']] += act['count']
-            if act['states'] in ('today','overdue'):
+            if act['states'] in ('today', 'overdue'):
                 user_acts[model]['total_count'] += act['count']
 
         return list(user_acts.values())

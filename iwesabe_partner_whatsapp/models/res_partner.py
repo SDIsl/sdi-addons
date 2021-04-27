@@ -32,11 +32,14 @@ class ResPartnerWhatsapp(models.Model):
             body = ''
 
             if record.mobile:
-                mobile_formated = record.mobile.replace("+","").replace(" ","")
+                mobile_formated = \
+                    record.mobile.replace("+", "").replace(" ", "")
                 print(mobile_formated)
                 body = """
-                <a target="_blank" href="https://api.whatsapp.com/send?phone=%s">
-                    <i class="fa fa-whatsapp"/> <span class="hidden-lg hidden-xl">Send via WhatsApp</span>
+                <a target="_blank"
+                   href="https://api.whatsapp.com/send?phone=%s">
+                    <i class="fa fa-whatsapp"/>
+                    <span class="hidden-lg hidden-xl">Send via WhatsApp</span>
                 </a>
                 """ % mobile_formated
             record.mobile_whatsapp_link = body

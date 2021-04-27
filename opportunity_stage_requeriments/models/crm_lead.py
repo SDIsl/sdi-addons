@@ -17,8 +17,10 @@ class Lead(models.Model):
 
         :raises: UserError
         """
-        if self.stage_id.revenue or self.stage_id.deadline or self.stage_id.tags:
-            if not self.date_deadline or self.planned_revenue <= 0 or not self.tag_ids:
+        if self.stage_id.revenue or self.stage_id.deadline or \
+           self.stage_id.tags:
+            if not self.date_deadline or self.planned_revenue <= 0 or \
+               not self.tag_ids:
                 err_msg = _("""
                             You can not change status if the opportunity lacks:
                             - deadline
@@ -28,11 +30,12 @@ class Lead(models.Model):
                 raise UserError(_(err_msg))
 
         if self.stage_id.attachment:
-            attach = self.env['ir.attachment'].search([('res_model', '=', 'crm.lead'),
-                                                       ('res_id', '=', self.id)])
+            attach = self.env['ir.attachment'].search(
+                [('res_model', '=', 'crm.lead'), ('res_id', '=', self.id)])
             if not attach:
                 err_attachment = _("""
-                                You can not change status if the opportunity lacks:
+                                You can not change status if the opportunity
+                                lacks:
                                  - attached document.
                                 """)
                 raise UserError(_(err_attachment))
@@ -41,10 +44,13 @@ class Lead(models.Model):
             responsible = [self.stage_id.responsible.partner_id.id]
             subtyte_id = self.env.ref('mail.mt_comment').id
             for lead in self:
-                message = _('<p>Proposal to checked from: <strong>%s</strong></p>'
-                            '<p>Lead: <strong>%s</strong></p>' % (lead.user_id.name, lead.name))
-                lead.message_post(subject="Proposal to checked from: %s" % lead.user_id.name,
-                                  body=message,
-                                  subtype_id= subtyte_id,
-                                  partner_ids= responsible,
-                                  mail_post_autofollow=False)
+                message = \
+                    _('<p>Proposal to checked from: <strong>%s</strong></p>'
+                        '<p>Lead: <strong>%s</strong></p>' %
+                        (lead.user_id.name, lead.name))
+                lead.message_post(
+                    subject="Proposal to checked from: %s" % lead.user_id.name,
+                    body=message,
+                    subtype_id=subtyte_id,
+                    partner_ids=responsible,
+                    mail_post_autofollow=False)

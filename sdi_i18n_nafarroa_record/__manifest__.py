@@ -6,7 +6,8 @@
     'version': '11.0.1.0.1',
     'category': 'Extra Tools',
     'summary': """
-        Modificar record de base.state_es_na (nombre actual "Navarra (Nafarroa)", por, "Navarra") """,
+        Modificar record de base.state_es_na (nombre actual "Navarra
+        (Nafarroa)", por, "Navarra") """,
     'author': 'Oscar Soto',
     'license': 'AGPL-3',
     'depends': [
@@ -19,4 +20,3 @@
     'installable': True,
     'application': False,
 }
-
