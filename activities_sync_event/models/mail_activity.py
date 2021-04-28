@@ -1,7 +1,7 @@
 # SDI
 # © 2018 David Juaneda <djuaneda@sdi.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import api, models, fields, tools, _
+from odoo import api, models
 
 
 class MailActivity(models.Model):
@@ -25,17 +25,19 @@ class MailActivity(models.Model):
     def action_create_calendar_event(self):
         """
         Modified functionality of the method:
-        Add customer's contact and user to meeting through 'default_partners_ids'.
+        Add customer's contact and user to meeting through
+        'default_partners_ids'.
         :return: action
         """
         self.ensure_one()
-        action = super(MailActivity,self).action_create_calendar_event()
+        action = super(MailActivity, self).action_create_calendar_event()
         name = action['context'].get('default_name', False)
 
         # crm.lead
         if action['context'].get('default_res_id') and \
-            action['context']['default_res_model'] == 'crm.lead':
-            lead = self.env['crm.lead'].browse(int(action['context']['default_res_id']))
+           action['context']['default_res_model'] == 'crm.lead':
+            lead = self.env['crm.lead'].browse(int(action[
+                'context']['default_res_id']))
             if lead.id and lead.type == 'opportunity':
                 action['context']['default_opportunity_id'] = lead.id
 
@@ -52,23 +54,25 @@ class MailActivity(models.Model):
         # If we know customer, his name will put in tittle of meeting
         self._add_partner_to_meeting_name(action['context'], name, customer)
 
-        #res.partner
+        # res.partner
         # if action['context']['default_res_model'] == 'res.partner':
         #     action['context']['search_default_partner_ids'] = customer.name
 
         return action
 
-
     def _add_partner_to_meeting_name(self, context, name, customer):
         if customer and customer.id:
             if customer.is_company and name:
-                name = "{} - {} ".format(customer.commercial_company_name, name)
+                name = "{} - {} ".format(
+                    customer.commercial_company_name, name)
             elif customer.is_company:
                 name = "{}".format(customer.commercial_company_name)
             elif not customer.is_company:
-                if customer.parent_id.id and customer.parent_id.commercial_company_name:
-                    contacts = "{}, {}".format(customer.commercial_company_name,
-                                           customer.name)
+                if customer.parent_id.id and \
+                   customer.parent_id.commercial_company_name:
+                    contacts = "{}, {}".format(
+                        customer.commercial_company_name,
+                        customer.name)
                 else:
                     contacts = customer.name
                 if name:
@@ -77,14 +81,17 @@ class MailActivity(models.Model):
                     name = contacts
         context['default_name'] = name
 
-
-    def _get_customer(self,context):
+    def _get_customer(self, context):
         customer = None
-        if context['default_res_model'] == 'res.partner' and context['default_res_id']:
-            customer = self.env['res.partner'].browse(context['default_res_id'])
+        if context['default_res_model'] == \
+           'res.partner' and context['default_res_id']:
+            customer = self.env[
+                'res.partner'].browse(context['default_res_id'])
         elif context['default_res_model'] and context['default_res_id']:
-            obj = self.env[context['default_res_model']].browse(context['default_res_id'])
-            model = self.env[context['default_res_model']].with_context(active_test=False)
+            obj = self.env[
+                context['default_res_model']].browse(context['default_res_id'])
+            model = self.env[
+                context['default_res_model']].with_context(active_test=False)
             if 'partner_id' in model._fields and obj.partner_id:
                 customer = obj.partner_id
         return customer
