@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import logging
 import datetime
-from odoo import api, models, fields, tools, _
+from odoo import api, models, fields, _
 from odoo.tools.safe_eval import safe_eval
 
 _unlink = logging.getLogger(__name__ + '.unlink')

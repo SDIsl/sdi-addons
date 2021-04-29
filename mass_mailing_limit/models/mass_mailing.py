@@ -2,7 +2,7 @@
 # © 2012-2015 David Juaneda <djuaneda@sdi.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import logging
-from odoo import api, models, _
+from odoo import models, _
 from odoo.exceptions import UserError
 _logger = logging.getLogger(__name__)
 

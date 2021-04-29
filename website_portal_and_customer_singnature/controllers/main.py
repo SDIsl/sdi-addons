@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-import werkzeug
-from functools import partial
-
-from odoo import exceptions, fields, http, _
+from odoo import http
 from odoo.http import request
 from odoo.addons.sale.controllers.portal import CustomerPortal
-
-from odoo import models
 
 
 class CustomerPortal(CustomerPortal):

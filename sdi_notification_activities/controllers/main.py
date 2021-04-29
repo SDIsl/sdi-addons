@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import werkzeug
-
-from odoo.api import Environment
 import odoo.http as http
 
 from odoo.http import request
-from odoo import SUPERUSER_ID
-from odoo import registry as registry_get
 
 
 class MailActivityFollowingController(http.Controller):

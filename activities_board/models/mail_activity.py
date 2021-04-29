@@ -1,7 +1,7 @@
 # SDI
 # © 2018 David Juaneda <djuaneda@sdi.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import api, models, fields, tools, _
+from odoo import api, models, fields
 from odoo.tools.safe_eval import safe_eval
 
 
