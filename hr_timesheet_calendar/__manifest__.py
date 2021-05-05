@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    SDi Soluciones Informáticas
-#    Copyright (C) 2020-Today SDi Soluciones Informáticas <www.sdi.es>
+#    Copyright (C) 2021-Today SDi Soluciones Informáticas <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@
     'name': 'Hr Timesheet Calendar',
     'summary': 'Calendar view for hr timesheet.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://sdi.es/odoo',
     'license': 'AGPL-3',
     'category': 'Employees',
     'version': '12.0.1.0.0',
