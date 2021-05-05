@@ -5,6 +5,7 @@
         <field name="model">account.analytic.line</field>
         <field name="arch" type="xml">
             <calendar string="Calendar Timesheet Activities" date_start="date_time" date_delay="unit_amount" mode="day" form_view_id="hr_timesheet.hr_timesheet_line_form" color="project_id" event_open_popup="true" quick_add="False">
+                <field name="project_id"/>
                 <field name="task_id"/>
                 <field name="name"/>
                 <field name="unit_amount"/>
