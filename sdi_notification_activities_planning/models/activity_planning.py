@@ -8,23 +8,23 @@ class ActivityPlanning(models.Model):
 
     following_time = fields.Float(
         "Time following",
-        index=True
+        index=True,
     )
     following_notification_done = fields.Boolean(
-        "Done Notification"
+        "Done Notification",
     )
     following_notification_minutes_before = fields.Integer(
-        "Minutes Before Notification"
+        "Minutes Before Notification",
     )
     following_notification_minutes_before_check = fields.Boolean(
         "Minutes Before Notification Check",
-        default=True
+        default=True,
     )
     following_notification_expired = fields.Boolean("Expired Notification")
     following_notification_user_ids = fields.Many2many(
         "res.users",
         relation="res_users_following_notification_user_ids",
-        string="Notification Users"
+        string="Notification Users",
     )
     following_notification_notif_modes = fields.Selection(
         string="Avisos a",
@@ -33,7 +33,7 @@ class ActivityPlanning(models.Model):
             ('popup', 'Pop-Up'),
             ('both', 'Ambos')],
         required=False,
-        default="inbox"
+        default="inbox",
     )
 
     @api.model

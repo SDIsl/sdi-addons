@@ -8,7 +8,7 @@ class StockMoveLine(models.Model):
 
     boxes = fields.Integer(
         string='Boxes',
-        compute="_compute_boxes"
+        compute="_compute_boxes",
     )
     units = fields.Float(
         string="Units",

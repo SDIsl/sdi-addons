@@ -11,7 +11,7 @@ _unlink = logging.getLogger(__name__ + '.unlink')
 class Meeting(models.Model):
     _inherit = 'calendar.event'
 
-    editable = fields.Boolean(compute='_compute_event_is_editable')
+    editable = fields.Boolean(compute='_compute_event_is_editable',)
 
     @api.multi
     @api.onchange('active')

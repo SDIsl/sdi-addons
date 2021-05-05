@@ -11,14 +11,14 @@
          Price Unit - Price /UnitBox""",
     'license': 'AGPL-3',
     'depends': [
-        'sale',
         'account_invoice_production_lot',
+        'sale',
         'sdi_stock_picking_report_valued_nocompute'
     ],
     'data': [
-        'report/report_saleorder_templates.xml',
         'report/report_deliveryslip_templates.xml',
         'report/report_invoice_templates.xml',
+        'report/report_saleorder_templates.xml',
         'report/report_stockpicking_templates.xml',
         'views/product.xml'
     ],

@@ -10,4 +10,4 @@ class Lead(models.Model):
     _inherit = 'crm.lead'
 
     lost_description = fields.Text(
-        string=_("Lost Description"), track_visibility='onchange')
+        string=_("Lost Description"), track_visibility='onchange',)

@@ -21,9 +21,9 @@ It supports:
     """,
     'license': 'GPL-3',
     'depends': [
+        'board',
         'crm',
         'mail',
-        'board',
     ],
     'data': [
         'views/activities_boards_views.xml',

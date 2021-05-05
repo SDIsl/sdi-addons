@@ -17,8 +17,8 @@
     'data': [
         'security/ir.model.access.csv',
         'data/mail_activity_data.xml',
-        'views/inherit_mail_activity.xml',
         'views/activity_notifs_templates.xml',
+        'views/inherit_mail_activity.xml',
     ],
     'qweb': ['static/src/xml/base_activity_notifs.xml'],
     'installable': True,

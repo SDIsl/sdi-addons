@@ -13,10 +13,10 @@ _done = logging.getLogger(__name__ + '.done')
 class MailActivity(models.Model):
     _inherit = "mail.activity"
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=True,)
     done_date = fields.Datetime('Done Date',
                                 search='_search_activity_done_date',
-                                default=None)
+                                default=None,)
 
     def action_feedback(self, feedback=False):
         events = self.mapped('calendar_event_id')

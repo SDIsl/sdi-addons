@@ -13,20 +13,20 @@ class MailActivity(models.Model):
         string="Hora del fin del seguimiento",
         index=True,
         help="""It specifies the time at which the monitoring will be stopped,
-                therefore, the time at which the activity will expire.""")
-    following_notification_done = fields.Boolean("Done Notification")
+                therefore, the time at which the activity will expire.""",)
+    following_notification_done = fields.Boolean("Done Notification",)
     following_notification_minutes_before = fields.Integer(
-        "Minutes Before Notification")
+        "Minutes Before Notification",)
     following_notification_minutes_before_check = fields.Boolean(
-        "Minutes Before Notification Check", default=True)
+        "Minutes Before Notification Check", default=True,)
     following_notification_expired = fields.Boolean(
-        "Expired Notification")
+        "Expired Notification",)
     following_notification_user_ids = fields.Many2many(
         "res.users",
         relation="res_user_following_notification_user_ids",
         string="Notification Users",
         help="""Select the users who will receive notifications of this
-                activity.""")
+                activity.""",)
     following_notification_notif_modes = fields.Selection(
         string="Type of notification",
         selection=[
@@ -40,7 +40,7 @@ class MailActivity(models.Model):
             Inbox: The notification will be sent to the user's email.
             Pop-up: The notification will be received by means of a warning
             upon entering odoo.
-            Both: The notification will be done both ways.""")
+            Both: The notification will be done both ways.""",)
 
     def cron_following_activity_notifications(self):
         today = datetime.today()
@@ -178,12 +178,12 @@ class MailActivityNotifs(models.Model):
     _name = 'mail.activity.notifs'
     _description = 'Mail activity notifs'
 
-    partner_id = fields.Many2one('res.partner', 'Partner', readonly="True")
+    partner_id = fields.Many2one('res.partner', 'Partner', readonly="True",)
 
-    name = fields.Char('Name')
-    message = fields.Char('Message')
-    title = fields.Char('Title')
-    duration = fields.Integer('Remind Before')
+    name = fields.Char('Name',)
+    message = fields.Char('Message',)
+    title = fields.Char('Title',)
+    duration = fields.Integer('Remind Before',)
 
     @api.model
     def get_next_notif(self):

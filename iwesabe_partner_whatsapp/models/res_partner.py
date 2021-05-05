@@ -25,7 +25,7 @@ from odoo import models, fields
 class ResPartnerWhatsapp(models.Model):
     _inherit = 'res.partner'
 
-    mobile_whatsapp_link = fields.Html(compute='compute_mobile_whatsapp_link')
+    mobile_whatsapp_link = fields.Html(compute='compute_mobile_whatsapp_link',)
 
     def compute_mobile_whatsapp_link(self):
         for record in self:

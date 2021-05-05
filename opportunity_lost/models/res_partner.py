@@ -11,7 +11,7 @@ class Partner(models.Model):
 
     # Add some attribute
     opportunity_count_lost = fields.Integer(
-        "Opportunity lost", compute='_compute_opportunity_lost_count')
+        "Opportunity lost", compute='_compute_opportunity_lost_count',)
 
     @api.multi
     def _compute_opportunity_lost_count(self):

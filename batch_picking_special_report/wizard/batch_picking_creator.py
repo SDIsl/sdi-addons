@@ -17,20 +17,20 @@ class StockBatchPickingCreator(models.TransientModel):
         default=lambda x: x.env['ir.sequence'].next_by_code(
             'stock.batch.picking'
         ),
-        help='Name of the batch picking'
+        help='Name of the batch picking',
     )
     date = fields.Date(
         'Date', required=True, index=True, default=fields.Date.context_today,
-        help='Date on which the batch picking is to be processed'
+        help='Date on which the batch picking is to be processed',
     )
 
     picker_id = fields.Many2one(
         'res.users', string='Picker',
         default=lambda self: self._default_picker_id(),
-        help='The user to which the pickings are assigned'
+        help='The user to which the pickings are assigned',
     )
 
-    notes = fields.Text('Notes', help='free form remarks')
+    notes = fields.Text('Notes', help='free form remarks',)
 
     def _default_picker_id(self):
         """ Return default_picker_id from the main company warehouse

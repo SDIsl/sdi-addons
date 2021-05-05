@@ -10,4 +10,4 @@ class ProductTemplate(models.Model):
     uom_in_sales_id = fields.Many2one(comodel_name='product.uom',
                                       default=_get_default_uom_id,
                                       required=True,
-                                      string='UOM by default in sales')
+                                      string='UOM by default in sales',)

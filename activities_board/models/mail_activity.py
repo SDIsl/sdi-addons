@@ -13,26 +13,26 @@ class MailActivity(models.Model):
         related='res_model_id.name',
         string="Origin",
         store=False,
-        readonly=True
+        readonly=True,
     )
     duration = fields.Float(
         related='calendar_event_id.duration',
         string="Duration",
         store=False,
-        readonly=True
+        readonly=True,
     )
     calendar_event_id_start = fields.Datetime(
         default=False,
         related='calendar_event_id.start',
         store=False,
-        readonly=True
+        readonly=True,
     )
     calendar_event_id_partner_ids = fields.Many2many(
         related='calendar_event_id.partner_ids',
         string='Attendees',
         store=False,
         default=False,
-        readonly=True
+        readonly=True,
     )
 
     @api.multi

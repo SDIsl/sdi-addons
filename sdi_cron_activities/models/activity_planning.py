@@ -13,10 +13,10 @@ class ActivityPlanning(models.Model):
             days_list.append((str(i), str(i)))
         return days_list
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=True,)
     name = fields.Char(string='Name of the planned activities',
-                       track_visibility='always', required=True, index=True)
-    user_ids = fields.Many2many('res.users', string='Users')
+                       track_visibility='always', required=True, index=True,)
+    user_ids = fields.Many2many('res.users', string='Users',)
     recurrent = fields.Selection([
         ('0', 'Daily'),
         ('1', 'Weekly'),
@@ -24,15 +24,15 @@ class ActivityPlanning(models.Model):
         ('3', 'Days of week')],
         default='0',
         index=True,
-        string="Frequency"
+        string="Frequency",
     )
-    recurrent_monday = fields.Boolean("Monday")
-    recurrent_tuesday = fields.Boolean("Tuesday")
-    recurrent_wednesday = fields.Boolean("Wednesday")
-    recurrent_thursday = fields.Boolean("Thursday")
-    recurrent_friday = fields.Boolean("Friday")
-    recurrent_saturday = fields.Boolean("Saturday")
-    recurrent_sunday = fields.Boolean("Sunday")
+    recurrent_monday = fields.Boolean("Monday",)
+    recurrent_tuesday = fields.Boolean("Tuesday",)
+    recurrent_wednesday = fields.Boolean("Wednesday",)
+    recurrent_thursday = fields.Boolean("Thursday",)
+    recurrent_friday = fields.Boolean("Friday",)
+    recurrent_saturday = fields.Boolean("Saturday",)
+    recurrent_sunday = fields.Boolean("Sunday",)
     recurrent_day_of_week = fields.Selection([('1', 'Monday'),
                                               ('2', 'Tuesday'),
                                               ('3', 'Wednesday'),
@@ -40,15 +40,16 @@ class ActivityPlanning(models.Model):
                                               ('5', 'Friday'),
                                               ('6', 'Saturday'),
                                               ('7', 'Sunday')],
-                                             default='1', string="Day of week")
+                                             default='1',
+                                             string="Day of week",)
     recurrent_day_of_month = fields.Selection(get_days_of_month,
                                               string="Day of month",
-                                              default='1')
+                                              default='1',)
     cron_activity_ids = fields.One2many(
         'template.cron.activity', 'res_id', 'Activities',
-        auto_join=True)
-    date_start = fields.Date("Date start")
-    date_end = fields.Date("Date end")
+        auto_join=True,)
+    date_start = fields.Date("Date start",)
+    date_end = fields.Date("Date end",)
 
     @api.multi
     def toggle_active(self):
@@ -124,12 +125,12 @@ class CronActivityTemplate(models.Model):
 
     res_id = fields.Many2one('activity.planning', string="Cron Task Reference",
                              required=True, ondelete='cascade', index=True,
-                             copy=False)
+                             copy=False,)
     # activity
     activity_type_id = fields.Many2one(
         'mail.activity.type', 'Type of Activity',
         domain=lambda self: ['|', ('res_model_id', '=', False)],
-        required=True)
-    summary = fields.Char(string='Summary', required=True)
-    sequence = fields.Integer("Sequence")
-    depend_before = fields.Boolean('Depend before')
+        required=True,)
+    summary = fields.Char(string='Summary', required=True,)
+    sequence = fields.Integer("Sequence",)
+    depend_before = fields.Boolean('Depend before',)

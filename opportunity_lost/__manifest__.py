@@ -21,8 +21,8 @@
         'crm',
     ],
     'data': [
-        'wizard/wizard.xml',
         'views/inherit_res_partner_views.xml',
+        'wizard/wizard.xml',
     ],
     'installable': True,
 }

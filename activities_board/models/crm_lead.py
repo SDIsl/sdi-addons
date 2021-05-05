@@ -13,7 +13,7 @@ class Lead(models.Model):
 
     opportunity_activities_count = fields.Integer(
         "Activities",
-        compute='_compute_activities_count'
+        compute='_compute_activities_count',
     )
 
     @api.multi
