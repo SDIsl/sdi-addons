@@ -21,9 +21,9 @@ It supports:
     """,
     'license': 'AGPL-3',
     'depends': [
+        'activities_done'
         'crm',
         'mail',
-        'activities_done'
     ],
     'data': [
         'views/activities_sync_event_templates.xml',

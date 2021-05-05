@@ -27,12 +27,12 @@
     'author': 'Jorge Luis Quinteros',
     'license': 'AGPL-3',
     'depends': [
-        'web',
         'crm',
+        'web',
     ],
     'data': [
-        'views/templates.xml',
         'views/crm_lead.xml',
+        'views/templates.xml',
     ],
     'installable': True,
     'application': False,
