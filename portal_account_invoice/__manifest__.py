@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'Account Invoice Portal',
+    'name': 'Portal Account Invoice',
     'summary': 'Modifications of account invoices on portal.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
     'website': 'https://sdi.es/odoo/',
