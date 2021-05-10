@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-06 11:04+0000\n"
-"PO-Revision-Date: 2021-05-06 11:04+0000\n"
+"POT-Creation-Date: 2021-02-03 13:08+0000\n"
+"PO-Revision-Date: 2021-02-03 13:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,10 +16,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "&amp;nbsp;<span>on</span>&amp;nbsp;"
 msgstr "&amp;nbsp;<span>de</span>&amp;nbsp;"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
+msgid ". Additional Information"
+msgstr ". Información adicional"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -32,7 +37,7 @@ msgid ". Sale Order Processing"
 msgstr ". Tramitación del pedido"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid ". Service Level"
 msgstr ". Nivel de servicio"
 
@@ -42,9 +47,9 @@ msgid ". Summary of Products and Services"
 msgstr ". Resumen de productos y servicios"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "/ year"
-msgstr "/ año"
+#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
+msgid "1. Customer Information"
+msgstr "1. Información del cliente"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -57,28 +62,18 @@ msgid "<span class=\"text-danger\">The sum of percent must be 100%</span>"
 msgstr "<span class=\"text-danger\">La suma de los porcentajes debe ser 100%</span>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "<span style=\"color:#e96f06;\">Maintenance and/or Subscriptions</span> (recurring payment)"
-msgstr "<span style=\"color:#e96f06;\">Mantenimientos y/o Suscripciones</span> (pago recurrente)"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "<span style=\"color:#e96f06;\">Services and/or Licenses</span> (single payment)"
-msgstr "<span style=\"color:#e96f06;\">Servicios y/o Licencias</span> (pago único)"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span>Amount</span><br/><span/>(TAX inc.)"
 msgstr "<span>Importe</span><br/><span/>(IVA inc.)"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span>Disc.(%)</span>"
 msgstr "<span>Desc.(%)</span>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span>Observations:</span>\n"
 "                    <br/>"
@@ -86,7 +81,7 @@ msgstr "<span>Observaciones:</span>\n"
 "                    <br/>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "<strong class=\"mr16\">Subtotal</strong>"
 msgstr ""
 
@@ -101,31 +96,31 @@ msgid "<strong class=\"mr16\">subtotal</strong>"
 msgstr ""
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<strong>Amount Base</strong>"
 msgstr "<strong>Base imponible</strong>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<strong>Discount: </strong>"
 msgstr "<strong>Descuento: </strong>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<strong>Total discount</strong>"
 msgstr "<strong>Descuento total</strong>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<strong>Total without discount</strong>"
 msgstr "<strong>Total sin descuento</strong>"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<strong>Total</strong>"
 msgstr ""
@@ -175,8 +170,7 @@ msgid "Aditional Information"
 msgstr "Información adicional"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary_prices
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Amount"
 msgstr "Importe"
@@ -238,19 +232,9 @@ msgid "Contract Sign"
 msgstr "Firma del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "Contract Summary"
-msgstr "Resumen de Contrato"
-
-#. module: contract_report
 #: model:ir.model,name:contract_report.model_contract_template
 msgid "Contract Template"
 msgstr "Plantilla de contrato"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
-msgid "Customer Information"
-msgstr "Información del cliente"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
@@ -263,13 +247,12 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Date Start"
 msgstr "Fecha de inicio"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary_prices
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Description"
 msgstr "Descripción"
@@ -315,13 +298,13 @@ msgid "Province:"
 msgstr "Provincia:"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Recurring Interval"
 msgstr "Facturar cada"
 
@@ -336,7 +319,7 @@ msgid "Sale Order Process"
 msgstr "Tramitación del pedido"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Service"
 msgstr "Servicio"
 
@@ -363,12 +346,7 @@ msgid "Terms and conditions of the contract"
 msgstr "Términos y condiciones del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "This contract consists of several sheets, so with the signature of sheet 1, the customer accepts all the conditions established in this contract."
-msgstr "El presente contrato se compone de varias hojas, por lo que con la firma de la hoja nº 1, el cliente acepta todas las condiciones establecidas en este contrato."
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_mantenances
 msgid "Unit Price"
 msgstr "Precio"
 
@@ -376,3 +354,4 @@ msgstr "Precio"
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "sign"
 msgstr "Firma"
+
