@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<odoo>
-    <template id="portal_invoice_page_inherit" inherit_id="account.portal_invoice_page">
-        <xpath expr="//a[@href='#']" position="replace">
-        </xpath>
-    </template>
-</odoo>
