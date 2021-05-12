@@ -12,7 +12,8 @@ class Lead(models.Model):
         super(Lead, self)._compute_meeting_count()
         meeting_data = self.env['calendar.event'].read_group([
             ('opportunity_id', 'in', self.ids),
-            ('editable', '=', False)], ['opportunity_id'], ['opportunity_id'])
+            ('editable', '=', False),
+        ], ['opportunity_id'], ['opportunity_id'])
         mapped_data = {m['opportunity_id'][0]: m[
             'opportunity_id_count'] for m in meeting_data}
         for lead in self:
@@ -21,10 +22,6 @@ class Lead(models.Model):
 
     @api.multi
     def action_schedule_meeting(self):
-        """ Open meeting's calendar view to schedule meeting on current
-            opportunity.
-            :return dict: dictionary value for created Meeting view
-        """
         self.ensure_one()
 
         action = super(Lead, self).action_schedule_meeting()
@@ -48,6 +45,4 @@ class Lead(models.Model):
             action['context']['default_res_id'] = self.id
             action['context']['default_res_model'] = 'crm.lead'
             action['context']['default_name'] = name
-            # action['context']['search_default_partner_ids'] = \
-            #   self.partner_id.name
         return action

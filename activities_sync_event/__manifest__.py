@@ -3,12 +3,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'SDi-CRM: Sync activity with meeting',
-    "version": "12.0.1.0.1",
-    'category': "Uncategorized",
+    'version': '12.0.1.0.1',
+    'category': 'Uncategorized',
     'author': 'David Juaneda',
-    'summary': """
-        Sync activitiy with meetings.""",
-    'description': """
+    'summary': '''
+        Sync activitiy with meetings.''',
+    'description': '''
 This is a full-featured crm system.
 ========================================
 
@@ -18,10 +18,10 @@ It supports:
     Complete the title of the meetings with information from the opportunity
     or from the client.
 
-    """,
+    ''',
     'license': 'AGPL-3',
     'depends': [
-        'activities_done'
+        'activities_done',
         'crm',
         'mail',
     ],

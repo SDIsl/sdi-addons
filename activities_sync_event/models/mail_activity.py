@@ -8,13 +8,6 @@ class MailActivity(models.Model):
     _inherit = "mail.activity"
 
     def action_feedback(self, feedback=False):
-        """
-        Override.
-        If a meeting-type activity has been marked as done,
-        the related event is also marked as not editable.
-        :param feedback:
-        :return:
-        """
         events = self.mapped('calendar_event_id')
         res = super(MailActivity, self).action_feedback(feedback)
         for event in events:
@@ -23,17 +16,10 @@ class MailActivity(models.Model):
 
     @api.multi
     def action_create_calendar_event(self):
-        """
-        Modified functionality of the method:
-        Add customer's contact and user to meeting through
-        'default_partners_ids'.
-        :return: action
-        """
         self.ensure_one()
         action = super(MailActivity, self).action_create_calendar_event()
         name = action['context'].get('default_name', False)
 
-        # crm.lead
         if action['context'].get('default_res_id') and \
            action['context']['default_res_model'] == 'crm.lead':
             lead = self.env['crm.lead'].browse(int(action[
@@ -45,18 +31,10 @@ class MailActivity(models.Model):
             action['context']['default_name'] = name
 
         partner_ids = self.env.user.partner_id.ids
-        # add customer to meeting like attendee
         customer = self._get_customer(action['context'])
-        # if customer.id:
-        #     partner_ids.append(customer.id)
         action['context']['default_partner_ids'] = partner_ids
 
-        # If we know customer, his name will put in tittle of meeting
         self._add_partner_to_meeting_name(action['context'], name, customer)
-
-        # res.partner
-        # if action['context']['default_res_model'] == 'res.partner':
-        #     action['context']['search_default_partner_ids'] = customer.name
 
         return action
 

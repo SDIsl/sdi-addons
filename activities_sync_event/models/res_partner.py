@@ -9,11 +9,6 @@ class Partner(models.Model):
 
     @api.multi
     def schedule_meeting(self):
-        """
-        Add partner's name to action's context to put in the summary and add
-        the partner to the attendees of the meeting.
-        :return:
-        """
         self.ensure_one()
         action = super(Partner, self).schedule_meeting()
         name = self.name
