@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    
     <record id="workspace_subsidy_view_form" model="ir.ui.view">
         <field name="model">workspace.item.subsidy</field>
         <field name="arch" type="xml">
@@ -35,7 +34,6 @@
             </form>
         </field>
     </record>
-
     <record id="workspace_subsidy_view_tree" model="ir.ui.view">
         <field name="model">workspace.item.subsidy</field>
         <field name="arch" type="xml">
@@ -47,5 +45,4 @@
             </tree>
         </field>
     </record>
-    
 </odoo>
