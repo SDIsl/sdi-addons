@@ -6,7 +6,7 @@ sysadmin_group_hr_employee_access,SysAdmin Employee managing,model_hr_employee,s
 employee_group_workspace_items_access,Employees Workspaces Items view and modify,model_workspace_item,sysadmin_base.group_sysadmin_employee,1,1,0,0
 employee_group_workspaces_view,Employees Workspaces view,model_workspace_workspace,sysadmin_base.group_sysadmin_employee,1,0,0,0
 booking_group_workspace_item_view,Employees Workspace items view and edit,model_workspace_item,sysadmin_base.group_sysadmin_booking,1,1,0,0
-internal_user_workspace_items_view,Internal User Workspaces Items view,model_workspace_item,stock.group_stock_user,1,0,0,0
+internal_user_workspace_items_view,Internal User Workspaces Items view,model_workspace_item,base.group_user,1,0,0,0
 internal_user_workspaces_view,Internal User Workspaces view,model_workspace_workspace,base.group_user,1,0,0,0
 sysadmin_group_stock_move_view,SysAdmin Stock Move view,stock.model_stock_move,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
 sysadmin_group_product_product_access,SysAdmin Products managing,product.model_product_product,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
