@@ -18,17 +18,15 @@
 #
 ###############################################################################
 {
-    'name': 'Account Invoice User Internal',
-    'summary': 'Restrict user assignment in invoices to external users.',
-    'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
+    'name': 'HR Employee Internal User',
+    'summary': 'Restrict user assignment in employees to external users.',
+    'author': '''Jorge Luis Quinteros, Valentín Castravete Georgian,
+        SDi Soluciones Digitales''',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Invoicing Management',
+    'category': 'Employee',
     'version': '12.0.1.0.0',
     'depends': [
-        'account',
-    ],
-    'data': [
-        'views/account_invoice_views.xml',
+        'hr',
     ],
 }
