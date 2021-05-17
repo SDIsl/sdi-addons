@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-06 11:04+0000\n"
-"PO-Revision-Date: 2021-05-06 11:04+0000\n"
+"POT-Creation-Date: 2021-05-17 08:28+0000\n"
+"PO-Revision-Date: 2021-05-17 08:28+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -159,18 +159,12 @@ msgid "ANNEX II: Templates Clausules"
 msgstr "ANEXO II: Cláusulas y condiciones del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_template_form_view
-msgid "Additional Information"
-msgstr "Información adicional"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Address:"
 msgstr "Dirección:"
 
 #. module: contract_report
-#: model:ir.model.fields,field_description:contract_report.field_contract_contract__sale_order_process
-#: model:ir.model.fields,field_description:contract_report.field_contract_template__sale_order_process
+#: model:ir.model.fields,field_description:contract_report.field_res_company__sale_order_process
 msgid "Aditional Information"
 msgstr "Información adicional"
 
@@ -248,14 +242,14 @@ msgid "Contract Template"
 msgstr "Plantilla de contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
-msgid "Customer Information"
-msgstr "Información del cliente"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "Customer Date and Signature"
 msgstr "Fecha y firma del cliente"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
+msgid "Customer Information"
+msgstr "Información del cliente"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -341,8 +335,7 @@ msgid "Service"
 msgstr "Servicio"
 
 #. module: contract_report
-#: model:ir.model.fields,help:contract_report.field_contract_contract__sale_order_process
-#: model:ir.model.fields,help:contract_report.field_contract_template__sale_order_process
+#: model:ir.model.fields,help:contract_report.field_res_company__sale_order_process
 msgid "Steps for the client to make the payment of the contract."
 msgstr "Pasos para que el cliente realice el pago del contrato."
 

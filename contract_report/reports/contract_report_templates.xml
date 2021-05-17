@@ -564,16 +564,9 @@
     </t>
     <div style="page-break-inside:avoid; page-break-after:always; padding-top: 15px;">
         <t t-call="contract_report.signs"/>
-        <t t-set="contracts" t-value="doc.mapped('order_line.product_id.property_contract_template_id')"/>
-        <t t-set="contract" t-value="False"/>
-        <t t-if="len(contracts) &gt; 0">
-            <t t-set="contract" t-value="contracts[0]"/>
-        </t>
         <div style="padding-top: 10px;">
-            <p>This contract consists of several sheets, so with the signature of sheet 1, the customer accepts all the conditions established in this contract.</p>
-            <t t-if="contract">
-                <p t-field="contract.sale_order_process"/>
-            </t>
+            <p>This contract consists of several sheets, so with the signature of sheet 1, the customer accepts all the conditions established in this contract.</p>            
+                <p t-field="doc.company_id.sale_order_process"/>
         </div>
     </div>
 </template>
