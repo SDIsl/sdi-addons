@@ -18,17 +18,14 @@
 #
 ###############################################################################
 {
-    'name': 'Contract User Internal',
-    'summary': 'Restrict user assignment in contracts to external users.',
+    'name': 'Project Task Internal User',
+    'summary': 'Restrict user assignment in project tasks to external users.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Sale',
+    'category': 'Project',
     'version': '12.0.1.0.0',
     'depends': [
-        'sale',
-    ],
-    'data': [
-        'views/contract_views.xml',
+        'project',
     ],
 }

@@ -18,17 +18,14 @@
 #
 ###############################################################################
 {
-    'name': 'Sale Order User Internal',
-    'summary': 'Restrict user assignment in sale orders to external users.',
+    'name': 'Mail Activity Internal user',
+    'summary': 'Restrict user assignment in activities to external users.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Sale',
+    'category': 'Discuss',
     'version': '12.0.1.0.0',
     'depends': [
-        'sale',
-    ],
-    'data': [
-        'views/sale_order_views.xml',
+        'mail',
     ],
 }
