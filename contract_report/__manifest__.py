@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    SDi Soluciones Informáticas
-#    Copyright (C) 2020-Today SDi Soluciones Informáticas <www.sdi.es>
+#    Copyright (C) 2021-Today SDi Soluciones Informáticas <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,7 +20,8 @@
 {
     'name': 'Contract Report',
     'summary': 'Print a contract report based in property contract template',
-    'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
+    'author': '''Jorge Luis Quinteros, Valentín Castravete Georgian,
+                 SDi Soluciones Digitales''',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Contracts',
@@ -30,9 +31,9 @@
         'sale',
     ],
     'data': [
-        'reports/contract_report.xml',
-        'reports/contract_report_templates.xml',
         'views/contract_template.xml',
         'views/res_company.xml',
+        'reports/contract_report_templates.xml',
+        'reports/contract_report.xml',
     ],
 }
