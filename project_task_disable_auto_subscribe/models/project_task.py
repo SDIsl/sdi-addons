@@ -9,14 +9,8 @@ class ProjectTask(models.Model):
 
     @api.multi
     def create(self, vals):
-        res = super().create(vals)
-        for follower in res['message_follower_ids']:
-            user = self.env['res.users'].search([
-                ('partner_id', '=', follower.partner_id.id),
-            ], limit=1,)
-            if user.id == self.create_uid.id and \
-               user.project_task_disable_auto_subscribe:
-                self.env['mail.followers'].search([
-                    ('id', '=', follower.id),
-                ]).unlink()
-        return res
+        user_id = self.env['res.users'].browse(self._context['uid'])
+        if not user_id.project_task_disable_auto_subscribe:
+            return super().create(vals)
+        return super(ProjectTask, self.with_context(
+            mail_create_nosubscribe=True)).create(vals)

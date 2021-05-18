@@ -21,7 +21,8 @@
     'name': 'Project Task Disable Auto Subscribe',
     'summary': '''Check on user for disabling auto subscription when the user
                   creates a new project task.''',
-    'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
+    'author': '''Valentín Castravete Georgian, Jorge Luis Quinteros,
+                 SDi Soluciones Digitales''',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Project',
