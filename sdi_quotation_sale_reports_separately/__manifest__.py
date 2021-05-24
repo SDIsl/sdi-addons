@@ -13,11 +13,11 @@
         'sale',
     ],
     'data': [
+        'data/order_mail_template.xml',
+        'data/quotation_mail_template.xml',
         'report/order_report_template.xml',
         'report/quotation_report_template.xml',
         'report/sale_report.xml',
-        'data/order_mail_template.xml',
-        'data/quotation_mail_template.xml',
     ],
-    'installable':True,
+    'installable': True,
 }

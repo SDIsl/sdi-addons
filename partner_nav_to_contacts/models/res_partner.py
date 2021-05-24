@@ -9,11 +9,12 @@ from odoo import api, fields, models
 class Partner(models.Model):
     _inherit = 'res.partner'
 
-    contact_origin = fields.Many2one('res.partner', string='Contact origin')
+    contact_origin = fields.Many2one('res.partner', string='Contact origin',)
 
     @api.multi
     def open_commercial_partner(self):
-        """ Utility method used to add an "Open Company" button in partner views """
+        """ Utility method used to add an "Open Company" button in partner
+        views """
         self.ensure_one()
         return {'type': 'ir.actions.act_window',
                 'res_model': 'res.partner',

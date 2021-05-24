@@ -8,7 +8,7 @@ class StockMoveLine(models.Model):
 
     boxes = fields.Integer(
         string='Boxes',
-        compute="_compute_boxes"
+        compute="_compute_boxes",
     )
     units = fields.Float(
         string="Units",
@@ -25,5 +25,6 @@ class StockMoveLine(models.Model):
 
     def _calculate_price_unit(self):
         return self.sale_line.price_unit * self.sale_line.product_uom.factor
+
     def _calculate_units(self):
         return self.units

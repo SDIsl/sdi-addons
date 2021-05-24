@@ -7,6 +7,7 @@
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
 
+
 class StockMoveLine(models.Model):
     _inherit = 'stock.move.line'
 
@@ -78,11 +79,13 @@ class StockMoveLine(models.Model):
             # price_unit = (
             #     sale_line.price_subtotal / sale_line.product_uom_qty
             #     if sale_line.product_uom_qty else sale_line.price_reduce)
-            price_unit = line.sale_price_unit - line.sale_price_unit * line.discount/100
+            price_unit = \
+                line.sale_price_unit - line.sale_price_unit * \
+                line.discount / 100
             taxes = line.sale_tax_id.compute_all(
                 price_unit=price_unit,
                 currency=line.currency_id,
-                quantity= units or line.product_qty,
+                quantity=units or line.product_qty,
                 product=line.product_id,
                 partner=sale_line.order_id.partner_shipping_id)
             if sale_line.company_id.tax_calculation_rounding_method == (

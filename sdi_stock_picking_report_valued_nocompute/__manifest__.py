@@ -20,9 +20,9 @@
         "stock",
     ],
     "data": [
-        'views/res_partner_view.xml',
         'data/cronjob.xml',
         'report/stock_picking_report_valued.xml',
+        'views/res_partner_view.xml',
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",

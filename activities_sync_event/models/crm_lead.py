@@ -9,13 +9,15 @@ class Lead(models.Model):
 
     @api.multi
     def _compute_meeting_count(self):
-        super(Lead,self)._compute_meeting_count()
-        meeting_data = self.env['calendar.event'].read_group([('opportunity_id', 'in', self.ids),('editable','=',False)],
-                                                             ['opportunity_id'],
-                                                             ['opportunity_id'])
-        mapped_data = {m['opportunity_id'][0]: m['opportunity_id_count'] for m in meeting_data}
+        super(Lead, self)._compute_meeting_count()
+        meeting_data = self.env['calendar.event'].read_group([
+            ('opportunity_id', 'in', self.ids),
+            ('editable', '=', False)], ['opportunity_id'], ['opportunity_id'])
+        mapped_data = {m['opportunity_id'][0]: m['opportunity_id_count']
+                       for m in meeting_data}
         for lead in self:
-            lead.meeting_count = lead.meeting_count - mapped_data.get(lead.id, 0)
+            lead.meeting_count = lead.meeting_count - mapped_data.get(
+                lead.id, 0)
 
     @api.multi
     def action_schedule_meeting(self):
@@ -29,12 +31,14 @@ class Lead(models.Model):
 
         if self.partner_id:
             if self.partner_id.is_company:
-                name = "{} - {} ".format(self.partner_id.commercial_company_name,
-                                         self.name)
+                name = "{} - {} ".format(
+                    self.partner_id.commercial_company_name,
+                    self.name)
             else:
                 if self.partner_id.commercial_company_name:
-                    contacts = "{}, {}".format(self.partner_id.commercial_company_name,
-                                           self.partner_id.name)
+                    contacts = "{}, {}".format(
+                        self.partner_id.commercial_company_name,
+                        self.partner_id.name)
                 else:
                     contacts = self.partner_id.name
 
@@ -43,5 +47,6 @@ class Lead(models.Model):
             action['context']['default_res_id'] = self.id
             action['context']['default_res_model'] = 'crm.lead'
             action['context']['default_name'] = name
-            # action['context']['search_default_partner_ids'] = self.partner_id.name
+            # action['context']['search_default_partner_ids'] =
+            #  self.partner_id.name
         return action

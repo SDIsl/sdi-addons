@@ -6,7 +6,8 @@
     'version': '11.0.1.0.1',
     'category': 'Extra Tools',
     'summary': """
-        Modificar record de base.state_ar_f (nombre actual "La Rioja", por, "La Rioja (Argentina)") """,
+        Modificar record de base.state_ar_f (nombre actual "La Rioja", por,
+        "La Rioja (Argentina)") """,
     'author': 'Oscar Soto',
     'license': 'AGPL-3',
     'depends': [
@@ -20,4 +21,3 @@
     'installable': True,
     'application': False,
 }
-

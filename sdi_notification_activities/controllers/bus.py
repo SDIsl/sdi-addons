@@ -11,5 +11,10 @@ class MailActivityFollowingBusController(BusController):
     def _poll(self, dbname, channels, last, options):
         if request.session.uid:
             channels = list(channels)
-            channels.append((request.db, 'mail.activity.notifs', request.env.user.partner_id.id))
-        return super(MailActivityFollowingBusController, self)._poll(dbname, channels, last, options)
+            channels.append((
+                request.db,
+                'mail.activity.notifs',
+                request.env.user.partner_id.id
+            ))
+        return super(MailActivityFollowingBusController, self)._poll(
+            dbname, channels, last, options)

@@ -6,7 +6,7 @@
     'version': '11.0.1.0.1',
     'category': '',
     'author': 'David Juaneda',
-    'summary': """  
+    'summary': """
         Add navigation from customers to your contacts.""",
     'license': 'AGPL-3',
     'depends': [
@@ -15,5 +15,5 @@
     'data': [
         'views/inherit_res_partner_views.xml',
     ],
-    'installable':True,
+    'installable': True,
 }

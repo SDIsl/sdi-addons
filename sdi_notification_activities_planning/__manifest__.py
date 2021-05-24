@@ -2,7 +2,8 @@
 {
     'name': "SDi Add Notification to Activities Planning",
     'summary': """
-    Add notifications funtions to Activitivies to notify when an activity ends""",
+    Add notifications funtions to Activitivies to notify when an activity
+    ends""",
 
     'description': 'Add notifications functions to activities',
 

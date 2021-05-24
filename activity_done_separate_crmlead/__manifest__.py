@@ -7,7 +7,8 @@
     'category': 'Uncategorized',
     'author': 'David Juaneda',
     'summary': """
-        Synchronize if the activities done are kept and they are spread between leads or opportunities.""",
+        Synchronize if the activities done are kept and they are spread between
+        leads or opportunities.""",
     'license': 'AGPL-3',
     'depends': [
         'activities_done',

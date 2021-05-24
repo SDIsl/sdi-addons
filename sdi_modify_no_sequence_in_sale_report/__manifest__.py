@@ -6,7 +6,8 @@
     'version': '11.0.1.0.1',
     'category': 'Sales',
     'summary': """
-        Modify the OCA module sale_order_line_sequence for no put sequence in Sale Report """,
+        Modify the OCA module sale_order_line_sequence for no put sequence in
+        Sale Report """,
     'author': 'Oscar Soto',
     'license': 'AGPL-3',
     'depends': [

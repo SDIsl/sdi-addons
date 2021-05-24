@@ -6,7 +6,8 @@
     'version': '11.0.1.0.1',
     'category': 'Website',
     'summary': """
-        Put the website quotation signature in customer_signature sale.order field""",
+        Put the website quotation signature in customer_signature sale.order
+         field""",
     'author': 'Oscar Soto',
     'license': 'AGPL-3',
     "website": "http://www.sdi.es",

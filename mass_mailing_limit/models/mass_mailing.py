@@ -2,13 +2,13 @@
 # © 2012-2015 David Juaneda <djuaneda@sdi.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import logging
-from odoo import api, models, _
+from odoo import models, _
 from odoo.exceptions import UserError
 _logger = logging.getLogger(__name__)
 
+
 class MassMailing(models.Model):
     _inherit = 'mail.mass_mailing'
-
 
     def send_mail(self):
         batch_size = int(self.env['ir.config_parameter'].sudo().get_param(
@@ -28,7 +28,8 @@ class MassMailing(models.Model):
                 error = _('No more recipients.')
                 raise UserError(error)
 
-            # Convert links in absolute URLs before the application of the shortener
+            # Convert links in absolute URLs before the application of the
+            # shortener
             mailing.body_html = self.env['mail.template']._replace_local_links(
                 mailing.body_html)
 
@@ -43,7 +44,7 @@ class MassMailing(models.Model):
                 'record_name': False,
                 'composition_mode': 'mass_mail',
                 'mass_mailing_id': mailing.id,
-                'mailing_list_ids': [(4, l.id) for l in
+                'mailing_list_ids': [(4, i.id) for i in
                                      mailing.contact_list_ids],
                 'no_auto_thread': mailing.reply_to_mode != 'thread',
             }
