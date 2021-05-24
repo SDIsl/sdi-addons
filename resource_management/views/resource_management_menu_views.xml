@@ -22,7 +22,7 @@
         <field name="res_model">hr.employee</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
-    <menuitem id="resources_and_employees_menu" name="Resources and Employees" groups="resource_management.group_resource_manager" web_icon="sysadmin_base,static/description/icon.png"/>
+    <menuitem id="resources_and_employees_menu" name="Resources and Employees" groups="resource_management.group_resource_manager" web_icon="resource_management,static/description/icon.png"/>
     <menuitem id="resources_menu" name="Resources" parent="resources_and_employees_menu" sequence="1"/>
     <menuitem id="products_menu" name="Products" action="action_list_products" parent="resources_menu" sequence="1"/>
     <menuitem id="product_categories_menu" name="Product Categories" action="action_list_categories" parent="resources_menu" sequence="2"/>
