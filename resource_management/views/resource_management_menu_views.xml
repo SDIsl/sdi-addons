@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_list_products" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="context">{
+            'search_default_is_a_resource':1,
+            'default_is_a_resource':1,
+            'default_sale_ok':0,
+            'default_purchase_ok':0,}</field>
+    </record>
+    <record id="action_list_categories" model="ir.actions.act_window">
+        <field name="name">Product categories</field>
+        <field name="res_model">product.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="product.product_category_list_view"/>
+    </record>
+    <record id="action_list_employees" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <menuitem id="resources_and_employees_menu" name="Resources and Employees" groups="resource_management.group_resource_manager" web_icon="resource_management,static/description/icon.png"/>
+    <menuitem id="resources_menu" name="Resources" parent="resources_and_employees_menu" sequence="1"/>
+    <menuitem id="products_menu" name="Products" action="action_list_products" parent="resources_menu" sequence="1"/>
+    <menuitem id="product_categories_menu" name="Product Categories" action="action_list_categories" parent="resources_menu" sequence="2"/>
+    <menuitem id="employees_menu" name="Employees" action="action_list_employees" parent="resources_and_employees_menu" sequence="2"/>
+</odoo>

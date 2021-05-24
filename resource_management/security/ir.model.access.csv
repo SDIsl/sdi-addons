@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+resource_management_group_employee_access,Employees management,model_hr_employee,resource_management.group_resource_manager,1,1,1,1
+resource_management_group_product_access,Products management,model_product_template,resource_management.group_resource_manager,1,1,1,1

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <page name="public" position="after">
+                <page name="resources" string="Resources" groups="resource_management.group_resource_manager">
+                    <group>
+                        <field name="resource_ids">
+                            <tree decoration-danger="expiration_date&lt;current_date">
+                                <field name="name"/>
+                                <field name="quantity"/>
+                                <field name="expiration_date"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
