@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="group_resource_manager" model="res.groups">
+        <field name="name">Resource Manager</field>
+        <field name="comment">The user will have access to associate resources to employees.</field>
+    </record>
+</odoo>
