@@ -19,11 +19,11 @@
 ###############################################################################
 {
     'name': 'Sale Order Invoice Partner',
-    'summary': 'Change the invoice partner in the sale order, '
-    'to select the company or the invoice address of the partner.',
+    'summary': 'Payment terms and mode will be ihnerited from '
+    "partner's ones when are blank",
     'category': 'Sales',
     'version': '12.0.1.0.0',
-    'author': 'Oscar Soto, SDi Soluciones Informáticas',
+    'author': 'Sergio Lop, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
     'depends': [
