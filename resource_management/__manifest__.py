@@ -19,11 +19,12 @@
 ###############################################################################
 {
     'name': 'Resource Management',
-    'summary': 'Permits to associate products to employees',
+    'summary': 'It permits to associate resources and resource bookings to'
+               ' employees.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Sales',
+    'category': 'Resources',
     'version': '12.0.1.0.0',
     'depends': [
         'hr',
@@ -31,8 +32,10 @@
     ],
     'data': [
         'security/resource_management_security.xml',
+        'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
         'views/product_views.xml',
+        'views/resource_booking_management_views.xml',
         'views/resource_management_menu_views.xml',
     ],
 }
