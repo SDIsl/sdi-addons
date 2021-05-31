@@ -34,7 +34,7 @@
             </ul>
             <div t-field="company.report_footer"/>
             <div t-if="report_type == 'pdf'">
-                Page: <span class="page"/> / <span class="topage"/>
+                Page: <span class="page"/>
             </div>
         </div>
     </div>
