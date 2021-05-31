@@ -18,9 +18,9 @@
 #
 ###############################################################################
 {
-    'name': 'Sale Order Invoice Partner',
-    'summary': 'Change the invoice partner in the sale order, '
-    'to select the company or the invoice address of the partner.',
+    'name': 'Sale Order Partner Terms',
+    'summary': 'Inherits the partner terms when invoicinf if sales , '
+    'if sale order has it blank.',
     'category': 'Sales',
     'version': '12.0.1.0.0',
     'author': 'Sergio Lop, SDi Soluciones Informáticas',
