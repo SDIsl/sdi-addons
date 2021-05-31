@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!-- External/Interal layout / Customize header and footer -->
+<template id="contract_external_layout_boxed">
+    <div class="header" t-att-style="report_header_style">
+        <div class="o_boxed_header">
+            <div class="row mb8">
+                <div class="col-6">
+                    <t t-call="company_report_logo.logo_replacement">
+                        <t t-set="company_report_logo_style">max-height: 80px;</t>
+                    </t>
+                </div>
+                <div class="col-6 text-right mb4">
+                    <br/>
+                    <br/>
+                    <h6 class="mt0">SDi Digital Group</h6>
+                    <p class="mt0">Telf. 941 13 50 52</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="article o_report_layout_boxed" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <t t-call="web.address_layout"/>
+        <t t-raw="0"/>
+    </div>
+
+    <div class="footer o_boxed_footer">
+        <div class="text-center">
+            <ul class="list-inline">
+                <li t-if="company.phone" class="list-inline-item">Tel: <span t-field="company.phone"/></li>
+                <li t-if="company.email" class="list-inline-item">Mail: <span t-field="company.email"/></li>
+                <li t-if="company.website" class="list-inline-item">Web: <span t-field="company.website"/></li>
+                <li t-if="company.vat" class="list-inline-item"><t t-esc="(company.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>: <span t-esc="company.vat.replace(' ','\N{NO-BREAK SPACE}')"/></li>
+            </ul>
+            <div t-field="company.report_footer"/>
+            <div t-if="report_type == 'pdf'">
+                Page: <span class="page"/>
+            </div>
+        </div>
+    </div>
+</template>
 <template id="contract_external_layout">
     <t t-set="company" t-value="company.sudo()"/>
     <t t-if="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t t-raw="0"/></t>
@@ -579,7 +617,7 @@
     <t t-set="show_number" t-value="True"/>
     <t t-set="change_color" t-value="False"/>
     <div class="page">
-        <t t-call="contract_report.contract_external_layout">
+        <t t-call="contract_report.contract_external_layout_boxed">
             <t t-call="contract_report.contract_summary"/>
         </t>
     </div>
