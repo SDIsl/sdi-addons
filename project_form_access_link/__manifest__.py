@@ -19,8 +19,8 @@
 ###############################################################################
 {
     'name': 'Project Form Access Link',
-    'summary': '''Allow you to click on a button and open the full project '''
-               '''form while watching project kanban view.''',
+    'summary': '''Allow you to click on a button and open the full project 
+                  form while watching project kanban view.''',
     'author': 'Valentín Georgian Castravete, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
