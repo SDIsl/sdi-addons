@@ -22,9 +22,18 @@
         <field name="res_model">hr.employee</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
-    <menuitem id="resources_and_employees_menu" name="Resources and Employees" groups="resource_management.group_resource_manager" web_icon="resource_management,static/description/icon.png"/>
-    <menuitem id="resources_menu" name="Resources" parent="resources_and_employees_menu" sequence="1"/>
+    <record id="action_list_bookings" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">resource.booking.management</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="context">{
+            'search_default_my_bookings': 1,
+            }</field>
+    </record>
+    <menuitem id="resource_management_menu" name="Resource Management" groups="resource_management.group_resource_manager,resource_management.group_employee_resource_management" web_icon="resource_management,static/description/icon.png"/>
+    <menuitem id="bookings_menu" name="Bookings" action="action_list_bookings" parent="resource_management_menu" sequence="1"/>
+    <menuitem id="resources_menu" name="Resources" parent="resource_management_menu" sequence="2"/>
     <menuitem id="products_menu" name="Products" action="action_list_products" parent="resources_menu" sequence="1"/>
-    <menuitem id="product_categories_menu" name="Product Categories" action="action_list_categories" parent="resources_menu" sequence="2"/>
-    <menuitem id="employees_menu" name="Employees" action="action_list_employees" parent="resources_and_employees_menu" sequence="2"/>
+    <menuitem id="product_categories_menu" name="Product Categories" action="action_list_categories" parent="resources_menu" sequence="2" groups="resource_management.group_resource_manager"/>
+    <menuitem id="employees_menu" name="Employees" action="action_list_employees" parent="resource_management_menu" sequence="3"/>
 </odoo>

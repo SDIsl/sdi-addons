@@ -18,24 +18,14 @@
 #
 ###############################################################################
 {
-    'name': 'Resource Management',
-    'summary': 'It permits to associate resources and resource bookings to'
-               ' employees.',
+    'name': 'Project Task Name Search',
+    'summary': 'Search project tasks by name or ID.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Resources',
+    'category': 'Project',
     'version': '12.0.1.0.0',
     'depends': [
-        'hr',
-        'product',
-    ],
-    'data': [
-        'security/resource_management_security.xml',
-        'security/ir.model.access.csv',
-        'views/hr_employee_views.xml',
-        'views/product_views.xml',
-        'views/resource_booking_management_views.xml',
-        'views/resource_management_menu_views.xml',
+        'project',
     ],
 }

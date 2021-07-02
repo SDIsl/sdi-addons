@@ -305,8 +305,8 @@ msgstr "Precio"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
-msgid "Province:"
-msgstr "Provincia:"
+msgid "City/Province:"
+msgstr "Ciudad/Provincia:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances

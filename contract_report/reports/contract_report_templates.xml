@@ -88,10 +88,17 @@
             <div class="col-2"><span t-field="doc.partner_id.zip"/></div>
         </div>
         <div class="row">
-            <div class="col-3 bg-light">Province:</div>
-            <div class="col-5"><span t-field="doc.partner_id.state_id"/></div>
+            <div class="col-3 bg-light">City/Province:</div>
+            <div class="col-5"><span t-field="doc.partner_id.city"/> (<span t-field="doc.partner_id.state_id.name"/>)</div>
             <div class="col-2 bg-light">Phone/Mobile:</div>
-            <div class="col-2"><span t-field="doc.partner_id.phone"/></div>
+            <div class="col-2">
+                <t t-if="doc.partner_id.phone">
+                    <span t-field="doc.partner_id.phone"/>
+                </t>
+                <t t-else="">
+                    <span t-field="doc.partner_id.mobile"/>
+                </t>
+            </div>
         </div>
         <div class="row">
             <div class="col-3 bg-light">Email:</div>
