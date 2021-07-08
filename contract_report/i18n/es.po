@@ -356,14 +356,14 @@ msgid "Terms and conditions of the contract"
 msgstr "Términos y condiciones del contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
-msgid "This contract consists of several sheets, so with the signature of sheet 1, the customer accepts all the conditions established in this contract."
-msgstr "El presente contrato se compone de varias hojas, por lo que con la firma de la hoja nº 1, el cliente acepta todas las condiciones establecidas en este contrato."
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 msgid "Unit Price"
 msgstr "Precio"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_summary_prices
+msgid "VAT not included"
+msgstr "IVA no incluido"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
