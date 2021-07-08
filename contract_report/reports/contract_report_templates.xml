@@ -45,17 +45,17 @@
     <t t-else="else" t-call="web.external_layout_standard"><t t-raw="0"/></t>
 </template>
 <template id="signs">
-    <div class="row mt16 mb-1" name="signatures">
+    <div class="row mt8 mb-1" name="signatures">
         <div class="col-6">
-            <div class="card rounded-0 border-dark position-relative" style="height: 120px">
+            <div class="card rounded-0 border-dark position-relative" style="height: 100px">
                 <div class="text-center p-2">
-                    <img t-if="company.contract_sign" t-att-src="image_data_uri(company.contract_sign)" style="height: 100px" alt="sign"/>
+                    <img t-if="company.contract_sign" t-att-src="image_data_uri(company.contract_sign)" style="height: 80px" alt="sign"/>
                 </div>
                 <div class="card-body fixed-bottom position-absolute text-center w-100 p-1">Supplier Signature</div>
             </div>
         </div>
         <div class="col-6">
-            <div class="card rounded-0 border-dark position-relative" style="height: 120px">
+            <div class="card rounded-0 border-dark position-relative" style="height: 100px">
                 <div class="card-body fixed-bottom position-absolute text-center w-100 p-1">Customer Date and Signature</div>
             </div>
         </div>
@@ -504,10 +504,7 @@
 </template>
 <template id="contract_summary_prices">
     <div>
-        <h5 class="mt16"><span t-esc="title"/></h5>
-    </div>
-    <div>
-        <table class="table table-sm o_main_table">
+        <table class="table table-sm o_main_table mb-0">
             <thead>
                 <tr>
                     <th class="text-left" style="width: 82%;">Description</th>
@@ -534,14 +531,14 @@
                         <t t-set="category_total" t-value="-1"/>
                         <t t-foreach="doc.order_line" t-as="line">
                             <t t-if="category.id==line.categ_id.id and unit.id==line.unit_id.id">
-                                <t t-if="line.price_total == 0 and category_total == -1">
-                                    <t t-set="category_total" t-value="line.price_total"/>
+                                <t t-if="line.price_subtotal == 0 and category_total == -1">
+                                    <t t-set="category_total" t-value="line.price_subtotal"/>
                                 </t>
                                 <t t-if="category_total == -1">
-                                   <t t-set="category_total" t-value="0 + line.price_total"/>
+                                   <t t-set="category_total" t-value="0 + line.price_subtotal"/>
                                 </t>
                                 <t t-else="else">
-                                    <t t-set="category_total" t-value="category_total + line.price_total"/>
+                                    <t t-set="category_total" t-value="category_total + line.price_subtotal"/>
                                 </t>
                             </t>
                         </t>
@@ -562,6 +559,7 @@
                 </t>
             </tbody>
         </table>
+        <div class="float-right m-0 p-0" style="font-size: xx-small;">VAT not included</div>
     </div>
 </template>
 <template id="contract_summary">
@@ -589,9 +587,8 @@
         </t>
     </t>
     <t t-if="single_payment_line_categories">
-        <br/>
         <div>
-            <h5><span style="color:#e96f06;">Services and/or Licenses</span> (single payment)</h5> 
+            <h5 class="mt-2"><span style="color:#e96f06;">Services and/or Licenses</span> (single payment)</h5> 
         </div>
         <t t-set="payment_categories" t-value="[4, 6]"/>
         <t t-set="payment_line_categories" t-value="single_payment_line_categories"/>
@@ -600,7 +597,7 @@
     </t>
     <t t-if="recurring_payment_line_categories">
         <div>
-            <h5><span style="color:#e96f06;">Maintenance and/or Subscriptions</span> (recurring payment)</h5> 
+            <h5 class="mt-2"><span style="color:#e96f06;">Maintenance and/or Subscriptions</span> (recurring payment)</h5> 
         </div>
         <t t-set="payment_categories" t-value="[5, 7]"/>
         <t t-set="payment_line_categories" t-value="recurring_payment_line_categories"/>
@@ -610,8 +607,7 @@
     <div style="page-break-inside:avoid; page-break-after:always; padding-top: 15px;">
         <t t-call="contract_report.signs"/>
         <div style="padding-top: 10px;">
-            <p>This contract consists of several sheets, so with the signature of sheet 1, the customer accepts all the conditions established in this contract.</p>            
-                <p t-field="doc.company_id.sale_order_process"/>
+            <p t-field="doc.company_id.sale_order_process"/>
         </div>
     </div>
 </template>
