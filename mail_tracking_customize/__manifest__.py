@@ -30,7 +30,4 @@
         'mail',
         'mail_tracking',
     ],
-    'data': [
-        # 'views/ir_mail_server_views.xml',
-    ],
 }
