@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, api
 
 
 class Contract(models.Model):
@@ -11,8 +11,8 @@ class Contract(models.Model):
         res = super(Contract, self)._finalize_invoice_creation(
             invoices)
         for invoice in invoices.filtered(
-            lambda x: x.payment_mode_id and
-                      x.payment_mode_id.facturae_code == '04'):
+            lambda x: x.payment_mode_id and 
+                x.payment_mode_id.facturae_code == '04'):
             invoice.partner_bank_id = \
                 invoice.payment_mode_id.fixed_journal_id.bank_account_id \
                 or False
