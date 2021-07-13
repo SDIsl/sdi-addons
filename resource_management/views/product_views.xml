@@ -13,6 +13,12 @@
                     </div>
                 </button>
             </div>
+            <xpath expr="//field[@name='sale_ok']/.." position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='purchase_ok']/.." position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
             <div name="options" position="inside">
                 <div>
                     <field name="is_a_resource"/>
@@ -104,7 +110,7 @@
         <field name="arch" type="xml">
             <filter name="activities_upcoming_all" position="after">
                 <separator/>
-                <filter string="Expired" name="Expired" domain="[('expiration_date','&lt;',context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Expired" name="Expired" domain="[('expiration_date', '=', True), ('expiration_date','&lt;',context_today().strftime('%Y-%m-%d'))]"/>
                 <separator/>
                 <filter string="Is a resource" name="is_a_resource" domain="[('is_a_resource','=',True)]"/>
                 <separator/>
