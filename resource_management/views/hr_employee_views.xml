@@ -17,7 +17,7 @@
                 <page name="resources" string="Resources">
                     <group>
                         <field name="resource_ids" context="{'search_default_is_a_resource':1, 'search_default_has_no_employee':1, 'default_is_a_resource':1, 'default_is_bookable':1, 'default_sale_ok':0, 'default_purchase_ok':0, 'default_employee_id': active_id}" widget="many2many">
-                            <tree decoration-danger="expiration_date &lt; current_date">
+                            <tree decoration-danger="expiration_date and expiration_date &lt; current_date">
                                 <field name="name"/>
                                 <field name="quantity"/>
                                 <field name="expiration_date"/>

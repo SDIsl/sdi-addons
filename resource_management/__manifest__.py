@@ -38,4 +38,5 @@
         'views/resource_booking_management_views.xml',
         'views/resource_management_menu_views.xml',
     ],
+    'application': True,
 }

@@ -54,6 +54,9 @@
                 <field name="workspace_location"/>
                 <field name="employee_id"/>
                 <field name="employee_location"/>
+                <field name="cpu"/>
+                <field name="ram"/>
+                <field name="data_storage"/>
                 <field name="subsidy_id"/>
                 <field name="company"/>
             </tree>
