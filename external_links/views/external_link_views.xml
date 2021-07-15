@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="external_link_view_search" model="ir.ui.view">
+        <field name="model">external.link</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="group_external_link_group" string="External Link Group" context="{'group_by':'external_link_group_id'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="external_link_view_tree" model="ir.ui.view">
+        <field name="model">external.link</field>
+        <field name="arch" type="xml">
+            <tree editable="top" default_order="external_link_group_id">
+                <field name="name"/>
+                <field name="url" widget="url"/>
+                <field name="external_link_group_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

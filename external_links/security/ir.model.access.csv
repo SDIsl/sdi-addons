@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+external_links_group_external_link_access,External Links managing,model_external_link,base.group_user,1,1,1,1
+external_links_group_external_link_group_access,External Link Groups managing,model_external_link_group,base.group_user,1,1,1,1
