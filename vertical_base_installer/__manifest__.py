@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'Vertical Base',
+    'name': 'Vertical Base Installer',
     'summary': 'Addons for a base instance',
     'author': 'Jorge Quinteros, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
