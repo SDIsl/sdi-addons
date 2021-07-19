@@ -31,7 +31,7 @@
         'mass_editing',
         'remove_odoo_enterprise',
         'partner_contact_access_link',
-        'web_advanced_search'
+        'web_advanced_search',
         'web_refresher',
         'web_no_bubble',
         'web_responsive',
