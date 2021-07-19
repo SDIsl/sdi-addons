@@ -36,7 +36,6 @@
         'web_no_bubble',
         'web_responsive',
         'web_tree_many2one_clickable',
-        'website_odoo_debranding',
     ],
     'application': True,
 }
