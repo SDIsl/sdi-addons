@@ -1,32 +1,38 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* resource_management
+# 	* resource_management
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-27 14:51+0000\n"
-"PO-Revision-Date: 2021-05-27 14:51+0000\n"
+"POT-Creation-Date: 2021-07-23 11:50+0000\n"
+"PO-Revision-Date: 2021-07-23 13:51+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
-msgid "<span class=\"o_stat_text\">Employee's</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Employee's</span>\n"
 "                        <span class=\"o_stat_text\">Bookings</span>"
-msgstr "<span class=\"o_stat_text\">Reservas</span>\n"
+msgstr ""
+"<span class=\"o_stat_text\">Reservas</span>\n"
 "                        <span class=\"o_stat_text\">del empleado</span>"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.product_template_form_view
-msgid "<span class=\"o_stat_text\">Resource</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Resource</span>\n"
 "                        <span class=\"o_stat_text\">Bookings</span>"
-msgstr "<span class=\"o_stat_text\">Reservas</span>\n"
+msgstr ""
+"<span class=\"o_stat_text\">Reservas</span>\n"
 "                        <span class=\"o_stat_text\">del recurso</span>"
 
 #. module: resource_management
@@ -174,7 +180,7 @@ msgstr ""
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_needaction
@@ -231,9 +237,19 @@ msgid "Main Attachment"
 msgstr "Adjuntos principales"
 
 #. module: resource_management
+#: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_content
+msgid "Message Content"
+msgstr "Contenido del mensaje"
+
+#. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_has_error
 msgid "Message Delivery error"
 msgstr "Error de Envío de Mensaje"
+
+#. module: resource_management
+#: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_content
+msgid "Message content, to be used only in searches"
+msgstr "Contenido del mensaje, para usarse en búsquedas"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_ids
@@ -328,6 +344,11 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
+msgid "Reserve resources"
+msgstr "Reserva de recursos"
+
+#. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__resource_id
 #: model_terms:ir.ui.view,arch_db:resource_management.resource_booking_management_search_view
 msgid "Resource"
@@ -361,6 +382,11 @@ msgid "Resources"
 msgstr "Recursos"
 
 #. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
+msgid "Resources and EPIs"
+msgstr "Recursos y EPIs"
+
+#. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_user_id
 msgid "Responsible User"
 msgstr "Usuario responsable"
@@ -384,11 +410,13 @@ msgstr "Fecha y hora de inicio"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr "Estado basado en actividades\n"
+msgstr ""
+"Estado basado en actividades\n"
 "Vencida: la fecha tope ya ha pasado\n"
 "Hoy: La fecha tope es hoy\n"
 "Planificada: futuras actividades."
