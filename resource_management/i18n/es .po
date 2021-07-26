@@ -345,7 +345,7 @@ msgstr "Cantidad"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
-msgid "Reserve resources"
+msgid "Resources booking"
 msgstr "Reserva de recursos"
 
 #. module: resource_management
