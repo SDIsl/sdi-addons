@@ -344,15 +344,15 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: resource_management
-#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
-msgid "Resources booking"
-msgstr "Reserva de recursos"
-
-#. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__resource_id
 #: model_terms:ir.ui.view,arch_db:resource_management.resource_booking_management_search_view
 msgid "Resource"
 msgstr "Recurso"
+
+#. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
+msgid "Resource booking"
+msgstr "Reserva de recursos"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.product_template_form_view
