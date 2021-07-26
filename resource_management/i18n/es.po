@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-23 11:50+0000\n"
-"PO-Revision-Date: 2021-07-23 13:51+0200\n"
+"POT-Creation-Date: 2021-07-26 08:38+0000\n"
+"PO-Revision-Date: 2021-07-26 10:39+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -180,7 +180,7 @@ msgstr ""
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_needaction
@@ -350,11 +350,6 @@ msgid "Resource"
 msgstr "Recurso"
 
 #. module: resource_management
-#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
-msgid "Resource booking"
-msgstr "Reserva de recursos"
-
-#. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.product_template_form_view
 msgid "Resource Information"
 msgstr "Información de recursos"
@@ -368,6 +363,11 @@ msgstr "Gestión de Recursos"
 #: model:res.groups,name:resource_management.group_resource_manager
 msgid "Resource Manager"
 msgstr "Gestor de recursos"
+
+#. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
+msgid "Resource booking"
+msgstr "Reserva de recursos"
 
 #. module: resource_management
 #: model:ir.model,name:resource_management.model_resource_booking_management
@@ -384,7 +384,7 @@ msgstr "Recursos"
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
 msgid "Resources and EPIs"
-msgstr "Recursos y EPIs"
+msgstr "Recursos y EPIS"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_user_id
