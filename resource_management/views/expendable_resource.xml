@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="resource_expendable_view_tree" model="ir.ui.view">
+        <field name="model">resource.expendable</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="employee_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="resource_expendable_view_search" model="ir.ui.view">
+        <field name="model">resource.expendable</field>
+        <field name="arch" type="xml">
+            <search string="Expendable Resource Search">
+                <group string="Group By" name="groupby">
+                    <filter name="employee_groupby" string="Employee" context="{'group_by': 'employee_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

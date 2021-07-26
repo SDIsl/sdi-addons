@@ -19,6 +19,11 @@ class Employee(models.Model):
         string='Bookings',
         domain=[('end_datetime', '>', datetime.now())],
     )
+    expendable_resource_ids = fields.One2many(
+        comodel_name='resource.expendable',
+        inverse_name='employee_id',
+        string='Expendable Resources',
+    )
 
     def button_employee_bookings(self):
         tree_view = self.env.ref(
