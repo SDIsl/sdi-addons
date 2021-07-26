@@ -1,7 +1,8 @@
 ###############################################################################
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
-from odoo import fields, models
+from odoo import api, fields, models
+from werkzeug import urls
 
 
 class ExternalLink(models.Model):
@@ -21,3 +22,22 @@ class ExternalLink(models.Model):
         string='External Link Group',
         required=True,
     )
+
+    def _clean_website(self, website):
+        url = urls.url_parse(website)
+        if not url.scheme:
+            if not url.netloc:
+                url = url.replace(netloc=url.path, path='')
+            website = url.replace(scheme='https').to_url()
+        return website
+
+    @api.model
+    def create(self, vals):
+        if vals.get('url'):
+            vals['url'] = self._clean_website(vals['url'])
+        return super().create(vals)
+
+    def write(self, vals):
+        if vals.get('url'):
+            vals['url'] = self._clean_website(vals['url'])
+        return super().write(vals)
