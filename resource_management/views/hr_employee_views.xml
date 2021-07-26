@@ -16,7 +16,7 @@
             <page name="public" position="after">
                 <page name="resources" string="Resources">
                     <group>
-                        <field name="resource_ids" context="{'search_default_is_a_resource':1, 'search_default_has_no_employee':1, 'default_is_a_resource':1, 'default_is_bookable':1, 'default_sale_ok':0, 'default_purchase_ok':0, 'default_employee_id': active_id}" widget="many2many">
+                        <field name="resource_ids" string="Resources and EPIs" context="{'search_default_is_a_resource':1, 'search_default_has_no_employee':1, 'default_is_a_resource':1, 'default_is_bookable':1, 'default_sale_ok':0, 'default_purchase_ok':0, 'default_employee_id': active_id}" widget="many2many">
                             <tree decoration-danger="expiration_date and expiration_date &lt; current_date">
                                 <field name="name"/>
                                 <field name="quantity"/>
@@ -25,7 +25,7 @@
                         </field>
                     </group>
                     <group>
-                        <field name="booking_ids" context="{'default_employee_id': active_id}">
+                        <field name="booking_ids" string="Resource booking" context="{'default_employee_id': active_id}">
                             <form>
                                 <div>
                                     <label class="oe_edit_only" for="name" string="Booking Name"/>
