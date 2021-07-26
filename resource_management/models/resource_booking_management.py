@@ -7,8 +7,8 @@ from odoo.exceptions import ValidationError
 
 class Booking(models.Model):
     _name = 'resource.booking.management'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Resource bookings of an employee between two datetimes.'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _sql_constraints = [
         (
             'check_datetimes',

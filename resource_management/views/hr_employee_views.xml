@@ -51,6 +51,16 @@
                         </field>
                     </group>
                 </page>
+                <page name="expendable_resources" string="Expendable Resources" groups="resource_management.group_resource_manager">
+                    <group>
+                        <field name="expendable_resource_ids" context="{'default_employee_id': active_id}">
+                            <tree editable="top">
+                                <field name="name"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
             </page>
         </field>
     </record>

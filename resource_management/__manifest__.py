@@ -33,6 +33,7 @@
     'data': [
         'security/resource_management_security.xml',
         'security/ir.model.access.csv',
+        'views/expendable_resource.xml',
         'views/hr_employee_views.xml',
         'views/product_views.xml',
         'views/resource_booking_management_views.xml',
