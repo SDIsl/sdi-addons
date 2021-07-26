@@ -25,7 +25,7 @@
                         </field>
                     </group>
                     <group>
-                        <field name="booking_ids" string="Reserve resources" context="{'default_employee_id': active_id}">
+                        <field name="booking_ids" string="Resources booking" context="{'default_employee_id': active_id}">
                             <form>
                                 <div>
                                     <label class="oe_edit_only" for="name" string="Booking Name"/>
