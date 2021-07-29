@@ -11,12 +11,16 @@
             <field name="is_root_directory">1</field>
             <field name="root_storage" ref="news_storage"/>
         </record>
+        <record id="news_subdirectory" model="muk_dms.directory">
+            <field name="name">Noticias</field>
+            <field name="parent_directory" ref="news_directory"/>
+        </record>
         <record id="news_group" model="muk_security.access_groups">
             <field name="name">Noticias</field>
-            <field name="perm_create">1</field>
+            <field name="perm_create">0</field>
             <field name="perm_read">1</field>
-            <field name="perm_write">1</field>
-            <field name="perm_unlink">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_unlink">0</field>
             <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
             <field name="directories" eval="[(6, 0, [ref('news_directory')])]"/>
         </record>
