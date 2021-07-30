@@ -13,6 +13,9 @@
                     </div>
                 </button>
             </div>
+            <button name="toggle_active" position="attributes">
+                <attribute name="groups">resource_management.group_resource_manager</attribute>
+            </button>
             <xpath expr="//field[@name='sale_ok']/.." position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>

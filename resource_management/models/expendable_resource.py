@@ -10,23 +10,25 @@ class ExpendableResource(models.Model):
 
     name = fields.Char(
         string='Name',
-        required='True',
-        track_visibility='onchange',
+        required=True,
     )
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Employee',
-        track_visibility='onchange',
+    )
+    delivery_date = fields.Date(
+        string='Delivery Date',
+        default=lambda self: fields.Date.context_today(self),
     )
     description = fields.Text(
         string="Description",
-        track_visibility='onchange',
     )
 
     @api.multi
     def write(self, vals):
         for resource in self:
-            msg = _('<p>Changes in <strong>{resource}</strong>:</br>').format(
+            msg = _('<p>Changes in Expendable Resources - '
+                    '<strong>{resource}</strong>:</br>').format(
                 resource=resource.name,
             )
             post = False
