@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-26 10:44+0000\n"
-"PO-Revision-Date: 2021-07-26 10:44+0000\n"
+"POT-Creation-Date: 2021-07-27 19:41+0000\n"
+"PO-Revision-Date: 2021-07-27 21:50+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr ""
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_needaction
 msgid "Action Needed"
-msgstr "Acción necesaria"
+msgstr "Acción Necesaria"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_ids
@@ -87,7 +87,7 @@ msgstr "Asociar recursos y reservas de recursos a empleados."
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_attachment_count
 msgid "Attachment Count"
-msgstr "Nº adjuntos"
+msgstr "Conteo de archivos adjuntos"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.resource_booking_management_search_view
@@ -170,6 +170,11 @@ msgid "End Datetime"
 msgstr "Fecha y hora de finalización"
 
 #. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.resource_expendable_view_search
+msgid "Expendable Resource Search"
+msgstr "Búsqueda de recursos fungibles"
+
+#. module: resource_management
 #: model:ir.actions.act_window,name:resource_management.action_list_expendable_resources
 #: model:ir.model.fields,field_description:resource_management.field_hr_employee__expendable_resource_ids
 #: model:ir.ui.menu,name:resource_management.expendable_resources_menu
@@ -181,11 +186,6 @@ msgstr "Recursos fungibles"
 #: model:ir.model,name:resource_management.model_resource_expendable
 msgid "Expendable resource of an employee."
 msgstr "Recurso fungible de un empleado."
-
-#. module: resource_management
-#: model_terms:ir.ui.view,arch_db:resource_management.resource_expendable_view_search
-msgid "Expendable Resource Search"
-msgstr "Búsqueda de recursos fungibles"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_product_product__expiration_date
@@ -207,12 +207,12 @@ msgstr "Seguidores"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Seguidores (canales)"
+msgstr "Seguidores (Canales)"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Seguidores (contactos)"
+msgstr "Seguidores (Empresas)"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.resource_booking_management_search_view
@@ -226,23 +226,25 @@ msgid "Has no employee"
 msgstr "Sin empleado"
 
 #. module: resource_management
+#: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__id
+#: model:ir.model.fields,field_description:resource_management.field_resource_expendable__id
+msgid "ID"
+msgstr ""
+
+#. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_unread
 msgid "If checked new messages require your attention."
-<<<<<<< Updated upstream:resource_management/i18n/es .po
-msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
-=======
-msgstr "Si está marcado, hay nuevos mensajes que requieren de su atención."
->>>>>>> Stashed changes:resource_management/i18n/es.po
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren de su atención."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si está marcado, algunos mensajes no se pudieron entregar."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_is_follower
@@ -289,7 +291,7 @@ msgstr "Última actualización el"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_main_attachment_id
 msgid "Main Attachment"
-msgstr "Adjunto principal"
+msgstr "Adjuntos principales"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_content
@@ -299,7 +301,7 @@ msgstr "Contenido del mensaje"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_has_error
 msgid "Message Delivery error"
-msgstr "Error de entrega de mensaje"
+msgstr "Error de Envío de Mensaje"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_content
@@ -325,17 +327,17 @@ msgstr "Nombre"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr "Fecha límite de siguiente actividad"
+msgstr "Siguiente plazo de actividad"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_summary
 msgid "Next Activity Summary"
-msgstr "Resumen de siguiente actividad"
+msgstr "Resumen de la siguiente actividad"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_type_id
 msgid "Next Activity Type"
-msgstr "Tipo de siguiente actividad"
+msgstr "Siguiente tipo de actividad"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_needaction_counter
@@ -345,7 +347,7 @@ msgstr "Número de acciones"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_has_error_counter
 msgid "Number of error"
-msgstr "Número de errores"
+msgstr "Número de error"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_needaction_counter
@@ -355,12 +357,12 @@ msgstr "Número de mensajes que requieren una acción"
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Número de mensajes con error de entrega"
+msgstr "Número de mensajes con error de envío"
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_unread_counter
 msgid "Number of unread messages"
-msgstr "Número de mensajes no leídos"
+msgstr "Número de mensajes no leidos"
 
 #. module: resource_management
 #: selection:resource.booking.management,activity_state:0
@@ -406,11 +408,6 @@ msgid "Resource"
 msgstr "Recurso"
 
 #. module: resource_management
-#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
-msgid "Resource booking"
-msgstr "Reserva de recursos"
-
-#. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.product_template_form_view
 msgid "Resource Information"
 msgstr "Información de recursos"
@@ -424,6 +421,11 @@ msgstr "Gestión de Recursos"
 #: model:res.groups,name:resource_management.group_resource_manager
 msgid "Resource Manager"
 msgstr "Gestor de recursos"
+
+#. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
+msgid "Resource booking"
+msgstr "Reserva de recursos"
 
 #. module: resource_management
 #: model:ir.model,name:resource_management.model_resource_booking_management
@@ -496,13 +498,3 @@ msgstr "Mensajes por leer"
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Contador de mensajes sin leer"
-
-#. module: resource_management
-#: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__website_message_ids
-msgid "Website Messages"
-msgstr "Mensajes del sitio web"
-
-#. module: resource_management
-#: model:ir.model.fields,help:resource_management.field_resource_booking_management__website_message_ids
-msgid "Website communication history"
-msgstr "Historial de comunicaciones del sitio web"
