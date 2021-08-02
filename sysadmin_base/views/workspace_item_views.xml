@@ -4,11 +4,28 @@
         <field name="model">workspace.item</field>
         <field name="arch" type="xml">
             <search string="Items">
-                <filter string="Workspaces" name="workspace_items" context="{'group_by':'workspace_id'}"/>
-                <filter string="Products" name="product_items" context="{'group_by':'product_id'}"/>
-                <filter string="Employee" name="employee_items" context="{'group_by':'employee_id'}"/>
-                <filter string="Company" name="company_items" context="{'group_by':'company'}"/>
-                <filter string="Is bookable" name="bookable_items" domain="[('is_bookable','=',True)]"/>
+                <field name="name" string="Internal reference, name, cpu, ram, employee, workspace or subsidy" filter_domain="['|','|','|','|','|', '|',
+                    ('internal_reference','ilike',self),
+                    ('name','ilike',self),
+                    ('cpu','ilike',self),
+                    ('ram','ilike',self),
+                    ('employee_id','ilike',self),
+                    ('workspace_id','ilike',self),
+                    ('subsidy_id', 'ilike', self)]"/>
+                <field name="internal_reference"/>
+                <field name="name"/>
+                <field name="cpu"/>
+                <field name="ram"/>
+                <field name="employee_id"/>
+                <field name="workspace_id"/>
+                <field name="subsidy_id"/>
+                <group string="Group By" name="groupby">
+                    <filter string="Workspaces" name="workspace_items" context="{'group_by':'workspace_id'}"/>
+                    <filter string="Products" name="product_items" context="{'group_by':'product_id'}"/>
+                    <filter string="Employee" name="employee_items" context="{'group_by':'employee_id'}"/>
+                    <filter string="Company" name="company_items" context="{'group_by':'company'}"/>
+                    <filter string="Is bookable" name="bookable_items" domain="[('is_bookable','=',True)]"/>
+                </group>
             </search>
         </field>
     </record>
@@ -48,12 +65,13 @@
         <field name="arch" type="xml">
             <tree string="Item">
                 <field name="name"/>
-                <field name="description"/>
                 <field name="internal_reference"/>
                 <field name="workspace_id"/>
                 <field name="workspace_location"/>
                 <field name="employee_id"/>
                 <field name="employee_location"/>
+                <field name="cpu"/>
+                <field name="ram"/>
                 <field name="subsidy_id"/>
                 <field name="company"/>
             </tree>
