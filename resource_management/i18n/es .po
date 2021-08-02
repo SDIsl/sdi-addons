@@ -234,17 +234,17 @@ msgstr "Sin empleado"
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren de su atención."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren de su atención."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
 
 #. module: resource_management
 #: model:ir.model.fields,help:resource_management.field_resource_booking_management__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si está marcado, algunos mensajes no se pudieron entregar."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_product_template__default_code
