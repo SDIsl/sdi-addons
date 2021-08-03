@@ -20,12 +20,14 @@
 {
     'name': 'External Links',
     'summary': 'Stores groups of external links.',
-    'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
+    'author': 'Valentín Castravete Georgian, Jorge Luis Quinteros,'
+            ' SDi Soluciones Digitales',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Tools',
     'version': '12.0.1.0.0',
     'data': [
+        'security/external_links_security.xml',
         'security/ir.model.access.csv',
         'views/external_link_group_views.xml',
         'views/external_link_views.xml',
