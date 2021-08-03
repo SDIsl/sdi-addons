@@ -4,7 +4,7 @@
         <field name="model">workspace.item</field>
         <field name="arch" type="xml">
             <search string="Items">
-                <field name="name" string="Internal reference, name, cpu, ram, employee, workspace or subsidy" filter_domain="['|','|','|','|','|', '|',
+                <field name="name" string="Internal reference, name, cpu, ram, employee, workspace or subsidy" filter_domain="['|', '|', '|', '|', '|', '|',
                     ('internal_reference','ilike',self),
                     ('name','ilike',self),
                     ('cpu','ilike',self),
