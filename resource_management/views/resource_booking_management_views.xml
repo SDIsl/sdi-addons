@@ -40,7 +40,7 @@
                     <group>
                         <group>
                             <field name="resource_id" readonly="1" context="{'default_is_a_resource':1, 'default_is_bookable': 1, 'default_sale_ok':0, 'default_purchase_ok':0}"/>
-                            <field name="employee_id"/>
+                            <field name="employee_id" groups="resource_management.group_resource_manager"/>
                         </group>
                         <group>
                             <field name="start_datetime"/>
@@ -78,7 +78,7 @@
                     <group>
                         <group>
                             <field name="resource_id" context="{'default_is_a_resource':1, 'default_is_bookable': 1, 'default_sale_ok':0, 'default_purchase_ok':0}"/>
-                            <field name="employee_id" readonly="1"/>
+                            <field name="employee_id" groups="resource_management.group_resource_manager"/>
                         </group>
                         <group>
                             <field name="start_datetime"/>
