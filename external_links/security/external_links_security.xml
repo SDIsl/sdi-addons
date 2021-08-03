@@ -1,17 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record model="ir.module.category" id="module_external_links">
-        <field name="name">External Links</field>
-        <field name="description">External Links permission</field>
-        <field name="sequence">6</field>
-    </record>
-    <record id="group_external_links_viewer" model="res.groups">
-        <field name="name">External Links Viewer</field>
-        <field name="category_id" ref="module_external_links"/>
-    </record>
     <record id="group_external_links_manager" model="res.groups">
         <field name="name">External Links Manager</field>
-        <field name="category_id" ref="module_external_links"/>
-        <field name="implied_ids" eval="[(4, ref('group_external_links_viewer'))]"/>
     </record>
 </odoo>

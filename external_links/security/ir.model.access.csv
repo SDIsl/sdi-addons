@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+external_links_group_external_link_view,External Links view,model_external_link,base.group_user,1,0,0,0
+external_links_group_external_link_group_view,External Link Groups view,model_external_link_group,base.group_user,1,0,0,0
 external_links_group_external_link_access,External Links managing,model_external_link,group_external_links_manager,1,1,1,1
 external_links_group_external_link_group_access,External Link Groups managing,model_external_link_group,group_external_links_manager,1,1,1,1
-external_links_group_external_link_view,External Links view,model_external_link,group_external_links_viewer,1,0,0,0
-external_links_group_external_link_group_view,External Link Groups view,model_external_link_group,group_external_links_viewer,1,0,0,0
