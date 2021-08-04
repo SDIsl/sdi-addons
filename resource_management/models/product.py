@@ -59,22 +59,22 @@ class ProductTemplate(models.Model):
     @api.multi
     def write(self, vals):
         for resource in self:
-            msg = _('<p>Changes in Resources and EPIs - '
+            msg = _('<p>Changes in Resource '
                     '<strong>{resource}</strong>:</br>').format(
                 resource=resource.name,
             )
             post = False
-            if 'employee_id' in vals and vals.get(
-               'employee_id') != resource.employee_id:
+            if 'employee_id' in vals:
                 employee = resource.env['hr.employee'].browse(
                     vals['employee_id']
                 )
-                msg += _('<li><strong>Employee:</strong>\
-                    {old_val} --> {new_val}</li>').format(
-                    old_val=resource.employee_id.name,
-                    new_val=employee.name,
-                )
-                post = True
+                if employee != resource.employee_id:
+                    msg += _('<li><strong>Employee:</strong>\
+                        {old_val} --> {new_val}</li>').format(
+                        old_val=resource.employee_id.name,
+                        new_val=employee.name,
+                    )
+                    post = True
             msg += '</p>'
             if post:
                 resource.employee_id.message_post(body=msg)
