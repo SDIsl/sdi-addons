@@ -10,23 +10,25 @@ class ExpendableResource(models.Model):
 
     name = fields.Char(
         string='Name',
-        required='True',
-        track_visibility='onchange',
+        required=True,
     )
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Employee',
-        track_visibility='onchange',
+    )
+    delivery_date = fields.Date(
+        string='Delivery Date',
+        default=lambda self: fields.Date.context_today(self),
     )
     description = fields.Text(
         string="Description",
-        track_visibility='onchange',
     )
 
     @api.multi
     def write(self, vals):
         for resource in self:
-            msg = _('<p>Changes in <strong>{resource}</strong>:</br>').format(
+            msg = _('<p>Changes in Expendable Resource '
+                    '<strong>{resource}</strong>:</br>').format(
                 resource=resource.name,
             )
             post = False
@@ -46,18 +48,17 @@ class ExpendableResource(models.Model):
                     new_val=vals['description'],
                 )
                 post = True
-            if 'employee_id' in vals and vals.get(
-               'employee_id') != resource.employee_id:
-                employee = resource.env['hr.employee'].browse(
-                    vals['employee_id']
-                )
-                msg += _('<li><strong>Employee:</strong>\
-                    {old_val} --> {new_val}</li>').format(
-                    old_val=resource.employee_id.name,
-                    new_val=employee.name,
-                )
-                post = True
             msg += '</p>'
             if post:
                 resource.employee_id.message_post(body=msg)
         return super().write(vals)
+
+    @api.multi
+    def unlink(self):
+        for resource in self:
+            msg = _('<p>Expendable Resource '
+                    '<strong>{resource}</strong> was deleted</p>').format(
+                resource=resource.name
+            )
+            resource.employee_id.message_post(body=msg)
+        return super().unlink()

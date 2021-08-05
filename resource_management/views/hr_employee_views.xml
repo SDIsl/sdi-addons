@@ -57,6 +57,7 @@
                             <tree editable="top">
                                 <field name="name"/>
                                 <field name="description"/>
+                                <field name="delivery_date"/>
                             </tree>
                         </field>
                     </group>

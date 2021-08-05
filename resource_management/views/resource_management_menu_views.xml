@@ -20,7 +20,7 @@
     <record id="action_list_expendable_resources" model="ir.actions.act_window">
         <field name="name">Expendable Resources</field>
         <field name="res_model">resource.expendable</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="view_id" ref="resource_expendable_view_tree"/>
     </record>
     <record id="action_list_employees" model="ir.actions.act_window">

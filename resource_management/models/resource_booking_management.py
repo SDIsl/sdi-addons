@@ -19,19 +19,19 @@ class Booking(models.Model):
 
     name = fields.Char(
         string='Name',
-        required='1',
+        required=True,
     )
     resource_id = fields.Many2one(
         comodel_name='product.template',
         string='Resource',
-        required='1',
+        required=True,
         domain=[('is_a_resource', '=', 1), ('is_bookable', '=', 1)],
         track_visibility='onchange',
     )
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Employee',
-        required='1',
+        required=True,
         track_visibility='onchange',
         default=lambda self: self.env['hr.employee'].search([
             ('user_id', '=', self.env.uid),
@@ -39,13 +39,15 @@ class Booking(models.Model):
     )
     start_datetime = fields.Datetime(
         string='Start Datetime',
-        required='1',
+        required=True,
         track_visibility='onchange',
+        copy=False,
     )
     end_datetime = fields.Datetime(
         string='End Datetime',
-        required='1',
+        required=True,
         track_visibility='onchange',
+        copy=False,
     )
 
     @api.onchange('resource_id', 'employee_id')
