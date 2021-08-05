@@ -8,7 +8,7 @@
             <div name="button_box" position="inside">
                 <button class="oe_stat_button" name="button_employee_items" icon="fa-th-list" type="object" groups="sysadmin_base.group_sysadmin_sysadmin">
                     <div class="o_field_widget o_stat_info">
-                        <span class="o_stat_text">Employee's Items</span>
+                        <span class="o_stat_text">Items</span>
                     </div>
                 </button>
             </div>

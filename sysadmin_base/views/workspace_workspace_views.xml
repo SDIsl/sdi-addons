@@ -27,7 +27,7 @@
                                 <span class="o_stat_value">
                                     <field name="employee_item_count"/>
                                 </span>
-                                <span class="o_stat_text">Employees Items</span>
+                                <span class="o_stat_text">Emplo. Items</span>
                             </div>
                         </button>
                         <button class="oe_stat_button" name="button_internal_item_count" icon="fa-th-list" type="object" attrs="{'invisible':[('internal_item_count','=',0)]}">
