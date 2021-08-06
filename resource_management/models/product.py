@@ -69,8 +69,9 @@ class ProductTemplate(models.Model):
                     vals['employee_id']
                 )
                 if employee != resource.employee_id:
-                    msg += _('<li><strong>Employee:</strong>\
-                        {old_val} --> {new_val}</li>').format(
+                    msg += _('<li><strong>Employee:</strong> {old_val} '
+                             '<span class="fa fa-long-arrow-right"'
+                             ' title="Changed"/> {new_val}</li>').format(
                         old_val=resource.employee_id.name,
                         new_val=employee.name,
                     )
