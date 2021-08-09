@@ -160,4 +160,8 @@
             </search>
         </field>
     </record>
+    <record id="minutes_datetimes_resource_booking" model="ir.config_parameter">
+        <field name="key">minutes_datetimes_resource_booking</field>
+        <field name="value">30</field>
+     </record>
 </odoo>
