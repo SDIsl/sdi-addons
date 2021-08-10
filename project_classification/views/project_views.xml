@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <div name="options_active" position="before">
                 <group>
-                    <field name="classification_id"/>
+                    <field name="classification_id" readonly="True"/>
                 </group>
             </div>
         </field>
