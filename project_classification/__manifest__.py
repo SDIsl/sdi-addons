@@ -19,7 +19,7 @@
 ###############################################################################
 {
     'name': 'Project Classification',
-    'summary': 'Test',
+    'summary': 'New model on project configuration menu to classify projects.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
