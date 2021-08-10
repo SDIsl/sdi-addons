@@ -17,5 +17,5 @@ class ProjectClassification(models.Model):
         string='Description',
     )
     sequence = fields.Integer(
-        'Sequence',
+        string='Sequence',
     )
