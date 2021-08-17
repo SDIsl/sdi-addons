@@ -12,6 +12,7 @@
                     <group col="4"><field name="bank_line_count"/></group>
                 </group>
             </group>
+
         </field>
     </record>
     <record id="account_payment_order_tree" model="ir.ui.view">
@@ -50,4 +51,15 @@
         </field>
     </record>
 
+<record id="account_payment_line_tree" model="ir.ui.view">
+    <field name="name">account_banking_mandate.account.payment.line.tree</field>
+    <field name="model">account.payment.line</field>
+    <field name="inherit_id" ref="account_payment_order.account_payment_line_tree"/>
+    <field name="arch" type="xml">
+        <field name="ml_maturity_date" position="after">
+            <field name="invoice_date"
+                invisible="context.get('default_payment_type') != 'inbound'"/>
+        </field>
+    </field>
+</record>
 </odoo>
