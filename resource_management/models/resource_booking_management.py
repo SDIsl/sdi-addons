@@ -50,7 +50,7 @@ class Booking(models.Model):
         required=True,
         track_visibility='onchange',
         default=lambda self: fields.Datetime.now() + timedelta(
-            minutes=int(self.env['ir.config_parameter'].get_param(
+            minutes=int(self.env['ir.config_parameter'].sudo().get_param(
                 'minutes_datetimes_resource_booking'))
         ),
         copy=False,

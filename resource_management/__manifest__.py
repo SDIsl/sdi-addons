@@ -31,6 +31,7 @@
         'product',
     ],
     'data': [
+        'data/data.xml',
         'security/resource_management_security.xml',
         'security/ir.model.access.csv',
         'views/expendable_resource.xml',
