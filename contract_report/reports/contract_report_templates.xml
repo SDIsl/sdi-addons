@@ -289,7 +289,7 @@
                                         </td>
                                         <td class="text-center">
                                             <span t-field="line.percent"/><span> %</span>
-                                            <t t-set="current_percent_sum" t-value="round(current_percent_sum + line.percent)"/>
+                                            <t t-set="current_percent_sum" t-value="round(current_percent_sum + line.percent, 2)"/>
                                         </td>
                                         <td class="text-center">
                                             <span t-field="line.date"/>
