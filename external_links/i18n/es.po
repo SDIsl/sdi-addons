@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* external_links
+# 	* external_links
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-03 08:00+0000\n"
-"PO-Revision-Date: 2021-08-03 08:00+0000\n"
+"POT-Creation-Date: 2021-08-18 09:44+0000\n"
+"PO-Revision-Date: 2021-08-18 11:46+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: external_links
 #: model:ir.model.fields,field_description:external_links.field_external_link__create_uid
@@ -54,9 +56,9 @@ msgid "External Links"
 msgstr "Enlaces de interés"
 
 #. module: external_links
-#: model:res.groups,name:external_links.group_external_links_manager
-msgid "External Links Manager"
-msgstr "Gestor de enlaces de interés"
+#: model:ir.module.category,name:external_links.module_external_links
+msgid "External links"
+msgstr "Enlaces de interés"
 
 #. module: external_links
 #: model_terms:ir.ui.view,arch_db:external_links.external_link_view_search
@@ -67,6 +69,12 @@ msgstr "Agrupar por"
 #: model:ir.model,name:external_links.model_external_link_group
 msgid "Group of External Links."
 msgstr "Grupo de enlaces de interés"
+
+#. module: external_links
+#: model:ir.model.fields,field_description:external_links.field_external_link__id
+#: model:ir.model.fields,field_description:external_links.field_external_link_group__id
+msgid "ID"
+msgstr ""
 
 #. module: external_links
 #: model:ir.model.fields,field_description:external_links.field_external_link____last_update
@@ -92,6 +100,16 @@ msgid "Links to external sites."
 msgstr "Enlaces a páginas web de interés."
 
 #. module: external_links
+#: model:res.groups,comment:external_links.group_external_links_manager
+msgid "Manage external links"
+msgstr "Gestionar enlaces de interés"
+
+#. module: external_links
+#: model:res.groups,name:external_links.group_external_links_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: external_links
 #: model:ir.model.fields,field_description:external_links.field_external_link__name
 #: model:ir.model.fields,field_description:external_links.field_external_link_group__name
 msgid "Name"
@@ -101,3 +119,8 @@ msgstr "Nombre"
 #: model_terms:ir.ui.view,arch_db:external_links.external_link_view_search
 msgid "Name, URL or external link group"
 msgstr "Nombre, URL o grupo de enlaces de interés"
+
+#. module: external_links
+#: model:ir.model.fields,field_description:external_links.field_external_link__url
+msgid "URL"
+msgstr ""
