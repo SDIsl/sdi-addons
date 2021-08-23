@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+    <record id="module_external_links" model="ir.module.category">
+        <field name="name">External links</field>
+    </record>
     <record id="group_external_links_manager" model="res.groups">
-        <field name="name">External Links Manager</field>
+        <field name="name">Manager</field>
+        <field name="comment">Manage external links</field>
+        <field name="category_id" ref="module_external_links"/>
     </record>
 </odoo>
