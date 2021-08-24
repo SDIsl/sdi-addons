@@ -28,6 +28,9 @@ class WorkspaceItem(models.Model):
     description = fields.Text(
         string='Description',
     )
+    image = fields.Binary(
+        string='Image',
+    )
     internal_reference = fields.Char(
         string='Internal Reference',
     )
@@ -127,7 +130,10 @@ class WorkspaceItem(models.Model):
     @api.onchange('product_id')
     def _onchange_product_id(self):
         if self.product_id:
-            self.name = self.product_id.name
+            if not self.name:
+                self.name = self.product_id.name
+            if self.product_id.image:
+                self.image = self.product_id.image
 
     @api.onchange('workspace_id')
     def _check_workspace(self):

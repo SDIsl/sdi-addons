@@ -24,6 +24,7 @@ class HrEmployee(models.Model):
         comodel_name='workspace.item',
         inverse_name='employee_id',
         string='Items',
+        store=True,
     )
     item_count = fields.Integer(
         string="Item Count",

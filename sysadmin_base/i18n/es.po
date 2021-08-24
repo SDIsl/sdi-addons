@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-02 08:08+0000\n"
-"PO-Revision-Date: 2021-08-02 08:08+0000\n"
+"POT-Creation-Date: 2021-08-24 10:19+0000\n"
+"PO-Revision-Date: 2021-08-24 10:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -73,6 +73,7 @@ msgstr "<span class=\"o_stat_text\">Elementos</span>"
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_items_view_form
 msgid "Accept"
 msgstr "Aceptar"
 
@@ -91,7 +92,7 @@ msgstr "Actividades"
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_state
 msgid "Activity State"
-msgstr "Estado de actividad"
+msgstr "Estado de la actividad"
 
 #. module: sysadmin_base
 #: model:ir.model,name:sysadmin_base.model_hr_employee_internal_tools
@@ -118,6 +119,7 @@ msgstr "Reserva de elementos"
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_items_view_form
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -135,6 +137,7 @@ msgstr "Compañía"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__create_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__create_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__create_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__create_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__create_uid
@@ -143,6 +146,7 @@ msgstr "Creado por"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__create_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__create_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__create_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__create_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__create_date
@@ -168,6 +172,7 @@ msgstr "Descripción"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__display_name
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__display_name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__display_name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__display_name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__display_name
@@ -175,7 +180,12 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: sysadmin_base
-#: code:addons/sysadmin_base/models/hr_employee.py:55
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__does_employee_have_it
+msgid "Does the employee have it?"
+msgstr "¿El empleado lo tiene?"
+
+#. module: sysadmin_base
+#: code:addons/sysadmin_base/models/hr_employee.py:56
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
 #, python-format
 msgid "Edit Internal Tools"
@@ -214,10 +224,13 @@ msgid "Employee self-management of Items"
 msgstr "Autogestión de elementos por parte de los empleados"
 
 #. module: sysadmin_base
+#: code:addons/sysadmin_base/wizards/hr_employee_items.py:43
 #: model:ir.actions.act_window,name:sysadmin_base.action_list_employees
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__employee_ids
 #: model:ir.ui.menu,name:sysadmin_base.menu_employees
+#: model:ir.ui.menu,name:sysadmin_base.menu_employees_submenu
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+#, python-format
 msgid "Employees"
 msgstr "Empleados"
 
@@ -293,6 +306,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__image
+msgid "Image"
+msgstr "Imagen"
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_product_product__information
 #: model:ir.model.fields,field_description:sysadmin_base.field_product_template__information
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
@@ -358,6 +376,7 @@ msgstr "En prácticas"
 #. module: sysadmin_base
 #: model:ir.model,name:sysadmin_base.model_workspace_item
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_kanban
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_tree
 msgid "Item"
 msgstr "Elemento"
@@ -370,7 +389,7 @@ msgid "Item Count"
 msgstr "Recuento de Elementos"
 
 #. module: sysadmin_base
-#: code:addons/sysadmin_base/models/hr_employee.py:41
+#: code:addons/sysadmin_base/models/hr_employee.py:42
 #: model:ir.actions.act_window,name:sysadmin_base.action_list_items
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__item_ids
 #: model:ir.model.fields,field_description:sysadmin_base.field_product_product__item_count
@@ -387,7 +406,14 @@ msgid "Items"
 msgstr "Elementos"
 
 #. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_items_of_employees
+#: model:ir.ui.menu,name:sysadmin_base.menu_items_of_employees
+msgid "Items of Employees"
+msgstr "Elementos de empleados"
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools____last_update
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items____last_update
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item____last_update
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy____last_update
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace____last_update
@@ -396,6 +422,7 @@ msgstr "Última modificación en"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__write_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__write_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__write_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__write_uid
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__write_uid
@@ -404,6 +431,7 @@ msgstr "Última actualización por"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__write_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__write_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__write_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__write_date
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__write_date
@@ -450,6 +478,7 @@ msgstr "Elementos de mis espacios de trabajo"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__name
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__name
@@ -459,7 +488,7 @@ msgstr "Nombre"
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr "Fecha límite de la siguiente actividad"
+msgstr "Siguiente plazo de actividad"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_summary
@@ -527,6 +556,7 @@ msgid "Planned"
 msgstr "Planeada"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__product_id
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__product_id
 msgid "Product"
 msgstr "Producto"
@@ -545,6 +575,11 @@ msgstr "Productos"
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_user_id
 msgid "Responsible User"
 msgstr "Usuario responsable"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_hr_employee_items
+msgid "Returns the employees that has or not the selected element"
+msgstr "Devuelve a los empleados que tienen o no el elemento seleccionado"
 
 #. module: sysadmin_base
 #: sql_constraint:workspace.item:0

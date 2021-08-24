@@ -40,6 +40,7 @@
         'views/workspace_item_views.xml',
         'views/workspace_workspace_views.xml',
         'wizards/hr_employee_internal_tools.xml',
+        'wizards/hr_employee_items.xml',
     ],
     'application': True,
 }
