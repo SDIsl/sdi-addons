@@ -32,7 +32,7 @@
     <record id="action_list_items" model="ir.actions.act_window">
         <field name="name">Items</field>
         <field name="res_model">workspace.item</field>
-        <field name="view_mode">tree,form,pivot</field>
+        <field name="view_mode">tree,kanban,pivot,form</field>
     </record>
     <record id="action_list_subsidies" model="ir.actions.act_window">
         <field name="name">Subsidies</field>
