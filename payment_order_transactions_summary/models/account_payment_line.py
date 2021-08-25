@@ -14,4 +14,3 @@ class AccountPaymentLine(models.Model):
         for line in self:
             if line.move_line_id and line.move_line_id.invoice_id:
                 line.invoice_date = line.move_line_id.invoice_id.date_invoice
-
