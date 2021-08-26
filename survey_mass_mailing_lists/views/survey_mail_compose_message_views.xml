@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="survey_email_compose_message" model="ir.ui.view">
+        <field name="model">survey.mail.compose.message</field>
+        <field name="inherit_id" ref="survey.survey_email_compose_message"/>
+        <field name="arch" type="xml">
+            <field name="partner_ids" position="after">
+                <field name="mass_mailing_lists_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+</odoo>
