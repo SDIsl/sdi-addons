@@ -30,5 +30,6 @@
     ],
     'data': [
         'views/account_payment_order_views.xml',
+        'report/print_account_payment_order_document.xml',
     ],
 }
