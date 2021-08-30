@@ -4,10 +4,9 @@
 from odoo import fields, models
 
 
-class SurveyMailComposeMessage(models.Model):
-    _inherit = 'survey.mail.compose.message'
+class MailMassMailingContact(models.Model):
+    _inherit = 'mail.mass_mailing.contact'
 
-    mass_mailing_lists_ids = fields.Many2many(
-        string='Existing contacts',
-        comodel_name='mail.mass_mailing.list',
+    partner_id = fields.Many2one(
+        required=True,
     )

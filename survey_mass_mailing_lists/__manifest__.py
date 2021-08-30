@@ -20,15 +20,17 @@
 {
     'name': 'Survey Mass Mailing Lists',
     'summary': 'Add mass mailing lists in survey wizard',
-    'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
+    'author': '''Jorge Luis Quinteros, Valentín Castravete,
+         SDi Soluciones Digitales''',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Marketing',
     'version': '12.0.1.0.0',
     'depends': [
+        'mass_mailing_partner',
         'survey',
     ],
     'data': [
-        'views/survey_mail_compose_message_views.xml',
+        'wizard/survey_email_compose_message_views.xml',
     ],
 }
