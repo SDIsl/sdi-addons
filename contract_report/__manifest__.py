@@ -29,6 +29,8 @@
     'depends': [
         'contract',
         'sale',
+        'sale_order_digitized_signature',
+        'portal_sale_contract_custom',
     ],
     'data': [
         'views/contract_template.xml',
