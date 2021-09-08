@@ -30,12 +30,15 @@
         'contract',
         'sale',
         'sale_order_digitized_signature',
-        'portal_sale_contract_custom',
     ],
     'data': [
         'views/contract_template.xml',
         'views/res_company.xml',
         'reports/contract_report_templates.xml',
         'reports/contract_report.xml',
+        'template/sale_portal_templates.xml',
+    ],
+    'qweb': [
+        'static/src/xml/portal_signature.xml',
     ],
 }

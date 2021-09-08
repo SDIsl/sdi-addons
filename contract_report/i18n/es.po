@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 10:16+0000\n"
-"PO-Revision-Date: 2021-09-08 12:21+0200\n"
+"POT-Creation-Date: 2021-09-08 11:54+0000\n"
+"PO-Revision-Date: 2021-09-08 14:07+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,16 @@ msgstr ". Resumen de productos y servicios"
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
 msgid "/ year"
 msgstr "/ año"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<i class=\"fa fa-download\"/> Download Contract"
+msgstr "Descargar"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr "<i class=\"fa fa-print\"/> Imprimir"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -266,6 +276,11 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_sale_order__date_signature
+msgid "Date Signature"
+msgstr "Fecha de firma"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 msgid "Date Start"
 msgstr "Fecha de inicio"
@@ -273,7 +288,7 @@ msgstr "Fecha de inicio"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "Date signature:"
-msgstr "Fecha de firma"
+msgstr "Fecha de firma:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
@@ -283,9 +298,27 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "Download"
+msgstr "Descargar"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Email:"
 msgstr "Correo electrónico:"
+
+#. module: contract_report
+#. openerp-web
+#: code:addons/contract_report/static/src/xml/portal_signature.xml:4
+#, python-format
+msgid "I have read and agree to the terms and conditions of the contract."
+msgstr "He leído y acepto los términos y condiciones del contrato."
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:80
+#, python-format
+msgid "Invalid order"
+msgstr "Pedido inválido"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -308,6 +341,18 @@ msgid "Nº Account:"
 msgstr "Nº Cuenta:"
 
 #. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:83
+#, python-format
+msgid "Order is not in a state requiring customer signature."
+msgstr "El pedido no está en un estado que requiera la firma del cliente."
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:98
+#, python-format
+msgid "Order signed by %s"
+msgstr "Pedido firmado por %s"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
 msgid "Page: <span class=\"page\"/>"
 msgstr "Página: <span class=\"page\"/>"
@@ -328,10 +373,21 @@ msgid "Price"
 msgstr "Precio"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Quantity"
 msgstr "Cantidad"
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:41
+#, python-format
+msgid "Quotation/Contract viewed by customer"
+msgstr "Presupuesto/Contrato visto por el cliente"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
@@ -344,6 +400,11 @@ msgid "SDi Digital Group"
 msgstr ""
 
 #. module: contract_report
+#: model:ir.model,name:contract_report.model_sale_order
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: contract_report
 #: model:ir.model.fields,field_description:contract_report.field_res_company__sale_order_process_info
 msgid "Sale Order Process"
 msgstr "Tramitación del pedido"
@@ -352,6 +413,12 @@ msgstr "Tramitación del pedido"
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 msgid "Service"
 msgstr "Servicio"
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:85
+#, python-format
+msgid "Signature is missing."
+msgstr "Falta la firma."
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_res_company__sale_order_process
