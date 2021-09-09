@@ -13,6 +13,9 @@ class SurveyEmailComposeMessage(models.TransientModel):
     )
     used_mass_mailing_lists_ids = fields.Many2many(
         comodel_name='mail.mass_mailing.list',
+        relation="used_lists_survey_mail_compose_message",
+        column1="survey_mail_compose_message_id",
+        column2="used_list_id",
     )
 
     @api.onchange('mass_mailing_lists_ids')
@@ -20,9 +23,10 @@ class SurveyEmailComposeMessage(models.TransientModel):
         for list in self.mass_mailing_lists_ids:
             if list not in self.used_mass_mailing_lists_ids:
                 for contact in list.contact_ids:
-                    self.update({
-                        'partner_ids': [(4, contact.partner_id.id)],
-                    })
+                    if contact.partner_id:
+                        self.update({
+                            'partner_ids': [(4, contact.partner_id.id)],
+                        })
         self.update({
             'used_mass_mailing_lists_ids': [(
                 6, 0, self.mass_mailing_lists_ids.ids)],
