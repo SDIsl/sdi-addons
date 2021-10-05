@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 11:54+0000\n"
-"PO-Revision-Date: 2021-09-08 14:07+0200\n"
+"POT-Creation-Date: 2021-10-05 15:46+0000\n"
+"PO-Revision-Date: 2021-10-05 17:47+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -77,6 +77,11 @@ msgstr "<span style=\"color:#e96f06;\">Mantenimientos y/o Suscripciones</span> (
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_summary
 msgid "<span style=\"color:#e96f06;\">Services and/or Licenses</span> (single payment)"
 msgstr "<span style=\"color:#e96f06;\">Servicios y/o Licencias</span> (pago único)"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<span>Accept terms &amp; conditions of the contract:</span>"
+msgstr "<span>Aceptos los términos &amp; condiciones del contrato:</span>"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -308,14 +313,7 @@ msgid "Email:"
 msgstr "Correo electrónico:"
 
 #. module: contract_report
-#. openerp-web
-#: code:addons/contract_report/static/src/xml/portal_signature.xml:4
-#, python-format
-msgid "I have read and agree to the terms and conditions of the contract."
-msgstr "He leído y acepto los términos y condiciones del contrato."
-
-#. module: contract_report
-#: code:addons/contract_report/controllers/portal.py:80
+#: code:addons/contract_report/controllers/portal.py:112
 #, python-format
 msgid "Invalid order"
 msgstr "Pedido inválido"
@@ -341,13 +339,13 @@ msgid "Nº Account:"
 msgstr "Nº Cuenta:"
 
 #. module: contract_report
-#: code:addons/contract_report/controllers/portal.py:83
+#: code:addons/contract_report/controllers/portal.py:114
 #, python-format
 msgid "Order is not in a state requiring customer signature."
 msgstr "El pedido no está en un estado que requiera la firma del cliente."
 
 #. module: contract_report
-#: code:addons/contract_report/controllers/portal.py:98
+#: code:addons/contract_report/controllers/portal.py:130
 #, python-format
 msgid "Order signed by %s"
 msgstr "Pedido firmado por %s"
@@ -384,7 +382,7 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: contract_report
-#: code:addons/contract_report/controllers/portal.py:41
+#: code:addons/contract_report/controllers/portal.py:49
 #, python-format
 msgid "Quotation/Contract viewed by customer"
 msgstr "Presupuesto/Contrato visto por el cliente"
@@ -415,7 +413,7 @@ msgid "Service"
 msgstr "Servicio"
 
 #. module: contract_report
-#: code:addons/contract_report/controllers/portal.py:85
+#: code:addons/contract_report/controllers/portal.py:117
 #, python-format
 msgid "Signature is missing."
 msgstr "Falta la firma."

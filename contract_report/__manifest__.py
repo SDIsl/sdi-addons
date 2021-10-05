@@ -29,7 +29,6 @@
     'depends': [
         'contract',
         'sale',
-        'sale_order_digitized_signature',
     ],
     'data': [
         'template/sale_portal_templates.xml',
@@ -37,8 +36,5 @@
         'views/res_company.xml',
         'reports/contract_report_templates.xml',
         'reports/contract_report.xml',
-    ],
-    'qweb': [
-        # 'static/src/xml/portal_signature.xml',
     ],
 }

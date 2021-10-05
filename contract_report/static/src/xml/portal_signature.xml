@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates id="template" xml:space="preserve">
-    <t t-jquery="t[t-set='defaultSignLabel']" t-operation="before">
-        <p class="float-left">I have read and agree to the terms and conditions of the contract.</p>
-    </t>
-</templates>

@@ -11,5 +11,8 @@
                 </div>
             </div>
         </xpath>
+        <xpath expr="//main[@id='sign-dialog']/p/ul" position="inside">
+            <li><span>Accept terms &amp; conditions of the contract:</span> <a t-att-href="sale_order.get_portal_url(report_type='pdf', download=True)" title="Download"><i class="fa fa-download"/><b t-esc="sale_order.name"/></a></li>
+        </xpath>
     </template>
 </odoo>
