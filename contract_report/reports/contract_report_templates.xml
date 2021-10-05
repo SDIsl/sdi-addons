@@ -61,7 +61,7 @@
                 </div>
                 <div class="card-body fixed-bottom position-absolute text-center w-100 p-1">Customer Signature</div>
             </div>
-            <span class="float-right p-1" style="font-size:10px;">Date signature: <span t-field="doc.date_signature"/></span>
+            <span class="p-1" style="font-size:10px;">Date signature: <span t-field="doc.date_signature"/></span>
         </div>
     </div>
 </template>
