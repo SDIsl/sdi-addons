@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.ui.view" id="project_tags_form_view">
+        <field name="name">Tags</field>
+        <field name="model">project.tags</field>
+        <field name="arch" type="xml">
+            <form string="Tags">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="project_task_area_action" model="ir.actions.act_window">
+        <field name="name">Areas</field>
+        <field name="res_model">project.task.area</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Area
+          </p>
+        </field>
+    </record>
+    <menuitem action="project_task_area_action" id="menu_project_task_area_act" parent="project.menu_project_config"/>    
+</odoo>
