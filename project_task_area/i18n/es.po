@@ -20,13 +20,13 @@ msgstr ""
 #. module: project_task_area
 #: model:ir.model.fields,field_description:project_task_area.field_project_task__area_id
 msgid "Area"
-msgstr "Area"
+msgstr "Área"
 
 #. module: project_task_area
 #: model:ir.actions.act_window,name:project_task_area.project_task_area_action
 #: model:ir.ui.menu,name:project_task_area.menu_project_task_area_act
 msgid "Areas"
-msgstr "Area"
+msgstr "Áreas"
 
 #. module: project_task_area
 #: model_terms:ir.actions.act_window,help:project_task_area.project_task_area_action
