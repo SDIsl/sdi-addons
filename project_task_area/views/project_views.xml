@@ -1,16 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record model="ir.ui.view" id="project_tags_form_view">
-        <field name="name">Tags</field>
-        <field name="model">project.tags</field>
-        <field name="arch" type="xml">
-            <form string="Tags">
-                <group>
-                    <field name="name"/>
-                </group>
-            </form>
-        </field>
-    </record>
     <record id="project_task_area_action" model="ir.actions.act_window">
         <field name="name">Areas</field>
         <field name="res_model">project.task.area</field>
