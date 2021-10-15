@@ -26,7 +26,7 @@
     'category': 'Tools',
     'version': '14.0.1.0.0',
     'depends': [
-        'base',
+        'base_geolocalize',
         'web_google_maps',
     ],
     'data': [
