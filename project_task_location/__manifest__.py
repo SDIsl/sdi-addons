@@ -18,8 +18,8 @@
 #
 ###############################################################################
 {
-    'name': 'Project Task Street',
-    'summary': 'Add Area field in project task',
+    'name': 'Project Task Location',
+    'summary': 'Add Location field in project task',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',

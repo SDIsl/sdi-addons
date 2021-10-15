@@ -4,9 +4,9 @@
 from odoo import fields, models
 
 
-class ProjectTaskStreet(models.Model):
-    _name = 'project.task.street'
-    _description = 'Project Task Street'
+class ProjectTaskLocation(models.Model):
+    _name = 'project.task.location'
+    _description = 'Project Task Location'
     _order = 'name'
 
     name = fields.Char(
