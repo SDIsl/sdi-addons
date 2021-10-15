@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* contract_report
+# 	* contract_report
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 08:28+0000\n"
-"PO-Revision-Date: 2021-05-17 08:28+0000\n"
+"POT-Creation-Date: 2021-10-05 15:46+0000\n"
+"PO-Revision-Date: 2021-10-05 17:47+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
@@ -47,6 +49,16 @@ msgid "/ year"
 msgstr "/ año"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<i class=\"fa fa-download\"/> Download Contract"
+msgstr "Descargar"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr "<i class=\"fa fa-print\"/> Imprimir"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span class=\"text-danger\">The company doesn't have a bank account</span>"
 msgstr "<span class=\"text-danger\">La compañía no tiene cuenta bancaria</span>"
@@ -67,6 +79,11 @@ msgid "<span style=\"color:#e96f06;\">Services and/or Licenses</span> (single pa
 msgstr "<span style=\"color:#e96f06;\">Servicios y/o Licencias</span> (pago único)"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "<span>Accept terms &amp; conditions of the contract:</span>"
+msgstr "<span>Aceptos los términos &amp; condiciones del contrato:</span>"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "<span>Amount</span><br/><span/>(TAX inc.)"
 msgstr "<span>Importe</span><br/><span/>(IVA inc.)"
@@ -80,9 +97,11 @@ msgstr "<span>Desc.(%)</span>"
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
-msgid "<span>Observations:</span>\n"
+msgid ""
+"<span>Observations:</span>\n"
 "                    <br/>"
-msgstr "<span>Observaciones:</span>\n"
+msgstr ""
+"<span>Observaciones:</span>\n"
 "                    <br/>"
 
 #. module: contract_report
@@ -187,6 +206,11 @@ msgid "Characteristics and conditions of the level of service offered"
 msgstr "Características y condiciones del nivel de servicio ofrecido"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
+msgid "City/Province:"
+msgstr "Ciudad/Provincia:"
+
+#. module: contract_report
 #: model:ir.model,name:contract_report.model_res_company
 msgid "Companies"
 msgstr "Compañías"
@@ -242,14 +266,14 @@ msgid "Contract Template"
 msgstr "Plantilla de contrato"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.signs
-msgid "Customer Date and Signature"
-msgstr "Fecha y firma del cliente"
-
-#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Customer Information"
 msgstr "Información del cliente"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.signs
+msgid "Customer Signature"
+msgstr "Firma del cliente"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -257,9 +281,19 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: contract_report
+#: model:ir.model.fields,field_description:contract_report.field_sale_order__date_signature
+msgid "Date Signature"
+msgstr "Fecha de firma"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 msgid "Date Start"
 msgstr "Fecha de inicio"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.signs
+msgid "Date signature:"
+msgstr "Fecha de firma:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
@@ -269,14 +303,30 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "Download"
+msgstr "Descargar"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Email:"
 msgstr "Correo electrónico:"
 
 #. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:112
+#, python-format
+msgid "Invalid order"
+msgstr "Pedido inválido"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
 msgid "Job Tittle:"
 msgstr "Cargo:"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "Mail:"
+msgstr "Correo:"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
@@ -287,6 +337,23 @@ msgstr "Nombre"
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services
 msgid "Nº Account:"
 msgstr "Nº Cuenta:"
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:114
+#, python-format
+msgid "Order is not in a state requiring customer signature."
+msgstr "El pedido no está en un estado que requiera la firma del cliente."
+
+#. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:130
+#, python-format
+msgid "Order signed by %s"
+msgstr "Pedido firmado por %s"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "Page: <span class=\"page\"/>"
+msgstr "Página: <span class=\"page\"/>"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.customer_info
@@ -304,9 +371,9 @@ msgid "Price"
 msgstr "Precio"
 
 #. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.customer_info
-msgid "City/Province:"
-msgstr "Ciudad/Provincia:"
+#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
+msgid "Print"
+msgstr "Imprimir"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
@@ -315,14 +382,25 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:49
+#, python-format
+msgid "Quotation/Contract viewed by customer"
+msgstr "Presupuesto/Contrato visto por el cliente"
+
+#. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_maintenances
 msgid "Recurring Interval"
 msgstr "Facturar cada"
 
 #. module: contract_report
-#: model:ir.actions.report,name:contract_report.action_report_contract
-msgid "Sale Contract"
-msgstr "Contrato de ventas"
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "SDi Digital Group"
+msgstr ""
+
+#. module: contract_report
+#: model:ir.model,name:contract_report.model_sale_order
+msgid "Sale Order"
+msgstr "Pedido de venta"
 
 #. module: contract_report
 #: model:ir.model.fields,field_description:contract_report.field_res_company__sale_order_process_info
@@ -335,19 +413,37 @@ msgid "Service"
 msgstr "Servicio"
 
 #. module: contract_report
+#: code:addons/contract_report/controllers/portal.py:117
+#, python-format
+msgid "Signature is missing."
+msgstr "Falta la firma."
+
+#. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_res_company__sale_order_process
 msgid "Steps for the client to make the payment of the contract."
 msgstr "Pasos para que el cliente realice el pago del contrato."
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_res_company__sale_order_process_info
-msgid "Steps for the client to make the payment of the service contract."
-msgstr "Pasos para que el cliente realice el pago del contrato de servicio."
+msgid ""
+"Steps for the client to make the payment of the service\n"
+"                contract."
+msgstr "Pasos para que el cliente realice el pago del contrato."
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "Supplier Signature"
 msgstr "Firma del proveedor"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "Tel:"
+msgstr "Tel.:"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "Telf. 941 13 50 52"
+msgstr ""
 
 #. module: contract_report
 #: model:ir.model.fields,help:contract_report.field_contract_contract__contract_clause
@@ -364,6 +460,16 @@ msgstr "Precio"
 #: model_terms:ir.ui.view,arch_db:contract_report.contract_summary_prices
 msgid "VAT not included"
 msgstr "IVA no incluido"
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "Web:"
+msgstr ""
+
+#. module: contract_report
+#: model_terms:ir.ui.view,arch_db:contract_report.contract_external_layout_boxed
+msgid "max-height: 80px;"
+msgstr ""
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
