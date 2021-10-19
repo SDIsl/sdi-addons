@@ -10,4 +10,6 @@ class ProjectTask(models.Model):
     location_id = fields.Many2one(
         comodel_name='project.task.location',
         string='Location',
+        track_visibility='onchange',
+        ondelete='restrict',
     )
