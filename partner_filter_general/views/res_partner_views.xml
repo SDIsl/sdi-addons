@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="name" string="Name, mail, phone, mobile or NIF" filter_domain="['|','|','|','|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self),('phone','ilike',self),('mobile','ilike',self),('vat','ilike',self)]"/>
+            </field>
+            <field name="phone" position="after">
+                <field name="vat" filter_domain="[('vat','ilike',self)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>
