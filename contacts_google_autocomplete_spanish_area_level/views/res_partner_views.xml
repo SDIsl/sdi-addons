@@ -5,6 +5,7 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="name" position="attributes">
+                <attribute name="widget">gplaces_autocomplete</attribute>
                 <attribute name="options">{
                     'fillfields': {
                         'address': {
