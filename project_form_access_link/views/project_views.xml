@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_project_kanban" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="/kanban/templates/t/div/div[1]/div[1]/div/div[1]/span[1]/t" position="before">
+                <button class="btn btn-link" type="object" name="open_project_form">
+                    <i class="fa fa-external-link-square fa-lg" title="Go to project"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
