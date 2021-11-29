@@ -81,7 +81,7 @@ msgstr "<span style=\"color:#e96f06;\">Servicios y/o Licencias</span> (pago úni
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_template
 msgid "<span>Accept terms &amp; conditions of the contract:</span>"
-msgstr "<span>Aceptos los términos &amp; condiciones del contrato:</span>"
+msgstr "<span>Acepto los términos &amp; condiciones del contrato:</span>"
 
 #. module: contract_report
 #: model_terms:ir.ui.view,arch_db:contract_report.summary_services

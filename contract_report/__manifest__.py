@@ -31,9 +31,9 @@
         'sale',
     ],
     'data': [
-        'template/sale_portal_templates.xml',
         'views/contract_template.xml',
         'views/res_company.xml',
+        'views/sale_portal_templates.xml',
         'reports/contract_report_templates.xml',
         'reports/contract_report.xml',
     ],
