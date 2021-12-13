@@ -8,5 +8,5 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     vat = fields.Char(
-        string="nif",
+        string='NIF',
     )
