@@ -27,8 +27,8 @@ class ExpendableResource(models.Model):
     @api.model
     def create(self, vals):
         res = super().create(vals)
-        msg = _('<p><span class="fa fa-plus" title="New"/> '
-                'Resource <strong>{name}</strong> has been created:</br>'
+        msg = _('<p><span class="fa fa-plus" title="New"/> Expendable Resource'
+                ' <strong>{name}</strong> has been created:</br>'
                 '<li><strong>Name: </strong>{name}</li>'
                 ).format(name=res.name)
         if res.description:
@@ -43,8 +43,9 @@ class ExpendableResource(models.Model):
     @api.multi
     def write(self, vals):
         for resource in self:
-            msg = _('<p><span class="fa fa-pencil" title="Edited"/> Resource '
-                    '<strong>{resource}</strong> has been modified:</br>'
+            msg = _('<p><span class="fa fa-pencil" title="Edited"/> Expendable'
+                    ' Resource <strong>{resource}</strong> has been modified:'
+                    '</br>'
                     ).format(resource=resource.name,)
             post = False
             if 'name' in vals and vals.get(
@@ -73,8 +74,8 @@ class ExpendableResource(models.Model):
     @api.multi
     def unlink(self):
         for resource in self:
-            msg = _('<p><span class="fa fa-times" title="Deleted"/> '
-                    'Resource <strong>{resource}</strong> has been deleted:'
+            msg = _('<p><span class="fa fa-times" title="Deleted"/> Expendable'
+                    ' Resource <strong>{resource}</strong> has been deleted:'
                     '</p><li><strong>Name: </strong>{resource}</li>'
                     '<li><strong>Description: </strong>{description}</li>'
                     '<li><strong>Delivery Date: </strong>{delivery_date}</li>'
