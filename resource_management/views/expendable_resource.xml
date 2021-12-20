@@ -33,6 +33,7 @@
         <field name="model">resource.expendable</field>
         <field name="arch" type="xml">
             <search string="Expendable Resource Search">
+                <field name="name" string="Name, description or employee" filter_domain="['|', '|', ('name', 'ilike', self), ('description', 'ilike', self), ('employee_id', 'ilike', self)]"/>
                 <group string="Group By" name="groupby">
                     <filter name="employee_groupby" string="Employee" context="{'group_by': 'employee_id'}" />
                 </group>

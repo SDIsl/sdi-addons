@@ -42,14 +42,14 @@ class Booking(models.Model):
         string='Start Datetime',
         required=True,
         track_visibility='onchange',
-        default=lambda self: fields.Datetime.now(),
+        default=lambda self: fields.datetime.now(),
         copy=False,
     )
     end_datetime = fields.Datetime(
         string='End Datetime',
         required=True,
         track_visibility='onchange',
-        default=lambda self: fields.Datetime.now() + timedelta(
+        default=lambda self: fields.datetime.now() + timedelta(
             minutes=int(self.env['ir.config_parameter'].sudo().get_param(
                 'minutes_datetimes_resource_booking'))
         ),

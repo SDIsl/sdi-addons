@@ -2,7 +2,6 @@
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
 from odoo import _, api, fields, models
-from datetime import datetime
 
 
 class ProductTemplate(models.Model):
@@ -34,7 +33,7 @@ class ProductTemplate(models.Model):
         comodel_name='resource.booking.management',
         inverse_name='resource_id',
         string='Bookings',
-        domain=[('end_datetime', '>', datetime.now())],
+        domain=lambda self: [('end_datetime', '>', fields.datetime.now())],
     )
 
     def button_resource_bookings(self):
@@ -59,10 +58,9 @@ class ProductTemplate(models.Model):
     @api.multi
     def write(self, vals):
         for resource in self:
-            msg = _('<p>Changes in Resource '
-                    '<strong>{resource}</strong>:</br>').format(
-                resource=resource.name,
-            )
+            msg = _('<p><span class="fa fa-pencil" title="Edited"/> Resource '
+                    '<strong>{resource}</strong> has been modified:</br>'
+                    ).format(resource=resource.name,)
             post = False
             if 'employee_id' in vals:
                 employee = resource.env['hr.employee'].browse(

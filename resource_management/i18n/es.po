@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-06 11:19+0000\n"
-"PO-Revision-Date: 2021-08-06 11:19+0000\n"
+"POT-Creation-Date: 2021-12-20 11:52+0000\n"
+"PO-Revision-Date: 2021-12-20 11:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,40 +16,58 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: resource_management
-#: code:addons/resource_management/models/expendable_resource.py:46
+#: code:addons/resource_management/models/expendable_resource.py:38
+#, python-format
+msgid "<li><strong>Delivery Date: </strong>{delivery_date}</li></p>"
+msgstr "<li><strong>Fecha de entrega: </strong>{delivery_date}</li></p>"
+
+#. module: resource_management
+#: code:addons/resource_management/models/expendable_resource.py:35
+#, python-format
+msgid "<li><strong>Description: </strong>{description}</li></p>"
+msgstr "<li><strong>Descripción: </strong>{description}</li></p>"
+
+#. module: resource_management
+#: code:addons/resource_management/models/expendable_resource.py:62
 #, python-format
 msgid "<li><strong>Description:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Changed\"/> {new_val}</li>"
 msgstr "<li><strong>Descripción:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Cambiado\"/> {new_val}</li>"
 
 #. module: resource_management
-#: code:addons/resource_management/models/product.py:72
+#: code:addons/resource_management/models/product.py:71
 #, python-format
 msgid "<li><strong>Employee:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Changed\"/> {new_val}</li>"
 msgstr "<li><strong>Empleado:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Cambiado\"/> {new_val}</li>"
 
 #. module: resource_management
-#: code:addons/resource_management/models/expendable_resource.py:37
+#: code:addons/resource_management/models/expendable_resource.py:53
 #, python-format
 msgid "<li><strong>Name:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Changed\"/> {new_val}</li>"
 msgstr "<li><strong>Nombre:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Cambiado\"/> {new_val}</li>"
 
 #. module: resource_management
-#: code:addons/resource_management/models/expendable_resource.py:61
+#: code:addons/resource_management/models/expendable_resource.py:46
 #, python-format
-msgid "<p>An Expendable Resource was deleted:</p><li><strong>Name: </strong>{resource}</li><li><strong>Delivery Date: </strong>{delivery_date}</li><li><strong>Description: </strong>{description}</li>"
-msgstr "<p>Un recurso fungible ha sido eliminado:</p><li><strong>Nombre: </strong>{resource}</li><li><strong>Fecha de entrega: </strong>{delivery_date}</li><li><strong>Descripción: </strong>{description}</li>"
-
-#. module: resource_management
-#: code:addons/resource_management/models/expendable_resource.py:30
-#, python-format
-msgid "<p>Changes in Expendable Resource <strong>{resource}</strong>:</br>"
-msgstr "<p>Cambios en recurso fungible <strong>{resource}</strong>:</br>"
+msgid "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Expendable Resource <strong>{resource}</strong> has been modified:</br>"
+msgstr "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Se ha modificado el recurso fungible <strong>{resource}</strong>:</br>"
 
 #. module: resource_management
 #: code:addons/resource_management/models/product.py:62
 #, python-format
-msgid "<p>Changes in Resource <strong>{resource}</strong>:</br>"
-msgstr "<p>Cambios en recurso <strong>{resource}</strong>:</br>"
+msgid "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Resource <strong>{resource}</strong> has been modified:</br>"
+msgstr "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Se ha modificado el recurso <strong>{resource}</strong>:</br>"
+
+#. module: resource_management
+#: code:addons/resource_management/models/expendable_resource.py:30
+#, python-format
+msgid "<p><span class=\"fa fa-plus\" title=\"New\"/> Expendable Resource <strong>{name}</strong> has been created:</br><li><strong>Name: </strong>{name}</li>"
+msgstr "<p><span class=\"fa fa-plus\" title=\"New\"/> Se ha creado el recurso fungible <strong>{name}</strong>:</br><li><strong>Nombre: </strong>{name}</li>"
+
+#. module: resource_management
+#: code:addons/resource_management/models/expendable_resource.py:77
+#, python-format
+msgid "<p><span class=\"fa fa-times\" title=\"Deleted\"/> Expendable Resource <strong>{resource}</strong> has been deleted:</p><li><strong>Name: </strong>{resource}</li><li><strong>Description: </strong>{description}</li><li><strong>Delivery Date: </strong>{delivery_date}</li>"
+msgstr "<p><span class=\"fa fa-times\" title=\"Deleted\"/> Se ha eliminado el recurso fungible <strong>{resource}</strong>:</p><li><strong>Nombre: </strong>{resource}</li><li><strong>Descripción: </strong>{description}</li><li><strong>Fecha de entrega: </strong>{delivery_date}</li>"
 
 #. module: resource_management
 #: model_terms:ir.ui.view,arch_db:resource_management.view_employee_form
@@ -68,7 +86,7 @@ msgstr "<span class=\"o_stat_text\">Reservas</span>\n"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_needaction
 msgid "Action Needed"
-msgstr "Acción necesaria"
+msgstr "Acción Necesaria"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_ids
@@ -330,6 +348,11 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.resource_expendable_view_search
+msgid "Name, description or employee"
+msgstr "Nombre, descripción o empleado"
+
+#. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Siguiente plazo de actividad"
@@ -501,7 +524,7 @@ msgstr "Hoy"
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_unread
 msgid "Unread Messages"
-msgstr "Mensajes sin leer"
+msgstr "Mensajes por leer"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__message_unread_counter
