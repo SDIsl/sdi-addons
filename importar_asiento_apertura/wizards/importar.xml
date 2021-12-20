@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="importar_apertura_form" model="ir.ui.view">
+        <field name="name">importar.apertura.wizard.form</field>
+        <field name="model">importar.apertura</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main_info">
+                    <field name="data_file"/>
+                    <field name="company_id"/>
+                    <field name="journal_id"/>
+                    <field name="date"/>
+                    <field name="move_id"/>
+                    <field name="account_id" string="Cuando no encuentre la cuenta..."/>
+                </group>
+                <footer>
+                    <button name="action_import_file" string="Importar"
+                            type="object" default_focus="1" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_importar_apertura_wizard" model="ir.actions.act_window">
+        <field name="name">Importar apertura</field>
+        <field name="res_model">importar.apertura</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+            id="action_importar_apertura_menu"
+            name="Importar apertura"
+            parent="account.menu_finance"
+            sequence="2"
+            action="action_importar_apertura_wizard"
+            groups="base.group_no_one"/>
+</odoo>
