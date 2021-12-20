@@ -23,22 +23,31 @@ _recurring_rule_type = {
 
 
 class Correlacion(models.Model):
-    _name = "importar.contratos.correlacion"
-    name = fields.Char("Cod a3ERP")
+    _name = 'importar.contratos.correlacion'
+
+    name = fields.Char(
+        string='Cod a3ERP',
+    )
     product_id = fields.Many2one(
-        "product.product"
+        comodel_name='product.product',
     )
 
 
 class Errores(models.TransientModel):
-    _name = "importar.contratos.errores"
+    _name = 'importar.contratos.errores'
+
     linea = fields.Integer()
-    name = fields.Char("Error")
+    name = fields.Char(
+        string='Error',
+    )
 
 
 class ContractLine(models.Model):
     _inherit = 'contract.line'
-    a3erp_id = fields.Char('id a3ERP')
+
+    a3erp_id = fields.Char(
+        string='id a3ERP',
+    )
 
 
 class Importar(models.TransientModel):
@@ -181,15 +190,6 @@ class Importar(models.TransientModel):
                                     (row[self.producto], row['DESCART'], row[self.nombre], cliente.name)
                         })
                         continue
-            if producto.unit_id.company_id.id != self.company_id.id:
-                _log.warning("El producto (%s) tiene udn que pertenece a %s " %
-                             (row[self.producto], producto.unit_id.company_id.name))
-                error.create({
-                    'linea': linea + 2,
-                    'name': "El producto (%s) tiene udn que pertenece a %s " %
-                            (row[self.producto], producto.unit_id.company_id.name)
-                })
-                continue
             if row[self.fecha_siguiente] < row[self.fecha_comienzo]:
                 _log.warning("Fecha de proxima factura anterior a fecha de inicio de contrato: %s de %s " %
                              (row[self.nombre], cliente.name))
@@ -210,15 +210,21 @@ class Importar(models.TransientModel):
             nombre_descuento = str(row[self.descuento]) if row[self.descuento] else False
             if nombre_descuento == "nan":
                 nombre_descuento = ""
-            # contract = False
-            # contract_template_id = False
             # Unidad de medida
             cadencia = _recurring_rule_type[row[self.intervalo_tipo]]
             intervalo = row[self.intervalo_num]
+
+            # Sustituir ids por los correspondientes en prod.
+            # if cadencia == 'monthly':
+            #     udm = 20 if intervalo == 1 else 24 if intervalo == 3 else 22
+            # else:
+            #     udm = 21
+
             if cadencia == 'monthly':
-                udm = 20 if intervalo == 1 else 24 if intervalo == 3 else 22
+                udm = 26 if intervalo == 1 else 28 if intervalo == 3 else 27
             else:
-                udm = 21
+                udm = 29
+
             # Descripción de la linea:
             descrip = row['DESCART']
             if type(row['Texto']) is str:
@@ -226,7 +232,6 @@ class Importar(models.TransientModel):
             #
             if curcli != cliente or curcon.name != row[self.nombre]:
                 # Crear cabecera de contrato
-
                 contract = cabe.create(
                     {
                         'partner_id': cliente.id,
@@ -236,34 +241,28 @@ class Importar(models.TransientModel):
                         'recurring_next_date': row[self.fecha_siguiente],
                         'payment_term_id': cliente.property_payment_term_id.id,
                         'payment_mode_id': cliente.customer_payment_mode_id.id,
-                        'unit_id': producto.unit_id.id,
                         'contract_template_id': producto.property_contract_template_id.id,
                     })
 
-            contract_line = line.create(
-                {
-                    'contract_id': contract.id,
-                    'a3erp_id': pk,
-                    'product_id': producto.id,
-                    'name': descrip,
-                    'date_start': row[self.fecha_comienzo],
-                    # 'date_end': row[self.fecha_fin],
-                    'recurring_next_date': row[self.fecha_siguiente],
-                    'quantity': row[self.uds],
-                    'uom_id': udm,
-                    'specific_price': row[self.precio_u],
-                    'multiple_discount': descuento if descuento else '',
-                    'discount_name': nombre_descuento,
-                    'recurring_interval': intervalo,
-                    'recurring_rule_type': cadencia,
-
-                }
-            )
+            line.create({
+                'contract_id': contract.id,
+                'a3erp_id': pk,
+                'product_id': producto.id,
+                'name': descrip,
+                'date_start': row[self.fecha_comienzo],
+                # 'date_end': row[self.fecha_fin],
+                'recurring_next_date': row[self.fecha_siguiente],
+                'quantity': row[self.uds],
+                'uom_id': udm,
+                'specific_price': row[self.precio_u],
+                'discount': descuento if descuento else '',
+                # 'discount_name': nombre_descuento,
+                'recurring_interval': intervalo,
+                'recurring_rule_type': cadencia,
+            })
             self.env.cr.commit()
             curcli = cliente
             curcon = contract
-            contract_template_id = producto.property_contract_template_id.id
-
         return {
             'type': 'ir.actions.act_window',
             'target': 'self',
@@ -273,15 +272,15 @@ class Importar(models.TransientModel):
         }
 
     def action_borrar_facturas(self):
-        borrar = self.env['contract.contract'].search([('company_id', '=', 1)]).unlink()
-        facturas = self.env['account.invoice'].search([
+        facturas = self.env['account.move'].search([
             ('company_id', '=', 1),
             ('state', '=', 'draft'),
         ])
         for factura in facturas:
             for linea in factura.invoice_line_ids:
-                if linea.advance_line_id:
-                    linea.advance_line_id.unlink()
+                # Ya no tenemos el campo advance_line_id, es de trey.
+                # if linea.advance_line_id:
+                #     linea.advance_line_id.unlink()
                 for lineaventa in linea.sale_line_ids:
                     lineaventa.order_id.state = "done"
             factura.unlink()
