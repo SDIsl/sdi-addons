@@ -3,7 +3,7 @@
 ###############################################################################
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 
 class Booking(models.Model):
@@ -42,14 +42,14 @@ class Booking(models.Model):
         string='Start Datetime',
         required=True,
         track_visibility='onchange',
-        default=datetime.now(),
+        default=lambda self: fields.datetime.now(),
         copy=False,
     )
     end_datetime = fields.Datetime(
         string='End Datetime',
         required=True,
         track_visibility='onchange',
-        default=lambda self: datetime.now() + timedelta(
+        default=lambda self: fields.datetime.now() + timedelta(
             minutes=int(self.env['ir.config_parameter'].sudo().get_param(
                 'minutes_datetimes_resource_booking'))
         ),
