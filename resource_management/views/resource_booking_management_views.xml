@@ -140,6 +140,7 @@
         <field name="model">resource.booking.management</field>
         <field name="arch" type="xml">
             <calendar string="Bookings Calendar" date_start="start_datetime" date_stop="end_datetime" mode="week" color="resource_id" event_open_popup="true" quick_add="False">
+                <field name="name"/>
                 <field name="resource_id"/>
                 <field name="employee_id" avatar_field="image_small" string=""/>
             </calendar>
