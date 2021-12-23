@@ -22,7 +22,7 @@
                     </h1>
                     <group>
                         <field name="description"/>
-                        <field name="employee_id" readonly="True"/>
+                        <field name="employee_id"/>
                         <field name="delivery_date"/>
                     </group>
                 </sheet>

@@ -26,7 +26,7 @@
     <record id="action_list_employees" model="ir.actions.act_window">
         <field name="name">Employees</field>
         <field name="res_model">hr.employee</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
     <record id="action_list_bookings" model="ir.actions.act_window">
         <field name="name">Bookings</field>
