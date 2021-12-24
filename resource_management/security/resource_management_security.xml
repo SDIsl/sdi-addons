@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record model="ir.module.category" id="module_resource_management">
+    <record id="module_resource_management" model="ir.module.category">
         <field name="name">Resource Management</field>
         <field name="description">Resources permission</field>
         <field name="sequence">3</field>

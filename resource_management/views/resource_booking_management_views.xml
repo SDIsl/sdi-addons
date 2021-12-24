@@ -140,8 +140,9 @@
         <field name="model">resource.booking.management</field>
         <field name="arch" type="xml">
             <calendar string="Bookings Calendar" date_start="start_datetime" date_stop="end_datetime" mode="week" color="resource_id" event_open_popup="true" quick_add="False">
+                <field name="name"/>
                 <field name="resource_id"/>
-                <field name="employee_id" avatar_field="image_small" string=""/>
+                <field name="employee_id" avatar_field="image"/>
             </calendar>
         </field>
     </record>
@@ -149,7 +150,7 @@
         <field name="model">resource.booking.management</field>
         <field name="arch" type="xml">
             <search string="Booking">
-                <field name="employee_id"/>
+                <field name="name" string="Name, employee or resource" filter_domain="['|','|',('name','ilike',self),('employee_id','ilike',self),('resource_id','ilike',self)]"/>
                 <filter string="My Bookings" name="my_bookings" domain="[('employee_id.user_id','=',uid)]"/>
                 <group expand="0" string="Group By">
                     <filter string="Resource" name="resource" domain="[]" context="{'group_by':'resource_id'}"/>

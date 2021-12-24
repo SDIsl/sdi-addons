@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 11:52+0000\n"
-"PO-Revision-Date: 2021-12-20 11:52+0000\n"
+"POT-Creation-Date: 2021-12-23 09:29+0000\n"
+"PO-Revision-Date: 2021-12-23 09:29+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgid "<li><strong>Description:</strong> {old_val} <span class=\"fa fa-long-arro
 msgstr "<li><strong>Descripción:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Cambiado\"/> {new_val}</li>"
 
 #. module: resource_management
-#: code:addons/resource_management/models/product.py:71
+#: code:addons/resource_management/models/product.py:70
 #, python-format
 msgid "<li><strong>Employee:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Changed\"/> {new_val}</li>"
 msgstr "<li><strong>Empleado:</strong> {old_val} <span class=\"fa fa-long-arrow-right\" title=\"Cambiado\"/> {new_val}</li>"
@@ -52,7 +52,7 @@ msgid "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Expendable Resource <s
 msgstr "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Se ha modificado el recurso fungible <strong>{resource}</strong>:</br>"
 
 #. module: resource_management
-#: code:addons/resource_management/models/product.py:62
+#: code:addons/resource_management/models/product.py:61
 #, python-format
 msgid "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Resource <strong>{resource}</strong> has been modified:</br>"
 msgstr "<p><span class=\"fa fa-pencil\" title=\"Edited\"/> Se ha modificado el recurso <strong>{resource}</strong>:</br>"
@@ -127,7 +127,7 @@ msgstr "Nombre de la reserva"
 
 #. module: resource_management
 #: code:addons/resource_management/models/hr_employee.py:37
-#: code:addons/resource_management/models/product.py:49
+#: code:addons/resource_management/models/product.py:48
 #: model:ir.actions.act_window,name:resource_management.action_list_bookings
 #: model:ir.model.fields,field_description:resource_management.field_hr_employee__booking_ids
 #: model:ir.model.fields,field_description:resource_management.field_product_product__booking_ids
@@ -351,6 +351,11 @@ msgstr "Nombre"
 #: model_terms:ir.ui.view,arch_db:resource_management.resource_expendable_view_search
 msgid "Name, description or employee"
 msgstr "Nombre, descripción o empleado"
+
+#. module: resource_management
+#: model_terms:ir.ui.view,arch_db:resource_management.resource_booking_management_search_view
+msgid "Name, employee or resource"
+msgstr "Nombre, empleado o recurso"
 
 #. module: resource_management
 #: model:ir.model.fields,field_description:resource_management.field_resource_booking_management__activity_date_deadline
