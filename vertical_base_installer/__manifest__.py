@@ -29,6 +29,8 @@
         'disable_odoo_online',
         'mail_debrand',
         'mass_editing',
+        'l10n_es_toponyms',
+        'l10n_es_partner',
         'remove_odoo_enterprise',
         'partner_contact_access_link',
         'web_advanced_search',
