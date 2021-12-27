@@ -4,7 +4,7 @@ import io
 from odoo import api, fields, models, _
 import pandas
 import logging
-_log = logging.getLogger('SDi migration contracts')
+_log = logging.getLogger('Migration contracts')
 try:
     import xlrd
     try:
@@ -137,27 +137,22 @@ class Importar(models.TransientModel):
             if line.search([('a3erp_id', '=', pk)]):
                 continue
             _log.warning(linea)
-            cliente = '' # cli.search([('migration_customer_id', '=', str(row[self.cliente]))])
+            cliente = cli.search([
+                ('is_company', '=', True),
+                ('active', '=', True),
+                '|',
+                ('vat', '=', 'ES%s' % row[self.nif_cliente]),
+                ('vat', '=', '%s' % row[self.nif_cliente]),
+            ], limit=1)
             if not cliente:
-                cliente = cli.search([
-                    ('is_company', '=', True),
-                    ('active', '=', True),
-                    ('vat', '=', row[self.nif_cliente]),
-                ], limit=1)
-                if not cliente:
-                    cliente = cli.search([
-                        ('is_company', '=', True),
-                        ('active', '=', True),
-                        ('vat', '=', 'ES%s' % row[self.nif_cliente]),
-                    ], limit=1)
-            if not cliente:
-                _log.warning("El cliente (%s) no se encuentra. Contrato: %s " % (str(int(row[self.cliente])),
-                                                                                 row[self.nombre]))
+                _log.warning(
+                    'El cliente (%s) no se encuentra. Contrato: %s' %
+                    (str(int(row[self.cliente])), row[self.nombre])
+                )
                 error.create({
                     'linea': linea+2,
-                    'name': "El cliente (%s) %s no se encuentra. Contrato: %s " % (
-                        str(int(row[self.cliente])),
-                        row['nomcli'],
+                    'name': 'El cliente (%s) %s no se encuentra. Contrato: %s '
+                    % (str(int(row[self.cliente])), row['nomcli'],
                         row[self.nombre])
                 })
                 continue
@@ -168,81 +163,81 @@ class Importar(models.TransientModel):
                 if producto:
                     producto = producto.product_id
                 if not producto:
-                    producto = prod.search([('active', '=', False),
-                                            ('default_code', '=', row[self.producto])])
+                    producto = prod.search([
+                        ('active', '=', False),
+                        ('default_code', '=', row[self.producto])],
+                    )
                     if producto:
-                        _log.warning("El producto (%s) está ARCHIVADO. Contrato: %s del cliente %s" % (
-                            row[self.producto], row[self.nombre], cliente.name))
+                        _log.warning(
+                            '''El producto (%s) está ARCHIVADO.
+                            Contrato: %s del cliente %s''' % (
+                                row[self.producto],
+                                row[self.nombre],
+                                cliente.name)
+                        )
                         error.create({
                             'linea': linea + 2,
-                            'name': "El producto (%s) está ARCHIVADO. Contrato: %s del cliente %s" %
-                                    (row[self.producto], row[self.nombre], cliente.name)
+                            'name': '''El producto (%s) está ARCHIVADO.
+                            Contrato: %s del cliente %s''' % (
+                                row[self.producto],
+                                row[self.nombre],
+                                cliente.name)
                         })
                         continue
                     else:
-                        _log.warning("El producto (%s) %s no se encuentra. Contrato: %s del cliente %s" % (
+                        _log.warning('''El producto (%s) %s no se encuentra.
+                        Contrato: %s del cliente %s''' % (
                             row[self.producto],
                             row['DESCART'],
-                            row[self.nombre], cliente.name))
+                            row[self.nombre],
+                            cliente.name)
+                        )
                         error.create({
                             'linea': linea + 2,
-                            'name': "El producto (%s) %s no se encuentra. Contrato: %s del cliente %s" %
-                                    (row[self.producto], row['DESCART'], row[self.nombre], cliente.name)
+                            'name': '''El producto (%s) %s no se encuentra.
+                            Contrato: %s del cliente %s''' % (
+                                row[self.producto],
+                                row['DESCART'],
+                                row[self.nombre],
+                                cliente.name)
                         })
                         continue
             if row[self.fecha_siguiente] < row[self.fecha_comienzo]:
-                _log.warning("Fecha de proxima factura anterior a fecha de inicio de contrato: %s de %s " %
-                             (row[self.nombre], cliente.name))
+                _log.warning('''Fecha de proxima factura anterior a fecha
+                de inicio de contrato: %s de %s ''' % (
+                    row[self.nombre],
+                    cliente.name)
+                )
                 error.create({
                     'linea': linea + 2,
-                    'name': "Fecha de proxima factura anterior a fecha de inicio de contrato: %s de %s " %
-                            (row[self.nombre], cliente.name)
+                    'name': '''Fecha de proxima factura anterior a fecha
+                    de inicio de contrato: %s de %s ''' % (
+                        row[self.nombre],
+                        cliente.name)
                 })
                 continue
-            descuento = "%s+%s+%s+%s" % (
-                abs(row['desc1']),
-                abs(row['desc2']),
-                abs(row['desc3']),
-                abs(row['desc4']),
-            )
-            if descuento == '0+0+0+0':
-                descuento = ''
-            nombre_descuento = str(row[self.descuento]) if row[self.descuento] else False
-            if nombre_descuento == "nan":
-                nombre_descuento = ""
             # Unidad de medida
             cadencia = _recurring_rule_type[row[self.intervalo_tipo]]
             intervalo = row[self.intervalo_num]
-
-            # Sustituir ids por los correspondientes en prod.
-            # if cadencia == 'monthly':
-            #     udm = 20 if intervalo == 1 else 24 if intervalo == 3 else 22
-            # else:
-            #     udm = 21
-
-            if cadencia == 'monthly':
-                udm = 26 if intervalo == 1 else 28 if intervalo == 3 else 27
-            else:
-                udm = 29
-
+            _log.warning("INTERVALO %s " % intervalo)
             # Descripción de la linea:
             descrip = row['DESCART']
             if type(row['Texto']) is str:
                 descrip += '\n' + row['Texto']
-            #
             if curcli != cliente or curcon.name != row[self.nombre]:
                 # Crear cabecera de contrato
-                contract = cabe.create(
-                    {
-                        'partner_id': cliente.id,
-                        'company_id': self.company_id.id,
-                        'name': row[self.nombre],
-                        'journal_id': journal,
-                        'recurring_next_date': row[self.fecha_siguiente],
-                        'payment_term_id': cliente.property_payment_term_id.id,
-                        'payment_mode_id': cliente.customer_payment_mode_id.id,
-                        'contract_template_id': producto.property_contract_template_id.id,
-                    })
+                contract_template = producto.property_contract_template_id.id
+                contract = cabe.create({
+                    'partner_id': cliente.id,
+                    'company_id': self.company_id.id,
+                    'name': row[self.nombre],
+                    'journal_id': journal,
+                    'recurring_next_date': row[self.fecha_siguiente],
+                    'payment_term_id': cliente.property_payment_term_id.id,
+                    'payment_mode_id': cliente.customer_payment_mode_id.id,
+                    'contract_template_id': contract_template,
+                    'line_recurrence': True,
+                })
 
             line.create({
                 'contract_id': contract.id,
@@ -250,13 +245,11 @@ class Importar(models.TransientModel):
                 'product_id': producto.id,
                 'name': descrip,
                 'date_start': row[self.fecha_comienzo],
-                # 'date_end': row[self.fecha_fin],
                 'recurring_next_date': row[self.fecha_siguiente],
                 'quantity': row[self.uds],
-                'uom_id': udm,
+                'uom_id': 25,
                 'specific_price': row[self.precio_u],
-                'discount': descuento if descuento else '',
-                # 'discount_name': nombre_descuento,
+                'discount': abs(row['desc1']),
                 'recurring_interval': intervalo,
                 'recurring_rule_type': cadencia,
             })
@@ -277,11 +270,5 @@ class Importar(models.TransientModel):
             ('state', '=', 'draft'),
         ])
         for factura in facturas:
-            for linea in factura.invoice_line_ids:
-                # Ya no tenemos el campo advance_line_id, es de trey.
-                # if linea.advance_line_id:
-                #     linea.advance_line_id.unlink()
-                for lineaventa in linea.sale_line_ids:
-                    lineaventa.order_id.state = "done"
             factura.unlink()
-        return 0
+        return
