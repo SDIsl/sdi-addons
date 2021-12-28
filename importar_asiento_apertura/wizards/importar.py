@@ -15,7 +15,7 @@ except ImportError:
     xlrd = xlsx = None
 
 _modo_de_pago = {
-    'GIRO': 22,
+    'GIRO': 2,
     'Transferencia': 50,
     '-': False,
 }
@@ -65,7 +65,8 @@ class Importar(models.TransientModel):
             asto = asiento.create({
                 'company_id': self.company_id.id,
                 'journal_id': self.journal_id.id,
-                'move_type': 'other',
+                'move_type': 'entry',
+                'financial_type': 'other',
                 'ref': 'Apertura',
                 'date': self.date,
             })
@@ -76,9 +77,6 @@ class Importar(models.TransientModel):
             _log.warning(linea)
             cta_base = str(row['CTA'])[0:2]+'0000'
             row['CTA'] = int(row['CTA'])
-            quecta = cta.search([
-                ('company_id', '=', asto.company_id.id),
-                ('code', '=', str(row['CTA']))])
             partner = False
             if row['NOMBRE'] != "-":
                 partner = cli.search([
