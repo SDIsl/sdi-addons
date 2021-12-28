@@ -1,7 +1,7 @@
 
 import base64
 import io
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 import pandas
 import logging
 _log = logging.getLogger('Migration contracts')
