@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_importar_contratos_correlacion,access_importar_contratos_correlacion,model_importar_contratos_correlacion,base.group_system,1,1,1,1
+access_importar_contratos_errores,access_importar_contratos_errores,model_importar_contratos_errores,base.group_system,1,1,1,1
+access_importar_contratos,access_importar_contratos,model_importar_contratos,base.group_system,1,1,1,1
