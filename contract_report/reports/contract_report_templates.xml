@@ -364,7 +364,6 @@
                     <t t-set="colspan" t-value="5"/>
                     <th class="text-left">Description</th>
                     <th class="text-center">Service</th>
-                    <th class="text-center">Date Start</th>
                     <th class="text-right">Quantity</th>
                     <th class="text-right">Recurring Interval</th>
                     <th class="text-right">Unit Price</th>
@@ -400,9 +399,6 @@
                             </td>
                             <td class="text-center">
                                 <span t-field="line.product_id.attribute_value_ids.name"/>
-                            </td>
-                            <td class="text-center">
-                                <span t-field="line.date_start"/>
                             </td>
                             <td class="text-right">
                                 <span t-field="line.product_uom_qty"/>
