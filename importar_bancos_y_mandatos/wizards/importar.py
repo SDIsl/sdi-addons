@@ -1,13 +1,10 @@
 
 import base64
 import io
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 import pandas
 import logging
-from base64 import b64decode
 import numpy as np
-import json
-from os import path
 
 _log = logging.getLogger('SDi migration bancos')
 try:
@@ -43,7 +40,6 @@ class Importar(models.TransientModel):
         buf = io.BytesIO()
         buf.write(base64.b64decode(self.data_file))
         df = pandas.read_excel(buf, engine='xlrd')
-        # df.where(pandas.notnull(df), None)
         df = df.replace({np.nan: None})
         for linea, row in df.iterrows():
             _log.warning("%s - %s (%s)" %
@@ -52,7 +48,6 @@ class Importar(models.TransientModel):
                           row['CTA'])
                          )
             # valido = (row['FIRMADO'] == "SI")
-
             # Primer paso: Localizar banco
             if row['CTA'] == "":
                 _log.warning('Cta en blanco')
@@ -104,8 +99,8 @@ class Importar(models.TransientModel):
                     'partner_bank_id': banco.id,
                     'partner_id': cliente.id,
                     'scheme': 'CORE',
-                    'signature_date': fecha if row['MANDATOFECHACONFIRMADO'] != 'nan' else False,
-                    'state': 'valid' if row['MANDATOFECHACONFIRMADO'] else 'draft',
+                    'signature_date': fecha if fecha != 'nan' else False,
+                    'state': 'valid' if fecha else 'draft',
                     'type': 'recurrent',
                     'unique_mandate_reference': row['MANDATOREF'],
                     'recurrent_sequence_type': 'recurring',
