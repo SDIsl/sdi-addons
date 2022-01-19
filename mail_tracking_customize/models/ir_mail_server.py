@@ -17,15 +17,9 @@ class IrMailServer(models.Model):
 
     def _tracking_email_get(self, message):
         config_parameter = self.env['ir.config_parameter'].sudo()
+        tracking_email_id = False
         tracking_key = 'X-Odoo-{name}-ID'.format(
             name=config_parameter.get_param('mail_tracking_key', 'Tracking'))
         if message.get(tracking_key).isdigit():
-            try:
-                tracking_email_id = int(
-                    message[tracking_key],
-                    # Deprecated tracking header, kept as fallback
-                    message['X-Odoo-Tracking-ID'],
-                )
-            except (TypeError, ValueError, KeyError):
-                tracking_email_id = False
+            tracking_email_id = int(message[tracking_key])
         return self.env['mail.tracking.email'].browse(tracking_email_id)
