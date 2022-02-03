@@ -20,7 +20,7 @@
 {
     'name': 'Contract Filter Customize',
     'summary': 'Add filters to contracts.',
-    'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
+    'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Contract Management',
