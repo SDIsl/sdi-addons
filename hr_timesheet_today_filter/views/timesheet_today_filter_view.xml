@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="hr_timesheet_line_search" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="arch" type="xml">
+            <filter name="month" position="after">
+                <filter name="yesterday_filter" string="Yesterday"
+                    domain="[('date_time', '&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(0, 0, 0))),
+                    ('date_time', '&lt;', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23, 59, 59)))]"/>
+                <filter name="today_filter" string="Today"
+                    domain="[('date_time', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0))),
+                    ('date_time', '&lt;', datetime.datetime.combine(context_today(), datetime.time(23, 59, 59)))]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
