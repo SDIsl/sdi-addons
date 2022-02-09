@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="mail_notification_borders" inherit_id="mail.mail_notification_borders">
+        <xpath expr="//table/tbody/tr[3]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
     <template id="mail_notification_paynow" inherit_id="mail.mail_notification_paynow">
         <xpath expr="//tbody/tr[2]/td" position="attributes">
             <attribute name="t-if">False</attribute>            
@@ -7,12 +12,6 @@
         <xpath expr="//tbody/tr[2]/td" position="after">
             <td style="padding: 0">
                 <t t-raw="message.body"/>
-                <div t-if="is_online and not record._context.get('proforma')" style="margin: 32px 0px 32px 0px; text-align: center;">
-                    <a t-att-href="access_url"
-                        style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
-                        <t t-esc="access_name"/>
-                    </a>
-                </div>
                 <div t-if="record.user_id and record.user_id.sudo().signature" style="font-size: 13px;">
                     <div t-raw="record.user_id.sudo().signature"/>
                 </div>
