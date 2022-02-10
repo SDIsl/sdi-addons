@@ -18,17 +18,17 @@
 #
 ###############################################################################
 {
-    'name': 'Timesheet Today and Yesterday Filter',
+    'name': 'HR Timesheet Today Filter',
     'summary': 'Adds today and yesterday filter to timesheet',
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Digitales',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Custom',
+    'category': 'Human Resources',
     'version': '14.0.1.0.0',
     'depends': [
         'project_timesheet_time_control',
     ],
     'data': [
-        'views/timesheet_today_filter_view.xml',
+        'views/account_analytic_line_views.xml',
     ],
 }
