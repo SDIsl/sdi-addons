@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="mail_notification_borders" inherit_id="mail.mail_notification_borders">
-        <xpath expr="//table/tbody/tr[3]" position="attributes">
+    <template id="message_notification_email" inherit_id="mail.message_notification_email">
+        <xpath expr="//table/tbody/tr/td" position="attributes">
             <attribute name="t-if">False</attribute>
         </xpath>
-    </template>
+   </template>
     <template id="mail_notification_paynow" inherit_id="mail.mail_notification_paynow">
         <xpath expr="//tbody/tr/td/table/tr/td" position="attributes">
             <attribute name="t-if">False</attribute>
