@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//t[@t-foreach='lines']//td[@name='account_invoice_line_name']/span" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//t[@t-foreach='lines']//td[@name='account_invoice_line_name']" position="inside">
+            <span t-esc="line.product_id.name" t-options="{'widget': 'text'}"/>
+        </xpath>
+    </template>
+</odoo>
