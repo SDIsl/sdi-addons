@@ -33,6 +33,7 @@ class WorkspaceItem(models.Model):
     )
     internal_reference = fields.Char(
         string='Internal Reference',
+        copy=False,
     )
     sn = fields.Char(
         string='Serial Number',
