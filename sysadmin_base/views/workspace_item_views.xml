@@ -113,7 +113,7 @@
                                     <field name="workspace_location"/>
                                 </group>
                                 <group>
-                                    <field name="employee_id"/>
+                                    <field name="employee_id" context="{'form_view_ref': 'sysadmin_base.sysadmin_view_employee_form', 'tree_view_ref': 'sysadmin_base.sysadmin_view_employee_tree'}"/>
                                     <field name="employee_location"/>
                                 </group>
                             </group>

@@ -64,7 +64,7 @@
                             </field>
                         </page>
                         <page string="Employees" name="workspace_employees">
-                            <field name="employee_ids" options="{'no_create': True}">
+                            <field name="employee_ids" options="{'no_create': True}" context="{'form_view_ref': 'sysadmin_base.sysadmin_view_employee_form', 'tree_view_ref': 'sysadmin_base.sysadmin_view_employee_tree'}">
                                 <tree create="true">
                                     <field name="name"/>
                                     <field name="has_voip_switchboard_access"/>
