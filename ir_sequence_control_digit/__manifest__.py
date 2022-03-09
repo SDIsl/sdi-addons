@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "IR Sequence control digits",
-
-    'summary': """
-        Gives you option to suffix a control digit 
-        """,
+    'summary': """This module gives you option to suffix a control digit""",
     'author': "Sergio Lop <SDi Digital Group>",
     'website': "https://www.sdi.es/odoo",
     'category': 'base',
