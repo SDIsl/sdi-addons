@@ -10,7 +10,7 @@ class IrSequence(models.Model):
 
     control_digit = fields.Selection(
         selection=[
-            ('10', "Mod 10")
+            ('10', 'Mod 10')
         ],
         string='Control digit method',
     )
