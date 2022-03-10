@@ -10,7 +10,7 @@ class IrSequence(models.Model):
         selection=[
             ('10', "Mod 10")
         ],
-        string="Control digit method",
+        string='Control digit method',
     )
 
     def _next_do(self):
