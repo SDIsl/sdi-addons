@@ -1,4 +1,6 @@
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+###############################################################################
+# For copyright and license notices, see __manifest__.py file in root directory
+###############################################################################
 
 from odoo import fields, models
 
