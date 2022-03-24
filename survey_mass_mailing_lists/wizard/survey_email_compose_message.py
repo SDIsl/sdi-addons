@@ -20,6 +20,7 @@ class SurveyEmailComposeMessage(models.TransientModel):
 
     @api.onchange('mass_mailing_lists_ids')
     def _onchange_mass_mailing_lists_ids(self):
+        multi_email = self.multi_email
         for list in self.mass_mailing_lists_ids:
             if list not in self.used_mass_mailing_lists_ids:
                 for contact in list.contact_ids:
@@ -27,6 +28,11 @@ class SurveyEmailComposeMessage(models.TransientModel):
                         self.update({
                             'partner_ids': [(4, contact.partner_id.id)],
                         })
+                    elif contact.email:
+                        multi_email += '\n' + contact.email
+                self.update({
+                    'multi_email': multi_email,
+                })
         self.update({
             'used_mass_mailing_lists_ids': [(
                 6, 0, self.mass_mailing_lists_ids.ids)],
