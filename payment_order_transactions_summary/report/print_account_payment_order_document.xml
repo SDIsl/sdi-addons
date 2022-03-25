@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="print_account_payment_order_document_sdi" inherit_id="account_payment_order.print_account_payment_order_document">
+        <xpath expr="//tbody/tr/td[4]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//thead/tr/th[4]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//thead/tr/th[4]" position="after">
+            <th class="text-center">Invoice date</th>
+            <th class="text-center">Maturity date</th>
+        </xpath>
+        <xpath expr="//tbody/tr/td[4]" position="after">
+            <td class="text-center">
+                <span t-field="line.invoice_date"/>
+            </td>
+            <td class="text-center">
+                <span t-field="line.ml_maturity_date"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
