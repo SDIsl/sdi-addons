@@ -7,6 +7,11 @@
             <xpath expr="//field[@name='name']" position="before">
                 <field name="name" string="Contract name or client name" filter_domain="['|','|', ('name','ilike',self), ('code','ilike',self), ('partner_id','ilike',self)]"/>
             </xpath>
+            <xpath expr="//group" position="inside">
+                <separator/>
+                <filter name="group_by_company" string="Company" context="{'group_by':'company_id'}"/>
+                <filter name="group_by_unit" string="Business Unit" context="{'group_by':'unit_id'}"/>
+            </xpath>
         </field>
     </record>
 </odoo>

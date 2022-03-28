@@ -19,3 +19,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:contract_filter_customize.contract_contract_search_view
 msgid "Contract name or client name"
 msgstr "Nombre del contrato o nombre del cliente"
+
+#. module: contract_filter_customize
+#: model_terms:ir.ui.view,arch_db:contract_filter_customize.contract_contract_search_view
+msgid "Company"
+msgstr "Compañía"
+
+#. module: contract_filter_customize
+#: model_terms:ir.ui.view,arch_db:contract_filter_customize.contract_contract_search_view
+msgid "Business Unit"
+msgstr "Unidad de negocio"
