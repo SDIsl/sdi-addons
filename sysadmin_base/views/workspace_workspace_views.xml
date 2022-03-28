@@ -68,6 +68,8 @@
                                 <tree create="true">
                                     <field name="name"/>
                                     <field name="has_voip_switchboard_access"/>
+                                    <field name="has_keys"/>
+                                    <field name="has_alarm"/>
                                     <field name="is_trainee"/>
                                     <field name="work_location"/>
                                     <field name="work_email"/>
