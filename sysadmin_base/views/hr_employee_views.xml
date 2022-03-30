@@ -17,6 +17,8 @@
                     <button string="Edit Internal Tools" name="action_button_internal_tools" type="object" groups="sysadmin_base.group_sysadmin_sysadmin"/>
                     <group>
                         <field name="has_voip_switchboard_access"/>
+                        <field name="has_keys"/>
+                        <field name="has_alarm"/>
                         <field name="is_trainee"/>
                     </group>
                     <notebook>
@@ -60,6 +62,8 @@
         <field name="arch" type="xml">
             <field name="work_phone" position="after">
                 <field name="has_voip_switchboard_access"/>
+                <field name="has_keys"/>
+                <field name="has_alarm"/>
                 <field name="is_trainee"/>
             </field>
         </field>
@@ -70,7 +74,10 @@
         <field name="type">search</field>
         <field name="arch" type="xml">
             <filter name="activities_upcoming_all" position="after">
+                <separator/>
                 <filter name="voip_switchboard_access" string="Has VoIP Switchboard access" domain="[('has_voip_switchboard_access','=',True)]"/>
+                <filter name="filter_has_keys" string="Has Keys" domain="[('has_keys','=',True)]"/>
+                <filter name="filter_alarm" string="Alarm" domain="[('has_alarm','=',True)]"/>
             </filter>
             <filter name="group_job" position="after">
                 <filter name="group_is_trainee" string="Is trainee" domain="[]" context="{'group_by':'is_trainee'}"/>

@@ -10,6 +10,12 @@ class HrEmployee(models.Model):
     has_voip_switchboard_access = fields.Boolean(
         string='Has VoIP Switchboard access',
     )
+    has_keys = fields.Boolean(
+        string='Has Keys',
+    )
+    has_alarm = fields.Boolean(
+        string='Alarm',
+    )
     is_trainee = fields.Boolean(
         string='Is trainee',
     )

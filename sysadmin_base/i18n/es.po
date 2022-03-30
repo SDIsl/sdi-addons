@@ -691,3 +691,17 @@ msgstr "Ubicación del espacio de trabajo"
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
 msgid "Workspaces"
 msgstr "Espacios de trabajo"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_keys
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_keys
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Has Keys"
+msgstr "Tiene llaves"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_alarm
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_alarm
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Alarm"
+msgstr "Alarma"
