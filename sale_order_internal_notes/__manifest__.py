@@ -21,7 +21,7 @@
     'name': 'Sale Order Internal Notes',
     'summary': 'Add internal description to sale order.',
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
-    'website': 'https://www.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud',
     'license': 'AGPL-3',
     'category': 'Sales',
     'version': '14.0.1.0.0',
