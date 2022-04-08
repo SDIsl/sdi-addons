@@ -23,7 +23,7 @@
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Contract Management',
+    'category': 'Sales',
     'version': '14.0.1.0.0',
     'depends': [
         'sale',
