@@ -21,7 +21,7 @@
     'name': 'Vertical Base Installer',
     'summary': 'Addons for a base instance',
     'author': 'Jorge Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Vertical',
     'version': '12.0.1.0.0',

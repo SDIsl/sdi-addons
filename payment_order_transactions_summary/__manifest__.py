@@ -23,7 +23,7 @@
     'category': 'payment',
     'version': '14.0.1.0.0',
     'author': 'Sergio Lop Sanz, Darío Sanz, SDi Soluciones Informáticas',
-    'website': 'https://www.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'depends': [
         'account_payment_order',

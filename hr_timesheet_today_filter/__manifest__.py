@@ -21,7 +21,7 @@
     'name': 'HR Timesheet Today Filter',
     'summary': 'Adds today and yesterday filter to timesheet',
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Digitales',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'version': '14.0.1.0.0',

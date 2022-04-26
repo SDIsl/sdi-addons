@@ -21,7 +21,7 @@
     'name': 'Account Invoice Report Internal Ref',
     'summary': 'Hides internal reference of invoice line from invoice report',
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
-    'website': 'https://www.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Invoicing',
     'version': '14.0.1.0.0',
