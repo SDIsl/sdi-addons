@@ -22,7 +22,7 @@
     'summary': '''This module allows archival of product attributes and
         product attribute values.''',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Product',
     'version': '12.0.1.0.0',

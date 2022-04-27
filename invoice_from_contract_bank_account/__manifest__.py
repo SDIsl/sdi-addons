@@ -6,7 +6,7 @@
         When payment mode is bank transfer in contracts, invoices from
         contract must indicates bank account to make transfer""",
     'author': "Sergio Lop Sanz <<SDi Group>>",
-    'website': "https://www.sdi.es/odoo",
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'category': 'sales',
     'version': '12.0.0.1',
 

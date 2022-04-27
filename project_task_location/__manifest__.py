@@ -21,7 +21,7 @@
     'name': 'Project Task Location',
     'summary': 'Add Location field in project task',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Project Management',
     'version': '12.0.1.0.0',

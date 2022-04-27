@@ -21,7 +21,7 @@
     'name': 'Account Invoice Report Tax',
     'summary': 'Your summary must have only one line',
     'author': 'Oscar Soto, SDi Soluciones Informáticas',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Invocie',
     'version': '12.0.1.0.0',

@@ -21,7 +21,7 @@
     'name': 'Portal Invoice in Payment',
     'summary': 'Add state "In payment process" in portal invoice view',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Website',
     'version': '12.0.1.0.0',

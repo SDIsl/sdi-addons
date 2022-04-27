@@ -21,7 +21,7 @@
     'name': 'SysAdmin Base',
     'summary': 'Module for SysAdmin using.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'SysAdmin',
     'version': '12.0.1.0.0',

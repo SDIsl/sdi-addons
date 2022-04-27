@@ -22,7 +22,7 @@
     'summary': 'Sale template product in a secondary unit',
     'version': '12.0.1.0.0',
     'category': 'Sale',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'author': 'Valentín Georgian Castravete, SDi Soluciones Digitales',
     'license': 'AGPL-3',
     'depends': [
