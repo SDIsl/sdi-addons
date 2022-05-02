@@ -21,7 +21,7 @@
     'name': 'Account Invoice Report Hide Payment Ref',
     'summary': 'Hides payment reference msg on invoice report',
     'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
-    'website': 'https://www.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Invoicing',
     'version': '12.0.1.0.0',

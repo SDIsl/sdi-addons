@@ -22,7 +22,7 @@
     'summary': 'Add mass mailing lists in survey wizard',
     'author': '''Jorge Luis Quinteros, Valentín Castravete,
          Miguel Lucendo Esteban, SDi Soluciones Digitales''',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Marketing',
     'version': '12.0.1.0.0',

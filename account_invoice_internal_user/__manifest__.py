@@ -21,7 +21,7 @@
     'name': 'Account Invoice Internal User',
     'summary': 'Restrict user assignment in invoices to external users.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Invoicing Management',
     'version': '12.0.1.0.0',

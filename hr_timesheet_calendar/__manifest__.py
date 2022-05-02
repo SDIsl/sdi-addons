@@ -21,7 +21,7 @@
     'name': 'Hr Timesheet Calendar',
     'summary': 'Calendar view for hr timesheet.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
-    'website': 'https://sdi.es/odoo',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Employees',
     'version': '12.0.1.0.0',

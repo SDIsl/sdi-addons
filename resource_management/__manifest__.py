@@ -22,7 +22,7 @@
     'summary': 'It permits to associate resources and resource bookings to'
                ' employees.',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Resources',
     'version': '12.0.1.0.0',

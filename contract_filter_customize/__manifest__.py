@@ -21,7 +21,7 @@
     'name': 'Contract Filter Customize',
     'summary': 'Add filters to contracts.',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
-    'website': 'https://www.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Contract Management',
     'version': '12.0.1.0.0',
