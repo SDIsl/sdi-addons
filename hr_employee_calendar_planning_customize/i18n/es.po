@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_employee_calendar_planning_customize
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-03 11:43+0000\n"
+"PO-Revision-Date: 2022-05-03 11:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_calendar_planning_customize
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning_customize.view_employee_form
+msgid "<span> day(s)</span>"
+msgstr "<span> día(s)</span>"
+
+#. module: hr_employee_calendar_planning_customize
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning_customize.field_hr_employee__actual_calendar_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning_customize.view_employee_filter
+msgid "Actual calendar"
+msgstr "Horario actual"
+
+#. module: hr_employee_calendar_planning_customize
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning_customize.field_hr_employee__antiquity
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning_customize.view_employee_form
+msgid "Antiquity"
+msgstr "Antigüedad"
+
+#. module: hr_employee_calendar_planning_customize
+#: model:ir.model,name:hr_employee_calendar_planning_customize.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_employee_calendar_planning_customize
+#: model:ir.actions.act_window,name:hr_employee_calendar_planning_customize.action_employee_calendar_menu
+#: model:ir.ui.menu,name:hr_employee_calendar_planning_customize.action_menu_employee_calendar_menu
+msgid "Employee Calendar"
+msgstr "Plan de Horario"
+
