@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* hide_archive_button_by_group_for_contacts
+# 	* partner_hide_archive_button
 #
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Poedit 2.3\n"
 
-#. module: hide_archive_button_by_group_for_contacts
-#: model:res.groups,name:hide_archive_button_by_group_for_contacts.group_can_archive_contacts
+#. module: partner_hide_archive_button
+#: model:res.groups,name:partner_hide_archive_button.group_can_archive_contacts
 msgid "Archive Contacts"
 msgstr "Archivar contactos"
