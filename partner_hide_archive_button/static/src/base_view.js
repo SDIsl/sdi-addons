@@ -1,4 +1,4 @@
-odoo.define('hide_archive_button_by_group.BasicView', function (require) {
+odoo.define('partner_hide_archive_button.BasicView', function (require) {
     "use strict";
     
     var session = require('web.session');
@@ -9,7 +9,7 @@ odoo.define('hide_archive_button_by_group.BasicView', function (require) {
                 this._super.apply(this, arguments);
                 var model = self.controllerParams.modelName in ['res.partner'] ? 'True' : 'False';
                 if(model) {
-                    session.user_has_group('hide_archive_button_by_group.group_can_archive').then(function(has_group) {
+                    session.user_has_group('partner_hide_archive_button.group_can_archive').then(function(has_group) {
                         if(!has_group) {
                             self.controllerParams.archiveEnabled = 'False' in viewInfo.fields;
                         }

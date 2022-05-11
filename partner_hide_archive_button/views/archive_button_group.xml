@@ -2,7 +2,7 @@
 <odoo>
     <template id="archive_button_security_backend" name="archive button security assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/hide_archive_button_by_group/static/src/base_view.js"/>
+            <script type="text/javascript" src="/partner_hide_archive_button/static/src/base_view.js"/>
         </xpath>
     </template>
 </odoo>

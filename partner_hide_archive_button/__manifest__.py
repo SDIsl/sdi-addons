@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'Hide Archive Button By Group',
+    'name': 'Partner Hide Archive Button',
     'summary': '''Adds a new group for users. The new group members could
         change active status from contacts module.''',
     'author': 'Darío Sanz, SDi Soluciones Digitales',
@@ -28,7 +28,7 @@
     'version': '14.0.1.0.0',
     'depends': ['base', 'web', ],
     'data': [
-        'security/archive_button_security.xml',
+        'security/res_partner_security.xml',
         'views/archive_button_group.xml',
     ],
 }
