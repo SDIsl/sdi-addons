@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="duplicate_contract_line_wizard_form" model="ir.ui.view">
+        <field name="model">duplicate.contract.line.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <group>
+                        <field name="recurring_next_date"/>
+                        <field name="discount"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="duplicate" string="Duplicate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
