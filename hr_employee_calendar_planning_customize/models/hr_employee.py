@@ -15,18 +15,25 @@ class HrEmployee(models.Model):
         comodel_name='resource.calendar',
         string='Actual calendar',
     )
-
     antiquity = fields.Integer(
         string='Antiquity',
         compute='_compute_antiquity',
+        default=0,
+    )
+    antiquity_years = fields.Integer(
+        string='Years',
+        compute='_compute_antiquity',
+        default=0,
+        store=True,
     )
 
     @api.multi
     @api.depends('calendar_ids')
     def _compute_antiquity(self):
         today = date.today()
-        days = 0
+
         for rec in self:
+            days = 0
             for line in rec.calendar_ids:
                 if line.date_start and line.date_end:
                     start_date = line.date_start.strftime('%Y-%m-%d')
@@ -39,6 +46,11 @@ class HrEmployee(models.Model):
                     else:
                         days += int((line.date_end - line.date_start) /
                                     timedelta(days=1)) + 1
+
+            years = days // 365
+            days = days % 365
+
+            rec.antiquity_years = years
             rec.antiquity = days
 
     @api.multi
@@ -71,8 +83,9 @@ class HrEmployee(models.Model):
     def _cron_refresh_antiquity(self):
         records = self.env['hr.employee'].search([])
         today = date.today()
-        days = 0
+
         for rec in records:
+            days = 0
             for line in rec.calendar_ids:
                 if line.date_start and line.date_end:
                     start_date = line.date_start.strftime('%Y-%m-%d')
@@ -85,6 +98,11 @@ class HrEmployee(models.Model):
                     else:
                         days += int((line.date_end - line.date_start) /
                                     timedelta(days=1)) + 1
+
+            years = days // 365
+            days = days % 365
+
+            rec.antiquity_years = years
             rec.antiquity = days
 
     @api.model

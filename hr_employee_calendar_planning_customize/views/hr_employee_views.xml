@@ -8,6 +8,8 @@
                 <field name="actual_calendar_id" readonly="1" force_save="1"/>
                 <label for="antiquity" string="Antiquity"/>
                 <div>
+                    <field name="antiquity_years" nolabel="1"/>
+                    <span> year(s) </span>
                     <field name="antiquity" nolabel="1"/>
                     <span> day(s)</span>
                 </div>
@@ -20,6 +22,7 @@
         <field name="arch" type="xml">
             <filter name="group_job" position="after">
                 <filter name="group_calendar" string="Actual calendar" domain="[]" context="{'group_by': 'actual_calendar_id'}"/>
+                <filter name="group_years_antiquity" string="Years Antiquity" domain="[]" context="{'group_by': 'antiquity_years'}"/>
             </filter>
         </field>
     </record>
