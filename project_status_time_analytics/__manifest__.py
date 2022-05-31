@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    SDi Soluciones Digitales
-#    Copyright (C) 2021-Today SDi Soluciones Digitales <www.sdi.es>
+#    Copyright (C) 2022-Today SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,13 +19,13 @@
 ###############################################################################
 {
     'name': 'Project Status Time Analytics',
-    'version': '12.0.1.0.1',
+    'version': '14.0.1.0.1',
     'category': 'Project',
     'summary': 'Module for monitoring status change in a project. The time '
             'passed on each status it\'s measured on natural days.',
-    'author': 'Valentín Castravete',
+    'author': 'Valentín Castravete, Darío Sanz, SDi Soluciones Informáticas',
     'license': 'AGPL-3',
-    'website': 'http://www.sdi.es',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'depends': [
         'project',
         'project_status',

@@ -20,7 +20,6 @@ class Project(models.Model):
         help='The total time a project spends in a status.',
     )
 
-
     @api.depends('project_status')
     def _compute_actual_time(self):
         for project in self:
@@ -43,7 +42,6 @@ class Project(models.Model):
             'previous_status_id': result.project_status.id
         })
         return result
-
 
     def write(self, values):
         for project in self:

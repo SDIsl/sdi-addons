@@ -48,7 +48,6 @@ class ProjectAnalyticsMove(models.Model):
         compute='_compute_updated_statistics_fields',
     )
 
-
     @api.depends('end_date', 'after_status_id')
     def _compute_updated_statistics_fields(self):
         for move in self:
