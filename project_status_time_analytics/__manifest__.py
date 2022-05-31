@@ -23,7 +23,7 @@
     'category': 'Project',
     'summary': 'Module for monitoring status change in a project. The time '
             'passed on each status it\'s measured on natural days.',
-    'author': 'Valentín Castravete, Darío Sanz, SDi Soluciones Informáticas',
+    'author': 'Valentín Castravete, Darío Sanz, SDi Soluciones Digitales',
     'license': 'AGPL-3',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'depends': [
