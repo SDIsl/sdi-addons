@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="task_type_tree" model="ir.ui.view">
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_tree"/>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="initial"/>
+                <field name="final"/>
+            </field>
+        </field>
+    </record>
+</odoo>

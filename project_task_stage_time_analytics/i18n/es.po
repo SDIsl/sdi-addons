@@ -1,0 +1,207 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_stage_time_analytics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-07 08:50+0000\n"
+"PO-Revision-Date: 2021-09-07 08:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__avg_stage_time
+msgid "AVG"
+msgstr "Media"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__user_id_ref
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.project_task_analytics_status_time_view_tree
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Avg time/stage"
+msgstr "Media tiempo/etapa(días)"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__end_date
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.project_task_analytics_status_time_view_tree
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__after_stage_id
+msgid "End Stage"
+msgstr "Etapa final"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_type__final
+msgid "Final stage"
+msgstr "Etapa final"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.project_task_analytics_status_time_view_tree
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Initial Date"
+msgstr "Fecha inicial"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_type__initial
+msgid "Initial stage"
+msgstr "Estado inicial"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task__move_ids
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Movements"
+msgstr "Movimientos"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__previous_stage_id
+msgid "Origin Stage"
+msgstr "Etapa origen"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.actions.act_window,name:project_task_stage_time_analytics.project_task_analytics_move_action
+#: model:ir.ui.menu,name:project_task_stage_time_analytics.project_task_analytics
+msgid "Project Task Analytics"
+msgstr "Analítica de tarea de proyecto"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.actions.server,name:project_task_stage_time_analytics.ir_cron_project_task_status_time_analytics_ir_actions_server
+#: model:ir.cron,cron_name:project_task_stage_time_analytics.ir_cron_project_task_status_time_analytics
+#: model:ir.cron,name:project_task_stage_time_analytics.ir_cron_project_task_status_time_analytics
+msgid "Project Task-AVG: Upgrade actual time"
+msgstr "Project Task-AVG: Actualizar tiempo actual"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model,name:project_task_stage_time_analytics.model_project_task_analytics_move
+msgid "Saves the movement of project task and time at each stage"
+msgstr "Alamcena el movimiento entre etapas de las tareas y el tiempo en cada una"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_analytics_move__after_stage_id
+msgid "Stage after the change."
+msgstr "Etapa posterior al cambio."
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_analytics_move__previous_stage_id
+msgid "Stage previous the change."
+msgstr "Etapa anterior al cambio."
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model,name:project_task_stage_time_analytics.model_project_task
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__project_task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model,name:project_task_stage_time_analytics.model_project_task_type
+msgid "Task Stage"
+msgstr "Estado de la tarea"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_analytics_move__avg_stage_time
+msgid "The average time a project task spends in total."
+msgstr "Media total del tiempo que pasa una tarea en total"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_analytics_move__time_days
+msgid "The days the project tasl has been in the initial stage."
+msgstr "Días que pasa una tarea en la etapa inicial."
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task__actual_time
+msgid "The total time a project task spends in a stage."
+msgstr "Tiempo total que pasa una tarea en una etapa."
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_type__final
+msgid "This stage is the final one in the project task cycle."
+msgstr "Esta etapa es la última en el ciclo de la tarea."
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,help:project_task_stage_time_analytics.field_project_task_type__initial
+msgid "This stage is the initial one in the project task cycle."
+msgstr "Esta etapa es la inicial en el ciclo de la tarea."
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task_analytics_move__time_days
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.project_task_analytics_status_time_view_tree
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Time (days)"
+msgstr "Tiempo(días)"
+
+#. module: project_task_stage_time_analytics
+#: model:ir.model.fields,field_description:project_task_stage_time_analytics.field_project_task__actual_time
+msgid "Time in actual Stage"
+msgstr "Tiempo en la etapa actual"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.project_task_analytics_status_time_view_tree
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_form2
+msgid "Total Time"
+msgstr "Tiempo total"
+
+#. module: project_task_stage_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_task_stage_time_analytics.view_task_kanban
+msgid "days"
+msgstr "días"
