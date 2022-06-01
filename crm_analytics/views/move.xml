@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="crm_analitycs_stage_time_view_tree" model="ir.ui.view">
+        <field name="model">crm.analitycs.move</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="opportunity_id"/>
+                <field name="previous_stage_id"/>
+                <field name="after_stage_id"/>
+                <field name="create_date" string="Initial Date"/>
+                <field name="end_date" string="End Date"/>
+                <field name="time_days" string="Time (days)" sum="Total Time"/>
+                <field name="avg_stage_time" avg="Avg time/stage"/>
+                <field name="user_id_ref"/>
+            </tree>
+        </field>
+    </record>
+    <record id="crm_oppo_action" model="ir.actions.act_window">
+        <field name="name">Opportunity Analytics</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.analitycs.move</field>
+        <field name="view_mode">tree,pivot,form</field>
+    </record>
+    <menuitem id="oppo_analytics" name="Opportunity Analytics" parent="crm.crm_menu_report" action="crm_oppo_action" sequence="16"/>
+    <record id="filter_crm_move_time" model="ir.filters">
+        <field name="model_id">crm.analitycs.move</field>
+        <field name="name">summary_statistics</field>
+        <field name="user_id" eval="False"/>
+        <field name="context">{'pivot_row_groupby': ['user_id_ref', 'opportunity_id'], 'pivot_measures': ['time_days', 'avg_stage_time', '__count'], 'pivot_column_groupby': ['previous_stage_id']}</field>
+    </record>
+</odoo>

@@ -1,0 +1,218 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_analytics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-17 08:11+0000\n"
+"PO-Revision-Date: 2019-12-17 09:28+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__avg_stage_time
+msgid "AVG"
+msgstr "Media"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_analitycs_stage_time_view_tree
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Avg time/stage"
+msgstr "Media tiempo/etapa(días)"
+
+#. module: crm_analytics
+#: model:ir.model,name:crm_analytics.model_crm_stage
+msgid "CRM Stages"
+msgstr "Fases del CRM"
+
+#. module: crm_analytics
+#: model:ir.actions.server,name:crm_analytics.ir_cron_crm_analytics_ir_actions_server
+#: model:ir.cron,cron_name:crm_analytics.ir_cron_crm_analytics
+#: model:ir.cron,name:crm_analytics.ir_cron_crm_analytics
+msgid "CRM-AVG: Upgrade actual time"
+msgstr "CRM-AVG: Actualizar tiempo actual"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__end_date
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_analitycs_stage_time_view_tree
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_stage__final
+msgid "Final stage"
+msgstr "Estado final"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_analitycs_stage_time_view_tree
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Initial Date"
+msgstr "Fecha inicial"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_stage__initial
+msgid "Initial stage"
+msgstr "Estado inicial"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: crm_analytics
+#: model:ir.model,name:crm_analytics.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_lead__move_ids
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Movements"
+msgstr "Movimientos"
+
+#. module: crm_analytics
+#: model:ir.actions.act_window,name:crm_analytics.crm_oppo_action
+#: model:ir.ui.menu,name:crm_analytics.oppo_analytics
+msgid "Opportunity Analytics"
+msgstr "Analítica de oportunidades"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__opportunity_id
+msgid "Oppotunity"
+msgstr "Oportunidad"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__previous_stage_id
+msgid "Origin Stage"
+msgstr "Estado origen"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__user_id_ref
+msgid "Salesman"
+msgstr "Comercial"
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_analitycs_move__after_stage_id
+msgid "Stage after the change."
+msgstr "Estado posterior al cambio."
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_analitycs_move__previous_stage_id
+msgid "Stage previous the change."
+msgstr "Estado anterior al cambio."
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_analitycs_move__avg_stage_time
+msgid "The average time an opportunity spends in total."
+msgstr "Media total del tiempo que pasa una oportunidad en total."
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_analitycs_move__time_days
+msgid "The days the opportunity has been in the initial stage."
+msgstr "Días que pasa una oportunidad en la etapa inicial."
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_lead__actual_time
+msgid "The total time an opportunity spends in a stage ()."
+msgstr "Tiempo total que pasa una oportunidad en una etapa."
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_stage__final
+msgid "This stage is the final one in the CRM cycle."
+msgstr "Esta etapa es la última en el ciclo del CRM."
+
+#. module: crm_analytics
+#: model:ir.model.fields,help:crm_analytics.field_crm_stage__initial
+msgid "This stage is the initial one in the CRM cycle."
+msgstr "Esta etapa es la inicial en el ciclo del CRM."
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__time_days
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_analitycs_stage_time_view_tree
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Time (days)"
+msgstr "Tiempo(días)"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_lead__actual_time
+msgid "Time in actual Stage"
+msgstr "Tiempo en la etapa actual"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_analitycs_stage_time_view_tree
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_form_view_oppor
+msgid "Total Time"
+msgstr "Tiempo total"
+
+#. module: crm_analytics
+#: model_terms:ir.ui.view,arch_db:crm_analytics.crm_case_kanban_view_leads
+msgid "days"
+msgstr "días"
+
+#. module: crm_analytics
+#: model:ir.model.fields,field_description:crm_analytics.field_crm_analitycs_move__after_stage_id
+msgid "endal Stage"
+msgstr "Estado final"
+
+#. module: crm_analytics
+#: model:ir.model,name:crm_analytics.model_crm_analitycs_move
+msgid "save the movement of opportunities and time at each stage"
+msgstr "Guarda el movimiento de las oportunidades y el tiempo en cada etapa"
+
+#. module: crm_analytics
+#: model:ir.filters,name:crm_analytics.filter_crm_move_time
+msgid "summary_statistics"
+msgstr "resumen de estadísticas"
