@@ -11,7 +11,7 @@
         <field name="code">
             model.search([
                 ('stage_id', '!=', False),
-                ('stage_id.closed', '=', False),
+                ('stage_id.is_closed', '=', False),
                 ('project_id.is_template', '=', False),
                 ('project_id.project_status.is_closed', '=', False)
             ])._compute_actual_time()</field>

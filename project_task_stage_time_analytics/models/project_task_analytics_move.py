@@ -38,15 +38,16 @@ class ProjectTaskAnalyticsMove(models.Model):
         string='Time',
         digits=(16, 5),
         help='The days the project tasl has been in the initial stage.',
+        compute='_compute_updated_statistics_fields',
     )
     avg_stage_time = fields.Float(
         digits=(16, 5),
         group_operator='avg',
         help='The average time a project task spends in total.',
         string='AVG',
+        compute='_compute_updated_statistics_fields',
     )
 
-    @api.multi
     @api.depends('end_date', 'after_stage_id')
     def _compute_updated_statistics_fields(self):
         for move in self:

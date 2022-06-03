@@ -20,11 +20,10 @@ class ProjectTask(models.Model):
         help='The total time a project task spends in a stage.',
     )
 
-    @api.multi
     @api.depends('stage_id')
     def _compute_actual_time(self):
         for task in self:
-            if not task.stage_id.closed and task.stage_id and \
+            if not task.stage_id.is_closed and task.stage_id and \
                 not task.project_id.is_template and \
                     not task.project_id.project_status.is_closed:
                 for move in task.move_ids:
@@ -45,7 +44,6 @@ class ProjectTask(models.Model):
         })
         return result
 
-    @api.multi
     def write(self, values):
         for task in self:
             if 'stage_id' not in values:

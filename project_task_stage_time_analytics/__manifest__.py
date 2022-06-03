@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    SDi Soluciones Digitales
-#    Copyright (C) 2021-Today SDi Soluciones Digitales <www.sdi.es>
+#    Copyright (C) 2022-Today SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,16 +19,16 @@
 ###############################################################################
 {
     'name': 'Project Task Stage Time Analytics',
-    'version': '12.0.1.0.1',
+    'version': '14.0.1.0.0',
     'category': 'Project',
     'summary': 'Module for monitoring status change in a project task. The '
             'time passed on each stage it\'s measured on natural days.',
-    'author': 'Valentín Castravete',
+    'author': 'Valentín Castravete, Miguel Lucendo, SDi Digital Group',
     'license': 'AGPL-3',
-    'website': 'http://www.sdi.es',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'depends': [
         'project',
-        'project_stage_closed',
+        'project_status',
         'project_template',
     ],
     'data': [
