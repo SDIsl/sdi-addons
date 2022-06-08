@@ -20,10 +20,9 @@ class HrEmployee(models.Model):
         compute='_compute_antiquity',
         default=0,
     )
-    antiquity_years = fields.Integer(
+    antiquity_years = fields.Char(
         string='Years',
         compute='_compute_antiquity',
-        default=0,
         store=True,
     )
 
@@ -50,8 +49,11 @@ class HrEmployee(models.Model):
             years = days // 365
             days = days % 365
 
-            rec.antiquity_years = years
             rec.antiquity = days
+            if not years and not days:
+                rec.antiquity_years = False
+            else:
+                rec.antiquity_years = str(years)
 
     @api.multi
     @api.onchange('calendar_ids')
@@ -102,8 +104,11 @@ class HrEmployee(models.Model):
             years = days // 365
             days = days % 365
 
-            rec.antiquity_years = years
             rec.antiquity = days
+            if not years and not days:
+                rec.antiquity_years = False
+            else:
+                rec.antiquity_years = str(years)
 
     @api.model
     def _cron_year_up(self):
