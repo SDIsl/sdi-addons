@@ -13,12 +13,17 @@ class CrmLead(models.Model):
     )
 
     def create_directory(self):
-        directory = self.env['dms.directory'].sudo().create(vals_list={
+        parent_directory = self.env['dms.directory'].\
+            search([('name', '=', 'Leads')])
+        admin_group = self.env['dms.access.group'].\
+            search([('name', '=', 'Admin')])
+
+        directory = self.env['dms.directory'].create(vals_list={
             'name': self.name,
-            'is_root_directory': True,
-            'storage_id': 1,
+            'is_root_directory': False,
+            'parent_id': parent_directory.id,
             'is_hidden': False,
-            'complete_group_ids': [(4, 1)],
+            'complete_group_ids': [(4, admin_group.id)],
         })
         self.related_directory_id = directory
         self.message_post(body=_('Directory related has been created'))
