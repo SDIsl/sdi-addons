@@ -10,17 +10,14 @@ class SaleOrder(models.Model):
     total_ordered_qty = fields.Float(
         string='Total ordered qty',
         compute='_compute_total_storable_qty',
-        store=True,
     )
     total_delivered_qty = fields.Float(
         string='Total delivered qty',
         compute='_compute_total_storable_qty',
-        store=True,
     )
     total_invoiced_qty = fields.Float(
         string='Total invoiced qty',
         compute='_compute_total_storable_qty',
-        store=True,
     )
 
     @api.depends(
