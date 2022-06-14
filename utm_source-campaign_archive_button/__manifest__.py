@@ -27,5 +27,9 @@
     'license': 'AGPL-3',
     'depends': [
         'utm',
+    ],
+    'data': [
+        'views/utm_campaign_views.xml',
+        'views/utm_views.xml',
     ]
 }
