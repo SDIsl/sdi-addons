@@ -32,7 +32,7 @@
     ],
     'data': [
         'views/crm_lead_views.xml',
+        'views/dms_directory_views.xml',
     ],
     'post_init_hook': 'post_init_hook',
-    'uninstall_hook': 'uninstall_hook',
 }

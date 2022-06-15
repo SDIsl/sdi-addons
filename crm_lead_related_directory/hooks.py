@@ -15,11 +15,3 @@ def post_init_hook(cr, registry):
         'is_hidden': False,
         'complete_group_ids': [(4, admin_group.id)],
     })
-
-
-def uninstall_hook(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
-
-    env['dms.directory'].search([
-        ('name', '=', 'Leads')
-    ]).unlink()

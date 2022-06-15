@@ -24,6 +24,7 @@ class CrmLead(models.Model):
             'parent_id': parent_directory.id,
             'is_hidden': False,
             'complete_group_ids': [(4, admin_group.id)],
+            'related_lead_id': self.id,
         })
         self.related_directory_id = directory
         self.message_post(body=_('Directory related has been created'))
@@ -31,8 +32,7 @@ class CrmLead(models.Model):
     def related_directory_link(self):
         return {
             'res_model': 'dms.directory',
-            'res_id': self.env['dms.directory']
-            .search([('name', '=', self.name)]).id,
+            'res_id': self.related_directory_id.id,
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'view_type': 'form',
