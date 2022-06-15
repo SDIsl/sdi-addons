@@ -53,7 +53,10 @@ class HrEmployee(models.Model):
             if not years and not days:
                 rec.antiquity_years = False
             else:
-                rec.antiquity_years = str(years)
+                if len(str(years)) == 1:
+                    rec.antiquity_years = '0' + str(years)
+                else:
+                    rec.antiquity_years = str(years)
 
     @api.multi
     @api.onchange('calendar_ids')
@@ -108,7 +111,10 @@ class HrEmployee(models.Model):
             if not years and not days:
                 rec.antiquity_years = False
             else:
-                rec.antiquity_years = str(years)
+                if len(str(years)) == 1:
+                    rec.antiquity_years = '0' + str(years)
+                else:
+                    rec.antiquity_years = str(years)
 
     @api.model
     def _cron_year_up(self):
