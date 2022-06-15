@@ -7,15 +7,15 @@ from odoo import api, fields, models
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    total_ordered_qty = fields.Float(
+    total_ordered_qty = fields.Integer(
         string='Total ordered qty',
         compute='_compute_total_storable_qty',
     )
-    total_delivered_qty = fields.Float(
+    total_delivered_qty = fields.Integer(
         string='Total delivered qty',
         compute='_compute_total_storable_qty',
     )
-    total_invoiced_qty = fields.Float(
+    total_invoiced_qty = fields.Integer(
         string='Total invoiced qty',
         compute='_compute_total_storable_qty',
     )
