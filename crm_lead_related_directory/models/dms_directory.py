@@ -10,6 +10,7 @@ class DmsDirectory(models.Model):
     related_lead_id = fields.Many2one(
         comodel_name='crm.lead',
         string='Related Lead Id',
+        copy=False,
     )
 
     def related_lead_link(self):
