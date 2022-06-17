@@ -25,12 +25,13 @@
                 from a menu.''',
     'author': 'Miguel Lucendo, SDi Digital Group',
     'license': 'AGPL-3',
-    'website': 'http://www.sdi.es',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'depends': [
         'mail',
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/mail_template_delete_menu_security.xml',
         'views/mail_template_views.xml',
     ],
 }
