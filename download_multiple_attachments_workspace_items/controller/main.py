@@ -32,10 +32,19 @@ class Binary(http.Controller):
                 item = request.env['workspace.item'].search([
                     ('id', '=', attachment_id.res_id),
                 ])
-                employee = item.employee_id
+                if not item:
+                    continue
+                # employee = item.employee_id
 
-                file_name = item.name + ' - ' + employee.name + ' - ' \
-                    + attachment_id.name
+                file_name = item.name
+
+                if item.workspace_location:
+                    file_name += ' - ' + item.workspace_location
+
+                # if employee:
+                #    file_name += ' - ' + employee.name
+
+                file_name += ' - ' + attachment_id.name
 
                 file_path = attachment_id._full_path(file_store)
                 file_dict['%s:%s' % (file_store, file_name)] = dict(
