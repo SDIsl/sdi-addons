@@ -40,7 +40,8 @@ class Binary(http.Controller):
 
                 if item.workspace_location:
                     file_name += ' - ' + item.workspace_location
-
+                elif item.employee_location:
+                    file_name += ' - ' + item.employee_location
                 # if employee:
                 #    file_name += ' - ' + employee.name
 
