@@ -34,15 +34,15 @@ class Binary(http.Controller):
                 ])
                 if not item:
                     continue
-                employee = item.employee_id
+                # employee = item.employee_id
 
                 file_name = item.name
 
-                if item.workspace_id:
-                    file_name += ' - ' + item.workspace_id.name
+                if item.workspace_location:
+                    file_name += ' - ' + item.workspace_location
 
-                if employee:
-                    file_name += ' - ' + employee.name
+                # if employee:
+                #    file_name += ' - ' + employee.name
 
                 file_name += ' - ' + attachment_id.name
 
