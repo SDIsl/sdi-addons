@@ -31,6 +31,7 @@ class HrPersonalEquipment(models.Model):
     )
     skip_procurement = fields.Boolean(compute="_compute_skip_procurement")
 
+    @api.multi
     @api.depends("state", "product_id", "product_id.type")
     def _compute_skip_procurement(self):
         for record in self:
@@ -93,7 +94,7 @@ class HrPersonalEquipment(models.Model):
                 # We launch with sudo because potentially we could create
                 # objects that the user is not authorized to create, such
                 # as PO.
-                procurement = self.env["procurement.group"].Procurement(
+                '''procurement = self.env["procurement.group"].Procurement(
                     allocation.product_id,
                     allocation.quantity,
                     allocation.product_uom_id,
@@ -103,7 +104,20 @@ class HrPersonalEquipment(models.Model):
                     allocation._get_company(),
                     values,
                 )
-                self.env["procurement.group"].sudo().run([procurement])
+                self.env["procurement.group"].sudo().run([procurement])'''
+
+                self.env["procurement.group"].sudo().run(
+                    allocation.product_id,
+                    allocation.quantity,
+                    allocation.product_uom_id,
+                    allocation.location_id,
+                    allocation.equipment_request_id.name,
+                    allocation.equipment_request_id.name,
+                    values
+                )
+
+
+
             except UserError as error:
                 errors.append(error.args[0])
         if errors:
