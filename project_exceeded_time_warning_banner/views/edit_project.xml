@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="after">
+                <div class="alert alert-warning" role="alert" style="height: 40px; margin-bottom:0px;" attrs="{'invisible':['|',('unit_balance', '>=', 0),('showBanner', '=', False)]}">
+                    <field name="warningMessage"/>
+                </div>
+                <field name="unit_balance" invisible="1"/>
+                <field name="showBanner" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
