@@ -116,8 +116,6 @@ class HrPersonalEquipment(models.Model):
                     values
                 )
 
-
-
             except UserError as error:
                 errors.append(error.args[0])
         if errors:
