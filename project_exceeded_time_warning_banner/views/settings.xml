@@ -10,13 +10,13 @@
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6 o_setting_box" title="">
                             <div class="o_setting_right_pane">
-                                <label for="warningMessage" />
+                                <label for="warning_message" />
                                 <div class="text-muted">
                                    Warning message if project balance is negative
                                 </div>
                                 <div class="content-group">
                                     <div >
-                                        <field name="warningMessage"/>
+                                        <field name="warning_message"/>
                                     </div>
                                 </div>
                             </div>

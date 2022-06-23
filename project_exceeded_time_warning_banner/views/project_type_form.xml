@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_title')]/div[2]" position="after">
                 <div>
-                    <field name="showBanner"/>
-                    <label for="showBanner"/>
+                    <field name="show_banner"/>
+                    <label for="show_banner"/>
                 </div>
             </xpath>
         </field>

@@ -9,11 +9,11 @@ class ProjectProject(models.Model):
 
     def _bring_warning_message(self):
         warn_text = self.env['ir.config_parameter'].get_param(
-            'project_exceeded_time_warning_banner.warningMessage'
+            'project_exceeded_time_warning_banner.warning_message'
             ) or 'Project time balance is negative'
 
         self.update({
-             'warningMessage': warn_text
+             'warning_message': warn_text
          })
 
     unit_balance = fields.Float(
@@ -21,12 +21,12 @@ class ProjectProject(models.Model):
         related='analytic_account_id.unit_balance'
         )
 
-    showBanner = fields.Boolean(
+    show_banner = fields.Boolean(
         string='Show Warning Banner',
-        related='type_id.showBanner'
+        related='type_id.show_banner'
     )
 
-    warningMessage = fields.Char(
+    warning_message = fields.Char(
         string='Warning Message ',
         compute=_bring_warning_message
 
