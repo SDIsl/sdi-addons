@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_type_form" model="ir.ui.view">
+        <field name="model">project.type</field>
+        <field name="inherit_id" ref="project_category.project_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]/div[2]" position="after">
+                <div>
+                    <field name="show_banner"/>
+                    <label for="show_banner"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
