@@ -1,0 +1,39 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.mail.template.borders.customize</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="25" />
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block">
+                    <h2>Odoo Email Text</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box" title="">
+                            <div class="o_setting_right_pane">
+                                <label for="linkUrl" />
+                                <div class="text-muted">
+                                    Url you want to set in Emails
+                                </div>
+                                <div class="content-group">
+                                    <div >
+                                        <field name="linkUrl"/>
+                                    </div>
+                                </div>
+                                <label for="linkText" />
+                                <div class="text-muted">
+                                    Text that will be show as link
+                                </div>
+                                <div class="content-group">
+                                    <div >
+                                        <field name="linkText"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </xpath>
+        </field>
+    </record>
+</odoo>
