@@ -18,17 +18,17 @@
 #
 ###############################################################################
 {
-    'name': 'Account Invoice Report Internal Ref',
-    'summary': 'Hides internal reference of invoice line from invoice report',
-    'author': 'Miguel Lucendo Esteban, SDi Soluciones Informáticas',
+    'name': 'Sale Invoice Report Internal Ref',
+    'summary': 'Hides internal reference of invoice line from sale report',
+    'author': 'Alberto Martínez, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
-    'category': 'Invoicing',
+    'category': 'Sales',
     'version': '14.0.1.0.0',
     'depends': [
-        'account',
+        'sale',
     ],
     'data': [
-        'report/report_invoice_document.xml',
+        'report/report_saleorder_document.xml',
     ],
 }
