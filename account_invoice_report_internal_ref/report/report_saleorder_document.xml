@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//td[@name='td_name']/span" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_name']" position="inside">
+            <span t-esc="line.product_id.name" t-options="{'widget': 'text'}"/>
+        </xpath>
+    </template>
+</odoo>
