@@ -44,7 +44,7 @@ class HrEmployee(models.Model):
             self.item_count += 1
 
     def button_employee_items(self):
-        return{
+        return {
             'name': _('Items'),
             'view_mode': 'tree,form',
             'res_model': 'workspace.item',
