@@ -32,10 +32,8 @@ class HrEmployee(models.Model):
         string='Items',
         store=True,
     )
-    item_count = fields.Integer(
-        string="Item Count",
-        compute="_compute_item_count",
-    )
+    item_count = fields.Integer(string="Item Count",
+                                compute="_compute_item_count",)
 
     @api.one
     def _compute_item_count(self):
