@@ -43,8 +43,8 @@ class MismatchedTaxesReport(models.Model):
             aml.company_id as move_company_id,
             ata.company_id as wrong_company_id,
             'TAX' as type
-        FROM account_move am 
-            JOIN account_move_line aml on aml.move_id = am.id 
+        FROM account_move am
+            JOIN account_move_line aml on aml.move_id = am.id
             JOIN account_tax ata on ata.id = aml.tax_line_id
         WHERE aml.company_id != ata.company_id
                            UNION
@@ -52,9 +52,9 @@ class MismatchedTaxesReport(models.Model):
             aml.id as id,
             am.id as move_id,
             aml.id as move_line_id,
-            aml.company_id as move_company_id, 
+            aml.company_id as move_company_id,
             acc.company_id as wrong_company_id,
-            'ACC' as type 
+            'ACC' as type
         FROM account_move am
             JOIN account_move_line aml on aml.move_id = am.id
             JOIN account_account acc on acc.id = aml.account_id
