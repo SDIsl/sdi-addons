@@ -19,7 +19,8 @@
 ###############################################################################
 {
     'name': 'Multicompany Mismatched report',
-    'summary': '''Locates in journal mismatched company taxes or accounts applied''',
+    'summary': '''Locates in journal mismatched''' 
+    '''company taxes or accounts applied''',
     'author': 'Sergio Lop Sanz, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
