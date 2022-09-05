@@ -88,7 +88,7 @@ class Workspace(models.Model):
 
     def button_internal_item_count(self):
         workspaces = self._internal_workspaces()
-        return{
+        return {
             'name': 'Internal Items',
             'view_type': 'form',
             'view_mode': 'tree,form',
@@ -107,7 +107,7 @@ class Workspace(models.Model):
                     self.employee_item_count += 1
 
     def button_employee_item_count(self):
-        return{
+        return {
             'name': 'Employee Items',
             'view_type': 'form',
             'view_mode': 'tree,form',
