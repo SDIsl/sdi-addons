@@ -5,31 +5,31 @@ from odoo import models, fields, api
 
 
 class MismatchedTaxesReport(models.Model):
-    _name = "mismatched.tax.report"
-    _description = "Mismatched taxes report"
+    _name = 'mismatched.tax.report'
+    _description = 'Mismatched taxes report'
     _auto = False
 
     move_id = fields.Many2one(
-        comodel_name='account.move'
+        comodel_name='account.move',
     )
     move_line_id = fields.Many2one(
-        comodel_name='account.move.line'
+        comodel_name='account.move.line',
     )
     move_company_id = fields.Many2one(
-        comodel_name='res.company'
+        comodel_name='res.company',
     )
     wrong_company_id = fields.Many2one(
-        comodel_name='res.company'
+        comodel_name='res.company',
     )
     date = fields.Date(
-        related="move_line_id.date"
+        related='move_line_id.date',
     )
     type = fields.Selection(
         [
             ('TAX', 'Tax'),
             ('ACC', 'Account'),
             ],
-        string="Type of incident"
+        string='Type of incident',
     )
 
     @api.model_cr
