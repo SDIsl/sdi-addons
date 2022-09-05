@@ -26,7 +26,7 @@ class ProductTemplate(models.Model):
         )
 
     def product_item_count(self):
-        return{
+        return {
             'name': 'Items',
             'view_type': 'form',
             'view_mode': 'tree,form',

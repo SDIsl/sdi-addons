@@ -32,10 +32,8 @@ class HrEmployee(models.Model):
         string='Items',
         store=True,
     )
-    item_count = fields.Integer(
-        string="Item Count",
-        compute="_compute_item_count",
-    )
+    item_count = fields.Integer(string="Item Count",
+                                compute="_compute_item_count",)
 
     @api.one
     def _compute_item_count(self):
@@ -44,7 +42,7 @@ class HrEmployee(models.Model):
             self.item_count += 1
 
     def button_employee_items(self):
-        return{
+        return {
             'name': _('Items'),
             'view_mode': 'tree,form',
             'res_model': 'workspace.item',
