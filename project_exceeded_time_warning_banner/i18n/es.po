@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_exceeded_time_warning_banner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-23 16:09+0000\n"
+"PO-Revision-Date: 2022-06-23 18:10+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model,name:project_exceeded_time_warning_banner.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model,name:project_exceeded_time_warning_banner.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model,name:project_exceeded_time_warning_banner.model_project_type
+msgid "Project Type"
+msgstr "Tipos de Proyectos"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_project__show_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_task__show_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_type__show_banner
+msgid "Show Warning Banner"
+msgstr "Mostrar mensaje de aviso"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model,name:project_exceeded_time_warning_banner.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_project__unit_balance
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_task__unit_balance
+msgid "Unit Balance"
+msgstr "Saldo del proyecto"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_task__warning_message
+#: model_terms:ir.ui.view,arch_db:project_exceeded_time_warning_banner.res_config_settings_view_form_inherit
+msgid "Warning Message"
+msgstr "Mensaje de aviso"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_project_project__warning_message
+msgid "Warning Message "
+msgstr "Mensaje de aviso "
+
+#. module: project_exceeded_time_warning_banner
+#: model_terms:ir.ui.view,arch_db:project_exceeded_time_warning_banner.res_config_settings_view_form_inherit
+msgid "Warning Project Balance"
+msgstr ""
+
+#. module: project_exceeded_time_warning_banner
+#: model_terms:ir.ui.view,arch_db:project_exceeded_time_warning_banner.res_config_settings_view_form_inherit
+msgid "Warning message if project balance is negative"
+msgstr "Mensaje de aviso si el tiempo del proyecto es negativo"
+
+#. module: project_exceeded_time_warning_banner
+#: model:ir.model.fields,field_description:project_exceeded_time_warning_banner.field_res_config_settings__warning_message
+msgid "Warning message to show"
+msgstr "Mensaje a mostrar"
