@@ -8,14 +8,16 @@ class StockPicking(models.Model):
 
     _inherit = "stock.picking"
 
-    equipment_request_id = fields.Many2one(related="group_id.equipment_request_id")
+    equipment_request_id = fields.Many2one(
+        related="group_id.equipment_request_id")
 
     def _action_done(self):
         super()._action_done()
         if self.equipment_request_id:
             for move in self.move_ids_without_package:
                 if move.state == "done":
-                    request_lines = self.equipment_request_id.sudo().line_ids.filtered(
+                    request_lines = self.equipment_request_id.sudo(
+                    ).line_ids.filtered(
                         lambda x: x.product_id == move.product_id
                     )
                     for line in request_lines:

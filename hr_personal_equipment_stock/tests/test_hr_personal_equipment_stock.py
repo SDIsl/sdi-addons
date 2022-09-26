@@ -67,34 +67,38 @@ class TestHRPersonalEquipment(TransactionCase):
         self.employee = self.env["hr.employee"].create(
             {"name": "Employee Test", "user_id": self.user.id}
         )
-        self.product_personal_equipment_1 = self.env["product.template"].create(
-            {
-                "name": "Product Test Personal Equipment",
-                "is_personal_equipment": True,
-                "route_ids": [(6, 0, self.route.ids)],
-                "qty_available": 100,
-                "type": "product",
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
-            }
-        )
-        self.product_personal_equipment_2 = self.env["product.template"].create(
-            {
-                "name": "Service Test Personal Equipment 2",
-                "is_personal_equipment": True,
-                "type": "service",
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
-            }
-        )
+        self.product_personal_equipment_1 = \
+            self.env["product.template"].create(
+                {
+                    "name": "Product Test Personal Equipment",
+                    "is_personal_equipment": True,
+                    "route_ids": [(6, 0, self.route.ids)],
+                    "qty_available": 100,
+                    "type": "product",
+                    "uom_id": self.env.ref("uom.product_uom_unit").id,
+                }
+            )
+        self.product_personal_equipment_2 = \
+            self.env["product.template"].create(
+                {
+                    "name": "Service Test Personal Equipment 2",
+                    "is_personal_equipment": True,
+                    "type": "service",
+                    "uom_id": self.env.ref("uom.product_uom_unit").id,
+                }
+            )
         lines = [
             {
                 "name": "Personal Equipment 1",
-                "product_id": self.product_personal_equipment_1.product_variant_id.id,
+                "product_id": (self.product_personal_equipment_1
+                               .product_variant_id.id),
                 "quantity": 3,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
             },
             {
                 "name": "Personal Equipment 2",
-                "product_id": self.product_personal_equipment_2.product_variant_id.id,
+                "product_id": (self.product_personal_equipment_2
+                               .product_variant_id.id),
                 "quantity": 2,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
             },
@@ -132,7 +136,8 @@ class TestHRPersonalEquipment(TransactionCase):
         procurement_group_id = self.env["procurement.group"].create(
             {"move_type": "direct"}
         )
-        self.personal_equipment_request.procurement_group_id = procurement_group_id.id
+        self.personal_equipment_request.procurement_group_id = \
+            procurement_group_id.id
         self.assertTrue(self.personal_equipment_request.procurement_group_id)
         self.assertTrue(
             self.personal_equipment_request.line_ids[0].procurement_group_id
@@ -157,9 +162,11 @@ class TestHRPersonalEquipment(TransactionCase):
 
     def test_skip_procurement(self):
         self.personal_equipment_request.line_ids[0]._compute_skip_procurement()
-        self.assertFalse(self.personal_equipment_request.line_ids[0].skip_procurement)
+        self.assertFalse(
+            self.personal_equipment_request.line_ids[0].skip_procurement)
         self.personal_equipment_request.line_ids[1]._compute_skip_procurement()
-        self.assertTrue(self.personal_equipment_request.line_ids[1].skip_procurement)
+        self.assertTrue(
+            self.personal_equipment_request.line_ids[1].skip_procurement)
 
     def test_compute_qty_delivered(self):
         self.personal_equipment_request.accept_request()

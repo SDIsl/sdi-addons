@@ -22,7 +22,8 @@ class HrPersonalEquipmentRequest(models.Model):
         "procurement rules will be grouped into one big picking.",
         copy=False,
     )
-    picking_ids = fields.One2many("stock.picking", inverse_name="equipment_request_id")
+    picking_ids = fields.One2many(
+        "stock.picking", inverse_name="equipment_request_id")
     picking_count = fields.Integer(compute="_compute_picking_count")
 
     @api.depends("picking_ids")
@@ -34,7 +35,8 @@ class HrPersonalEquipmentRequest(models.Model):
         if self.procurement_group_id:
             return self.procurement_group_id.id
         return (
-            self.env["procurement.group"].create(self._get_procurement_group_vals()).id
+            self.env["procurement.group"].create(
+                self._get_procurement_group_vals()).id
         )
 
     def _get_procurement_group_vals(self):

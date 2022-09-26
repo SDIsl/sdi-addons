@@ -29,5 +29,6 @@ class StockRule(models.Model):
             group_id,
         )
         if values.get("personal_equipment_id"):
-            result["personal_equipment_id"] = values.get("personal_equipment_id")
+            result["personal_equipment_id"] = values.get(
+                "personal_equipment_id")
         return result
