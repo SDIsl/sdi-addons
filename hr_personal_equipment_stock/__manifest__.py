@@ -4,7 +4,7 @@
 {
     "name": "Hr Personal Equipment Stock",
     "summary": """
-        This addon allows to integrate hr_personal_equipment_request with 
+        This addon allows to integrate hr_personal_equipment_request with
         stock""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
