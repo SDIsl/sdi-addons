@@ -44,7 +44,7 @@ class ProductTemplate(models.Model):
         form_view = self.env.ref(
             'resource_management.'
             'resource_booking_management_view_form_from_resource')
-        return{
+        return {
             'name': _('Bookings'),
             'view_mode': 'tree,calendar,form',
             'res_model': 'resource.booking.management',

@@ -8,7 +8,7 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     def _bring_warning_message(self):
-        warn_text = self.env['ir.config_parameter'].get_param(
+        warn_text = self.env['ir.config_parameter'].sudo().get_param(
             'project_exceeded_time_warning_banner.warning_message'
             ) or 'Project time balance is negative'
 
