@@ -8,11 +8,17 @@ class HrPersonalEquipmentRequest(models.Model):
 
     _inherit = "hr.personal.equipment.request"
 
+    def _default_location(self):
+        return self.sudo().env['stock.location'].search([
+            ('is_personal_equipment_location', '=', True)
+        ], limit=1)
+
     location_id = fields.Many2one(
         "stock.location",
         ondelete="cascade",
         required=True,
         domain=[("is_personal_equipment_location", "=", True)],
+        default=_default_location,
     )
     procurement_group_id = fields.Many2one(
         "procurement.group",

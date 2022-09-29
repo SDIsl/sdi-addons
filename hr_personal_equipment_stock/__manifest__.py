@@ -15,6 +15,7 @@
         "views/stock_location.xml",
         "views/stock_move.xml",
         "views/procurement_group.xml",
+        "views/hr_employee.xml",
         "views/hr_personal_equipment.xml",
         "views/hr_personal_equipment_request.xml",
         "views/stock_picking.xml",
