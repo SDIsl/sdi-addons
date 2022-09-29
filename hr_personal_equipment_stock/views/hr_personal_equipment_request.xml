@@ -16,6 +16,7 @@
                 <field
                     name="location_id"
                     attrs="{'readonly': [('state', '!=', 'draft')]}"
+                    groups="hr.group_hr_manager"
                 />
                 <field
                     name="procurement_group_id"
