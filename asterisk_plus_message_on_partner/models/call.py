@@ -24,14 +24,16 @@ class Call(models.Model):
                             rec.called_user.name,
                             rec.duration_human)
                     elif rec.calling_user:
-                        message = _('{} {} call from {}.  Duration: {}'
+                        message = _(
+                            '{} {} call from {}.  Duration: {}'
                         ).format(
                             rec.status.capitalize(),
                             direction,
                             rec.calling_user.name,
                             rec.duration_human)
                     else:
-                        message = _('{} {} call from {} to {}. Duration: {}'
+                        message = _(
+                            '{} {} call from {} to {}. Duration: {}'
                         ).format(
                             rec.status.capitalize(),
                             direction,
