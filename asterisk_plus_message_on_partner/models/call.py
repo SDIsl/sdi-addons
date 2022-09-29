@@ -4,6 +4,7 @@ from odoo import models, api, _
 
 logger = logging.getLogger(__name__)
 
+
 class Call(models.Model):
     _inherit = 'asterisk_plus.call'
 
