@@ -15,7 +15,8 @@ class Call(models.Model):
                 continue
             if rec.ref:
                 try:
-                    direction = 'outgoing' if rec.direction == 'out' else 'incoming'
+                    direction = 'outgoing' if rec.direction == 'out' else \
+                        'incoming'
                     if rec.called_user:
                         message = _('{} {} call to {}. Duration: {}').format(
                             rec.status.capitalize(),
@@ -23,13 +24,15 @@ class Call(models.Model):
                             rec.called_user.name,
                             rec.duration_human)
                     elif rec.calling_user:
-                        message = _('{} {} call from {}.  Duration: {}').format(
+                        message = _('{} {} call from {}.  Duration: {}'
+                        ).format(
                             rec.status.capitalize(),
                             direction,
                             rec.calling_user.name,
                             rec.duration_human)
                     else:
-                        message = _('{} {} call from {} to {}. Duration: {}').format(
+                        message = _('{} {} call from {} to {}. Duration: {}'
+                        ).format(
                             rec.status.capitalize(),
                             direction,
                             rec.calling_number,
