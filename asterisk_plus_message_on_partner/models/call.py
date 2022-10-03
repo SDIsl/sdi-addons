@@ -44,20 +44,21 @@ class Call(models.Model):
                     rec.ref.sudo().message_post(
                         subject=_('Call notification'),
                         body=message)
-                    partner = rec.ref.partner_id
-                    entity = False
-                    if partner:
-                        entity = partner
-                    else:
-                        company = rec.ref.comercial_partner_id
-                        entity = company
-                    if entity:
-                        message += (''' - <a href="#" data-oe-model={}
-                                        data-oe-id={}>{}</a>''').format(
-                            rec.ref._name, rec.ref.id, rec.ref.name)
+                    company_from = rec.ref
+                    entities = []
+                    if rec.ref.fields_get(['partner_id']).get('partner_id'):
+                        entities.append(rec.ref.partner_id)
+                        company_from = rec.ref.partner_id
+                    if company_from.fields_get(['commercial_partner_id']).get(
+                            'commercial_partner_id'):
+                        entities.append(company_from.commercial_partner_id)
+                    message += (''' - <a href="#" data-oe-model={}
+                                    data-oe-id={}>{}</a>''').format(
+                        rec.ref._name, rec.ref.id, rec.ref.name)
+                    for entity in entities:
                         entity.sudo().message_post(
                             subject=_('Call notification'),
                             body=message)
-                        
+
                 except Exception:
                     logger.exception('Register reference call error')
