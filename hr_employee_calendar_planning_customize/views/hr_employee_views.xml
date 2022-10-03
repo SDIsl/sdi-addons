@@ -14,6 +14,9 @@
                     <span> day(s)</span>
                 </div>
             </field>
+            <xpath expr="//tree[@editable='top']" position="attributes">
+                <attribute name="default_order">date_start desc</attribute>
+            </xpath>
         </field>
     </record>
     <record id="view_employee_filter" model="ir.ui.view">
