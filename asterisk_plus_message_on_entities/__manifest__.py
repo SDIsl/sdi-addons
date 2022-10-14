@@ -18,9 +18,10 @@
 #
 ###############################################################################
 {
-    'name': 'Asterisk Plus Message On Partner',
+    'name': 'Asterisk Plus Message On Entities',
     'summary': '''Replicates the message of a call to the entity\'s
-        partner\'s chatter.''',
+        partner\'s and/or company's chatter and modifies the looking of the
+        message.''',
     'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
