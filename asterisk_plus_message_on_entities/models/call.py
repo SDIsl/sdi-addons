@@ -98,15 +98,15 @@ class Call(models.Model):
                     entity_name, rec.ref._name, rec.ref.id, rec.ref.name)
                 for entity in entities:
                     if rec.partner and rec.partner == entity:
-                        msg_to_send = message_partner + (entity_ref if \
-                            rec.partner != rec.ref else '')
+                        msg_to_send = message_partner + \
+                            (entity_ref if rec.partner != rec.ref else '')
                     elif rec.partner and rec.partner.commercial_partner_id == \
                             entity:
                         msg_to_send = message_to_company if rec.ref == \
                             rec.partner else (message + entity_ref)
                     else:
-                        msg_to_send = message + (entity_ref if entity != \
-                            rec.ref else '')
+                        msg_to_send = message + (entity_ref if entity !=
+                                                 rec.ref else '')
                     entity.sudo().message_post(
                         subject=_('Call notification'),
                         body=msg_to_send)
