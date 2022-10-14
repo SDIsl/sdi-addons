@@ -16,7 +16,7 @@ class Call(models.Model):
                 continue
             try:
                 if not rec.partner and rec.ref.partner_id:
-                    rec.write({'partner': rec.ref.partner_id.id})
+                    rec.sudo().write({'partner': rec.ref.partner_id.id})
                 if rec.direction == 'out':
                     if rec.status == 'noanswer':
                         start_msg = _('No answer outgoing call')
