@@ -1,6 +1,6 @@
 ###############################################################################
 #
-#    SDi Soluciones Digitales
+#    SDi Digital Group
 #    Copyright (C) 2022-Today SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
     'version': '12.0.1.0.0',
     'category': 'Tools',
     'summary': '''This module allows to download attachments related to a
-     Account Invoices.''',
+         Account Invoices.''',
     'author': 'Jorge Luis Quinteros, SDi Digital Group',
     'license': 'AGPL-3',
     'website': 'https://www.sdi.es/odoo-cloud/',
