@@ -36,7 +36,7 @@ class Binary(http.Controller):
                 file_name = invoice.date_invoice.strftime('%d_%m_%Y')
                 file_name += ' - ' + invoice.reference
                 if invoice.reference != attach_name:
-                    file_name += _('- No Review - ') + attachment_id.name
+                    file_name += _('- Review - ') + attachment_id.name
                 file_path = attachment_id._full_path(file_store)
                 file_dict['%s:%s' % (file_store, file_name)] = dict(
                     path=file_path,

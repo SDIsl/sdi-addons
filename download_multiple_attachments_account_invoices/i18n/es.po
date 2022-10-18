@@ -20,8 +20,8 @@ msgstr ""
 #. module: download_multiple_attachments_account_invoices
 #: code:addons/download_multiple_attachments_account_invoices/controller/main.py:39
 #, python-format
-msgid "- No Review - "
-msgstr "- No Revisar - "
+msgid "- Review - "
+msgstr "- Revisar - "
 
 #. module: download_multiple_attachments_account_invoices
 #: model:ir.actions.server,name:download_multiple_attachments_account_invoices.ir_action_download_attachment
