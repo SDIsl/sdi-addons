@@ -32,17 +32,17 @@ class Binary(http.Controller):
                 ])
                 if not invoice:
                     continue
-                attach_name = attachment_id.name.rsplit('.', 1)[0]
+                attach_name = attachment_id.name.rsplit('.', 1)
                 file_name = invoice.date_invoice.strftime('%d_%m_%Y')
                 file_name += ' - ' + invoice.reference
-                if invoice.reference != attach_name:
-                    file_name += _('- Review - ') + attachment_id.name
+                if invoice.reference != attach_name[0]:
+                    file_name += _('- Review - ') + attach_name[0]
+                file_name += '.%s' % attach_name[-1]
                 file_path = attachment_id._full_path(file_store)
                 file_dict['%s:%s' % (file_store, file_name)] = dict(
                     path=file_path,
                     name=file_name)
-        zip_filename = datetime.now()
-        zip_filename = '%s.zip' % zip_filename
+        zip_filename = '%s.zip' % datetime.now()
         bitIO = BytesIO()
         zip_file = zipfile.ZipFile(bitIO, 'w', zipfile.ZIP_DEFLATED)
         for file_info in file_dict.values():
