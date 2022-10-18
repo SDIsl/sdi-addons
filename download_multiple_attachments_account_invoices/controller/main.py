@@ -41,8 +41,7 @@ class Binary(http.Controller):
                 file_dict['%s:%s' % (file_store, file_name)] = dict(
                     path=file_path,
                     name=file_name)
-        zip_filename = datetime.now()
-        zip_filename = '%s.zip' % zip_filename
+        zip_filename = '%s.zip' % datetime.now()
         bitIO = BytesIO()
         zip_file = zipfile.ZipFile(bitIO, 'w', zipfile.ZIP_DEFLATED)
         for file_info in file_dict.values():
