@@ -22,7 +22,7 @@
     'summary': '''Replicates the message of a call to the entity\'s
         partner\'s and/or company's chatter and modifies the looking of the
         message.''',
-    'author': 'Valentín Castravete Georgian, SDi Soluciones Informáticas',
+    'author': 'Valentín Castravete Georgian, SDi Digital Group',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Phone',
