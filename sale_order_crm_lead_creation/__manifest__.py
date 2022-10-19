@@ -1,6 +1,6 @@
 ###############################################################################
 #
-#    SDi Soluciones Digitales
+#    SDi Digital Group
 #    Copyright (C) 2021-Today SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 {
     'name': 'Sale Order CRM Lead',
     'summary': 'Create Opportuniy from sale order with default values',
-    'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
+    'author': 'Jorge Luis Quinteros, SDi Digital Group',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'CRM',
