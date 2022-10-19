@@ -85,7 +85,7 @@ class Call(models.Model):
                         'commercial_partner_id']).get('commercial_partner_id'):
                     if rec.partner.commercial_partner_id != rec.ref:
                         entities.append(rec.partner.commercial_partner_id)
-                entity_name = self.env['ir.translation'].search([
+                entity_name = self.env['ir.translation'].sudo().search([
                     ('source', '=', rec.ref._description),
                     ('lang', '=', 'es_ES'),
                     ('state', '=', 'translated'),
