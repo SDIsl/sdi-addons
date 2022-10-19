@@ -9,7 +9,7 @@ class Call(models.Model):
     _inherit = 'asterisk_plus.call'
 
     @api.constrains('is_active')
-    def register_reference_call(self):
+    def register_call(self):
         self.ensure_one()
         for rec in self:
             if rec.is_active or not rec.ref:
@@ -112,3 +112,7 @@ class Call(models.Model):
                         body=msg_to_send)
             except Exception:
                 logger.exception(_('Register reference call error.'))
+
+    @api.constrains('is_active')
+    def register_reference_call(self):
+        pass
