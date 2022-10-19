@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2019 ForgeFlow, S.L.
+    Copyright 2020 CorporateHub (https://corporatehub.eu)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="importar_bancos_form" model="ir.ui.view">
+        <field name="name">importar.bancos.wizard.form</field>
+        <field name="model">importar.bancos</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main_info">
+                    <field name="data_file"/>
+                    <field name="company_id"/>
+                </group>
+                <footer>
+                    <button name="button_importar" string="Importar"
+                            type="object" default_focus="1" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_importar_bancos_wizard" model="ir.actions.act_window">
+        <field name="name">Importar bancos</field>
+        <field name="res_model">importar.bancos</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+            id="action_importar_bancos_menu"
+            name="Importar bancos"
+            parent="account.menu_finance"
+            groups="base.group_no_one"
+            action="action_importar_bancos_wizard"
+    />
+
+
+</odoo>

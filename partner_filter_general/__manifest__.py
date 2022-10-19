@@ -21,7 +21,7 @@
     'name': 'Partner Filter General',
     'summary': 'Filters on partner.',
     'author': 'Valentín Georgian Castravete, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Tools',
     'version': '14.0.1.0.0',

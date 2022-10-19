@@ -1,0 +1,207 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_status_time_analytics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-06 08:57+0000\n"
+"PO-Revision-Date: 2021-09-06 08:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__avg_status_time
+msgid "AVG"
+msgstr "Media"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.project_analytics_status_time_view_tree
+msgid "Avg time/status"
+msgstr "Media tiempo/estado(días)"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__end_date
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.project_analytics_status_time_view_tree
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__after_status_id
+msgid "End Status"
+msgstr "Estado final"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_status__final
+msgid "Final status"
+msgstr "Estado final"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.project_analytics_status_time_view_tree
+msgid "Initial Date"
+msgstr "Fecha inicial"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_status__initial
+msgid "Initial status"
+msgstr "Estado inicial"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_project__move_ids
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+msgid "Movements"
+msgstr "Movimientos"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__previous_status_id
+msgid "Origin Status"
+msgstr "Estado origen"
+
+#. module: project_status_time_analytics
+#: model:ir.model,name:project_status_time_analytics.model_project_project
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_status_time_analytics
+#: model:ir.actions.act_window,name:project_status_time_analytics.project_analytics_move_action
+#: model:ir.ui.menu,name:project_status_time_analytics.project_analytics
+msgid "Project Analytics"
+msgstr "Analítica de proyectos"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__user_id_ref
+msgid "Project Manager"
+msgstr "Responsable de proyecto"
+
+#. module: project_status_time_analytics
+#: model:ir.model,name:project_status_time_analytics.model_project_status
+msgid "Project Status"
+msgstr "Estado del proyecto"
+
+#. module: project_status_time_analytics
+#: model:ir.actions.server,name:project_status_time_analytics.ir_cron_project_status_time_analytics_ir_actions_server
+#: model:ir.cron,cron_name:project_status_time_analytics.ir_cron_project_status_time_analytics
+#: model:ir.cron,name:project_status_time_analytics.ir_cron_project_status_time_analytics
+msgid "Project-AVG: Upgrade actual time"
+msgstr "Project-AVG: Actualizar tiempo actual"
+
+#. module: project_status_time_analytics
+#: model:ir.model,name:project_status_time_analytics.model_project_analytics_move
+msgid "Saves the movement of projects and time at each status"
+msgstr "Guarda el movimiento de los proyectos y el tiempo en cada estado"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_analytics_move__after_status_id
+msgid "Status after the change."
+msgstr "Estado posterior al cambio."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_analytics_move__previous_status_id
+msgid "Status previous the change."
+msgstr "Estado anterior al cambio."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_analytics_move__avg_status_time
+msgid "The average time a project spends in total."
+msgstr "Media total del tiempo que pasa un proyecto en total."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_analytics_move__time_days
+msgid "The days the project has been in the initial status."
+msgstr "Días que pasa un proyecto en el estado inicial."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_project__actual_time
+msgid "The total time a project spends in a status."
+msgstr "Tiempo total que pasa un proyecto en un estado."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_status__final
+msgid "This status is the final one in the project cycle."
+msgstr "Este estado es el último en el ciclo del proyecto."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,help:project_status_time_analytics.field_project_status__initial
+msgid "This status is the initial one in the project cycle."
+msgstr "Este estado es el inicial en el ciclo del proyecto."
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_analytics_move__time_days
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.project_analytics_status_time_view_tree
+msgid "Time (days)"
+msgstr "Tiempo(días)"
+
+#. module: project_status_time_analytics
+#: model:ir.model.fields,field_description:project_status_time_analytics.field_project_project__actual_time
+msgid "Time in actual Status"
+msgstr "Tiempo en el estado actual"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.edit_project
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.project_analytics_status_time_view_tree
+msgid "Total Time"
+msgstr "Tiempo total"
+
+#. module: project_status_time_analytics
+#: model_terms:ir.ui.view,arch_db:project_status_time_analytics.view_project_kanban
+msgid "days"
+msgstr "días"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_dms_directory_form" model="ir.ui.view">
+        <field name="model">dms.directory</field>
+        <field name="inherit_id" ref="dms.view_dms_directory_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" name="related_lead_link" type="object" icon="fa-handshake-o"
+                string="Leads" attrs="{'invisible': [('related_lead_id', '=', False)]}">
+                    <field name="related_lead_id" invisible="1"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

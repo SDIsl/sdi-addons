@@ -21,7 +21,7 @@
     'name': 'Contacts Google Autocomplete Spanish Area Level',
     'summary': 'Add Administrative area level to ',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Tools',
     'version': '14.0.1.0.0',

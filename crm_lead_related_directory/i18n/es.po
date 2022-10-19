@@ -1,0 +1,93 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_lead_related_directory
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-16 08:46+0000\n"
+"PO-Revision-Date: 2022-06-16 10:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: crm_lead_related_directory
+#: model_terms:ir.ui.view,arch_db:crm_lead_related_directory.crm_lead_view_form
+msgid "Create directory"
+msgstr "Crear directorio"
+
+#. module: crm_lead_related_directory
+#: model_terms:ir.ui.view,arch_db:crm_lead_related_directory.crm_lead_view_form
+msgid "Directories"
+msgstr "Directorios"
+
+#. module: crm_lead_related_directory
+#: model:ir.model,name:crm_lead_related_directory.model_dms_directory
+msgid "Directory"
+msgstr "Carpeta"
+
+#. module: crm_lead_related_directory
+#: code:addons/crm_lead_related_directory/models/crm_lead.py:0
+#, python-format
+msgid "Directory related has been created"
+msgstr "Se ha creado un directorio relacionado con la oportunidad"
+
+#. module: crm_lead_related_directory
+#: code:addons/crm_lead_related_directory/models/dms_directory.py:0
+#, python-format
+msgid "Directory related has been eliminated"
+msgstr "El directorio relacionado ha sido eliminado"
+
+#. module: crm_lead_related_directory
+#: code:addons/crm_lead_related_directory/models/crm_lead.py:0
+#, python-format
+msgid ""
+"Directory with this name already exists.\n"
+"If you really want to create a directory related with this lead, you should change its name."
+msgstr ""
+"Un directorio con este nombre ya existe.\n"
+"Si realmente quiere crear un directorio relacionado con esta oportunidad, debería cambiarle el nombre."
+
+#. module: crm_lead_related_directory
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_dms_directory__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: crm_lead_related_directory
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_crm_lead__id
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_dms_directory__id
+msgid "ID"
+msgstr ""
+
+#. module: crm_lead_related_directory
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_crm_lead____last_update
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_dms_directory____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: crm_lead_related_directory
+#: model:ir.model,name:crm_lead_related_directory.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: crm_lead_related_directory
+#: model_terms:ir.ui.view,arch_db:crm_lead_related_directory.view_dms_directory_form
+msgid "Leads"
+msgstr "Oportunidades"
+
+#. module: crm_lead_related_directory
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_crm_lead__related_directory_id
+msgid "Related Directory"
+msgstr "Directorio relacionado"
+
+#. module: crm_lead_related_directory
+#: model:ir.model.fields,field_description:crm_lead_related_directory.field_dms_directory__related_lead_id
+msgid "Related Lead Id"
+msgstr "Oportunidad relacionada"

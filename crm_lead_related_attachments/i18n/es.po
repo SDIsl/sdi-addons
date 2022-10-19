@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_lead_related_attachments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-02 13:37+0000\n"
+"PO-Revision-Date: 2022-06-02 15:38+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: crm_lead_related_attachments
+#: model:ir.model.fields,field_description:crm_lead_related_attachments.field_crm_lead__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: crm_lead_related_attachments
+#: model_terms:ir.ui.view,arch_db:crm_lead_related_attachments.crm_lead_view_form
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: crm_lead_related_attachments
+#: model:ir.model.fields,field_description:crm_lead_related_attachments.field_crm_lead__id
+msgid "ID"
+msgstr ""
+
+#. module: crm_lead_related_attachments
+#: model:ir.model.fields,field_description:crm_lead_related_attachments.field_crm_lead____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: crm_lead_related_attachments
+#: model:ir.model,name:crm_lead_related_attachments.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: crm_lead_related_attachments
+#: model:ir.model.fields,field_description:crm_lead_related_attachments.field_crm_lead__attachment_count
+msgid "Number of attachments related"
+msgstr "Número de adjuntos relacionados"

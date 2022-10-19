@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="ir_cron_project_status_time_analytics" model="ir.cron">
+        <field name="name">Project-AVG: Upgrade actual time</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True"/>
+        <field name="doall" eval="True"/>
+        <field name="state">code</field>
+        <field name="code">
+            model.search([
+                ('project_status', '!=', False),
+                ('is_template', '=', False),
+                ('project_status.is_closed', '=', False)
+            ])._compute_actual_time()</field>
+        <field name="model_id" ref="model_project_project"/>
+    </record>
+</odoo>
