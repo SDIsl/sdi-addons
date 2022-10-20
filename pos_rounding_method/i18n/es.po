@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_rounding_method
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-20 11:19+0000\n"
+"PO-Revision-Date: 2022-10-20 11:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_rounding_method
+#: model_terms:ir.ui.view,arch_db:pos_rounding_method.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Rounding Method</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr "<span class=\"o_form_label\">Método redondeo</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Los valores establecidos aquí son específicos de la empresa.\" aria-label=\"Los valores establecidos aquí son específicos de la empresa.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+
+#. module: pos_rounding_method
+#: model_terms:ir.ui.view,arch_db:pos_rounding_method.res_config_settings_view_form
+msgid "A rounding per line is advised if your prices are tax-included. That way, the sum of line subtotals equals the total with taxes."
+msgstr "Se aconseja un redondeo por línea si sus precios están incluidos en el impuesto. De esta manera, la suma de subtotales de las línea es igual al total con impuestos."
+
+#. module: pos_rounding_method
+#: model:ir.model,name:pos_rounding_method.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: pos_rounding_method
+#: model_terms:ir.ui.view,arch_db:pos_rounding_method.res_config_settings_view_form
+msgid "How total tax amount is computed in orders and invoices from point of sale."
+msgstr "Cómo se calcula la cantidad total de impuestos en pedidos y facturas del punto de venta."
+
+#. module: pos_rounding_method
+#: code:addons/pos_rounding_method/models/pos_order.py:176
+#, python-format
+msgid "Please define income account for this product: \"%s\" (id:%d)."
+msgstr "Defina por favor la cuenta de ingresos para este producto:\"%s\"(id: %id)."
+
+#. module: pos_rounding_method
+#: selection:res.config.settings,rounding_method:0
+msgid "Round globally"
+msgstr "Redondear globalmente"
+
+#. module: pos_rounding_method
+#: selection:res.config.settings,rounding_method:0
+msgid "Round per line"
+msgstr "Redondear por línea"
+
+#. module: pos_rounding_method
+#: model:ir.model.fields,field_description:pos_rounding_method.field_res_config_settings__rounding_method
+msgid "Rounding Method"
+msgstr "Método redondeo"
+
+#. module: pos_rounding_method
+#: code:addons/pos_rounding_method/models/pos_order.py:30
+#, python-format
+msgid "Selected orders do not have the same session!"
+msgstr "¡Los pedidos seleccionados no tienen la misma sesión!"
+
+#. module: pos_rounding_method
+#: code:addons/pos_rounding_method/models/pos_order.py:233
+#, python-format
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: pos_rounding_method
+#: code:addons/pos_rounding_method/models/pos_order.py:149
+#, python-format
+msgid "The POS order must have lines when calling this method"
+msgstr "La orden TPV debe tener líneas cuando llama a este método"
+
+#. module: pos_rounding_method
+#: code:addons/pos_rounding_method/models/pos_order.py:266
+#, python-format
+msgid "Trade Receivables"
+msgstr "Créditos por ventas"
