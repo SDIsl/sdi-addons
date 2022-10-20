@@ -34,8 +34,8 @@ msgstr "Opciones de Configuración"
 
 #. module: pos_rounding_method
 #: model_terms:ir.ui.view,arch_db:pos_rounding_method.res_config_settings_view_form
-msgid "How total tax amount is computed in orders and invoices from point of sale."
-msgstr "Cómo se calcula la cantidad total de impuestos en pedidos y facturas del punto de venta."
+msgid "How total tax amount is computed in orders from point of sale."
+msgstr "Cómo se calcula la cantidad total de impuestos en pedidos del punto de venta."
 
 #. module: pos_rounding_method
 #: code:addons/pos_rounding_method/models/pos_order.py:176
