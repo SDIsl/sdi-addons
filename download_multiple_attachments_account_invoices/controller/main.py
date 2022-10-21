@@ -34,7 +34,7 @@ class Binary(http.Controller):
                     continue
                 attach_name = attachment_id.name.rsplit('.', 1)
                 file_name = invoice.date_invoice.strftime('%d_%m_%Y')
-                file_name += ' - ' + invoice.reference
+                file_name += ' - ' + (invoice.reference or '')
                 if invoice.reference != attach_name[0]:
                     file_name += _('- Review - ') + attach_name[0]
                 file_name += '.%s' % attach_name[-1]
