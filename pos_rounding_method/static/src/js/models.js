@@ -1,53 +1,12 @@
-odoo.define('pos_ronding_method_point_of_sale.models', function (require) {
+odoo.define('pos_rounding_method_point_of_sale.models', function (require) {
     "use strict";
 
-    var core = require('web.core');
-    var utils = require('web.utils');
-    var pos_models = require('point_of_sale.models')
+    var models = require('point_of_sale.models')
+    var round_pr = require('web.utils').round_precision;
 
-    var _t = core._t;
-    var round_pr = utils.round_precision;
+    models.load_fields('pos.config', ['rounding_method']);
 
-    models.load_models(
-        [
-            {
-                model: 'res.company',
-                fields: ['currency_id', 'email', 'website', 'company_registry', 'vat', 'name', 'phone', 'partner_id', 'country_id'],
-                ids: function (self) { return [self.user.company_id[0]]; },
-                loaded: function (self, companies) { self.company = companies[0]; },
-            }, {
-                model: 'pos.config',
-                fields: ['rounding_method'],
-                domain: function (self) { return [['id', '=', self.pos_session.config_id[0]]]; },
-                loaded: function (self, configs) {
-                    self.config = configs[0];
-                    self.config.use_proxy = self.config.iface_payment_terminal ||
-                        self.config.iface_electronic_scale ||
-                        self.config.iface_print_via_proxy ||
-                        self.config.iface_scan_via_proxy ||
-                        self.config.iface_cashdrawer ||
-                        self.config.iface_customer_facing_display;
-
-                    if (self.config.company_id[0] !== self.user.company_id[0]) {
-                        throw new Error(_t("Error: The Point of Sale User must belong to the same company as the Point of Sale. You are probably trying to load the point of sale as an administrator in a multi-company setup, with the administrator account set to the wrong company."));
-                    }
-
-                    self.db.set_uuid(self.config.uuid);
-                    self.set_cashier(self.get_cashier());
-                    // We need to do it here, since only then the local storage has the correct uuid
-                    self.db.save('pos_session_id', self.pos_session.id);
-
-                    var orders = self.db.get_orders();
-                    for (var i = 0; i < orders.length; i++) {
-                        self.pos_session.sequence_number = Math.max(self.pos_session.sequence_number, orders[i].data.sequence_number + 1);
-                    }
-                },
-            },
-        ],
-        { 'after': 'pos.config' }
-    );
-
-    pos_models.OrderLine = pos_models.OrderLine.extend({
+    models.Orderline = models.Orderline.extend({
         compute_all: function (taxes, price_unit, quantity, currency_rounding, no_map_tax) {
             var self = this;
             var list_taxes = [];
@@ -104,7 +63,7 @@ odoo.define('pos_ronding_method_point_of_sale.models', function (require) {
         }
     });
 
-    pos_models.Order = pos_models.Order.extend({
+    models.Order = models.Order.extend({
         get_total_tax: function () {
             if (this.pos.config.rounding_method === "round_globally") {
                 // As always, we need:
