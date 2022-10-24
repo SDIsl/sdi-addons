@@ -21,7 +21,7 @@
     'name': 'Pos Rounding Method',
     'summary': '''Adds a rounding method parameter on the POS configuration to
         apply it in the POS orders and invoices.''',
-    'author': 'Valentín Castravete Georgian, SDi Digital Group',
+    'author': 'Valentín Castravete, Jorge Quinteros, SDi Digital Group',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Point Of Sale',

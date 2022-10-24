@@ -4,14 +4,55 @@ odoo.define('pos_rounding_method_point_of_sale.models', function (require) {
     var models = require('point_of_sale.models')
     var round_pr = require('web.utils').round_precision;
 
-    models.load_fields('pos.config', ['rounding_method']);
+    models.load_models({
+        model: 'res.config.settings',
+        fields: ['rounding_method'],
+        loaded: function(self, configs) {
+            self.pos_rounding_method = configs[configs.length - 1].rounding_method;
+        },
+    });
 
     models.Orderline = models.Orderline.extend({
+        _map_tax_fiscal_position: function(tax) {
+            var current_order = this.pos.get_order();
+            var order_fiscal_position = current_order && current_order.fiscal_position;
+    
+            if (order_fiscal_position) {
+                var mapped_tax = _.find(order_fiscal_position.fiscal_position_taxes_by_id, function (fiscal_position_tax) {
+                    return fiscal_position_tax.tax_src_id[0] === tax.id;
+                });
+    
+                if (mapped_tax) {
+                    tax = this.pos.taxes_by_id[mapped_tax.tax_dest_id[0]];
+                }
+            }
+    
+            return tax;
+        },
+        _compute_all: function(tax, base_amount, quantity) {
+            if (tax.amount_type === 'fixed') {
+                var sign_base_amount = Math.sign(base_amount) || 1;
+                // Since base amount has been computed with quantity
+                // we take the abs of quantity
+                // Same logic as bb72dea98de4dae8f59e397f232a0636411d37ce
+                return tax.amount * sign_base_amount * Math.abs(quantity);
+            }
+            if ((tax.amount_type === 'percent' && !tax.price_include) || (tax.amount_type === 'division' && tax.price_include)){
+                return base_amount * tax.amount / 100;
+            }
+            if (tax.amount_type === 'percent' && tax.price_include){
+                return base_amount - (base_amount / (1 + tax.amount / 100));
+            }
+            if (tax.amount_type === 'division' && !tax.price_include) {
+                return base_amount / (1 - tax.amount / 100) - base_amount;
+            }
+            return false;
+        },
         compute_all: function (taxes, price_unit, quantity, currency_rounding, no_map_tax) {
             var self = this;
             var list_taxes = [];
             var currency_rounding_bak = currency_rounding;
-            if (this.pos.config.rounding_method == "round_globally") {
+            if (this.pos.pos_rounding_method === "round_globally") {
                 currency_rounding = currency_rounding * 0.00001;
             }
             var total_excluded = round_pr(price_unit * quantity, currency_rounding);
@@ -65,7 +106,7 @@ odoo.define('pos_rounding_method_point_of_sale.models', function (require) {
 
     models.Order = models.Order.extend({
         get_total_tax: function () {
-            if (this.pos.config.rounding_method === "round_globally") {
+            if (this.pos.pos_rounding_method === "round_globally") {
                 // As always, we need:
                 // 1. For each tax, sum their amount across all order lines
                 // 2. Round that result
