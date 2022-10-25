@@ -7,8 +7,10 @@ odoo.define('pos_rounding_method_point_of_sale.models', function (require) {
     models.load_models({
         model: 'res.config.settings',
         fields: ['rounding_method'],
-        loaded: function(self, configs) {
-            self.pos_rounding_method = configs[configs.length - 1].rounding_method;
+        loaded: function(self, configs=false) {
+            if (configs && configs.rounding_method) {
+                self.pos_rounding_method = configs[configs.length - 1].rounding_method;
+            }
         },
     });
 
