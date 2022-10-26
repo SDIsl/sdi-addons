@@ -31,7 +31,7 @@ class PosOrder(models.Model):
 
         grouped_data = {}
         have_to_group_by = session and session.config_id.group_by or False
-        get_param = self.env["ir.config_parameter"].sudo().get_param
+        get_param = self.env['ir.config_parameter'].sudo().get_param
         rounding_method = get_param(
             'pos_rounding_method.rounding_method', session and
             session.config_id.company_id.tax_calculation_rounding_method)
@@ -40,7 +40,7 @@ class PosOrder(models.Model):
             Product = self.env['product.product']
             Analytic = self.env['account.analytic.account']
             for product_key in list(grouped_data.keys()):
-                if product_key[0] == "product":
+                if product_key[0] == 'product':
                     for line in grouped_data[product_key]:
                         product = Product.browse(line['product_id'])
                         # In the SO part, the entries will be inverted by
@@ -263,7 +263,7 @@ class PosOrder(models.Model):
             receivable_amounts = order._get_amount_receivable(move_lines)
 
             data = {
-                'name': _("Trade Receivables"),  # order.name,
+                'name': _('Trade Receivables'),  # order.name,
                 'account_id': order_account,
                 'credit': ((receivable_amounts['amount'] < 0) and
                            -receivable_amounts['amount']) or 0.0,
