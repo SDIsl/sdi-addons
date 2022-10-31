@@ -538,7 +538,7 @@
                                    <t t-set="category_total" t-value="0 + doc.annual_amount(line.price_unit, line.product_uom)"/>
                                 </t>
                                 <t t-else="else">
-                                    <t t-set="category_total" t-value="category_total + doc.annual_untaxed_amount_subtotal(line.price_unit, line.product_uom)"/>
+                                    <t t-set="category_total" t-value="category_total + doc.annual_amount(line.price_unit, line.product_uom)"/>
                                 </t>
                             </t>
                         </t>
