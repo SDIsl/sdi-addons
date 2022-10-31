@@ -14,3 +14,13 @@ class SaleOrder(models.Model):
     def set_date_signature(self):
         for record in self:
             record.date_signature = fields.datetime.now()
+
+    def annual_amount(self, qty, from_unit):
+        to_unit = self.env.ref('contract_sale_uom.uom_annual')
+        if not from_unit or not qty:
+            return qty
+        if from_unit == to_unit:
+            amount = qty
+        else:
+            amount = qty * from_unit.factor * to_unit.factor_inv
+        return amount

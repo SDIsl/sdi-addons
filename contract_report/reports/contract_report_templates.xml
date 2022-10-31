@@ -532,13 +532,13 @@
                         <t t-foreach="doc.order_line" t-as="line">
                             <t t-if="category.id==line.categ_id.id and unit.id==line.unit_id.id">
                                 <t t-if="line.price_subtotal == 0 and category_total == -1">
-                                    <t t-set="category_total" t-value="line.price_subtotal"/>
+                                    <t t-set="category_total" t-value="doc.annual_amount(line.price_unit, line.product_uom)"/>
                                 </t>
                                 <t t-if="category_total == -1">
-                                   <t t-set="category_total" t-value="0 + line.price_subtotal"/>
+                                   <t t-set="category_total" t-value="0 + doc.annual_amount(line.price_unit, line.product_uom)"/>
                                 </t>
                                 <t t-else="else">
-                                    <t t-set="category_total" t-value="category_total + line.price_subtotal"/>
+                                    <t t-set="category_total" t-value="category_total + doc.annual_amount(line.price_unit, line.product_uom)"/>
                                 </t>
                             </t>
                         </t>
