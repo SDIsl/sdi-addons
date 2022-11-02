@@ -21,7 +21,7 @@
     'name': 'Account Invoice Origin Link Contracts',
     'summary': '''Loads a many2one field to have easy access to the original
     contract which creates the invoice ''',
-    'author': 'Miguel Lucendo, SDi Soluciones Informáticas',
+    'author': 'Miguel Lucendo, Alberto Martínez, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Accounting',
