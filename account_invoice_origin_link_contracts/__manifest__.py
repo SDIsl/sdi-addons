@@ -18,7 +18,7 @@
 #
 ###############################################################################
 {
-    'name': 'Account Invoice Origin Link',
+    'name': 'Account Invoice Origin Link Contracts',
     'summary': '''Loads a many2one field to have easy access to the original
     contract which creates the invoice ''',
     'author': 'Miguel Lucendo, SDi Soluciones Informáticas',
