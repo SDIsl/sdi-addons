@@ -23,7 +23,8 @@ class MailTemplate(models.Model):
         """
         self.ensure_one()
         multi_mode = True
-        results = super(MailTemplate, self).generate_email(res_ids, fields=fields)
+        results = super(MailTemplate, self).generate_email(
+            res_ids, fields=fields)
         if not self.template_report_ids:
             return results
         if isinstance(res_ids, int):
@@ -46,7 +47,8 @@ class MailTemplate(models.Model):
                     res = report.render([res_id])
                     if not res:
                         raise exceptions.UserError(
-                            _("Unsupported report type %s found.") % report.report_type
+                            _("Unsupported report type %s found.") %
+                            report.report_type
                         )
                     result, report_format = res
                 result = base64.b64encode(result)

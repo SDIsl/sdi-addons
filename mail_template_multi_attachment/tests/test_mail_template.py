@@ -30,7 +30,8 @@ class TestMailTemplate(SavepointCase):
                 (
                     0,
                     False,
-                    {"report_template_id": cls.report2.id, "report_name": "Report 2"},
+                    {"report_template_id": cls.report2.id,
+                     "report_name": "Report 2"},
                 ),
             ],
         }
@@ -62,6 +63,7 @@ class TestMailTemplate(SavepointCase):
         works
         :return:
         """
-        self.mail_template.write({"report_template": False, "report_name": False})
+        self.mail_template.write({
+            "report_template": False, "report_name": False})
         results = self.mail_template.generate_email(self.partner.id)
         self.assertEqual(1, len(results.get("attachments")))
