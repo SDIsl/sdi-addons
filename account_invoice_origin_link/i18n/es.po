@@ -16,30 +16,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_invoice_origin_link
-#: model:ir.model,name:account_invoice_origin_link.model_contract_contract
-msgid "Contract"
-msgstr "Contrato"
-
-#. module: account_invoice_origin_link
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_move__display_name
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_contract_contract__display_name
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_sale_order__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: account_invoice_origin_link
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_bank_statement_line__related_contract_id
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_bank_statement_line__related_sale_id
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_move__related_contract_id
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_move__related_sale_id
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_payment__related_contract_id
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_payment__related_sale_id
 msgid "Document Link"
 msgstr "Enlace al documento"
 
 #. module: account_invoice_origin_link
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_move__id
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_contract_contract__id
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_sale_order__id
 msgid "ID"
 msgstr ""
@@ -51,7 +41,6 @@ msgstr "Asiento contable"
 
 #. module: account_invoice_origin_link
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_account_move____last_update
-#: model:ir.model.fields,field_description:account_invoice_origin_link.field_contract_contract____last_update
 #: model:ir.model.fields,field_description:account_invoice_origin_link.field_sale_order____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
