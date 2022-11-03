@@ -7,7 +7,7 @@ from odoo import models, fields
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    related_sale_id = fields.Many2one(
-        comodel_name='sale.order',
+    related_contract_id = fields.Many2one(
+        comodel_name='contract.contract',
         string='Document Link',
     )

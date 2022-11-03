@@ -18,17 +18,17 @@
 #
 ###############################################################################
 {
-    'name': 'Account Invoice Origin Link',
+    'name': 'Account Invoice Origin Link Contracts',
     'summary': '''Loads a many2one field to have easy access to the original
-    document which creates the invoice ''',
-    'author': 'Miguel Lucendo, SDi Soluciones Informáticas',
+    contract which creates the invoice ''',
+    'author': 'Miguel Lucendo, Alberto Martínez, SDi Soluciones Informáticas',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Accounting',
     'version': '14.0.1.0.0',
     'depends': [
-        'account',
-        'sale',
+        'account_invoice_origin_link',
+        'contract',
     ],
     'data': [
         'views/account_move_views.xml',

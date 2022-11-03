@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <field name="invoice_origin" position="after">
-                <field name="related_sale_id" readonly="1" attrs="{'invisible': [('related_sale_id', '=', False)]}"/>
+                <field name="related_contract_id" readonly="1" attrs="{'invisible': [('related_contract_id', '=', False)]}"/>
             </field>
         </field>
     </record>
