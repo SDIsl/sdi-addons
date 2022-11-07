@@ -21,7 +21,7 @@
     'name': 'Partner Phone2 Validation',
     'summary': 'Validate the number phone of phone2 field',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Extra Tools',
     'version': '12.0.1.0.0',

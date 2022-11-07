@@ -21,7 +21,7 @@
     'name': 'Mail Private No Published',
     'summary': 'All messages from the private channel will not be published.',
     'author': 'Oscar Soto, SDi Soluciones Informáticas',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Portal',
     'version': '12.0.1.0.0',

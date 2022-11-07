@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view" >
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           <field name="note" position="after">
+                <div>
+                    <group class="oe_left" colspan="2" name="total_qtys">
+                        <field name="total_ordered_qty"/>
+                        <field name="total_delivered_qty"/>
+                        <field name="total_invoiced_qty"/>
+                    </group>
+                </div>
+           </field>
+        </field>
+    </record>
+</odoo>

@@ -21,7 +21,7 @@
     'name': 'OpenApi Token Send Warning',
     'summary': 'Send warning when the OpenAPI token change.',
     'author': 'Óscar Soto Ochoa, SDi Soluciones Informáticas',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'version': '12.0.1.0.0',
     'depends': [

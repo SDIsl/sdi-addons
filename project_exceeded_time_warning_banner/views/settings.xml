@@ -1,0 +1,29 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10" />
+        <field name="inherit_id" ref="project.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='project_time']" position="after">
+                <div data-string="Warning Project Balance" string="Warning Project Balance" data-key="project_warning_banner">
+                    <h2>Warning Message</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box" title="">
+                            <div class="o_setting_right_pane">
+                                <label for="warning_message" />
+                                <div class="text-muted">
+                                   Warning message if project balance is negative
+                                </div>
+                                <div class="content-group">
+                                    <div >
+                                        <field name="warning_message"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -22,7 +22,7 @@
     'summary': '''Add the posibility of change tracking ID key to
         avoid a flag in SpamAssassin''',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Social',
     'version': '12.0.1.0.0',

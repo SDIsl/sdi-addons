@@ -21,7 +21,7 @@
     'name': 'Message Auto Subscribe Avoid Notification',
     'summary': 'Avoid notification when you are assigned to document',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Digitales',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Social',
     'version': '12.0.1.0.0',

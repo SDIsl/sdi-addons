@@ -21,7 +21,7 @@
     'name': 'Partner Mass Mailing Blacklist',
     'summary': 'Add button in partner form view to add email to blacklist',
     'author': 'Jorge Luis Quinteros, SDi Soluciones Informáticas',
-    'website': 'https://sdi.web.sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'LGPL-3',
     'category': 'Mail',
     'version': '12.0.1.0.0',

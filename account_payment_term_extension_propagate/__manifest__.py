@@ -6,7 +6,7 @@
         Makes holiday payment term for next year
         """,
     'author': "Sergio Lop <SDi Group>",
-    'website': "https://www.sdi.es/odoo",
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'category': 'Payment',
     'version': '12.0.0.1',
     'depends': ['account_payment_term_extension'],

@@ -22,7 +22,7 @@
     'summary': '''Allow you to click on a button and open the full project
          form while watching project kanban view.''',
     'author': 'Valentín Georgian Castravete, SDi Soluciones Digitales',
-    'website': 'https://sdi.es/odoo/',
+    'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Project',
     'version': '12.0.1.0.1',

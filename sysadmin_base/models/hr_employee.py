@@ -10,6 +10,12 @@ class HrEmployee(models.Model):
     has_voip_switchboard_access = fields.Boolean(
         string='Has VoIP Switchboard access',
     )
+    has_keys = fields.Boolean(
+        string='Has Keys',
+    )
+    has_alarm = fields.Boolean(
+        string='Alarm',
+    )
     is_trainee = fields.Boolean(
         string='Is trainee',
     )
@@ -26,10 +32,8 @@ class HrEmployee(models.Model):
         string='Items',
         store=True,
     )
-    item_count = fields.Integer(
-        string="Item Count",
-        compute="_compute_item_count",
-    )
+    item_count = fields.Integer(string="Item Count",
+                                compute="_compute_item_count",)
 
     @api.one
     def _compute_item_count(self):
@@ -38,7 +42,7 @@ class HrEmployee(models.Model):
             self.item_count += 1
 
     def button_employee_items(self):
-        return{
+        return {
             'name': _('Items'),
             'view_mode': 'tree,form',
             'res_model': 'workspace.item',

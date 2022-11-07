@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="action_create_invoices" model="ir.actions.server">
+        <field name="name">Create invoices massively</field>
+        <field name="model_id" ref="contract.model_contract_contract"/>
+        <field name="binding_model_id" ref="contract.model_contract_contract"/>
+        <field name="state">code</field>
+        <field name="code">
+for contract in records:
+    if contract.create_invoice_visibility:
+        contract.recurring_create_invoice()
+        </field>
+    </record>
+</odoo>

@@ -123,7 +123,7 @@
     </h3>
     <t t-call="contract_report.customer_info"/>
     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
-    <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7] and l.unit_id.company_id == company)">
+    <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7,11] and l.unit_id.company_id == company)">
         <t t-set="index_title" t-value="index_title +1"/>
         <h5 class="mt16"><span t-esc="index_title"/>. Summary of Products and Services</h5>
         <table class="table table-sm o_main_table">
@@ -149,7 +149,7 @@
                 <t t-set="current_amount_total" t-value="0"/>
                 <t t-foreach="doc.order_line" t-as="line">
                     <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
-                        <t t-if="not line.display_type and line.product_id.categ_id.id not in [5, 7] and line.unit_id.company_id == company">
+                        <t t-if="not line.display_type and line.product_id.categ_id.id not in [5, 7, 11] and line.unit_id.company_id == company">
                             <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"/>
                             <t t-set="current_amount_discount" t-value="current_amount_discount + line.product_uom_qty * line.price_unit - line.price_subtotal"/>
                             <t t-set="current_taxes_amount_line" t-value="current_taxes_amount_line + line.price_tax"/>
@@ -184,7 +184,7 @@
                                 <span t-field="line.name"/>
                             </td>
                         </t>
-                        <t t-if="not line_last and line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.categ_id.id not in [5, 7] and doc.order_line[line_index+1].unit_id.company_id == company">
+                        <t t-if="not line_last and line.display_type in ['line_section', 'line_note'] and doc.order_line[line_index+1].product_id.categ_id.id not in [5, 7, 11] and doc.order_line[line_index+1].unit_id.company_id == company">
                             <td colspan="99">
                                 <span t-field="line.name"/>
                             </td>
@@ -382,7 +382,7 @@
                 <t t-set="current_amount_total" t-value="0"/>
                 <t t-foreach="doc.order_line" t-as="line">
                     <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
-                        <t t-if="not line.display_type and line.product_id.categ_id.id in [5, 7] and line.product_id.property_contract_template_id == contract">
+                        <t t-if="not line.display_type and line.product_id.categ_id.id in [5, 7, 11] and line.product_id.property_contract_template_id == contract">
                             <t t-set="maitenance_current_subtotal" t-value="maitenance_current_subtotal + line.price_subtotal"/>
                             <t t-set="current_amount_discount" t-value="current_amount_discount + line.product_uom_qty * line.price_unit - line.price_subtotal"/>
                             <t t-set="current_taxes_amount_line" t-value="current_taxes_amount_line + line.price_tax"/>
@@ -562,6 +562,66 @@
         <div class="float-right m-0 p-0" style="font-size: xx-small;">VAT not included</div>
     </div>
 </template>
+<template id="contract_summary_prices_maintenance">
+    <div>
+        <table class="table table-sm o_main_table mb-0">
+            <thead>
+                <tr>
+                    <th class="text-left" style="width: 82%;">Description</th>
+                    <th class="text-right" style="width: 18%;">Amount</th>
+                </tr>
+            </thead>
+            <tbody class="sale_tbody">
+                <t t-foreach="units" t-as="unit">
+                    <t t-set="show_once" t-value="False"/>
+                    <t t-foreach="doc.order_line" t-as="line">
+                        <t t-if="not show_once">
+                            <t t-if="line.categ_id.id in payment_categories and unit.id==line.unit_id.id">
+                                <t t-set="show_once" t-value="True"/>
+                                <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                                    <td colspan="99">
+                                        <strong><span t-field="unit.name"/></strong>
+                                        <br/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </t>
+                    <t t-foreach="set(payment_line_categories)" t-as="category">
+                        <t t-set="category_total" t-value="-1"/>
+                        <t t-foreach="doc.order_line" t-as="line">
+                            <t t-if="category.id==line.categ_id.id and unit.id==line.unit_id.id">
+                                <t t-if="line.price_subtotal == 0 and category_total == -1">
+                                    <t t-set="category_total" t-value="doc.annual_amount(line.price_unit, line.product_uom)"/>
+                                </t>
+                                <t t-if="category_total == -1">
+                                   <t t-set="category_total" t-value="0 + doc.annual_amount(line.price_unit, line.product_uom)"/>
+                                </t>
+                                <t t-else="else">
+                                    <t t-set="category_total" t-value="category_total + doc.annual_amount(line.price_unit, line.product_uom)"/>
+                                </t>
+                            </t>
+                        </t>
+                        <t t-if="category_total &gt; -1">
+                            <tr>
+                                <td class="text-left">
+                                    <span t-esc="category.name"/>
+                                </td>
+                                <td class="text-right o_price_total">
+                                    <span
+                                        t-esc="category_total"
+                                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                    /><t t-esc="per_year"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </t>
+            </tbody>
+        </table>
+        <div class="float-right m-0 p-0" style="font-size: xx-small;">VAT not included</div>
+    </div>
+</template>
 <template id="contract_summary">
     <t t-set="units" t-value="doc.mapped('sale_order_unit_id')"/>
     <div>
@@ -582,7 +642,7 @@
     <t t-foreach="units" t-as="unit">
         <t t-foreach="doc.order_line" t-as="line">
             <t t-if="line.categ_id and unit.id==line.unit_id.id">
-                <t t-if="line.categ_id and line.categ_id.id in [5, 7]" t-set="recurring_payment_line_categories" t-value="recurring_payment_line_categories+[line.categ_id]"/>
+                <t t-if="line.categ_id and line.categ_id.id in [5, 7, 11]" t-set="recurring_payment_line_categories" t-value="recurring_payment_line_categories+[line.categ_id]"/>
             </t>
         </t>
     </t>
@@ -599,10 +659,10 @@
         <div>
             <h5 class="mt-2"><span style="color:#e96f06;">Maintenance and/or Subscriptions</span> (recurring payment)</h5> 
         </div>
-        <t t-set="payment_categories" t-value="[5, 7]"/>
+        <t t-set="payment_categories" t-value="[5, 7, 11]"/>
         <t t-set="payment_line_categories" t-value="recurring_payment_line_categories"/>
         <t t-set="per_year"> / year</t>
-        <t t-call="contract_report.contract_summary_prices"/>
+        <t t-call="contract_report.contract_summary_prices_maintenance"/>
     </t>
     <div style="page-break-inside:avoid; page-break-after:always; padding-top: 15px;">
         <t t-call="contract_report.signs"/>
@@ -628,7 +688,7 @@
         <div class="page">
             <div class="oe_structure">
                 <t t-call="contract_report.contract_external_layout">
-                    <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7] and l.unit_id.company_id == company)">
+                    <t t-if="doc.order_line.filtered(lambda l: l.product_id.categ_id.id not in [5,7,11] and l.unit_id.company_id == company)">
                         <t t-call="contract_report.summary_services"/>
                     </t>
                     <t t-foreach="contracts" t-as="contract">
