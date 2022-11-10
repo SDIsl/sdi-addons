@@ -19,7 +19,7 @@ class Partner(models.Model):
                 break
         if change_msg:
             message.subject = 'Re: ( %s ) %s' % (record.project_id.name,
-                                               message.record_name)
+                                                 message.record_name)
         return super()._notify(message, rdata, record, force_send,
                                send_after_commit, model_description,
                                mail_auto_delete)
