@@ -20,7 +20,7 @@
 {
     'name': 'Project Name Mail Notification',
     'summary': '''It shows the proyect name in email task notification and in
-        the Conversation project task messages.''',
+        the Discuss project task messages.''',
     'author': '''Darío Sanz, Miguel Lucendo, Valentín Castravete Georgian,
         SDi Digital Group''',
     'website': 'https://sdi.web.sdi.es/odoo/',
