@@ -1,7 +1,7 @@
 ###############################################################################
 #
-#    SDi Soluciones Digitales
-#    Copyright (C) 2022-Today SDi Soluciones Digitales <www.sdi.es>
+#    SDi Digital Group
+#    Copyright (C) 2022-Today SDi Digital Group <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,12 +19,22 @@
 ###############################################################################
 {
     'name': 'Project Name Mail Notification',
-    'summary': 'It shows the proyect name in email task notification',
-    'author': 'Darío Sanz, Miguel Lucendo, SDi Soluciones Digitales',
+    'summary': '''It shows the proyect name in email task notification and in
+        the Conversation project task messages.''',
+    'author': '''Darío Sanz, Miguel Lucendo, Valentín Castravete Georgian,
+        SDi Digital Group''',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'Discuss',
     'version': '12.0.1.0.0',
-    'depends': ['mail'],
-
+    'depends': [
+        'mail',
+        'project'
+    ],
+    'data': [
+        'views/assets.xml'
+    ],
+    'qweb': [
+        'static/src/xml/thread.xml',
+    ]
 }

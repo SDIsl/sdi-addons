@@ -1,4 +1,7 @@
-from odoo import models, api
+###############################################################################
+# For copyright and license notices, see __manifest__.py file in root directory
+###############################################################################
+from odoo import api, models
 
 
 class Partner(models.Model):
@@ -8,23 +11,15 @@ class Partner(models.Model):
     def _notify(self, message, rdata, record, force_send=False,
                 send_after_commit=True, model_description=False,
                 mail_auto_delete=True):
-
-        projectpick = self.env['project.task'].search(
-            [('name', 'ilike', message.record_name)])
-
-        for records in projectpick:
-            if records:
-                message.subject = message.subject or (
-                    message.record_name and 'Re: [%s] %s' % (
-                        record.project_id.name, message.record_name
-                    )
-                )
-            else:
-                message.subject = message.subject or (
-                    message.record_name and 'Re: %s' % message.record_name
-                )
-
+        change_msg = True
+        for type in [user.get('type', '') for user in rdata]:
+            if type != 'user' or not record or not record.project_id or \
+                    not message.record_name or message.subject:
+                change_msg = False
+                break
+        if change_msg:
+            message.subject = 'Re: [%s] %s' % (record.project_id.name,
+                                               message.record_name)
         return super()._notify(message, rdata, record, force_send,
                                send_after_commit, model_description,
-                               mail_auto_delete
-                               )
+                               mail_auto_delete)
