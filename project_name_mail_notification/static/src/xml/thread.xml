@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<template xml:space="preserve">
+    <t t-extend="mail.widget.Thread.Message">
+        <t t-jquery="a.o_document_link" t-operation="attributes">
+            <attribute name="class">o_document_link font-weight-bold</attribute>
+        </t>
+        <t t-jquery="a.o_document_link" t-operation="before">
+            <t t-if="message.hasProjectTask()"><a t-att-href="message.getURL()" data-oe-model="project.project" t-att-data-oe-id="message.getProjectID()" class="o_document_link"><t t-esc="message.getProjectName()"/></a></t>
+        </t>
+    </t>
+</template>
