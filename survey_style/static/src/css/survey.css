@@ -1,0 +1,12 @@
+.js_question-wrapper {
+    margin-bottom: 50px;
+}
+
+.js_question-wrapper>h2 {
+    font-size: 1.4rem;
+}
+
+.row {
+    margin-top: 15px;
+    row-gap: 10px;
+}
