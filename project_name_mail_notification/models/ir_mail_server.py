@@ -26,10 +26,10 @@ class IrMailServer(models.Model):
                     internal_users = emailed_users.filtered(
                         lambda user: user.has_group('base.group_user'))
                     if len(emailed_users.ids) == len(internal_users.ids):
-                        subject = 'Re: %s - ' % (record.name)
+                        subject = 'Re: %s' % (record.name)
                         if rec_model == 'project.task':
-                            subject += '( %s )' % (record.project_id.name)
-                        subject += '%s' % (record.partner_id.name)
+                            subject += ' ( %s )' % (record.project_id.name)
+                        subject += ' - %s' % (record.partner_id.name)
         return super().build_email(email_from, email_to, subject, body,
                                    email_cc, email_bcc, reply_to, attachments,
                                    message_id, references, object_id, subtype,
