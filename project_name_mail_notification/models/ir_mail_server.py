@@ -12,13 +12,16 @@ class IrMailServer(models.Model):
                     message_id=None, references=None, object_id=False,
                     subtype='plain', headers=None, body_alternative=None,
                     subtype_alternative='plain'):
-        object = object_id.split('-')
-        rec_model = object[1]
-        if email_to and rec_model in ['project.task', 'project.project']:
+        object = object_id.split('-') if object_id and \
+            isinstance(object_id, str) else []
+        rec_model = object[1] if object and len(object) > 1 else False
+        if rec_model and email_to and \
+                rec_model in ['project.task', 'project.project']:
             rec_id = object[0]
             record = self.env[rec_model].search([('id', '=', rec_id)])
             if record and subject == 'Re: %s' % (record.name):
-                emails = [email.rsplit(' ', 1)[-1][1:-1] for email in email_to]
+                emails = [email.rsplit(' ', 1)[-1][1:-1]
+                          for email in email_to]
                 emailed_users = self.env['res.users'].search([
                     ('partner_id.email', 'in', emails),
                 ])
