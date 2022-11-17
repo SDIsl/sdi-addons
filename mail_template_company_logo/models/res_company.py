@@ -8,5 +8,5 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     url_logo = fields.Char(
-        string='URL Logo'
+        string='URL Logo',
     )
