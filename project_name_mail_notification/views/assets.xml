@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="assets_backend" name="project name on message assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/project_name_mail_notification/static/src/js/models/messages/message.js"></script>
+            <script type="text/javascript" src="/project_name_mail_notification/static/src/js/thread_widget.js"></script>
+        </xpath>
+    </template>
+</odoo>

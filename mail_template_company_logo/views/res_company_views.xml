@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="view_company_form" model="ir.ui.view">
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form"/>
+    <field name="arch" type="xml">
+        <notebook position="inside">
+            <page name="mail_template_logo" string="Mail Template Logo" groups="base.group_no_one">
+                <group>
+                    <group name="mail_logo_config">
+                        <field name="url_logo"/>
+                    </group>
+                </group>
+            </page>
+         </notebook>        
+    </field>
+</record>
+</odoo>

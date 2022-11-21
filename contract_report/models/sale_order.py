@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
         for record in self:
             record.date_signature = fields.datetime.now()
 
-    def annual_untaxed_amount_subtotal(self, qty, from_unit):
+    def annual_amount(self, qty, from_unit):
         to_unit = self.env.ref('contract_sale_uom.uom_annual')
         if not from_unit or not qty:
             return qty
