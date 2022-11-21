@@ -9,7 +9,9 @@ class CrmLeadLost(models.TransientModel):
 
     @api.multi
     def action_lost_reason_apply(self):
-        leads = self.env['crm.lead'].browse(self.env.context.get('active_ids'))
-        for lead in leads:
-            lead.order_ids.action_cancel()
+        self.env['sale.order'].search([
+            ('opportunity_id', '=', self.env.user.id),
+            ('user_id', '!=', self.env.user.id),
+            ('state', '!=', 'cancel')
+        ])
         super().action_lost_reason_apply()
