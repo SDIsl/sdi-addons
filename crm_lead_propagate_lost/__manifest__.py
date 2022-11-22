@@ -20,7 +20,7 @@
 {
     'name': 'CRM Lead Propagate Lost',
     'summary': 'Auto cancelation of the sales order of losts CRM leads.',
-    'author': 'Alberto Martínez, SDi Digital Group',
+    'author': 'Alberto Martínez Rodríguez, SDi Digital Group',
     'website': 'https://sdi.es/odoo/',
     'license': 'AGPL-3',
     'category': 'CRM',
