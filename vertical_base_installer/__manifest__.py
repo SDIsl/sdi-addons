@@ -26,6 +26,7 @@
     'category': 'Vertical',
     'version': '12.0.1.0.0',
     'depends': [
+        'auditlog',
         'disable_odoo_online',
         'mail_debrand',
         'mass_editing',
