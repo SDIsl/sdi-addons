@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//button[@name='toggle_active']" position="before">
                 <button class="oe_stat_button" type="action" name="%(mail_activity_board.open_boards_activities)d"
-                    icon="fa-check-square-o" title="Activities" context="{'search_default_partner_id': [active_id], 'default_partner_id': active_id}">
+                    icon="fa-check-square-o" title="Activities" context="{'search_default_commercial_partner_id': [commercial_partner_id]}">
                     <field string="Activities" name="activities_count" widget="statinfo"/>
                 </button>
             </xpath>
