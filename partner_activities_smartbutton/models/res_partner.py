@@ -16,6 +16,6 @@ class ResPartner(models.Model):
         model = self.env['mail.activity']
         for partner in self:
             partner.activities_count = model.search_count([
-                ('partner_id', '=', partner.id),
+                ('partner_id', 'child_of', partner.commercial_partner_id.id),
                 ('state', 'not in', ['done'])
             ])
