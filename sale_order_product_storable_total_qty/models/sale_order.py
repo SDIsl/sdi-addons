@@ -31,7 +31,7 @@ class SaleOrder(models.Model):
             total_delivered_qty = 0
             total_invoiced_qty = 0
             for line in order.order_line.filtered(
-                    lambda l: l.product_type == 'product'):
+                    lambda o: o.product_type == 'product'):
                 total_ordered_qty += line.product_uom_qty
                 total_delivered_qty += line.qty_delivered
                 total_invoiced_qty += line.qty_invoiced

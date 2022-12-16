@@ -14,7 +14,7 @@ class ProjectProject(models.Model):
         for project in self:
             project.unclosed_task_count = len(
                 project.task_ids.filtered(
-                    lambda l: l.stage_id.id in closed_types
+                    lambda t: t.stage_id.id in closed_types
                 )
             )
 

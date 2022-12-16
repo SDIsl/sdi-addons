@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    SDi Digital Group
-#    Copyright (C) 2021-Today SDi Digital Group <www.sdi.es>
+#    Copyright (C) 2022-Today SDi Digital Group <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,18 +18,18 @@
 #
 ###############################################################################
 {
-    'name': 'Mail Template Company Logo',
-    'summary': 'Use a URL from company to set de mail template logo ',
-    'author': 'Jorge Luis Quinteros, SDi Digital Group',
+    'name': 'Partner Activities Smartbutton',
+    'summary': 'Add submenu in contracts to list activities',
+    'author': '''Alberto Martínez Rodríguez,
+         SDi Digital Group''',
     'website': 'https://sdi.web.sdi.es/odoo/',
     'license': 'AGPL-3',
-    'category': 'Tools',
+    'category': 'Partner Management',
     'version': '12.0.1.0.0',
     'depends': [
-        'base',
+        'mail_activity_board',
     ],
     'data': [
-        'views/res_company_views.xml',
-        'reports/mail_notification_templates.xml'
+        'views/res_partner_views.xml',
     ],
 }
