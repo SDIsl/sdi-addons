@@ -18,10 +18,12 @@ class APIBase(models.TransientModel):
     @api.model
     def _status_control(self, response: requests.Response):
         if not int(response.status_code) < 400:
+            url = parse.unquote_plus(response.url)
+            content = str(response.content, 'utf8')
             raise UserError(
                 f'Error {response.status_code} ' +
-                _('in API Client') +
-                f' - {response.url}: \n{response.content}'
+                _('in API call') +
+                f':\n{url}: \n\n{content}'
             )
 
     @api.model
@@ -58,7 +60,7 @@ class APIBase(models.TransientModel):
 
         if method not in SUPPORTED_METHODS:
             raise UserError(_('Unsupported method') + f' "{method}" ' +
-                            _('on API Client request.'))
+                            _('in API call') + '.')
         response = None
         if method == 'GET':
             response = requests.get(
