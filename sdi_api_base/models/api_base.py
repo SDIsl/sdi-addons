@@ -80,7 +80,7 @@ class APIBase(models.TransientModel):
                 params=params,
                 headers=headers,
             )
-        self.status_control(response)
+        self._status_control(response)
         return response
 
     @api.model
