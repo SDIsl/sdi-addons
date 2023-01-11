@@ -56,19 +56,14 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: sdi_api_base
-#: code:addons/sdi_api_base/models/api_base.py:0
+#: code:addons/sdi_api_base/models/api_base.py:62
 #, python-format
 msgid "Unsupported method"
 msgstr "Método no soportado"
 
 #. module: sdi_api_base
-#: code:addons/sdi_api_base/models/api_base.py:0
+#: code:addons/sdi_api_base/models/api_base.py:62
+#: code:addons/sdi_api_base/models/api_base.py:23
 #, python-format
-msgid "in API Client"
-msgstr "en el cliente API"
-
-#. module: sdi_api_base
-#: code:addons/sdi_api_base/models/api_base.py:0
-#, python-format
-msgid "on API Client request."
-msgstr "en la petición del cliente API."
+msgid "in API call"
+msgstr "en llamada API"
