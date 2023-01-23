@@ -71,14 +71,14 @@ class APIBase(models.TransientModel):
         if method == 'POST':
             response = requests.post(
                 url,
-                data=data,
+                json=data,
                 params=params,
                 headers=headers,
             )
         if method == 'PUT':
             response = requests.put(
                 url,
-                data=data,
+                json=data,
                 params=params,
                 headers=headers,
             )
