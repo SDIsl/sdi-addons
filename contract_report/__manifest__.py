@@ -34,6 +34,7 @@
         'views/contract_template.xml',
         'views/res_company.xml',
         'views/sale_portal_templates.xml',
+        'views/sale_order.xml',
         'reports/contract_report_templates.xml',
         'reports/contract_report.xml',
     ],
