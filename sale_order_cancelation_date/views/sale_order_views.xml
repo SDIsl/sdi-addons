@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="confirmation_date" position="after">
+                <field name="cancelation_date_real" readonly="1" attrs="{'invisible': [('cancelation_date_real', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+    <record id="sale_order_view_search_inherit_quotation" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <filter name="order_month" position="after">
+                <filter name="group_by_cancelation" string="Cancelation Date" domain="[('state', '=', 'cancel')]" context="{'group_by': 'cancelation_date_real'}" />
+            </filter>
+        </field>
+    </record>
+</odoo>
