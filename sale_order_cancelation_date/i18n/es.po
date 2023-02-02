@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_order_cancelation_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-02 10:56+0000\n"
+"PO-Revision-Date: 2023-02-02 10:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_cancelation_date
+#: model:ir.model.fields,field_description:sale_order_cancelation_date.field_sale_order__cancelation_date_real
+msgid "Cancelation Date"
+msgstr "Fecha de cancelación"
+
+#. module: sale_order_cancelation_date
+#: model:ir.model,name:sale_order_cancelation_date.model_sale_order
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
