@@ -12,7 +12,8 @@ def auto_complete_cancelation_date(cr, registry):
     for sale in env['sale.order'].search([('state', '=', 'cancel')]):
         msg = sale.message_ids.filtered(
             lambda m: m.tracking_value_ids.filtered(
-                lambda t: t.field == 'state'and t.new_value_char == 'Cancelado'
+                lambda t: t.field == 'state'
+                and t.new_value_char == 'Cancelado'
             ))[:1]
         if msg:
             sale.write({
