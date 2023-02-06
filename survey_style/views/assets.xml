@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<odoo>
-    <template id="assets_frontend" name="survey_style assets" inherit_id="web.assets_frontend">
-        <xpath expr="." position="inside">
-            <link href="/survey_style/static/src/css/survey.css" rel="stylesheet" type="text/css"/>
-        </xpath>
-    </template>
-</odoo>

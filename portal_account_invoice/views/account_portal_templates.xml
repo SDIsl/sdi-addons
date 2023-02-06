@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<odoo>
-    <template id="portal_invoice_page" inherit_id="account.portal_invoice_page">
-        <xpath expr="//a[@href='#']" position="attributes">
-            <attribute name="t-if">False</attribute>
-        </xpath>
-    </template>
-</odoo>

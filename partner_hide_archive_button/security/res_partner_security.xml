@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-    <record id="group_can_archive_contacts" model="res.groups">
-        <field name="category_id" ref="base.module_category_extra"/>
-        <field name="name">Archive Contacts</field>
-    </record>
-</odoo>
