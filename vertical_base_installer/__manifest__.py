@@ -26,8 +26,6 @@
     'category': 'Vertical',
     'version': '15.0.1.0.0',
     'depends': [
-        'account_reconciliation_widget',
-        'auditlog',
         'disable_odoo_online',
         'mail_debrand',
         'mass_editing',
