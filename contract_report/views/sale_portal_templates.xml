@@ -31,13 +31,10 @@
             </td>
         </xpath>
         <xpath expr="//table[@id='sales_order_table']//td[3]/div" position="attributes">
-            <attribute name="t-esc">line.price_unit / line.recurrence_factor()</attribute>
-            <attribute name="t-options">'{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'</attribute>
-            <attribute name="t-field"/>
+            <attribute name="t-field">line.external_price_unit</attribute>
         </xpath>
         <xpath expr="//table[@id='sales_order_table']//td[3]/div/t" position="attributes">
-            <attribute name="t-esc">(1-line.discount / 100.0) * line.price_unit / line.recurrence_factor()</attribute>
-            <attribute name="t-options">'{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'</attribute>
+            <attribute name="t-esc">(1-line.discount / 100.0) * line.external_price_unit</attribute>
         </xpath>
         <xpath expr="//table[@id='sales_order_table']//th[2]" position="after">
             <th class="text-right">Recurring Inverval</th>
