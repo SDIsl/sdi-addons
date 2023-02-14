@@ -29,6 +29,7 @@
     'depends': [
         'contract',
         'sale',
+        'contract_sale_recurring_interval',
     ],
     'data': [
         'views/contract_template.xml',

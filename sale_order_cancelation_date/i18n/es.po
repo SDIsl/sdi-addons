@@ -17,6 +17,7 @@ msgstr ""
 
 #. module: sale_order_cancelation_date
 #: model:ir.model.fields,field_description:sale_order_cancelation_date.field_sale_order__cancelation_date_real
+#: model_terms:ir.ui.view,arch_db:sale_order_cancelation_date.sale_order_view_search_inherit_quotation
 msgid "Cancelation Date"
 msgstr "Fecha de cancelación"
 
