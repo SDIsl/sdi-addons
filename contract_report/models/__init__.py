@@ -5,4 +5,3 @@ from . import contract_template
 from . import contract_contract
 from . import res_company
 from . import sale_order
-from . import sale_order_line

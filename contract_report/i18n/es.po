@@ -473,8 +473,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:contract_report.signs
 msgid "sign"
 msgstr "Firma"
-
-#. module: contract_report
-#: model_terms:ir.ui.view,arch_db:contract_report.sale_order_portal_content
-msgid "Recurring Inverval"
-msgstr "Facturar cada"
