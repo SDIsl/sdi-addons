@@ -30,29 +30,5 @@
                 </strong>
             </td>
         </xpath>
-        <xpath expr="//table[@id='sales_order_table']//td[3]/div" position="attributes">
-            <attribute name="t-esc">line.price_unit / line.recurrence_factor()</attribute>
-            <attribute name="t-field"/>
-        </xpath>
-        <xpath expr="//table[@id='sales_order_table']//td[3]/div" position="attributes">
-            <attribute name="t-esc">line.price_unit / line.recurrence_factor()</attribute>
-            <attribute name="t-options">'{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'</attribute>
-            <attribute name="t-field"/>
-        </xpath>
-        <xpath expr="//table[@id='sales_order_table']//td[3]/div/t" position="attributes">
-            <attribute name="t-esc">(1-line.discount / 100.0) * line.price_unit / line.recurrence_factor()</attribute>
-            <attribute name="t-options">'{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'</attribute>
-        </xpath>
-        <xpath expr="//table[@id='sales_order_table']//th[2]" position="after">
-            <th class="text-right">Recurring Inverval</th>
-        </xpath>
-        <xpath expr="//table[@id='sales_order_table']//tbody//td[2]" position="after">
-          <td class="text-right">
-            <t t-if="line.product_id.is_contract">
-              <span class="oe_order_line_price_subtotal" t-field="line.recurring_interval"/>
-              <span class="oe_order_line_price_subtotal" t-field="line.recurring_rule_type"/>
-            </t>
-          </td>
-        </xpath>
     </template>
 </odoo>
