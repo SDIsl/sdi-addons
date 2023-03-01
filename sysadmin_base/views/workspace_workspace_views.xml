@@ -157,8 +157,12 @@
         <field name="model">workspace.workspace</field>
         <field name="arch" type="xml">
             <search string="Workspaces">
-                <filter string="Location" name="workspace_location" context="{'group_by':'location'}"/>
-                <filter string="Workspaces" name="workspace_workspaces" context="{'group_by':'workspace_id'}"/>
+                <field name="name" string="Name" filter_domain="['|', ('name', 'ilike', self), ('location', 'ilike', self)]"/>
+                <field name="description" string="Description" filter_domain="[('description', 'ilike', self)]"/>
+                <group string="Group By" name="groupby">
+                  <filter string="Location" name="workspace_location" context="{'group_by':'location'}"/>
+                  <filter string="Workspaces" name="workspace_workspaces" context="{'group_by':'workspace_id'}"/>
+                </group>
             </search>
         </field>
     </record>

@@ -1,19 +1,96 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* sysadmin_base
+# 	* sysadmin_base
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-24 10:19+0000\n"
-"PO-Revision-Date: 2021-08-24 10:19+0000\n"
+"POT-Creation-Date: 2023-03-01 16:16+0000\n"
+"PO-Revision-Date: 2023-03-01 17:17+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "10 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "12 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "128 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "16 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "1TB-HDD / 512GB-SSD"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "2 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "20 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "24 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "32 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "4 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "48 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "6 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "64 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "8 GB"
+msgstr ""
+
+#. module: sysadmin_base
+#: selection:workspace.item,ram:0
+msgid "96 GB"
+msgstr ""
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
@@ -95,6 +172,13 @@ msgid "Activity State"
 msgstr "Estado de la actividad"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_alarm
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_alarm
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Alarm"
+msgstr "Alarma"
+
+#. module: sysadmin_base
 #: model:ir.model,name:sysadmin_base.model_hr_employee_internal_tools
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
 msgid "Assistant to edit internal tools of employees"
@@ -108,6 +192,11 @@ msgid "Attachment Count"
 msgstr "Conteo de archivos adjuntos"
 
 #. module: sysadmin_base
+#: selection:workspace.item,company:0
+msgid "BETA WEB DESIGN, S.L."
+msgstr ""
+
+#. module: sysadmin_base
 #: model:mail.activity.type,name:sysadmin_base.mail_activity_data_booking
 msgid "Booking"
 msgstr "Reserva"
@@ -116,6 +205,11 @@ msgstr "Reserva"
 #: model:res.groups,name:sysadmin_base.group_sysadmin_booking
 msgid "Booking of Items"
 msgstr "Reserva de elementos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__cpu
+msgid "CPU"
+msgstr ""
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
@@ -167,6 +261,7 @@ msgstr "Fecha"
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__description
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__description
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__description
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
 msgid "Description"
 msgstr "Descripción"
 
@@ -185,7 +280,7 @@ msgid "Does the employee have it?"
 msgstr "¿El empleado lo tiene?"
 
 #. module: sysadmin_base
-#: code:addons/sysadmin_base/models/hr_employee.py:56
+#: code:addons/sysadmin_base/models/hr_employee.py:60
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
 #, python-format
 msgid "Edit Internal Tools"
@@ -269,6 +364,7 @@ msgstr "Información General"
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
 msgid "Group By"
 msgstr "Agrupar por"
 
@@ -278,6 +374,13 @@ msgid "Hardware Properties"
 msgstr "Propiedades de hardware"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_keys
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_keys
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Has Keys"
+msgstr "Tiene llaves"
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_voip_switchboard_access
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_voip_switchboard_access
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
@@ -285,11 +388,25 @@ msgid "Has VoIP Switchboard access"
 msgstr "Tiene acceso a Centralita VoIP"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__id
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__id
+msgid "ID"
+msgstr ""
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__ip
+msgid "IP"
+msgstr ""
+
+#. module: sysadmin_base
 #: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_unread
 #: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_unread
 #: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
 
 #. module: sysadmin_base
 #: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_needaction
@@ -335,7 +452,7 @@ msgstr "Referencia interna"
 #. module: sysadmin_base
 #: sql_constraint:workspace.item:0
 msgid "Internal Reference already exists!"
-msgstr "La referencia interna ya existe"
+msgstr "¡La referencia interna ya existe!"
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
@@ -389,7 +506,7 @@ msgid "Item Count"
 msgstr "Recuento de Elementos"
 
 #. module: sysadmin_base
-#: code:addons/sysadmin_base/models/hr_employee.py:42
+#: code:addons/sysadmin_base/models/hr_employee.py:46
 #: model:ir.actions.act_window,name:sysadmin_base.action_list_items
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__item_ids
 #: model:ir.model.fields,field_description:sysadmin_base.field_product_product__item_count
@@ -410,6 +527,11 @@ msgstr "Elementos"
 #: model:ir.ui.menu,name:sysadmin_base.menu_items_of_employees
 msgid "Items of Employees"
 msgstr "Elementos de empleados"
+
+#. module: sysadmin_base
+#: selection:workspace.item,company:0
+msgid "Kreare Digital S.L."
+msgstr ""
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools____last_update
@@ -477,11 +599,17 @@ msgid "My Workspace Items"
 msgstr "Elementos de mis espacios de trabajo"
 
 #. module: sysadmin_base
+#: selection:workspace.item,company:0
+msgid "NOVOTIC, S.L."
+msgstr ""
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__name
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__name
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
 msgid "Name"
 msgstr "Nombre"
 
@@ -572,6 +700,11 @@ msgid "Products"
 msgstr "Productos"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__ram
+msgid "RAM"
+msgstr ""
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_user_id
 msgid "Responsible User"
 msgstr "Usuario responsable"
@@ -592,12 +725,19 @@ msgid "Serial Number"
 msgstr "Número de Serie"
 
 #. module: sysadmin_base
+#: selection:workspace.item,company:0
+msgid "Sistemas Digitales de Informática S.L."
+msgstr ""
+
+#. module: sysadmin_base
 #: model:ir.model.fields,help:sysadmin_base.field_workspace_item__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr "Estado basado en actividades\n"
+msgstr ""
+"Estado basado en actividades\n"
 "Vencida: la fecha tope ya ha pasado\n"
 "Hoy: La fecha tope es hoy\n"
 "Planificada: futuras actividades."
@@ -616,6 +756,13 @@ msgid "Subsidy"
 msgstr "Subvención"
 
 #. module: sysadmin_base
+#: model:ir.module.category,name:sysadmin_base.module_sysadmin
+#: model:ir.ui.menu,name:sysadmin_base.menu_sysadmin_root
+#: model:res.groups,name:sysadmin_base.group_sysadmin_sysadmin
+msgid "SysAdmin"
+msgstr ""
+
+#. module: sysadmin_base
 #: model:ir.module.category,description:sysadmin_base.module_sysadmin
 msgid "SysAdmin permission"
 msgstr "Permisos de SysAdmin"
@@ -628,7 +775,7 @@ msgstr "Características técnicas"
 #. module: sysadmin_base
 #: model:res.groups,comment:sysadmin_base.group_sysadmin_sysadmin
 msgid "The user will have access to all configuration of SysAdmin."
-msgstr "El usuario podrá acceder a toda la configuración de SysAdmin"
+msgstr "El usuario podrá acceder a toda la configuración de SysAdmin."
 
 #. module: sysadmin_base
 #: selection:workspace.item,activity_state:0
@@ -693,15 +840,11 @@ msgid "Workspaces"
 msgstr "Espacios de trabajo"
 
 #. module: sysadmin_base
-#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_keys
-#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_keys
-#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
-msgid "Has Keys"
-msgstr "Tiene llaves"
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "X.X.X.X"
+msgstr ""
 
 #. module: sysadmin_base
-#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_alarm
-#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_alarm
-#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
-msgid "Alarm"
-msgstr "Alarma"
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "iX-XXXXNN / AMD XXXXX X / etc"
+msgstr ""
