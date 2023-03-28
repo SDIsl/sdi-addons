@@ -36,6 +36,7 @@
         'remove_odoo_enterprise',
         'partner_contact_access_link',
         'web_advanced_search',
+        'web_decimal_numpad_dot',
         'web_refresher',
         'web_no_bubble',
         'web_responsive',
