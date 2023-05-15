@@ -16,6 +16,13 @@ class APIBase(models.TransientModel):
     _description = 'API Base'
 
     @api.model
+    def get_connection(self):
+        connection = self.env['a3erp.api'].search([], limit=1)
+        if not connection:
+            connection = self.env['a3erp.api'].sudo().create({})
+        return connection
+
+    @api.model
     def _status_control(self, response: requests.Response):
         if not int(response.status_code) < 400:
             url = parse.unquote_plus(response.url)
