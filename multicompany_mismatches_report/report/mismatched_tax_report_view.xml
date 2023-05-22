@@ -9,6 +9,9 @@
             <field eval="False" name="view_id"/>
             <field name="domain">[('type','=','out_invoice'),('state', 'in', ['cancel', 'draft']),('number', '!=', False)]</field>
             <field name="context">{'type':'out_invoice', 'journal_type': 'sale'}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('account.invoice_tree_with_onboarding')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('account.invoice_form')})]"/>
             <field name="search_view_id" ref="account.view_account_invoice_filter"/>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
