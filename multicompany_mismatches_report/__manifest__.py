@@ -25,7 +25,7 @@
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Accounting',
-    'version': '12.0.1.0.0',
+    'version': '12.0.2.0.0',
     'depends': [
         'account',
     ],
