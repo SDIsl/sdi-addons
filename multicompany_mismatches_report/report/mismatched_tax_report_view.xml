@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+        <record id="cancelled_invoices" model="ir.actions.act_window">
+            <field name="name">Cancelled Invoices with number</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type','=','out_invoice'),('state', 'in', ['cancel', 'draft']),('number', '!=', False)]</field>
+            <field name="context">{'type':'out_invoice', 'journal_type': 'sale'}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('account.invoice_tree_with_onboarding')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('account.invoice_form')})]"/>
+            <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Congratulations! No matches
+              </p>
+            </field>
+        </record>
+
     <record id="mismatched_tax_report" model="ir.ui.view">
         <field name="name">mismatched.tax.report.tree</field>
         <field name="model">mismatched.tax.report</field>
@@ -30,5 +49,9 @@
             action="action_mismatched_tax_report"
             id="menu_action_mismatched_tax_report"
             parent="account_tax_balance.menu_tax_balances" sequence="1"/>
-
+    <menuitem
+            name="Invoices not validated with number"
+            action="cancelled_invoices"
+            id="menu_action_cancelled_invoices"
+            parent="account_tax_balance.menu_tax_balances" sequence="1"/>
 </odoo>
