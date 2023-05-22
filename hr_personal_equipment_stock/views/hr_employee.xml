@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_employee_form_view">
+        <field name="name">hr.employee.form (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']" position="after">
+                <page name="personal_equipment" string="Employee Personal Equipment">
+                    <field name="personal_equipment_ids">
+                        <tree string="Employee Personal Equipment" create="0" edit="0" delete="0">
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="start_date"/>
+                            <field name="state"/>
+                            <field name="equipment_request_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
