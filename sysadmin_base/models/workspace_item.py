@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
 from odoo import api, fields, models
+from datetime import datetime
 
 
 class WorkspaceItem(models.Model):
@@ -21,6 +22,15 @@ class WorkspaceItem(models.Model):
         ),
     ]
 
+    active = fields.Boolean(
+        string='Active',
+        default=True,
+        track_visibility='onchange',
+    )
+    date_archived = fields.Date(
+        string='Date archived',
+        track_visibility='onchange',
+    )
     name = fields.Char(
         string='Name',
         required=True,
@@ -121,6 +131,16 @@ class WorkspaceItem(models.Model):
     is_bookable = fields.Boolean(
         string='Is bookable',
     )
+
+    def write(self, vals):
+        res = super().write(vals)
+        active = vals.get('active')
+        if active:
+            return res
+        for record in self:
+            if not record.date_archived:
+                record.date_archived = datetime.now().date()
+        return res
 
     @api.model
     def _expand_workspace_ids(self, workspaces, domain, order):
