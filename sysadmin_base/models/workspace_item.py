@@ -134,8 +134,7 @@ class WorkspaceItem(models.Model):
 
     def write(self, vals):
         res = super().write(vals)
-        active = vals.get('active')
-        if active:
+        if 'active' not in vals or vals.get('active'):
             return res
         for record in self:
             if not record.date_archived:
