@@ -24,7 +24,7 @@
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'SysAdmin',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.3.1',
     'depends': [
         'hr',
         'product',
