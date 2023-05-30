@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-01 16:16+0000\n"
-"PO-Revision-Date: 2023-03-01 17:17+0100\n"
+"POT-Creation-Date: 2023-05-30 13:28+0000\n"
+"PO-Revision-Date: 2023-05-30 15:29+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. module: sysadmin_base
 #: selection:workspace.item,ram:0
@@ -162,6 +162,11 @@ msgid "Action Needed"
 msgstr "Acción requerida"
 
 #. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_ids
 msgid "Activities"
 msgstr "Actividades"
@@ -177,6 +182,11 @@ msgstr "Estado de la actividad"
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
 msgid "Alarm"
 msgstr "Alarma"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Archived"
+msgstr "Archivado"
 
 #. module: sysadmin_base
 #: model:ir.model,name:sysadmin_base.model_hr_employee_internal_tools
@@ -256,6 +266,11 @@ msgstr "Almacenamiento de datos"
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__date
 msgid "Date"
 msgstr "Fecha"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__date_archived
+msgid "Date archived"
+msgstr "Fecha archivado"
 
 #. module: sysadmin_base
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__description
@@ -667,6 +682,11 @@ msgstr "Número de mensajes no leidos"
 #: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__os_version
 msgid "OS Version"
 msgstr "Versión Sistema Operativo"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "Other"
+msgstr "Otro"
 
 #. module: sysadmin_base
 #: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
