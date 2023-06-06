@@ -11,25 +11,17 @@
             </field>
         </field>
     </record>
+
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr_employee_calendar_planning.view_employee_form"/>
         <field name="arch" type="xml">
-            <!-- <field name="calendar_ids" position="before">
-                <field name="actual_calendar_id" readonly="1" force_save="1"/>
-                <label for="antiquity" string="Antiquity"/>
-                <div>
-                    <field name="antiquity_years" nolabel="1"/>
-                    <span> year(s) </span>
-                    <field name="antiquity" nolabel="1"/>
-                    <span> day(s)</span>
-                </div>
-            </field> -->
             <xpath expr="//tree[@editable='top']" position="attributes">
                 <attribute name="default_order">date_start desc</attribute>
             </xpath>
         </field>
     </record>
+
     <record id="view_employee_filter" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_filter"/>
@@ -38,16 +30,6 @@
                 <filter name="group_calendar" string="Actual calendar" domain="[]" context="{'group_by': 'actual_calendar_id'}"/>
                 <filter name="group_years_antiquity" string="Years Antiquity" domain="[]" context="{'group_by': 'antiquity_years'}"/>
             </filter>
-        </field>
-    </record>
-
-    <record id="model_employee_start_auto" model="ir.actions.server">
-        <field name="name">Calcular inicio contrato desde calendarios</field>
-        <field name="model_id" ref="hr.model_hr_employee"/>
-        <field name="binding_model_id" ref="hr.model_hr_employee"/>
-        <field name="state">code</field>
-        <field name="code">
-            records._compute_inicio_contrato()
         </field>
     </record>
 
