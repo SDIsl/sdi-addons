@@ -1,7 +1,7 @@
 ###############################################################################
 #
-#    SDi Soluciones Informáticas
-#    Copyright (C) 2023-Today SDi Soluciones Informáticas <www.sdi.es>
+#    SDi Digital Group
+#    Copyright (C) 2023-Today SDi Digital Group <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@
     'name': 'Global discounts ticketbai',
     'summary': '''This module sends global discounts as details for ticketbai
     ''',
-    'author': 'Sergio Lop Sanz, SDi Soluciones Informáticas',
+    'author': 'Sergio Lop Sanz, SDi Digital Group',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'localization',
@@ -29,7 +29,5 @@
     'depends': [
         'account_global_discount',
         'l10n_es_ticketbai',
-    ],
-    'data': [
     ],
 }
