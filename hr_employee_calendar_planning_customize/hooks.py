@@ -18,6 +18,6 @@ def post_init_hook(cr, registry):
                 if start_date <= actual_date <= end_date:
                     employee.actual_calendar_id = line.calendar_id
                     break
-        inicio = min(rec.calendar_ids.mapped('date_start')) or False
-        rec.contract_start = inicio
+        inicio = min(employee.calendar_ids.mapped('date_start')) or False
+        employee.contract_start = inicio
 

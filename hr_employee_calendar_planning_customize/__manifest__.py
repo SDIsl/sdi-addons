@@ -20,8 +20,7 @@
 {
     'name': 'Hr Employee Calendar Planning Customize',
     'summary': 'Custom modifications of calendar planning oca module',
-    'author': '''Sergio Lop Sanz, 
-    Miguel Lucendo Esteban, SDi Soluciones Digitales''',
+    'author': 'Sergio Lop, Miguel Lucendo Esteban, SDi Soluciones Digitales',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Human Resources',
