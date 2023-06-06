@@ -2,9 +2,20 @@
 <odoo>
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sysadmin_base.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="is_trainee" position="after">
+                <field name="contract_start"/>
+                <field name="contract_end"/>
+                <field name="tenure_char"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr_employee_calendar_planning.view_employee_form"/>
         <field name="arch" type="xml">
-            <field name="calendar_ids" position="before">
+            <!-- <field name="calendar_ids" position="before">
                 <field name="actual_calendar_id" readonly="1" force_save="1"/>
                 <label for="antiquity" string="Antiquity"/>
                 <div>
@@ -13,7 +24,7 @@
                     <field name="antiquity" nolabel="1"/>
                     <span> day(s)</span>
                 </div>
-            </field>
+            </field> -->
             <xpath expr="//tree[@editable='top']" position="attributes">
                 <attribute name="default_order">date_start desc</attribute>
             </xpath>
@@ -29,4 +40,15 @@
             </filter>
         </field>
     </record>
+
+    <record id="model_employee_start_auto" model="ir.actions.server">
+        <field name="name">Calcular inicio contrato desde calendarios</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="state">code</field>
+        <field name="code">
+            records._compute_inicio_contrato()
+        </field>
+    </record>
+
 </odoo>
