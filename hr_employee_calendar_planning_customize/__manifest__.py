@@ -20,13 +20,15 @@
 {
     'name': 'Hr Employee Calendar Planning Customize',
     'summary': 'Custom modifications of calendar planning oca module',
-    'author': 'Miguel Lucendo Esteban, SDi Soluciones Digitales',
+    'author': '''Sergio Lop Sanz, 
+    Miguel Lucendo Esteban, SDi Soluciones Digitales''',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Human Resources',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.1.0',
     'depends': [
         'hr_employee_calendar_planning',
+        'sysadmin_base'
     ],
     'data': [
         'views/hr_employee_calendar_views.xml',
