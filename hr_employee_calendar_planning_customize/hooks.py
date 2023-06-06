@@ -20,4 +20,3 @@ def post_init_hook(cr, registry):
                     break
         inicio = min(employee.calendar_ids.mapped('date_start')) or False
         employee.contract_start = inicio
-
