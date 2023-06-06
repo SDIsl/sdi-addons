@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="view_employee_form_from_sysadmin" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sysadmin_base.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="is_trainee" position="after">
+                <field name="contract_start"/>
+                <field name="contract_end"/>
+                <field name="tenure_char"/>
+            </field>
+        </field>
+    </record>
+
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="sysadmin_base.view_employee_form"/>
