@@ -174,4 +174,3 @@ class HrEmployee(models.Model):
             m = str((rec.tenure % 365) // 30).zfill(2)
             d = str((rec.tenure % 365) % 30).zfill(2)
             rec.tenure_char = "{} años, {} meses, {} días.".format(y, m, d)
-
