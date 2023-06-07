@@ -155,7 +155,6 @@ class HrEmployee(models.Model):
                     line.date_start = line.date_start - relativedelta(years=1)
                     line.date_end = line.date_end - relativedelta(years=1)
 
-    @api.multi
     def _compute_inicio_contrato(self):
         for rec in self.filtered(lambda a: a.calendar_ids):
             inicio = min(rec.calendar_ids.mapped('date_start')) or False
