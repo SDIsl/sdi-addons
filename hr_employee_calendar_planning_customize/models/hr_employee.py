@@ -45,7 +45,7 @@ class HrEmployee(models.Model):
         compute='_show_tenure'
     )
 
-    @api.depends('calendar_ids', 'calendar_ids'.date_start, 'calendar_ids.date_end')
+    @api.depends('calendar_ids', 'calendar_ids.date_start', 'calendar_ids.date_end')
     def _compute_antiquity(self):
         today = date.today()
 
