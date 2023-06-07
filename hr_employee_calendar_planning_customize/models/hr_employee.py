@@ -165,7 +165,6 @@ class HrEmployee(models.Model):
             fin = rec.contract_end or date.today()
             rec.tenure = (fin - rec.contract_start).days
 
-    @api.multi
     def _show_tenure(self):
         for rec in self:
             y = str(rec.tenure // 365).zfill(2)
