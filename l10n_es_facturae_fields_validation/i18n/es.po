@@ -1,0 +1,148 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_facturae_fields_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-26 08:37+0000\n"
+"PO-Revision-Date: 2023-06-26 10:42+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.3.1\n"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:55
+#, python-format
+msgid "Company city not provided"
+msgstr "Es necesaria la ciudad de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:59
+#, python-format
+msgid "Company country not provided"
+msgstr "Es necesario el país de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:57
+#, python-format
+msgid "Company state not provided"
+msgstr "Es necesaria la provincia de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:53
+#, python-format
+msgid "Company street not provided"
+msgstr "Es necesaria la calle de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:63
+#, python-format
+msgid "Company vat is too small"
+msgstr "El identificador fiscal de la compañía es demasiado corto"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:51
+#, python-format
+msgid "Company vat not provided"
+msgstr "Es necesario el identificador fiscal de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:61
+#, python-format
+msgid "Company zip not provided"
+msgstr "Es necesario el CP de la compañía"
+
+#. module: l10n_es_facturae_fields_validation
+#: model:ir.model,name:l10n_es_facturae_fields_validation.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/res_partner.py:25
+#, python-format
+msgid "Country must be defined for factura-e enabled partners."
+msgstr "Es necesario definir el país para los contactos que tengan Factura-E activado."
+
+#. module: l10n_es_facturae_fields_validation
+#: model:ir.model,name:l10n_es_facturae_fields_validation.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:33
+#, python-format
+msgid "Partner state not provided"
+msgstr "El estado es obligatorio"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:29
+#, python-format
+msgid "Partner street address is not provided"
+msgstr "Es necesaria la calle del cliente"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:31
+#, python-format
+msgid "Partner vat is too small"
+msgstr "El identificador fiscal del Cliente es demasiado corto"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:27
+#, python-format
+msgid "Partner vat not provided"
+msgstr "El NIF es obligatorio"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:35
+#, python-format
+msgid "Payment mode is required"
+msgstr "El modo de pago es obligatorio"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:43
+#, python-format
+msgid "Selected account BIC must be 11"
+msgstr "El BIC del banco de la cuenta debe tener 11 carácteres"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:45
+#, python-format
+msgid "Selected account is too small"
+msgstr "La cuenta seleccionada es demasiado corta"
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/res_partner.py:30
+#, python-format
+msgid "State must be defined for factura-e enabled partners."
+msgstr "Es necesario definir la provincia para los contactos que tengan Factura-E activado."
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/res_partner.py:21
+#, python-format
+msgid "Street must be defined for factura-e enabled partners."
+msgstr "Es necesario definir la calle para los contactos que tengan Factura-E activado."
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/res_partner.py:17
+#, python-format
+msgid "Vat must be defined for factura-e enabled partners."
+msgstr "Es necesario definir el NIF para los contactos que tengan Factura-E activado."
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:21
+#, python-format
+msgid "You can only create Facturae files for moves that have been validated."
+msgstr "Sólo se pueden crear ficheros de Factura-E para facturas validadas."
+
+#. module: l10n_es_facturae_fields_validation
+#: code:addons/l10n_es_facturae_fields_validation/models/account_invoice.py:14
+#, python-format
+msgid "You can only create the facturae file if the client have the facturae feature activated."
+msgstr "Sólo puedes crear ficheros de Factura-E si el cliente tiene la característica de Factura-E activada."
