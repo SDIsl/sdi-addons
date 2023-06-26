@@ -16,7 +16,7 @@ class AccountInvoice(models.Model):
                     'facturae feature activated.'
                 )
             )
-        if self.state not in self._get_valid_move_statuses():
+        if self.state not in ['posted']:
             raise ValidationError(
                 _(
                     'You can only create Facturae files for '
