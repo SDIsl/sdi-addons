@@ -9,13 +9,13 @@ class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
 
     def validate_facturae_fields(self):
-        if not self.facturae:
-            raise ValidationError(
-                _(
-                    'You can only create the facturae file if the client have the '
-                    'facturae feature activated.'
-                )
-            )
+        # if not self.facturae:
+        #     raise ValidationError(
+        #         _(
+        #             'You can only create the facturae file if the client have the '
+        #             'facturae feature activated.'
+        #         )
+        #     )
         if self.state not in self._get_valid_invoice_statuses():
             raise ValidationError(
                 _(
