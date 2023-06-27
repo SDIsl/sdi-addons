@@ -17,9 +17,9 @@ class APIBase(models.TransientModel):
 
     @api.model
     def get_connection(self):
-        connection = self.env['a3erp.api'].search([], limit=1)
+        connection = self.search([], limit=1)
         if not connection:
-            connection = self.env['a3erp.api'].sudo().create({})
+            connection = self.sudo().create({})
         return connection
 
     @api.model
