@@ -8,6 +8,6 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     disable_vat_check = fields.Boolean(
-        string='Deshabilitar la comprobación de NIF',
+        string='Disable VAT validation',
         readonly=False,
     )
