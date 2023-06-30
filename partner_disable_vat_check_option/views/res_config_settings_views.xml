@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="eu_service" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="disable_vat_check_setting" title="Si este check está marcado, se deshabilitará la comprobación de NIF en los contactos.">
+                    <div class="o_setting_left_pane">
+                        <field name="disable_vat_check" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="disable_vat_check" />
+                        <span class="fa fa-lg fa-building-o" title="Los valores establecidos aquí son específicos de la compañía." aria-label="Los valores establecidos aquí son específicos de la compañía." groups="base.group_multi_company" role="img" />
+                        <div class="text-muted">
+                           Deshabilita toda la verificación de NIF.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
