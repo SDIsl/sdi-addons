@@ -34,3 +34,10 @@ class MailMessage(models.Model):
     def _check_archive(self):
         if self.is_private:
             self.website_published = False
+
+    def create(self, vals):
+        res = super().create(vals)
+        for rec in res:
+            if rec.subtype_id == self.env.ref('mail.mt_note'):
+                rec.website_published = False
+        return res
