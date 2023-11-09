@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+crm_lead_stage_read,CRM Lead Stage Read,crm_lead_stage.model_crm_lead_stage,base.group_user,1,0,0,0
+crm_lead_stage_access,CRM Lead Stage Total Access,crm_lead_stage.model_crm_lead_stage,sales_team.group_sale_manager,1,1,1,1
