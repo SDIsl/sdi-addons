@@ -1,7 +1,7 @@
 ###############################################################################
 #
-#    SDi Digital Group
-#    Copyright (C) 2023-Today SDi Digital Group <www.sdi.es>
+#    Sidoo Soluciones S.L.
+#    Copyright (C) 2023-Today SDi Sidoo Soluciones S.L. <www.sidoo.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,27 +18,21 @@
 #
 ###############################################################################
 {
-    'name': 'Vertical Base Installer',
-    'summary': 'Addons for a base instance',
-    'author': 'Jorge Quinteros, SDi Digital Group',
-    'website': 'https://www.sdi.es/odoo-cloud/',
+    'name': 'CRM Lead Stage',
+    'summary': 'This module adds stages in the leads.',
+    'author': 'Jorge Quinteros, Sidoo Soluciones S.L.',
+    'website': 'https://sidoo.es',
     'license': 'AGPL-3',
-    'category': 'Vertical',
-    'version': '15.0.1.0.0',
+    'category': 'CRM',
+    'version': '16.0.1.0.0',
     'depends': [
-        'disable_odoo_online',
-        'mail_debrand',
-        'mass_editing',
-        'l10n_es',
-        'l10n_es_partner',
-        'l10n_es_toponyms',
-        'remove_odoo_enterprise',
-        'partner_contact_access_link',
-        'web_advanced_search',
-        'web_refresher',
-        'web_no_bubble',
-        'web_responsive',
-        'web_tree_many2one_clickable',
+        'crm',
+        'sale_crm',
+    ],
+    'data': [
+        'views/crm_lead_stage_views.xml',
+        'views/crm_lead_views.xml',
+        'security/ir.model.access.csv',
     ],
     'application': True,
 }
