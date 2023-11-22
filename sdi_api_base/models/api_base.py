@@ -47,7 +47,8 @@ class APIBase(models.TransientModel):
         url: str = '',
         data=None,
         params: Union[dict, str] = None,
-        headers: dict = None
+        headers: dict = None,
+        data_type: str = 'json'
     ) -> requests.Response:
         if params is None:
             params = {}
@@ -69,19 +70,35 @@ class APIBase(models.TransientModel):
                 headers=headers,
             )
         if method == 'POST':
-            response = requests.post(
-                url,
-                json=data,
-                params=params,
-                headers=headers,
-            )
+            if data_type == 'json':
+                response = requests.post(
+                    url,
+                    json=data,
+                    params=params,
+                    headers=headers,
+                )
+            elif data_type == 'data':
+                response = requests.post(
+                    url,
+                    data=data,
+                    params=params,
+                    headers=headers,
+                )
         if method == 'PUT':
-            response = requests.put(
-                url,
-                json=data,
-                params=params,
-                headers=headers,
-            )
+            if data_type == 'json':
+                response = requests.put(
+                    url,
+                    json=data,
+                    params=params,
+                    headers=headers,
+                )
+            elif data_type == 'data':
+                response = requests.put(
+                    url,
+                    data=data,
+                    params=params,
+                    headers=headers,
+                )
         self._status_control(response)
         return response
 
@@ -105,7 +122,8 @@ class APIBase(models.TransientModel):
         url: str = '',
         data=None,
         params: Union[dict, str] = None,
-        headers: dict = None
+        headers: dict = None,
+        data_type: str = 'json'
     ) -> requests.Response:
         return self._request(
             method='POST',
@@ -113,6 +131,7 @@ class APIBase(models.TransientModel):
             url=url,
             params=params,
             headers=headers,
+            data_type=data_type,
         )
 
     @api.model
@@ -121,7 +140,8 @@ class APIBase(models.TransientModel):
         url: str = '',
         data=None,
         params: Union[dict, str] = None,
-        headers: dict = None
+        headers: dict = None,
+        data_type: str = 'json'
     ) -> requests.Response:
         return self._request(
             method='PUT',
@@ -129,4 +149,5 @@ class APIBase(models.TransientModel):
             url=url,
             params=params,
             headers=headers,
+            data_type=data_type,
         )
