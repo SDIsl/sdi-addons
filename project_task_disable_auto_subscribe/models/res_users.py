@@ -12,3 +12,8 @@ class ResUsers(models.Model):
         help='''Check to disable auto subscription when the user creates a new
                 project task.''',
     )
+    project_disable_auto_subscribe = fields.Boolean(
+        string='Disable auto subscribe on project creation',
+        help='''Check to disable auto subscription when the user creates a new
+                project.''',
+    )

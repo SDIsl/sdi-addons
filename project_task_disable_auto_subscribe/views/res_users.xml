@@ -5,8 +5,9 @@
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
             <group name="preferences" position="after">
-                <group string="Disable auto subscription on project task creation" name="disable_auto_subscription_on_project_task_creation">
+                <group string="Disable auto subscription on project or task creation" name="disable_auto_subscription_on_project_or_task_creation">
                     <field name="project_task_disable_auto_subscribe"/>
+                    <field name="project_disable_auto_subscribe"/>
                 </group>
             </group>
         </field>
