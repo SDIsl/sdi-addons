@@ -1,7 +1,7 @@
 ###############################################################################
 #
-#    SDi Soluciones Digitales
-#    Copyright (C) 2021-Today SDi Soluciones Informáticas <www.sdi.es>
+#    SDi Digital Group
+#    Copyright (C) 2023-Today SDi Digital Group <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,9 +20,9 @@
 {
     'name': 'Project Task Disable Auto Subscribe',
     'summary': '''Check on user for disabling auto subscription when the user
-                  creates a new project task.''',
+                  creates a new project or task.''',
     'author': '''Valentín Castravete Georgian, Jorge Luis Quinteros,
-                 SDi Soluciones Digitales''',
+                 SDi Digital Group''',
     'website': 'https://www.sdi.es/odoo-cloud/',
     'license': 'AGPL-3',
     'category': 'Project',
