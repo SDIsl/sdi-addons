@@ -17,7 +17,7 @@
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
             <header position="inside">
-                <field name="lead_stage_id" widget="statusbar" options="{'clickable': '1'}"/>
+                <field name="lead_stage_id" widget="statusbar" options="{'clickable': '1'}" attrs="{'invisible': ['|', ('active', '=', False), ('type', '=', 'opportunity')]}"/>
             </header>
         </field>
     </record>
