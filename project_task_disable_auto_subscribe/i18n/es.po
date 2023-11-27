@@ -22,13 +22,18 @@ msgstr "Verificación para deshabilitar la suscripción automática cuando un us
 
 #. module: project_task_disable_auto_subscribe
 #: model:ir.model.fields,field_description:project_task_disable_auto_subscribe.field_res_users__project_task_disable_auto_subscribe
+msgid "Disable auto subscribe on project creation"
+msgstr "Deshabilitar suscripción automática al crear un proyecto"
+
+#. module: project_task_disable_auto_subscribe
+#: model:ir.model.fields,field_description:project_task_disable_auto_subscribe.field_res_users__project_task_disable_auto_subscribe
 msgid "Disable auto subscribe on project task creation"
 msgstr "Deshabilitar suscripción automática al crear una tarea de proyecto"
 
 #. module: project_task_disable_auto_subscribe
 #: model_terms:ir.ui.view,arch_db:project_task_disable_auto_subscribe.view_users_form
-msgid "Disable auto subscription on project task creation"
-msgstr "Deshabilitar suscripción automática al crear una tarea de proyecto"
+msgid "Disable auto subscription on project or task creation"
+msgstr "Deshabilitar suscripción automática al crear un proyecto o una tarea"
 
 #. module: project_task_disable_auto_subscribe
 #: model:ir.model,name:project_task_disable_auto_subscribe.model_project_task
