@@ -21,7 +21,7 @@ msgid "Check to disable auto subscription when the user creates a new project ta
 msgstr "Verificación para deshabilitar la suscripción automática cuando un usuario crea una nueva tarea de proyecto."
 
 #. module: project_task_disable_auto_subscribe
-#: model:ir.model.fields,field_description:project_task_disable_auto_subscribe.field_res_users__project_task_disable_auto_subscribe
+#: model:ir.model.fields,field_description:project_task_disable_auto_subscribe.field_res_users__project_disable_auto_subscribe
 msgid "Disable auto subscribe on project creation"
 msgstr "Deshabilitar suscripción automática al crear un proyecto"
 
