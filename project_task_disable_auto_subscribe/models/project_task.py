@@ -11,4 +11,7 @@ class ProjectTask(models.Model):
         user_id = self.env['res.users'].browse(self._context['uid'])
         if not user_id.project_task_disable_auto_subscribe:
             return super().create(vals)
-        return super().with_context(mail_create_nosubscribe=True).create(vals)
+        return super(
+            ProjectTask,
+            self.with_context(mail_create_nosubscribe=True)
+        ).create(vals)
