@@ -19,8 +19,9 @@
 ###############################################################################
 {
     'name': 'Custom Group Not Allow Change Password',
-    'summary': '''Module  module is designed for authentication with Microsoft Azure. It blocks non-administrative users from changing their 
-         own passwords. Additionally, it disables the option to change passwords from the login reset password feature.''',
+    'summary': '''Module  module is designed for authentication with Microsoft Azure.
+      It blocks non-administrative users from changing their own passwords. Additionally,
+it disables the option to change passwords from the login reset password feature.''',
     'author': 'Gines Saez, Sidoo',
     'website': 'http://sidoo.es',
     'license': 'AGPL-3',
