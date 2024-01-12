@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.ui.view" id="view_users_form_simple_modif">
+        <field name="name">users_group_invisible</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <group name="auth" position="attributes">
+                <attribute name="groups">custom_group_change_passw.group_custom_not_allow_change_passw</attribute>
+            </group>	
+        </field>
+    </record>
+</odoo>
