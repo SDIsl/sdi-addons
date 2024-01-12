@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="fields" inherit_id="auth_signup.fields">
+        <xpath expr="//label[@for='password']//.." position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//label[@for='confirm_password']//.." position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+    <template id="reset_password" inherit_id="auth_signup.reset_password">
+        <xpath expr="//div[@class='clearfix oe_login_buttons d-grid mt-3']//button" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+</odoo>
