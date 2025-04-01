@@ -19,6 +19,23 @@ class IRDeletion(models.Model):
     log_ids = fields.One2many('ir.deletion.log', 'deletion_id', string='Logs')
     limit = fields.Integer(string='Limit', default=100)
     last_elapsed_time = fields.Float(string='Last Elapsed Time', readonly=True)
+    last_count = fields.Integer(string='Pending', readonly=True)
+
+    def validate_time(self):
+        start_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.start_time')
+        end_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.end_time')
+        if start_time and end_time:
+            start_time = datetime.strptime(start_time, '%H:%M').time()
+            end_time = datetime.strptime(end_time, '%H:%M').time()
+            current_time = datetime.now().time()
+
+            if not (start_time <= current_time <= end_time):
+                _logger.info('Current time is outside the allowed range {} - {}. Modify config parameters.'.format(start_time, end_time))
+                return False
+        else:
+            _logger.info('Start time or end time is not set. Logs will not be created or modified.')
+            return False
+        return True
 
     def process_deletions(self):
         today = fields.Date.today()
@@ -26,42 +43,32 @@ class IRDeletion(models.Model):
         start_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.start_time')
         end_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.end_time')
 
-        if start_time and end_time:
-            start_time = datetime.strptime(start_time, '%H:%M').time()
-            end_time = datetime.strptime(end_time, '%H:%M').time()
-
-            if not (start_time <= current_time <= end_time):
-                _logger.info('Current time is outside the allowed range {} - {}. Modify config parameters.'.format(start_time, end_time))
-                raise UserError(_('Current time is outside the allowed range {} - {}. Modify config parameters.').format(start_time, end_time))
-        else:
-            _logger.info('Start time or end time is not set. Logs will not be created or modified.')
-            raise UserError(_('Start time or end time is not set. Logs will not be created or modified.'))
+        if not self.validate_time():
+            return
 
         for record in self.search([('active', '=', True)]):
             try:
                 with self.env.cr.savepoint():
                     log = self.env['ir.deletion.log'].search([('deletion_id', '=', record.id), ('date', '=', today)], limit=1)
+                    if record.sql_count_statement:
+                        self.env.cr.execute(record.sql_count_statement)
+                        initial_count = self.env.cr.fetchone()[0]
+                    else:
+                        initial_count = self.env[record.model_id.model].search_count([])
                     if not log:
-                        if record.sql_count_statement:
-                            self.env.cr.execute(record.sql_count_statement)
-                            initial_count = self.env.cr.fetchone()[0]
-                        else:
-                            initial_count = self.env[record.model_id.model].search_count([])
                         log = self.env['ir.deletion.log'].create({
                             'deletion_id': record.id,
                             'date': today,
                             'initial_count': initial_count,
                         })
-                    if record.sql_count_statement:
-                        self.env.cr.execute(record.sql_count_statement)
-                        final_count = self.env.cr.fetchone()[0]
-                    else:                
-                        final_count = self.env[record.model_id.model].search_count([])
-                    record.with_delay().process_deletion(record.model_id.id, record.id)
+                    if initial_count:
+                        record.with_delay().process_deletion(record.model_id.id, record.id)
             except Exception as e:
                 _logger.error('Error processing deletion: %s' % e)
 
     def process_deletion(self, model_id=False, id=False):
+        if not self.validate_time():
+            return
         if not model_id or not id:
             self.ensure_one()
             id = self.id        
@@ -91,7 +98,8 @@ class IRDeletion(models.Model):
                     'final_count': final_count,
                 })
                 log_id.deletion_id.write({
-                    'last_elapsed_time': last_elapsed_time
+                    'last_elapsed_time': last_elapsed_time,
+                    'last_count': final_count,
                 })
         except Exception as e:
             _logger.error('Error during deletion process: %s' % e)
