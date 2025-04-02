@@ -1,9 +1,7 @@
-from odoo import models, fields, api, _
+from odoo import models, fields
 
 import logging
 from datetime import datetime
-from odoo.exceptions import UserError
-
 
 _logger = logging.getLogger(__name__)
 
@@ -46,11 +44,6 @@ class IRDeletion(models.Model):
 
     def process_deletions(self):
         today = fields.Date.today()
-        current_time = datetime.now().time()
-        start_time = self.env['ir.config_parameter'].sudo().get_param(
-            'ir.deletion.start_time')
-        end_time = self.env['ir.config_parameter'].sudo().get_param(
-            'ir.deletion.end_time')
 
         if not self.validate_time():
             return
@@ -85,8 +78,7 @@ class IRDeletion(models.Model):
         if not model_id or not id:
             self.ensure_one()
             id = self.id        
-            model_id = self.model_id.id        
-        
+            model_id = self.model_id.id
         start_datetime = datetime.now()
         model_name = self.env['ir.model'].browse(model_id).model
         deletion_id = self.env['ir.deletion'].browse(id)
