@@ -7,6 +7,7 @@ from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
+
 class IRDeletion(models.Model):
     _name = 'ir.deletion'
     _description = 'IR Deletion'
@@ -22,26 +23,34 @@ class IRDeletion(models.Model):
     last_count = fields.Integer(string='Pending', readonly=True)
 
     def validate_time(self):
-        start_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.start_time')
-        end_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.end_time')
+        start_time = self.env['ir.config_parameter'].sudo().get_param(
+            'ir.deletion.start_time')
+        end_time = self.env['ir.config_parameter'].sudo().get_param(
+            'ir.deletion.end_time')
         if start_time and end_time:
             start_time = datetime.strptime(start_time, '%H:%M').time()
             end_time = datetime.strptime(end_time, '%H:%M').time()
             current_time = datetime.now().time()
 
             if not (start_time <= current_time <= end_time):
-                _logger.info('Current time is outside the allowed range {} - {}. Modify config parameters.'.format(start_time, end_time))
+                _logger.info(
+                    'Current time is outside the allowed range'
+                    ' {} - {}. Modify config parameters.'
+                    .format(start_time, end_time))
                 return False
         else:
-            _logger.info('Start time or end time is not set. Logs will not be created or modified.')
+            _logger.info('Start time or end time is not set. '
+                         'Logs will not be created or modified.')
             return False
         return True
 
     def process_deletions(self):
         today = fields.Date.today()
         current_time = datetime.now().time()
-        start_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.start_time')
-        end_time = self.env['ir.config_parameter'].sudo().get_param('ir.deletion.end_time')
+        start_time = self.env['ir.config_parameter'].sudo().get_param(
+            'ir.deletion.start_time')
+        end_time = self.env['ir.config_parameter'].sudo().get_param(
+            'ir.deletion.end_time')
 
         if not self.validate_time():
             return
@@ -49,12 +58,15 @@ class IRDeletion(models.Model):
         for record in self.search([('active', '=', True)]):
             try:
                 with self.env.cr.savepoint():
-                    log = self.env['ir.deletion.log'].search([('deletion_id', '=', record.id), ('date', '=', today)], limit=1)
+                    log = self.env['ir.deletion.log'].search([
+                        ('deletion_id', '=', record.id),
+                        ('date', '=', today)], limit=1)
                     if record.sql_count_statement:
                         self.env.cr.execute(record.sql_count_statement)
                         initial_count = self.env.cr.fetchone()[0]
                     else:
-                        initial_count = self.env[record.model_id.model].search_count([])
+                        initial_count = self.env[
+                            record.model_id.model].search_count([])
                     if not log:
                         log = self.env['ir.deletion.log'].create({
                             'deletion_id': record.id,
@@ -62,7 +74,8 @@ class IRDeletion(models.Model):
                             'initial_count': initial_count,
                         })
                     if initial_count:
-                        record.with_delay().process_deletion(record.model_id.id, record.id)
+                        record.with_delay().process_deletion(
+                            record.model_id.id, record.id)
             except Exception as e:
                 _logger.error('Error processing deletion: %s' % e)
 
@@ -79,21 +92,28 @@ class IRDeletion(models.Model):
         deletion_id = self.env['ir.deletion'].browse(id)
         try:
             with self.env.cr.savepoint():
-                self.env.cr.execute(deletion_id.sql_statement + ' LIMIT %s', (self.limit,))
+                self.env.cr.execute(
+                    deletion_id.sql_statement + ' LIMIT %s', (self.limit,))
                 for record in self.env.cr.dictfetchall():
-                    _logger.info('Deleting %s with ID: %s' % (model_name, record['id']))
+                    _logger.info('Deleting %s with ID: %s' % (
+                        model_name, record['id']))
                     model_id = self.env[model_name].browse(record['id'])
                     if model_id:
                         model_id.unlink()
-                last_elapsed_time = (datetime.now() - start_datetime).total_seconds()
+                last_elapsed_time = (
+                        datetime.now() - start_datetime).total_seconds()
                 final_count = 0
                 if deletion_id.sql_count_statement:
                     self.env.cr.execute(deletion_id.sql_count_statement)
                     final_count = self.env.cr.fetchone()[0]
                 else:
-                    final_count = self.env[deletion_id.model_id.model].search_count([])
+                    final_count = self.env[
+                        deletion_id.model_id.model].search_count([])
 
-                log_id = self.env['ir.deletion.log'].search([('deletion_id', '=', id), ('date', '=', fields.Date.today())], limit=1)
+                log_id = self.env['ir.deletion.log'].search([
+                    ('deletion_id', '=', id),
+                    ('date', '=', fields.Date.today())
+                ], limit=1)
                 log_id.write({
                     'final_count': final_count,
                 })
@@ -108,5 +128,3 @@ class IRDeletion(models.Model):
         action = self.env.ref('deletions.action_view_logs').read()[0]
         action['domain'] = [('deletion_id', '=', self.id)]
         return action
-
-

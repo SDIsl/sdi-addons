@@ -2,7 +2,7 @@
     'name': 'Deletions',
     'version': '12.0.1.0.0',
     'summary': 'Módulo para gestionar eliminaciones masivas de datos',
-    'author': 'Tu Nombre',
+    'author': 'Fernando La Chica <SIDOO Soluciones SL>',
     'category': 'Tools',
     'depends': ['base', 'queue_job'],
     'data': [
