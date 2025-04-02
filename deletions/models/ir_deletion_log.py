@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from datetime import date
+from odoo import models, fields
 
 
 class IRDeletionLog(models.Model):
@@ -11,6 +10,7 @@ class IRDeletionLog(models.Model):
         string='Deletion',
         required=True,
         ondelete='cascade')
+
     date = fields.Date(string='Date', default=fields.Date.today, required=True)
     initial_count = fields.Integer(string='Initial Count', readonly=True)
     final_count = fields.Integer(string='Final Count', readonly=True)

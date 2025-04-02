@@ -77,7 +77,7 @@ class IRDeletion(models.Model):
             return
         if not model_id or not id:
             self.ensure_one()
-            id = self.id        
+            id = self.id
             model_id = self.model_id.id
         start_datetime = datetime.now()
         model_name = self.env['ir.model'].browse(model_id).model
