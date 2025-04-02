@@ -115,7 +115,7 @@ class IRDeletion(models.Model):
                 })
         except Exception as e:
             _logger.error('Error during deletion process: %s' % e)
-        
+
     def action_view_logs(self):
         action = self.env.ref('deletions.action_view_logs').read()[0]
         action['domain'] = [('deletion_id', '=', self.id)]
