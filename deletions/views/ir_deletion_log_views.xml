@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_ir_deletion_log_tree" model="ir.ui.view">
+        <field name="name">ir.deletion.log.tree</field>
+        <field name="model">ir.deletion.log</field>
+        <field name="arch" type="xml">
+            <tree string="IR Deletion Log">
+                <field name="deletion_id"/>
+                <field name="date"/>
+                <field name="initial_count"/>
+                <field name="final_count"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_ir_deletion_log" model="ir.actions.act_window">
+        <field name="name">Deletion Logs</field>
+        <field name="res_model">ir.deletion.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_ir_deletion_log" 
+              name="Deletion Logs" 
+              parent="deletions.menu_ir_deletion_root" 
+              action="action_ir_deletion_log" 
+              sequence="10"/>
+</odoo>

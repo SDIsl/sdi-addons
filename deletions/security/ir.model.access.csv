@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ir_deletion_user,access_ir_deletion_user,model_ir_deletion,base.group_user,1,1,1,1
+access_ir_deletion_log_user,access_ir_deletion_log_user,model_ir_deletion_log,base.group_user,1,1,1,1
