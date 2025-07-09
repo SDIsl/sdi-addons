@@ -7,8 +7,9 @@ Configuración
 
 Solicitar la creación de una aplicación en Azure AD SIN las marcas de "Tokens de acceso de usuario" ni "Tokens de ID" en la sección "Flujos de concesión e híbridos".
 
-1. Ir a Ajustes > Usuarios y Compañías > Proveedores de OAuth
-2. Crear un nuevo proveedor de OAuth con los siguientes datos:
+1. Entrar en Odoo en modo desarrollador (Activar el modo desarrollador en la URL añadiendo `?debug=1`).
+2. Ir a Ajustes > Usuarios y Compañías > Proveedores de OAuth
+3. Crear un nuevo proveedor de OAuth con los siguientes datos:
    - Nombre: Azure
    - Id. de cliente: (ID de la aplicación creada en Azure AD)
    - Contenido: Azure (es el código para el botón de inicio de sesión)
