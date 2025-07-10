@@ -58,6 +58,8 @@ class OAuthLogin(Home):
             providers = []
         for provider in providers:
             return_url = request.httprequest.url_root + 'auth_oauth/signin'
+            if not return_url.startswith('http://localhost:'):
+                return_url = return_url.replace('http://', 'https://')
             state = self.get_state(provider)
             params = dict(
                 response_type='token',
