@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_account_payment_return_form_inherit_notify" model="ir.ui.view">
+    <field name="name">payment.return.form.inherit.notify</field>
+    <field name="model">payment.return</field>
+    <field name="inherit_id" ref="account_payment_return.payment_return_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="notify_return"
+                type="object"
+                string="Notificar devolución"
+                class="oe_highlight btn-success"
+                attrs="{'invisible': [('state', '!=', 'done')]}" />
+      </xpath>
+    </field>
+  </record>
+</odoo>
+
