@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="mail_template_payment_return_line_notify" model="mail.template">
+    <field name="name">Notificación devolución de recibo</field>
+    <field name="model_id" ref="account_payment_return.model_payment_return_line"/>
+    <field name="email_from">${(user.email_formatted or '')|safe}</field>
+    <field name="email_to">${object.partner_id.email|safe}</field>
+    <field name="subject">Devolución de recibo ${object.name or ''}</field>
+    <field name="body_html">
+      <![CDATA[
+        <p>Estimado/a ${object.partner_id.name},</p>
+        <p>Le informamos que nuestro banco nos ha notificado la devolución del recibo <strong>${object.reference or ''}</strong> con un importe de
+        <strong>${'{:,.2f}'.format(object.amount).replace(',', 'X').replace('.', ',').replace('X', '.') if object.amount else ''} €</strong></p>
+        <p>Fecha de la devolución: <strong>${object.date.strftime('%d-%m-%Y') if object.date else ''}</strong></p>
+        <p>El motivo de la devolución indicado fue: <strong>${object.reason_id.name or ''}</strong></p>
+        %if object.move_line_ids and len(object.move_line_ids) > 0
+        <p>Correspondía a los siguientes movimientos:</p>
+        <table border="1" cellpadding="4" cellspacing="0">
+          <tr>
+            <th>Referencia</th>
+            <th>Vencimiento</th>
+            <th>Importe</th>
+          </tr>
+              % for move in object.move_line_ids.bank_payment_line_id.payment_line_ids:
+          <tr>
+            <td>${move.communication}</td>
+            <td>${move.ml_maturity_date.strftime('%d-%m-%Y') if move.ml_maturity_date else ''}</td>
+            <td>${'{:,.2f}'.format(move.amount_currency).replace(',', 'X').replace('.', ',').replace('X', '.') if move.amount_currency else ''} €</td>
+          </tr>
+              % endfor
+        </table>
+        % endif
+<p></p>
+        <p>Para cualquier consulta, no dude en contactarnos.</p>
+      ]]>
+    </field>
+    <field name="auto_delete" eval="False"/>
+  </record>
+</odoo>
