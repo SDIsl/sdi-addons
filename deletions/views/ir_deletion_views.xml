@@ -1,0 +1,80 @@
+<odoo>
+    <record id="view_ir_deletion_form" model="ir.ui.view">
+        <field name="name">ir.deletion.form</field>
+        <field name="model">ir.deletion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <button name="process_deletion" type="object" class="oe_stat_button" icon="fa-play" />
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"/>
+                            </button>
+                            <button name="action_view_logs" type="object" class="oe_stat_button" icon="fa-list">
+                                <field name="log_ids" widget="statinfo" string="Logs"/>
+                            </button>
+                        </div>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="model_id"/>
+                        <field name="sql_statement"/>
+                        <field name="sql_count_statement"/>
+                        <field name="limit"/>
+                        <field name="last_elapsed_time" readonly="1"/>
+                        <field name="last_count" readonly="1"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ir_deletion_tree" model="ir.ui.view">
+        <field name="name">ir.deletion.tree</field>
+        <field name="model">ir.deletion</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="not active">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="limit"/>
+                <field name="last_elapsed_time" readonly="1"/>
+                <field name="last_count" readonly="1"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ir_deletion_search" model="ir.ui.view">
+        <field name="name">ir.deletion.search</field>
+        <field name="model">ir.deletion</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="actived" string="Activos" domain="[('active', '=', True)]"/>
+                <filter name="archived" string="Archivados" domain="[('active', '=', False)]"/>
+                <filter name="all" string="Todos" domain="['|',('active', '=', True),('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ir_deletion" model="ir.actions.act_window">
+        <field name="name">Deletions</field>
+        <field name="res_model">ir.deletion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_all': 1}</field>
+    </record>
+
+    <record id="action_view_logs" model="ir.actions.act_window">
+        <field name="name">Logs</field>
+        <field name="res_model">ir.deletion.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[('deletion_id', '=', active_id)]</field>
+    </record>
+
+    <menuitem id="menu_ir_deletion_root" name="Deletions" sequence="10"/>
+    <menuitem id="menu_ir_deletion" name="Deletions table" parent="menu_ir_deletion_root" action="action_ir_deletion"/>
+</odoo>

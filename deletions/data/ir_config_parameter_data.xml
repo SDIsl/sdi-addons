@@ -1,0 +1,12 @@
+<odoo>
+    <data noupdate="1">
+        <record id="param_deletion_start_time" model="ir.config_parameter">
+            <field name="key">ir.deletion.start_time</field>
+            <field name="value">04:00</field>
+        </record>
+        <record id="param_deletion_end_time" model="ir.config_parameter">
+            <field name="key">ir.deletion.end_time</field>
+            <field name="value">05:00</field>
+        </record>
+    </data>
+</odoo>
