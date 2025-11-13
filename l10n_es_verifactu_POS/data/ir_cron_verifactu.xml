@@ -1,0 +1,14 @@
+<odoo>
+  <data noupdate="0">
+    <record id="ir_cron_send_pending_verifactu" model="ir.cron">
+      <field name="name">Enviar facturas VeriFactu pendientes</field>
+      <field name="model_id" ref="l10n_es_verifactu_POS.model_verifactu_cron_service"/>
+      <field name="state">code</field>
+      <field name="code">model.run()</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">minutes</field>
+      <field name="numbercall">-1</field>
+      <field name="active">False</field>
+    </record>
+  </data>
+</odoo>

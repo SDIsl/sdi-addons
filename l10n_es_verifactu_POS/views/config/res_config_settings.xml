@@ -1,0 +1,415 @@
+<odoo>
+    <record id="view_verifactu_settings" model="ir.ui.view">
+        <field name="name">res.config.settings.verifactu</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Veri*Factu" string="Veri*Factu" data-key="l10n_es_verifactu_POS">
+                    <field name="company_id" invisible="1"/>
+
+                    <!-- Nueva sección: Selección de modo -->
+                    <h2>Modo de Operación</h2>
+                    <div class="row mt16 o_settings_container">
+                        <!-- 👇 este box ahora ocupa todo el ancho en escritorio -->
+                        <div class="col-12 col-lg-12 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb8">
+                            Selecciona si el sistema funcionará en <strong>modo VeriFactu</strong> (envío automático a la AEAT)
+                            o en <strong>modo No VeriFactu</strong> (remisión bajo requerimiento).
+                                </div>
+
+                                <div class="mb16">
+                                    <field name="verifactu_mode_enabled" widget="boolean" class="oe_inline" help="Activa el modo VeriFactu (envío automático a la AEAT). 
+                                        Si está activo, no puede activarse el modo No VeriFactu."/>
+                                    <label for="verifactu_mode_enabled" string="Modo VeriFactu" class="o_form_label"/>
+                                </div>
+
+                                <div class="mb16">
+                                    <field name="no_verifactu_mode_enabled" widget="boolean" class="oe_inline" help="Activa el modo No VeriFactu (remisión bajo requerimiento). 
+                                        Si está activo, no puede activarse el modo VeriFactu."/>
+                                    <label for="no_verifactu_mode_enabled" string="Modo No VeriFactu" class="o_form_label"/>
+                                </div>
+
+                                <div class="text-warning mb16" attrs="{'invisible':[('verifactu_mode_enabled','=',False)]}">
+                            ⚠️ Una vez activado el modo VeriFactu, no puedes volver al modo No VeriFactu hasta transcurrido un año.
+                                </div>
+
+                                <div class="text-muted mt16">
+                                    <p>
+                                        <strong>Registro de cambios:</strong>
+                                    </p>
+                                    <ul style="list-style:none;padding-left:0;">
+                                        <li>
+                                            <strong>Último modo activo:</strong>
+                                            <field name="last_verifactu_mode" readonly="1" nolabel="1"/>
+                                        </li>
+                                        <li>
+                                            <strong>Fecha de activación:</strong>
+                                            <field name="verifactu_mode_activation_date" readonly="1" nolabel="1"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="text-muted" style="font-style:italic;margin-top:5px;">
+                            Solo uno de los dos modos puede estar activo a la vez.
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Histórico de modos</h2>
+
+
+                    <!-- =================== Histórico de modos  =================== -->
+
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="mb16">
+                                    <span class="o_form_label">Histórico</span>
+                                    <div class="text-muted content-group">
+                                        Consulta todos los cambios entre <strong>VeriFactu</strong> y <strong>No VeriFactu</strong>
+                                (fecha, usuario y notas) en una vista completa.
+                                    </div>
+                                    <button name="action_open_verifactu_history" type="object" string="Ver completo" class="btn btn-light btn-sm" icon="fa-external-link"/>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>General</h2>
+
+                    <!-- Configuración general -->
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="mb16">
+                                    <span class="o_form_label">Endpoint del servicio</span>
+                                    <div class="text-muted content-group">
+                                        URL del servicio SOAP de la AEAT (producción o pruebas).
+                                    </div>
+                                    <field name="endpoint_url" placeholder="ttps://prewww1.aeat.es/wlpl/TIKE-CONT/ws/SistemaFacturacion/VerifactuSOAP"/>
+                                </div>
+
+                                <div class="mb16">
+                                    <span class="o_form_label">Mostrar QR siempre</span>
+                                    <div class="text-muted content-group">
+                                        Si está activado, el QR se mostrará aunque no se haya enviado la factura.
+                                    </div>
+                                    <field name="show_qr_always"/>
+                                </div>
+
+                                <div class="mb16">
+                                    <span class="o_form_label">Envío automático a Veri*Factu</span>
+                                    <div class="text-muted content-group">
+                                        Activa esta opción para enviar automáticamente las facturas emitidas.
+                                    </div>
+                                    <field name="auto_send_to_verifactu"/>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Información de endpoints -->
+                    <h2>Entornos AEAT</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb16" style="background-color: #f5f5f5; padding: 12px; border-radius: 6px;">
+                                    <p>
+                                        <strong>🔗 Modo VeriFactu</strong>
+                                    </p>
+                                    <p>
+                                        <strong>Producción:</strong> https://www1.agenciatributaria.gob.es/wlpl/TIKE-CONT/ws/SistemaFacturacion/VerifactuSOAP</p>
+                                    <p>
+                                        <strong>Pruebas:</strong> https://prewww1.aeat.es/wlpl/TIKE-CONT/ws/SistemaFacturacion/VerifactuSOAP</p>
+                                </div>
+
+                                <div class="text-muted content-group mb16" style="background-color: #f5f5f5; padding: 12px; border-radius: 6px;">
+                                    <p>
+                                        <strong>📄 Modo NO VeriFactu (Remisión bajo requerimiento)</strong>
+                                    </p>
+                                    <p>
+                                        <strong>Producción:</strong> https://www1.agenciatributaria.gob.es/wlpl/TIKE-CONT/ws/SistemaFacturacion/RequerimientoSOAP</p>
+                                    <p>
+                                        <strong>Pruebas:</strong> https://prewww1.aeat.es/wlpl/TIKE-CONT/ws/SistemaFacturacion/RequerimientoSOAP</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Automatizaciones -->
+                    <h2>Automatizaciones</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane"></div>
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted mt8">
+                                Esta aplicación incluye un sistema de automatizaciones. Sin embargo, están desactivadas por defecto porque no son compatibles con los requisitos de Veri*Factu. La normativa exige que las facturas emitidas se envíen al portal de VeriFactu en un plazo máximo de 4 minutos —preferentemente de forma inmediata—. Por ello, no resulta adecuado habilitar automatizaciones diferidas; la opción recomendada es realizar el envío en el mismo momento de la emisión.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificado digital -->
+                    <h2>Certificado Digital</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb8">
+                                    Añade tu certificado en formato PFX junto con su contraseña para permitir la firma electrónica de las facturas.
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="cert_password" password="True" placeholder="Contraseña del certificado"/>
+
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="cert_pfx" filename="cert_pfx_filename"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="cert_pfx_filename" readonly="1"/>
+                                </div>
+
+                                <!--                                 <div class="text-success mt8 mb8" attrs="{'invisible': [('cert_pfx', '=', False)]}">
+                                    ✅ Certificado cargado correctamente.
+                                </div>
+
+                                <div class="mt8 d-flex gap-2" attrs="{'invisible': [('cert_pfx', '=', False)]}">
+                                    <button name="action_test_certificate" type="object" string="Probar certificado" class="btn btn-primary"/>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Licencia y actualizaciones -->
+                    <h2>Licencia y actualizaciones</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb8">
+                                    Introduce tu <strong>clave de licencia</strong> para obtener un token firmado.
+                                    El token permite la validación <i>offline</i> y se puede renovar cuando quieras.
+                                </div>
+
+                                <div class="mb8">
+                                    <span class="o_form_label">Clave de licencia</span>
+                                    <field name="verifactu_license_key" placeholder="VF-XXXX-XXXX-XXXX" nolabel="1"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <span class="o_form_label">Estado</span>
+                                    <field name="verifactu_license_status" readonly="1" class="oe_inline" nolabel="1"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <label for="verifactu_license_token_display" class="o_form_label">Token (JWT)</label>
+                                    <field name="verifactu_license_token_display" readonly="1" nolabel="1"/>
+                                    <div class="text-muted">
+                                        Generado automáticamente al validar la licencia. No editable.
+                                    </div>
+                                </div>
+
+                                <div class="mb8">
+                                    <span class="o_form_label">Comprobación periódica de actualizaciones</span>
+                                    <field name="verifactu_updates_cron_enabled" nolabel="1"/>
+                                    <div class="text-muted">
+                                        Si está activo, se comprobará diariamente el feed y se notificará una vez por versión.
+                                    </div>
+                                </div>
+
+                                <div class="mb8">
+                                    <label for="verifactu_update_link" class="o_form_label">Link descarga actualizaciones</label>
+                                    <field name="verifactu_update_link" widget="url"/>
+                                    <div class="text-muted">
+                                        Link para poder descargar una versión actual del módulo de Veri*Factu
+                                    </div>
+                                </div>
+
+                                <div class="mt8 d-flex gap-2">
+                                    <button name="action_issue_license_token" type="object" string="Obtener/Actualizar token" class="btn btn-primary"/>
+                                    <button name="action_verify_license_now" type="object" string="Verificar ahora" class="btn btn-secondary"/>
+                                </div>
+
+                                <!-- Bloque informativo de licencia -->
+                                <div class="mt16 text-muted">
+                                    <p class="mb0">
+                                        La <strong>licencia está incluida</strong> con la compra del módulo; <strong>no hay costes adicionales</strong> ni suscripciones.
+                                        Para adquirirla, envía un correo a
+                                        <a href="mailto:rubikdevodoo@gmail.com">rubikdevodoo@gmail.com</a>.
+                                        La licencia es <strong>vitalicia</strong> y válida para un <strong>único entorno de producción</strong>.
+                                        Si deseas probar el módulo en un entorno de preproducción, indícalo en tu solicitud:
+                                        se emitirá una licencia adicional de preproducción con una validez de <strong>14 días</strong>.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Declaración Responsable</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"></div>
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted content-group">
+                            Este documento viene precargado con la versión por defecto del módulo.
+                            Puedes descargarlo o subir una versión personalizada.
+                                </div>
+
+                                <!-- Campo para sustituir el PDF (opcional) -->
+                                <field name="verifactu_declaracion_file" widget="binary" filename="verifactu_declaracion_filename" class="oe_inline"/>
+
+                                <!-- Botón de descarga directo -->
+                                <button name="action_download_declaracion" type="object" string="Descargar Declaración" class="btn btn-secondary mt8"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Detector de anomalías -->
+                    <h2>Detector de anomalías</h2>
+
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb8">
+                            Revisión periódica de facturas para detectar incidencias típicas (pendientes estancadas,
+                            desorden cronológico, etc.). Si se encuentra algo, podrás verlo en la vista completa.
+                                </div>
+
+                                <div class="mb16">
+                                    <span class="o_form_label">Activar detector global</span>
+                                    <div class="text-muted content-group">
+                                Ejecuta un escaneo por compañía mediante un planificador.
+                                    </div>
+                                    <field name="vf_anomaly_cron_enabled" class="oe_inline"/>
+                                </div>
+
+                                <div class="mb16" attrs="{'invisible':[('vf_anomaly_cron_enabled','=',False)]}">
+                                    <span class="o_form_label">Días para marcar “pendiente”</span>
+                                    <div class="text-muted content-group">
+                                Si una factura está <i>posted + pending</i> más de este número de días, se registrará una anomalía.
+                                    </div>
+                                    <field name="vf_anomaly_stale_days" class="oe_inline" placeholder="7"/>
+                                </div>
+
+                                <div class="mt8 d-flex gap-2" attrs="{'invisible':[('vf_anomaly_cron_enabled','=',False)]}">
+                                    <button name="action_run_anomaly_scan" type="object" string="Escanear ahora" class="btn btn-secondary"/>
+                                    <button name="action_open_anomalies" type="object" string="Ver completo" class="btn btn-light" icon="fa-external-link"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- Ayuda -->
+                    <h2>¿Dudas sobre el módulo?</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted content-group">
+                                    Consulta una guía rápida con ejemplos y consejos para configurar correctamente el módulo.
+                                </div>
+                                <button name="%(l10n_es_verifactu_POS.verifactu_help_wizard_action)d" type="action" string="⚙️ Mostrar Ayuda del Módulo" class="btn btn-warning mt8" context="{}"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Sistema Informático Declarado -->
+                    <h2>Sistema Informático Declarado</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+
+                                <div class="text-muted content-group mb8">
+                                    Indica los datos del software que has declarado a la Agencia Tributaria como Sistema Informático de Facturación.
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_name" placeholder="Nombre del sistema"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_id" placeholder="Identificador del sistema"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_version" placeholder="Versión del sistema"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_installation_number" placeholder="Número de instalación"/>
+                                </div>
+
+                                <div class="mt16 mb8">
+                                    <field name="verifactu_system_use_only_verifactu"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_multi_ot"/>
+                                </div>
+
+                                <div class="mb8">
+                                    <field name="verifactu_system_multiple_ot_indicator"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>CopyRight</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted mt16" style="font-size: 12px;">
+                                    Módulo desarrollado por <strong>Juan Ormaechea</strong> — Mr. Rubik · <i>Versión licenciada. Redistribución prohibida.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

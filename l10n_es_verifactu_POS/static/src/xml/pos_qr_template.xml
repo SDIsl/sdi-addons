@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="verifactu_pos_qr_templates" xml:space="preserve">
+  <t t-extend="PosTicket">
+    <t t-jquery="table.receipt-change" t-operation="after">
+      <!-- Muestra el QR solo si viene el dataURL y el flag -->
+      <t t-if="receipt.qrcode and receipt.show_qr_always">
+        <div class="verifactu-qr" style="margin:8px 0; text-align:center;">
+          <div style="font-weight:bold; margin-bottom:4px;">QR tributario</div>
+
+          <img t-att-src="receipt.qrcode"
+               style="display:inline-block;width:120px;height:120px;border:1px solid #ccc;padding:3px;background:#fff;" />
+
+          <t t-set="st" t-value="receipt.verifactu_status or ''"/>
+          <t t-if="st != 'error' and st != 'rejected' and st != 'pending'">
+            <div style="font-weight:bold; margin-top:4px;">VERI*FACTU</div>
+          </t>
+        </div>
+      </t>
+    </t>
+  </t>
+</templates>
