@@ -1,0 +1,22 @@
+<odoo>
+  <!-- Para el informe “con pagos” (Odoo 11 CE) -->
+  <template id="verifactu_invoice_qr_top_left"
+            inherit_id="account.report_invoice_document_with_payments">
+
+    <!-- Insertamos dentro de la página -->
+    <xpath expr="//div[@class='page']" position="inside">
+      <t t-if="(o.type in ['out_invoice','out_refund']) and o.verifactu_qr">
+        <!-- CONTENEDOR RELATIVO local a esta página -->
+        <div style="position:relative;">
+          <!-- Bloque QR anclado arriba-izquierda -->
+          <div style="position:absolute; top:12mm; left:12mm; text-align:center;">
+            <div style="font-weight:bold; margin-bottom:2mm;">QR tributario</div>
+            <!-- Servimos el binario vía /web/image -->
+            <img t-att-src="'/web/image/%s/%s/%s' % ('account.invoice', o.id, 'verifactu_qr')"
+                 style="width:35mm; height:35mm; border:1px solid #ccc; padding:2mm; background:#fff;"/>
+          </div>
+        </div>
+      </t>
+    </xpath>
+  </template>
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_pos_order_form_inherit_verifactu" model="ir.ui.view">
+        <field name="name">pos.order.form.verifactu</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="VeriFactu">
+                    <field name="qrcode_binary" widget="image"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
